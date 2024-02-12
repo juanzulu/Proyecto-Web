@@ -1,24 +1,25 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .header{
     display: flex;
     justify-content: space-between;
     height: 100px;
-    background-color: #3d6c6f;
     padding: 10px; 
 }
 
-.logo{
-    margin-left: 5%;
+.inicio{
+    background-color: #3d6c6f;
 }
+
 
 .nav{
     display: flex;
     gap: 20px;
     align-items: center;
-    margin-right: 5%;
 }
 
 .nav a{
