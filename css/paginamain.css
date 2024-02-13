@@ -88,11 +88,19 @@ body{
     margin: 0; /* Elimina cualquier margen que pueda afectar el ancho efectivo */
 }
 
+#tituloh1tabla{
+    color: #fff;
+}
+
+#tituloh2tabla{
+    color: #fff;
+}
+
 /* Estilos para el botón */
 .informaciontable td a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #34ac9b;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -100,7 +108,11 @@ body{
 }
 
 .informaciontable td a:hover {
-    background-color: #45a049;
+    background-color: #5cac7c;
+}
+
+.tituloh1{
+    text-align: center;
 }
 
 
