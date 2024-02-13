@@ -26,9 +26,10 @@ body{
   display: none;
   list-style: none;
   padding: 14px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
   padding-top: 50px;
+  padding-bottom: 8px;
   background-color: rgba(55,171,152,270);
   position: absolute;
   z-index: 999;
@@ -182,12 +183,35 @@ en la opción */
     margin: 0; /* Elimina cualquier margen que pueda afectar el ancho efectivo */
 }
 
-#tituloh1tabla{
-    color: #fff;
+#tituloh1tabla {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  color: #fff;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 #tituloh2tabla{
-    color: #fff;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Estilos para el botón */
@@ -225,8 +249,8 @@ en la opción */
 }
 
 .iconos{
-    width: 22px;
-    padding: 2px;
+    width: 30px;
+    padding: 6px;
 }
   
  /*Se hace para ajustar el contenedor a un 80% respecto a su padre footer.
@@ -238,7 +262,6 @@ en la opción */
   
 .footer-contenedor {
     text-align: center;
-    padding: 2%;
 }
 
   
@@ -266,6 +289,6 @@ en la opción */
 }
 
 .logo2{
-    width: 140px;
-    height: 100px;
+    width: 150px;
+    height: 90px;
 }
