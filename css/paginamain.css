@@ -7,6 +7,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh;
+    background-color: rgba(227,202,152,255);
 }
 
 .header{
@@ -25,7 +26,6 @@ body{
 .lista {
   display: none;
   list-style: none;
-  padding: 14px;
   padding-right: 30px;
   padding-left: 30px;
   padding-top: 50px;
@@ -229,15 +229,52 @@ en la opción */
     background-color: #5cac7c;
 }
 
-.tituloh1{
+.tituloh2{
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 35px;
     text-align: center;
 }
 
 .parrafo{
     text-align: center;
     margin: 10px;
-    padding: 30px;
 }
+/* ------------------------------------------------------------------------------------------*/
+
+.malla{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+
+}
+
+.imagen_caja{
+    height: 250px;
+    width: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#malla1
+{
+    padding: 10px;
+}
+
+.caja:hover {
+    cursor: pointer;
+    transform: scale(1.05); /* Aumenta el tamaño al 110% */
+}
+
+
+
+
+
 /* ------------------------------------------------------------------------------------------*/
 
 /* aca comienza el footer*/
