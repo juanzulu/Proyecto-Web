@@ -16,7 +16,6 @@ body{
     background-color: rgba(55,171,152,255);
 }
 
-
 .nav{
     display: flex;
     gap: 20px;
@@ -44,8 +43,13 @@ body{
 .footer {
     background-color: rgba(55,171,152,255);
     color: #fff;
-    padding: 20px 0;
+    padding: 12px 0;
     margin-top: 30px;
+}
+
+.iconos{
+    width: 22px;
+    padding: 2px;
 }
   
  /*Se hace para ajustar el contenedor a un 80% respecto a su padre footer.
@@ -75,13 +79,16 @@ body{
 .comunicacion{
     display: flex;
     justify-content: center;
-    gap: 20%;
-    color: #6f7270;
+    align-items: center;
+    gap: 24%;
+    color: #171616;
 }
 
 .comunicacion a{
-    font-size: 12px;
-    padding-top: 12px;
-    color: blue;
     text-decoration: none;
+}
+
+.logo2{
+    width: 140px;
+    height: 100px;
 }
