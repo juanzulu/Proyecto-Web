@@ -62,7 +62,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.35); /* Color de fondo oscuro con opacidad */
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo oscuro con opacidad */
 }
 
 
@@ -108,7 +108,7 @@ body{
 
 .fondo_principal .informaciontable td a {
     display: inline-block; 
-    padding: 10px 20px; 
+    padding: 5px 30px; 
     background-color: rgba(55,171,152,255); 
     color: white; 
     text-decoration: none; 
@@ -118,4 +118,19 @@ body{
 
 .fondo_principal .informaciontable td a:hover {
     background-color: rgba(56,172,153,255);
+}
+
+.tituloh1{
+    text-align: center;
+    color: rgba(55,171,152,255);
+}
+
+.contenedorinfonuestrosservicios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: 35px;
+    text-align: center;
+    font-size: 18px;
 }
