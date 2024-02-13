@@ -37,3 +37,67 @@ body{
     width: 95%;
     margin: 0 auto;
 }
+
+.fila_de_informacion{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.fondo_principal {
+    position: relative; /* Establece la posición relativa para que los elementos posicionados dentro de él se ajusten correctamente */
+    background-image: url(https://amomeugato.blog.br/wp-content/uploads/2022/09/gato-veterinario.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 430px;
+    background-attachment: fixed;
+    
+}
+.fondo_principal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25); /* Color de fondo oscuro con opacidad */
+}
+
+
+.fondo_principal .contenedor_de_la_imagen{
+    height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.fondo_principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.fila_de_informacion{
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.informaciontable td {
+    width: 50%; 
+    text-align: center; 
+}
+
+#tituloh1tabla{
+    text-align: center;
+    color: aliceblue;
+}
