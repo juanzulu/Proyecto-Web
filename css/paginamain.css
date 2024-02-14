@@ -273,8 +273,6 @@ en la opción */
 
 
 
-
-
 /* ------------------------------------------------------------------------------------------*/
 
 /* aca comienza el footer*/
@@ -283,6 +281,36 @@ en la opción */
     color: #fff;
     padding: 12px 0;
     margin-top: 30px;
+}
+
+.fab.fa-instagram {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fab.fa-instagram:hover {
+    color: orange;
+}
+
+.fa-brands.fa-x-twitter {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-x-twitter:hover {
+    color: orange;
+}
+
+.fa-brands.fa-facebook-f {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-facebook-f:hover {
+    color: orange;
 }
 
 .iconos{
