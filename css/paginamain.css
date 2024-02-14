@@ -271,6 +271,18 @@ en la opción */
     transform: scale(1.05); /* Aumenta el tamaño al 110% */
 }
 
+.caja {
+  perspective: 1000px; /* Ajusta la perspectiva del efecto de perspectiva 3D */
+}
+
+.caja img{
+  transition: transform 0.3s; /* Agrega una transición suave al cambio de transformación */
+}
+
+.volteada {
+  transform: rotateY(180deg); /* Voltea la imagen en el eje Y cuando se aplica esta clase */
+  background-color: #fff;
+}
 
 
 /* ------------------------------------------------------------------------------------------*/
