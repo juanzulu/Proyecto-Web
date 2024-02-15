@@ -139,6 +139,7 @@ en la opción */
     position: relative;
     height: 70vh; /* Altura del carrusel ajustada al 70% de la altura de la ventana */
     width: 100%; /* Ancho completo */
+    margin-bottom:-100px ;
     border-top: 3px solid rgba(227, 202, 152, 255);
     overflow: hidden;
 }
@@ -149,9 +150,10 @@ en la opción */
     height: 80%;
     overflow: hidden;
     position: relative;
-    animation: slider 29s linear infinite; /* Duración ajustada al número de imágenes */
+    animation: slider 90s linear infinite; /* Duración ajustada al número de imágenes */
     margin: auto; /* Centra horizontalmente el contenedor de imágenes */
-}
+} 
+
 
 .contenedor_de_la_imagen::before {
     content: "";
@@ -308,7 +310,11 @@ en la opción */
 }
 
 .caja img{
-  transition: transform 0.3s; /* Agrega una transición suave al cambio de transformación */
+  transition: transform 0.1; /* Agrega una transición suave al cambio de transformación */
+}
+
+.caja:active img{
+  transform: rotateY(90deg); /* Rota la imagen 180 grados en el eje Y */
 }
     
 
@@ -349,6 +355,16 @@ en la opción */
 }
 
 .fa-brands.fa-facebook-f:hover {
+    color: orange;
+}
+
+.fa-brands.fa-github {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-github:hover {
     color: orange;
 }
 
