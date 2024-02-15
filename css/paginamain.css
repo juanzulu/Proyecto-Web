@@ -7,7 +7,8 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-color: rgba(227,202,152,255);
+    background: url(/img/fondo.png);
+    background-repeat: round;
 }
 
 .header{
@@ -279,9 +280,12 @@ en la opción */
   transition: transform 0.3s; /* Agrega una transición suave al cambio de transformación */
 }
 
-.volteada {
+.caja:hover img{
   transform: rotateY(180deg); /* Voltea la imagen en el eje Y cuando se aplica esta clase */
-  background-color: #fff;
+}
+
+.imagen_caja:active {
+    content: url("/img/gatoprincipal.jpg");
 }
 
 
