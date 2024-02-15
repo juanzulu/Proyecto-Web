@@ -319,6 +319,36 @@ en la opción */
 
 
 
+
+.contenedor_cuidad {
+    background-color: #fff;
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between; /* Coloca los elementos internos uno al lado del otro y distribuye el espacio entre ellos */
+    border-radius: 5px;
+}
+
+.datos_de_la_cuidades {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto */
+}
+
+.sedescuidad,
+.datos_de_la_cuidades {
+    flex: 1; /* Ambos contenedores internos ocuparán el mismo espacio */
+    padding: 20px; /* Añade relleno para separar los contenidos del borde */
+}
+
+.sedescuidad img {
+    max-width: 400px; /* Establece un ancho máximo */
+    height: auto; /* Ajusta automáticamente la altura para mantener la proporción de la imagen */
+}
+
+
+
+
 /* Estilos para el botón */
 .botondecita  a {
     display: inline-block;
