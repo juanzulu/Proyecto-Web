@@ -177,10 +177,6 @@ en la opción */
     background-color: rgba(0, 0, 0, 0.5); /* Color negro semitransparente */
 }
 
-@keyframes slider {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-100% + 10px)); } /* Ajusta el desplazamiento */
-}
 
 .contenedor_de_la_imagen img {
     width: 100%; /* Ancho completo */
@@ -194,13 +190,6 @@ en la opción */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-}
-
-.contenedor_de_la_imagen .fila_de_informacion {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 
@@ -327,8 +316,15 @@ en la opción */
 .footer {
     background-color: rgba(55,171,152,255);
     color: #fff;
-    padding: 12px 0;
+    padding: 12px;
+    padding-bottom: 0px;
     margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
 }
 
 .fab.fa-instagram {
@@ -383,17 +379,6 @@ en la opción */
     margin: 0 auto;
 }
   
-.footer-contenedor {
-    text-align: center;
-}
-
-  
-.footer-contenedor p {
-    font-size: 12px;
-    margin-bottom: 20px;
-}
-  
-
   /* Estilos para el contenido principal */
 .main-content {
     padding-bottom: 100px; /* Agrega un relleno en la parte inferior del contenido principal para dejar espacio para el footer */
@@ -403,8 +388,12 @@ en la opción */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24%;
     color: #171616;
+    flex-wrap: wrap;
+}
+
+.comunicacion a{
+    width: 100%;
 }
 
 .comunicacion a{
@@ -416,13 +405,13 @@ en la opción */
     height: 90px;
 }
 
-
-
-
-
-
-
-
-
-
-
+.copyright{
+    margin-bottom: -5px;
+    height: 20px;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+}
