@@ -267,6 +267,96 @@ en la opción */
     text-align: center;
     margin: 10px;
 }
+
+.contenerdor_elemento {
+    /* Estilos para el contenedor principal */
+    display: flex; /* Utilizamos flexbox para colocar los elementos uno al lado del otro */
+    justify-content: center; /* Centramos los elementos horizontalmente */
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.contendorelpacientefelino,
+.contenedordatosgatunos {
+    /* Estilos para los contenedores internos */
+    flex: 1; /* Ambos contenedores ocuparán el mismo espacio */
+    margin: 0 10px; /* Margen entre los contenedores, ajusta según necesites */
+    max-width: 600px; /* Opcional: limita el ancho máximo para evitar que se expandan demasiado */
+}
+.fotosdelospacientes img {
+    border-radius: 50%; /* Hace que las imágenes tengan bordes redondos */
+    width: 200px; /* Ajusta el ancho de las imágenes según lo necesites */
+    height: auto; /* Mantiene la proporción de la imagen */
+    
+    border: 2px solid #34ac9b;
+}
+
+.contendorpacientes{
+    padding: 25px;
+}
+.fa-ul {
+    list-style-type: none; /* Elimina los puntos predeterminados de la lista */
+}
+
+.fa-li {
+    position: relative;
+    left: -2em;
+    width: 2em;
+    text-align: center;
+    margin-right: 0.5em;
+}
+
+
+
+
+.contenedor_cuidad {
+    background-color: #fff;
+    display: flex; /* Utiliza flexbox */
+    justify-content: space-between; /* Coloca los elementos internos uno al lado del otro y distribuye el espacio entre ellos */
+    border-radius: 5px;
+}
+
+.datos_de_la_cuidades {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto */
+}
+
+.sedescuidad,
+.datos_de_la_cuidades {
+    flex: 1; /* Ambos contenedores internos ocuparán el mismo espacio */
+    padding: 20px; /* Añade relleno para separar los contenidos del borde */
+}
+
+.sedescuidad img {
+    max-width: 400px; /* Establece un ancho máximo */
+    height: auto; /* Ajusta automáticamente la altura para mantener la proporción de la imagen */
+}
+
+
+
+
+/* Estilos para el botón */
+.botondecita  a {
+    display: inline-block;
+    padding: 2.5px 2.5px;
+    background-color: #34ac9b;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+}
+
+.botondecita  a:hover {
+    background-color: #5cac7c;
+}
+.linea{
+        border: none; /* Eliminamos cualquier borde por defecto */
+        height: 2px; /* Altura de la línea */
+        background-color: #34ac9b; /* Color de la línea (puedes ajustarlo según tu diseño) */
+}
 /* ------------------------------------------------------------------------------------------*/
 
 .malla{
