@@ -137,36 +137,67 @@ en la opción */
 /* Estilos para el fondo principal */
 .fondo_principal {
     position: relative;
-    background-image: url(https://amomeugato.blog.br/wp-content/uploads/2022/09/gato-veterinario.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 430px;
-    background-attachment: fixed;
-    border-top: 3px solid rgba(227,202,152,255);
+    height: 70vh; /* Altura del carrusel ajustada al 70% de la altura de la ventana */
+    width: 100%; /* Ancho completo */
+    border-top: 3px solid rgba(227, 202, 152, 255);
+    overflow: hidden;
 }
 
-.fondo_principal::before {
+.contenedor_de_la_imagen {
+    display: flex;
+    width: max-content; /* Anchura suficiente para contener todas las imágenes */
+    height: 80%;
+    overflow: hidden;
+    position: relative;
+    animation: slider 29s linear infinite; /* Duración ajustada al número de imágenes */
+    margin: auto; /* Centra horizontalmente el contenedor de imágenes */
+}
+
+.contenedor_de_la_imagen::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo oscuro con opacidad */
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro semitransparente */
 }
 
-/* Estilos para el contenido dentro del fondo principal */
-.contenedor_de_la_imagen {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+@keyframes slider {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% + 10px)); } /* Ajusta el desplazamiento */
+}
+
+.contenedor_de_la_imagen img {
+    width: 100%; /* Ancho completo */
+    height: auto;
+    object-fit: cover;
 }
 
 .fila_de_informacion {
-    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
+
+.contenedor_de_la_imagen .fila_de_informacion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+
+
+
+
 
 /* Estilos para la tabla de información */
 .informaciontable {
