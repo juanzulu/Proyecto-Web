@@ -134,14 +134,26 @@ en la opción */
 /* ------------------------------------------------------------------------------------------*/
 
 
-/* Estilos para el fondo principal */
+.fondo_principal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo oscuro con opacidad */
+}
+
 .fondo_principal {
     position: relative;
-    height: 70vh; /* Altura del carrusel ajustada al 70% de la altura de la ventana */
-    width: 100%; /* Ancho completo */
-    margin-bottom:-100px ;
-    border-top: 3px solid rgba(227, 202, 152, 255);
-    overflow: hidden;
+    background-image: url(https://amomeugato.blog.br/wp-content/uploads/2022/09/gato-veterinario.jpg);
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 430px;
+    background-attachment: fixed;
+    border-top: 3px solid rgba(227,202,152,255);
+    border-bottom: 3px solid black;
 }
 
 .contenedor_de_la_imagen {
@@ -190,15 +202,6 @@ en la opción */
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-
-
-
-
-
-
-
-
 
 
 /* Estilos para la tabla de información */
@@ -314,7 +317,7 @@ en la opción */
 }
 
 .caja:active img{
-  transform: rotateY(90deg); /* Rota la imagen 180 grados en el eje Y */
+  transform: rotateY(100deg); /* Rota la imagen 180 grados en el eje Y */
 }
     
 
@@ -412,3 +415,14 @@ en la opción */
     width: 150px;
     height: 90px;
 }
+
+
+
+
+
+
+
+
+
+
+
