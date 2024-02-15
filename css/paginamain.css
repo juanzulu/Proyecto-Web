@@ -279,15 +279,7 @@ en la opción */
 .caja img{
   transition: transform 0.3s; /* Agrega una transición suave al cambio de transformación */
 }
-
-.caja:hover img{
-  transform: rotateY(180deg); /* Voltea la imagen en el eje Y cuando se aplica esta clase */
-}
-
-.imagen_caja:active {
-    content: url("/img/gatoprincipal.jpg");
-}
-
+    
 
 /* ------------------------------------------------------------------------------------------*/
 
