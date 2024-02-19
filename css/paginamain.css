@@ -11,6 +11,10 @@ body{
     background-repeat: round;
 }
 
+img{
+    width: 100%;
+}
+
 .header{
     font-family: "Protest Riot", sans-serif;
     font-weight: 100;
@@ -203,27 +207,6 @@ en la opción */
     z-index: 1;
 }
 
-#prevButton, #nextButton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-}
-
-#prevButton {
-    left: 10px;
-}
-
-#nextButton {
-    right: 10px;
-}
-
-
 
 /* Estilos para la tabla de información */
 .informaciontable {
@@ -300,7 +283,11 @@ en la opción */
     margin: 10px;
 }
 
+
+
+
 .contenerdor_elemento {
+    border:  #34ac9b 2px solid;
     /* Estilos para el contenedor principal */
     display: flex; /* Utilizamos flexbox para colocar los elementos uno al lado del otro */
     justify-content: center; /* Centramos los elementos horizontalmente */
@@ -308,12 +295,18 @@ en la opción */
     border-radius: 5px;
 }
 
-.contendorelpacientefelino,
 .contenedordatosgatunos {
     /* Estilos para los contenedores internos */
     flex: 1; /* Ambos contenedores ocuparán el mismo espacio */
-    margin: 0 10px; /* Margen entre los contenedores, ajusta según necesites */
+    margin: 0 5px; /* Margen entre los contenedores, ajusta según necesites */
     max-width: 600px; /* Opcional: limita el ancho máximo para evitar que se expandan demasiado */
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedordatosgatunos li{
+    display: flex;
+    justify-content: center
 }
 .fotosdelospacientes img {
     border-radius: 50%; /* Hace que las imágenes tengan bordes redondos */
@@ -323,8 +316,15 @@ en la opción */
     border: 2px solid #34ac9b;
 }
 
+
 .contendorpacientes{
     padding: 25px;
+}
+
+.contendorpacientes h2{
+    display: flex;
+    justify-content: center;
+
 }
 .fa-ul {
     list-style-type: none; /* Elimina los puntos predeterminados de la lista */
@@ -339,13 +339,14 @@ en la opción */
 }
 
 
-
-
 .contenedor_cuidad {
+    padding: 10px;
     background-color: #fff;
     display: flex; /* Utiliza flexbox */
     justify-content: space-between; /* Coloca los elementos internos uno al lado del otro y distribuye el espacio entre ellos */
-    border-radius: 5px;
+    border-radius: 10px;
+    align-items: center;
+    border: 2px solid #34ac9b;
 }
 
 .datos_de_la_cuidades {
@@ -367,7 +368,11 @@ en la opción */
     height: auto; /* Ajusta automáticamente la altura para mantener la proporción de la imagen */
 }
 
-
+.botondecita{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
 
 
 /* Estilos para el botón */
@@ -380,6 +385,8 @@ en la opción */
     border-radius: 30px;
     transition: background-color 0.3s;
 }
+    
+
 
 .botondecita  a:hover {
     background-color: #5cac7c;
@@ -391,66 +398,58 @@ en la opción */
 }
 /* ------------------------------------------------------------------------------------------*/
 
-.malla{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
 
+/*--------------------Nada funciono plab b mesh----------------------*/
+
+
+.meshgrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.meshcomplete{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.meshcomplete div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.meshfront{
+    transform: perspective(500px) rotateY(0deg);
+}
+
+.meshback{
+    padding: 5px;
+    border-radius: 10px;
+    border: #000000 2px solid;
+    background-color: #5cac7c;
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.meshcomplete:hover .meshfront{
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.meshcomplete:hover .meshback{
+    transform: perspective(500px) rotateY(360deg);
 }
 
 .imagen_caja{
-    height: 250px;
-    width: auto;
     border: 2px solid black;
     border-radius: 10px;
-    transition: transform 0.3s ease;
 }
 
-#malla1
-{
-    padding: 10px;
-}
-
-.caja:hover {
-    cursor: pointer;
-    transform: scale(1.05); /* Aumenta el tamaño al 110% */
-}
-
-.caja {
-    position: relative;
-    perspective: 1000px; /* Ajusta la perspectiva del efecto de perspectiva 3D */
-}
-
-.caja img{
-  transition: transform 0.1; /* Agrega una transición suave al cambio de transformación */
-}
-
-.caja:active img{
-  transform: rotateY(100deg);
-}
-
-.caja {
-    position: relative;
-    perspective: 1000px; /* Ajusta la perspectiva del efecto de perspectiva 3D */
-}
-
-/*------------Aca comienza todo lo que tiene que ver con la decoracion de la vuelta de las cajas-------------------*/
-
-.caja-absolute{
-  display: none;
-  position: absolute;
-  inset: 0;
-  background-color:  #5cac7c;
-  color: #000000;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 14px;
-  /*font-weight: bold;*/
-  text-align: center;
-}
 
 
 /*------------Aca acaba todo lo que tiene que ver con la decoracion de la vuelta de las cajas-------------------*/
@@ -498,6 +497,7 @@ en la opción */
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    width: 100%;
 
 }
 
@@ -554,18 +554,7 @@ en la opción */
     padding: 6px;
 }
   
- /*Se hace para ajustar el contenedor a un 80% respecto a su padre footer.
-  El margin se utiliza para que el margen superior e inferior sean de 0 y el auto se utiliza para
-  centrar el contendeor horizontalmente */
-.contiene {
-    margin: 0 auto;
-}
-  
-  /* Estilos para el contenido principal */
-.main-content {
-    padding-bottom: 100px; /* Agrega un relleno en la parte inferior del contenido principal para dejar espacio para el footer */
-}
-  
+
 .comunicacion{
     display: flex;
     justify-content: center;
@@ -588,12 +577,14 @@ en la opción */
 }
 
 .copyright{
-    margin-bottom: -5px;
+    display: flex;
+    margin-bottom: 0px;
     height: 20px;
     color: white;
-    text-align: center;
     font-size: 10px;
     background-color: black;
     padding: 10px;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
