@@ -1,66 +1,59 @@
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("contenedor_de_la_imagen")[0].getElementsByTagName("img");
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slides[slideIndex-1].style.display = "block";  
-}
-
-
-
-
 
 function cambiarImagen(elemento, idCaja) {
     var caja = document.getElementById(idCaja);
     var imagen = caja.querySelector('.imagen_caja');
     imagen.classList.toggle('cambiada');
 
+    var caja1 = document.getElementById('vuelta1');
+    var caja2 = document.getElementById('vuelta2');
+    var caja3 = document.getElementById('vuelta3');
+    var caja4 = document.getElementById('vuelta4');
+    var caja5 = document.getElementById('vuelta5');
+    var caja6 = document.getElementById('vuelta6');
+
     // Aplicar estilos específicos basados en el ID de la caja
     if (idCaja === 'caja1') {
-        imagen.src = '/img/gatoprincipal.png';
+        caja1.style.display = 'block';
     }else if (idCaja === 'caja2') {
-        imagen.src = '/img/viaje.png';
+        caja2.style.display = 'block';
     }else if (idCaja === 'caja3') {
-        imagen.src = '/img/farmacia.png';
+        caja3.style.display = 'block';
     }else if (idCaja === 'caja4') {
-        imagen.src = '/img/comida.png';
+        caja4.style.display = 'block';
     }else if (idCaja === 'caja5') {
-        imagen.src = '/img/perro.png';
+        caja5.style.display = 'block';
     }else if (idCaja === 'caja6') {
-        imagen.src = '/img/clinica.png';
+        caja6.style.display = 'block';
     }
-    // Agrega más condiciones para otros IDs si es necesario
-    caja.style.backgroundImage = urlImagen;
 }
 
 
 function revertirImagen(idCaja) {
     var caja = document.getElementById(idCaja);
     var imagenes = caja.querySelectorAll('.imagen_caja');
+
+    var caja1 = document.getElementById('vuelta1');
+    var caja2 = document.getElementById('vuelta2');
+    var caja3 = document.getElementById('vuelta3');
+    var caja4 = document.getElementById('vuelta4');
+    var caja5 = document.getElementById('vuelta5');
+    var caja6 = document.getElementById('vuelta6');
+
+
     imagenes.forEach(function(imagen) {
         // Restaurar la imagen original basada en el ID de la caja
         if (idCaja === 'caja1') {
-            imagen.src = '/img/caja1.png';
+            caja1.style.display = 'none';
         } else if (idCaja === 'caja2') {
-            imagen.src = '/img/caja2.png';
+            caja2.style.display = 'none';
         } else if (idCaja === 'caja3') {
-            imagen.src = '/img/caja3.png';
+            caja3.style.display = 'none';
         } else if (idCaja === 'caja4') {
-            imagen.src = '/img/caja4.png';
+            caja4.style.display = 'none';
         } else if (idCaja === 'caja5') {
-            imagen.src = '/img/caja5.png';
+            caja5.style.display = 'none';
         } else if (idCaja === 'caja6') {
-            imagen.src = '/img/caja6.png';
+            caja6.style.display = 'none';
         }
         // Agrega más condiciones para otros IDs si es necesario
         caja.style.backgroundImage = urlImagen;

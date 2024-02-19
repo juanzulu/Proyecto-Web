@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/paginamain.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-q7uH1+ekDO2tNvI5/OwFxwzLfPnPu4SKPC4rx7Bgld3NarKypFdLgMIL0tzXCivX1TCKpO9hZ6WBBmF06HtD8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-q7uH1+ekDO2tNvI5/OwFxwzLfPnPu4SKPC4rx7Bgld3NarKypFdLgMIL0tzXCivX1TCKpO9hZ6WBBmF06HtD8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Kitty Clinic</title>
 </head>
+
 <body>
-    <div class = "inicio">
+    <div class="inicio">
         <header class="header contenedor">
-            <img src = "../img/logo.png" alt = "logo" class = "logo">
+            <img src="../img/logo.png" alt="logo" class="logo">
             <div class="nav">
                 <div class="opciones">
                     <a href="">Inicio</a>
@@ -39,64 +45,198 @@
                     <i class="fa-solid fa-phone-volume"></i>
                 </div>
 
-            
+
         </header>
     </div>
-   
 
-    <div class="fondo_principal"> 
-        <div class="contenedor_de_la_imagen">
-            <img src="../img/barranquilla.jpg" alt="Barranquilla">
-            <img src="../img/barranquilla.jpg" alt="Barranquilla">
-            <img src="../img/bogota.jpg" alt="Barranquilla">
+
+    <div class="fondo_principal">
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img id="imagen-1" src="../img/imgslider1.jpeg" alt="Gatito oliendo">
+                <img id="imagen-2" src="../img/imgslider2.jpeg" alt="Gatito jugando">
+                <img id="imagen-3" src="../img/imgslider3.jpeg" alt="Gatito saltando">
+                <img id="imagen-4" src="../img/imgslider4.jpeg" alt="Dos gatitos jugando">
+            </div>
+
+            <div class="fila_de_informacion">
+                <table class="informaciontable">
+                    <tr>
+                        <td>
+                            <h1 id="tituloh1tabla">Clínica Veterinaria de gatos</h1>
+                            <h2 id="tituloh2tabla">La mejor clinica de gatos, con la mejor atencion 24/7</h2>
+                        </td>
+                        <td><a href="#" role="button">
+                                <h3>¡Pide tu cita ahora!</h3>
+                            </a></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="slider-nav">
+                <a href="#imagen-1"></a>
+                <a href="#imagen-2"></a>
+                <a href="#imagen-3"></a>
+                <a href="#imagen-4"></a>
+            </div>
+
         </div>
-    
-        <div class="fila_de_informacion"> 
-            <table class="informaciontable">
-                <tr>
-                    <td><h1 id="tituloh1tabla">Clínica Veterinaria de gatos</h1> <h2 id="tituloh2tabla">La mejor clinica de gatos, con la mejor atencion 24/7</h2></td>
-                    <td><a href="#" role="button"> <h3>¡Pide tu cita ahora!</h3></a></td>
-                </tr>
-            </table>
-        </div>
-        
-        <button id="prevButton" onclick="plusSlides(-1)">❮</button>
-        <button id="nextButton" onclick="plusSlides(1)">❯</button>
+
+
     </div>
-    
-    
+
+
     <h2 class="tituloh2">¡La salud de tu mascota nos importa!</h2>
+
 
     <div class="malla" id="malla1">
         <div class="caja" id="caja1" onclick="cambiarImagen(this, 'caja1')" onmouseleave="revertirImagen('caja1')">
             <img src="../img/caja1.png" alt="caja1" class="imagen_caja">
+
+            <div class="caja-absolute" id="vuelta1">
+                <p>
+                    En KittyClinic, entendemos el profundo lazo que compartes con tu compañero
+                    peludo. Estamos aquí para ofrecer atención de la más alta calidad, asegurando que tu amigo de cuatro
+                    patas disfrute de una vida larga, saludable y feliz.
+                </p>
+
+                <h5><strong>Servicios Ofrecidos:</strong></h5>
+
+                <ul>
+                    <li>Consultas generales</li>
+                    <li>Vacunacion</li>
+                    <li>Cirugia y emergencias</li>
+                    <li>Nutricion y bienestar</li>
+                </ul>
+
+            </div>
         </div>
         <div class="caja" id="caja2" onclick="cambiarImagen(this, 'caja2')" onmouseleave="revertirImagen('caja2')">
             <img src="../img/caja2.png" alt="caja2" class="imagen_caja">
+
+            <div class="caja-absolute" id="vuelta2">
+
+                <h4><strong>Preparando a tu mascota para un viaje seguro</strong></h4>
+                <p>
+                    Viajar con tu mascota a Europa requiere planificación y cuidado para asegurar un viaje seguro y
+                    cómodo para tu fiel amigo. En KittyClinic, estamos aquí para ayudarte en cada
+                    paso del camino.
+                </p>
+
+                <h5>Requisitos Clave:</h5>
+
+                <ul>
+                    <li>Microship</li>
+                    <li>Vacunaciones</li>
+                    <li>Certificado de Veterinario</li>
+                    <li>Tratamientos Preventivos</li>
+                </ul>
+
+
+            </div>
         </div>
-        <div class="caja" id="caja3" onclick="cambiarImagen(this, 'caja3')"  onmouseleave="revertirImagen('caja3')">
+        <div class="caja" id="caja3" onclick="cambiarImagen(this, 'caja3')" onmouseleave="revertirImagen('caja3')">
             <img src="../img/caja3.png" alt="caja3" class="imagen_caja">
+
+            <div class="caja-absolute" id="vuelta3">
+
+                <h4><strong>Salud y bienestar</strong></h4>
+
+                <p>
+                    En KittyClinic, comprendemos lo importante que es la salud de tu mascota.
+                    Por eso, ofrecemos una amplia gama de medicamentos y productos de salud para asegurar su bienestar.
+                </p>
+
+                <h5>Nuestros servicios</h5>
+
+                <ul>
+                    <li>Amplio stock de medicamentos</li>
+                    <li>Asesoramiento farmaceutico personalizado</li>
+                    <li>Productos para el cuidado preventivo</li>
+                    <li>Soluciones nutricionales y suplementos</li>
+                </ul>
+
+
+            </div>
         </div>
-    </div>    
-    
+    </div>
+
     <div class="malla">
         <div class="caja" id="caja4" onclick="cambiarImagen(this, 'caja4')" onmouseleave="revertirImagen('caja4')">
             <img src="../img/caja4.png" alt="caja4" class="imagen_caja">
+
+            <div class="caja-absolute" id="vuelta4">
+
+                <h4><strong>Nutricion premium para Tu Felino</strong></h4>
+
+                <h5>Nuestra Seleccion incluye</h5>
+
+                <ul>
+                    <li>Alimentos secos balanceados para todas las etapas de la vida.</li>
+                    <li>Alimentos húmedos con sabores que encantan a cualquier paladar felino.</li>
+                    <li>Suplementos nutricionales diseñados para necesidades especiales.</li>
+                    <li>Snacks saludables para premiar y mimar a tu compañero.</li>
+                </ul>
+
+            </div>
         </div>
+
         <div class="caja" id="caja5" onclick="cambiarImagen(this, 'caja5')" onmouseleave="revertirImagen('caja5')">
             <img src="../img/caja5.png" alt="caja5" class="imagen_caja">
+
+            <div class="caja-absolute" id="vuelta5">
+
+                <h4>Nutricion Integral para Tu Mejor Amigo</h4>
+
+                <h5>Nuestros productos incluyen</h5>
+
+                <ul>
+                    <li> <strong>Alimentos Secos:</strong> Con opciones para todas las edades, tamaños y niveles de
+                        actividad.</li>
+                    <li> <strong>Alimentos Húmedos:</strong> Para aquellos que prefieren una dieta más jugosa o
+                        necesitan hidratación adicional.</li>
+                    <li>
+                        <strong>Dietas Especiales:</strong> Para necesidades nutricionales específicas, incluyendo
+                        sensibilidades alimentarias y control de peso.
+                    </li>
+                </ul>
+
+            </div>
         </div>
         <div class="caja" id="caja6" onclick="cambiarImagen(this, 'caja6')" onmouseleave="revertirImagen('caja6')">
             <img src="../img/caja6.png" alt="caja6" class="imagen_caja">
+
+            <div class="caja-absolute" id="vuelta6">
+
+                <p>
+                    En KittyClinic, combinamos tecnología avanzada y un equipo experto
+                    para ofrecer resultados precisos y confiables. Entendemos la importancia de un diagnóstico exacto
+                    para la salud y bienestar de tu mascota.
+                </p>
+
+                <h5><strong>Nuestros Servicios incluyen:</strong></h5>
+
+                <ul>
+                    <li>Análisis de sangre completos.</li>
+                    <li>Pruebas de orina y heces.</li>
+                    <li>Paneles de hormonas y pruebas de función endocrina.</li>
+                    <li>Diagnóstico de enfermedades infecciosas.</li>
+                    <li>Citologías y biopsias.</li>
+                </ul>
+
+            </div>
+
         </div>
     </div>
 
     <br>
+
+    <h2 class="tituloh2">¡Blog!</h2>
+
     <br>
 
-    <section class="Informacion gatuna"> 
-        <div class="contenedor_atras"> </div>
-        <div class="contenerdor_elemento contenedor" > 
+    <section class="Informacion gatuna contenedor">
+        <div class="contenerdor_elemento contenedor">
             <div class="contendorpacientes">
                 <div class="contendorelpacientefelino">
                     <h2>El Paciente Felino</h2>
@@ -113,180 +253,202 @@
             <div class="contenedordatosgatunos">
                 <div class="datosgatunos">
                     <br>
-                    <p><strong>Los gatos son expertos en disimular las enfermedades</strong> como mecanismo de defensa frente a sus predadores.</p>
+                    <p><strong>Los gatos son expertos en disimular las enfermedades</strong> como mecanismo de defensa
+                        frente a sus predadores.</p>
                     <br>
-                    <p>Cuando están enfermos no muestran signos hasta que ya no pueden ocultarlos, por lo tanto la prevención y el diagnóstico precoz son muy importantes</p>
-                
+                    <p>Cuando están enfermos no muestran signos hasta que ya no pueden ocultarlos, por lo tanto la
+                        prevención y el diagnóstico precoz son muy importantes</p>
 
 
                 </div>
                 <div class="preguntas gatunas">
                     <ul class="fa-ul">
-                        <li><span class="fa-li"><i class="fa-solid fa-question" style="color: #63E6BE;"></i></i></span>¿Necesitas una segunda opinión?</li>
-                        <li><span class="fa-li"><i class="fa-solid fa-question" style="color: #63E6BE;"></i></span>¿Tu gato no responde al tratamiento?</li>
-                        <li><span class="fa-li"><i class="fa-solid fa-question" style="color: #63E6BE;"></i></i></span>¿Adelgaza o no come como antes?</li>
-                        <li><span class="fa-li"><i class="fa-solid fa-question" style="color: #63E6BE;"></i></i></span>¿Muestra síntomas de enfermedad?</li>
+                        <li><span class="fa-li"><i class="fa-solid fa-question"
+                                    style="color: #63E6BE;"></i></i></span>¿Necesitas una segunda opinión?</li>
+                        <li><span class="fa-li"><i class="fa-solid fa-question" style="color: #63E6BE;"></i></span>¿Tu
+                            gato no responde al tratamiento?</li>
+                        <li><span class="fa-li"><i class="fa-solid fa-question"
+                                    style="color: #63E6BE;"></i></i></span>¿Adelgaza o no come como antes?</li>
+                        <li><span class="fa-li"><i class="fa-solid fa-question"
+                                    style="color: #63E6BE;"></i></i></span>¿Muestra síntomas de enfermedad?</li>
                     </ul>
                 </div>
-                
-                    
-                <div class="botondecita"> <a href="#" role="button"><h4>¡Pide tu cita ahora!</h4></a></div>
+
+                <div class="botondecita"> <a href="#" role="button">
+                        <h4>¡Pide tu cita ahora!</h4>
+                    </a></div>
 
             </div>
         </div>
     </section>
 
     <br>
+
+    <h2 class="tituloh2">¡Nuestras ubicaciones!</h2>
+
     <br>
 
-    <div class="Informacion cuidades"> 
-        <div class="contenedor_atrascuidad"> </div>
-        <div class="contenedor_cuidad contenedor" > 
-            <div class="sedescuidad">
+    <div class="contenedor ubicacionesgrid">
 
-                
-                <img src="../img/bogota.jpg" alt="Bogota">
-               
-            </div>
-            <div class="datos_de_la_cuidades">
-                <div class="nombredecuidad">
-                            <h3>Bogota</h3>
-                </div>
-                    <div class="cuidadtelefonodireccion"> <p>Calle 122 #47-68</p> <p>Telefono:3227898291</p></div>
-                    
-                    <h4>atencion 24 horas | como llegar</h4>
-                    <div class="botondecita"> <a href="#" role="button">
-                        
-                        <h4>¡Pide tu cita ahora!</h4></a>
-                    </div>
-
-
-
-            </div>
-        </div>
-        </div>
-        <br>
-        <div class="Informacion cuidades"> 
-            <div class="contenedor_atrascuidad"> </div>
-            <div class="contenedor_cuidad contenedor" > 
+        <div class="Informacion cuidades item1">
+            <div class="contenedor_cuidad contenedor">
                 <div class="sedescuidad">
-    
-                    
-                    <img src="../img/medellin.png" alt="medellin">
-                   
+
+
+                    <img src="../img/bogota.jpg" alt="Bogota">
+
                 </div>
                 <div class="datos_de_la_cuidades">
                     <div class="nombredecuidad">
-                                <h3>Medellin</h3>
+                        <h3>Bogota</h3>
                     </div>
-                        <div class="cuidadtelefonodireccion"> <p>Calle 122 #47-68</p> <p>Telefono:3227898291</p></div>
-                        
-                        <h4>atencion 24 horas | como llegar</h4>
-                        <div class="botondecita"> <a href="#" role="button">
-                            
-                            <h4>¡Pide tu cita ahora!</h4></a>
-                        </div>
-    
-    
-    
+                    <div class="cuidadtelefonodireccion">
+                        <p>Calle 122 #47-68</p>
+                        <p>Telefono:3227898291</p>
+                    </div>
+
+                    <h4>Atencion 24 horas | como llegar</h4>
+                    <div class="botondecita"> <a href="#" role="button">
+
+                            <h4>¡Pide tu cita ahora!</h4>
+                        </a>
+                    </div>
+
                 </div>
             </div>
+        </div>
+        <br>
+        <div class="Informacion cuidades item2">
+            <div class="contenedor_atrascuidad"> </div>
+            <div class="contenedor_cuidad contenedor">
+                <div class="sedescuidad">
+
+
+                    <img src="../img/medellin.png" alt="medellin">
+
+                </div>
+                <div class="datos_de_la_cuidades">
+                    <div class="nombredecuidad">
+                        <h3>Medellin</h3>
+                    </div>
+                    <div class="cuidadtelefonodireccion">
+                        <p>Calle 122 #47-68</p>
+                        <p>Telefono:3227898291</p>
+                    </div>
+
+                    <h4>atencion 24 horas | como llegar</h4>
+                    <div class="botondecita"> <a href="#" role="button">
+
+                            <h4>¡Pide tu cita ahora!</h4>
+                        </a>
+                    </div>
+
+                </div>
             </div>
-            <br>
-            <div class="Informacion cuidades"> 
-                <div class="contenedor_atrascuidad"> </div>
-                <div class="contenedor_cuidad contenedor" > 
-                    <div class="sedescuidad">
-        
-                        
-                        <img src="../img/cali.jpg" alt="cali">
-                       
-                    </div>
-                    <div class="datos_de_la_cuidades">
-                        <div class="nombredecuidad">
-                                    <h3>Cali</h3>
-                        </div>
-                            <div class="cuidadtelefonodireccion"> <p>Calle 122 #47-68</p> <p>Telefono:3227898291</p></div>
-                            
-                            <h4>atencion 24 horas | como llegar</h4>
-                            <div class="botondecita"> <a href="#" role="button">
-                                
-                                <h4>¡Pide tu cita ahora!</h4></a>
-                            </div>
-        
-        
-        
-                    </div>
-                </div>
-                </div>
-                <br>
-                <div class="Informacion cuidades"> 
-                    <div class="contenedor_atrascuidad"> </div>
-                    <div class="contenedor_cuidad contenedor" > 
-                        <div class="sedescuidad">
-            
-                            
-                            <img src="../img/barranquilla.jpg" alt="barranquilla">
-                           
-                        </div>
-                        <div class="datos_de_la_cuidades">
-                            <div class="nombredecuidad">
-                                        <h3>Barranquilla</h3>
-                            </div>
-                                <div class="cuidadtelefonodireccion"> <p>Calle 122 #47-68</p> <p>Telefono:3227898291</p></div>
-                                
-                                <h4>atencion 24 horas | como llegar</h4>
-                                <div class="botondecita"> <a href="#" role="button">
-                                    
-                                    <h4>¡Pide tu cita ahora!</h4></a>
-                                </div>
-            
-            
-            
-                        </div>
-                    </div>
-                    </div>
-                    <br>
-    
-    
+        </div>
+        <br>
+        <div class="Informacion cuidades item3">
+            <div class="contenedor_atrascuidad"> </div>
+            <div class="contenedor_cuidad contenedor">
+                <div class="sedescuidad">
 
-<footer class="footer">
 
-    <div>
-        <ul>
-            <li><a href="">Aviso legal</a></li>
-            <li><a href="">Politica de Privacidad</a></li>
-            <li><a href="">Politica de Cookies</a></li>
-            <li><a href="">Politica de Calidad</a></li>
-        </ul>
+                    <img src="../img/cali.jpg" alt="cali">
+
+                </div>
+                <div class="datos_de_la_cuidades">
+                    <div class="nombredecuidad">
+                        <h3>Cali</h3>
+                    </div>
+                    <div class="cuidadtelefonodireccion">
+                        <p>Calle 122 #47-68</p>
+                        <p>Telefono:3227898291</p>
+                    </div>
+
+                    <h4>atencion 24 horas | como llegar</h4>
+                    <div class="botondecita"> <a href="#" role="button">
+
+                            <h4>¡Pide tu cita ahora!</h4>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="Informacion cuidades item4">
+            <div class="contenedor_atrascuidad"> </div>
+            <div class="contenedor_cuidad contenedor">
+                <div class="sedescuidad">
+
+                    <img src="../img/barranquilla.jpg" alt="barranquilla">
+
+                </div>
+                <div class="datos_de_la_cuidades">
+                    <div class="nombredecuidad">
+                        <h3>Barranquilla</h3>
+                    </div>
+                    <div class="cuidadtelefonodireccion">
+                        <p>Calle 122 #47-68</p>
+                        <p>Telefono:3227898291</p>
+                    </div>
+
+                    <h4>atencion 24 horas | como llegar</h4>
+                    <div class="botondecita"> <a href="#" role="button">
+
+                            <h4>¡Pide tu cita ahora!</h4>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
-    
-    <div class="comunicacion">
+
+    <br>
+
+
+
+    <footer class="footer">
+
         <div>
-            <a href="#top" class="scroll-to-top"><img src = "../img/logo.png" alt ="logo" class = "logo2"></a>
+            <ul class="lista-footer">
+                <li><a href="">Aviso legal</a></li>
+                <li><a href="">Politica de Privacidad</a></li>
+                <li><a href="">Politica de Cookies</a></li>
+                <li><a href="">Politica de Calidad</a></li>
+            </ul>
         </div>
-        
-        <div class="redes">
-            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.github.com/"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.twitter.com/"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.facebook.com/"><i class="fa-brands fa-x-twitter"></i></a>
-        </div>
-    </div>
 
-    <div>
-        <ul>
-            <li><a href="">KittyClinic</a></li>
-            <li><a href="">Blog</a></li>
-            <li><a href="">Contacto</a></li>
-            <li><a href="">Preguntas Frecuentes</a></li>
-        </ul>
-    </div>
-    <div class="copyright">
-        <p ><strong>© 2024 Universidad Javeriana. Todos los derechos reservados.</p></strong>
-    </div>
-</footer>
-<script src="/js/paginamain.js"></script>
+
+        <div class="comunicacion">
+            <div>
+                <a href="#top" class="scroll-to-top"><img src="../img/logo.png" alt="logo" class="logo2"></a>
+            </div>
+
+            <div class="redes">
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.github.com/"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <ul class="lista-footer">
+                <li><a href="">KittyClinic</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+        <div class="copyright">
+            <p><strong>© 2024 Universidad Javeriana. Todos los derechos reservados.</p></strong>
+        </div>
+    </footer>
+    <script src="/js/paginamain.js"></script>
 </body>
+
 </html>
