@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/gato.css"/>
     <title>Document</title>
 </head>
 <body>
     
-    <h1>Gato especifico</h1>
+    <h1>Historial Gatuno</h1>
 
-    <p th:text="${gato.nombre}"></p>
-    <p th:text="${gato.edad}"></p>
-    <p th:text="${gato.raza}"></p>
-    <img th:src="${gato.foto}"/>
+    <div class="infogatuna">
+        
+        <h1 th:text="${gato.nombre}"></h1>
+        <p th:text="${gato.edad}"></p>
+        <p th:text="${gato.raza}"></p>
+        <img th:src="${gato.foto}"/>
+    </div>
+
+   
 
 
 
 
     <div class="sidebar">
         <div class="profile">
-            <img src="../static/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
+            <img src="/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
             <h3>Nombre del Veterinario</h3>
         </div>
         <ul>
