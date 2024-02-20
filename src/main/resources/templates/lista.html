@@ -1,29 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Tabla y Barra Lateral</title>
     <link rel="stylesheet" href="../static/css/lista.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    <link
+    href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+<script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-q7uH1+ekDO2tNvI5/OwFxwzLfPnPu4SKPC4rx7Bgld3NarKypFdLgMIL0tzXCivX1TCKpO9hZ6WBBmF06HtD8g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    
-    
-    <title>Document</title>
+   
 </head>
 <body>
 
-    <h1>Todos los gatos</h1>
+    <div class="tabla-pacientes">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Raza</th>
+                    <th>Foto</th>
+                    <th>información</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="gato : ${gatos}">
+                    <td th:text="${gato.nombre}"></td>
+                    <td th:text="${gato.edad}"></td>
+                    <td th:text="${gato.raza}"></td>
+                    <td>   <img th:src="${gato.foto}"></td>
+                    <td> <button>Ver más información</button></td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
 
-    <ul>
-        <li th:each="gato : ${gatos}" th:text="${gato.nombre}"></li>
-    </ul>
-
-    <!-- Barra lateral -->
     <div class="sidebar">
         <div class="profile">
             <img src="../static/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
@@ -35,27 +51,6 @@
             <li><a href="#">Ver servicios</a></li>
         </ul>
     </div>
-    
-    <div class="tabla-pacientes">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Edad</th>
-                    <th>Raza</th>
-                    <th>Foto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="gato : ${gatos}">
-                    <td th:text="${gato.nombre}"></td>
-                    <td th:text="${gato.edad}"></td>
-                    <td th:text="${gato.raza}"></td>
-                    <td><img th:src="${gato.foto}"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
+
 </body>
 </html>
