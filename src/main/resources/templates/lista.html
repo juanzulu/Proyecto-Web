@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todos los gatos</h1>
+
+    <ul>
+        <li th:each="gato : ${gatos}" th:text="${gato.nombre}"></li>
+    </ul>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Raza</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="gato : ${gatos}">
+                    <td th:text="${gato.nombre}"></td>
+                    <td th:text="${gato.edad}"></td>
+                    <td th:text="${gato.raza}"></td>
+                    <td><img th:src="${gato.foto}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
