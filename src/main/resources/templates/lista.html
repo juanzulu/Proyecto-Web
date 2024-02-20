@@ -3,16 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../static/css/lista.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-q7uH1+ekDO2tNvI5/OwFxwzLfPnPu4SKPC4rx7Bgld3NarKypFdLgMIL0tzXCivX1TCKpO9hZ6WBBmF06HtD8g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+    
     <title>Document</title>
 </head>
 <body>
+
     <h1>Todos los gatos</h1>
 
     <ul>
         <li th:each="gato : ${gatos}" th:text="${gato.nombre}"></li>
     </ul>
 
-    <div>
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <div class="profile">
+            <img src="../static/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
+            <h3>Nombre del Veterinario</h3>
+        </div>
+        <ul>
+            <li><a href="#">Registrar felino</a></li>
+            <li><a href="#">Ver tratamientos</a></li>
+            <li><a href="#">Ver servicios</a></li>
+        </ul>
+    </div>
+    
+    <div class="tabla-pacientes">
         <table>
             <thead>
                 <tr>
@@ -32,5 +56,6 @@
             </tbody>
         </table>
     </div>
+    
 </body>
 </html>
