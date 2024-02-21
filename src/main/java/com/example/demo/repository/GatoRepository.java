@@ -16,7 +16,7 @@ public class GatoRepository {
     public GatoRepository() {
         gaterio.put(1, new gato("Michi", "Gato", 2,
                 "https://www.mirringo.com.co/Portals/mirringo/contenidos/razas/banner-interna-razas.jpg?ver="));
-        gaterio.put(2, new gato("Gato", "Persa,", 3,
+        gaterio.put(2, new gato("Gato", "Persa", 3,
                 "https://www.zooplus.es/magazine/wp-content/uploads/2017/10/fotolia_103481419.jpg"));
         gaterio.put(3, new gato("Felis silvestris catus", "Maine Coon", 5,
                 "https://www.zooplus.es/magazine/wp-content/uploads/2018/08/maine-coon-3.jpg"));

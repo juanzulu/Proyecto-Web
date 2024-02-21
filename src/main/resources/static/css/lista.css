@@ -9,6 +9,15 @@ html, body {
     background: url(/img/fondo.png) round;
 }
 
+img {
+    width: 100%;
+}
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
 
 
 /* Estilos para la barra lateral */
@@ -58,7 +67,8 @@ html, body {
 
 /* Estilo para la tabla */
 .tabla-pacientes {
-    margin: 20px 270px; /* Ajustamos el margen derecho para evitar que la tabla se superponga a la barra lateral */
+    width: 70% !important;
+    margin-left: 5% !important;
     overflow-x: auto; /* Agregamos una barra de desplazamiento horizontal si es necesario */
 }
 
@@ -70,7 +80,6 @@ table {
 
 th {
     background-color: #34ac9b;
-   
     border: 1px solid  #b4d4a4;
     padding: 10px;
     text-align: left;
