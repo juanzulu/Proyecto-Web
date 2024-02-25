@@ -9,8 +9,136 @@ html, body {
     background: url(/img/fondo.png) round;
 }
 
+
+.header{
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding: 12px;
+    caret-color: transparent;
+}
+
+
+.lista {
+  display: none;
+  list-style: none;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
+  padding-bottom: 8px;
+  background-color: rgba(55,171,152,270);
+  position: absolute;
+  z-index: 999;
+  font-size: 16px;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#lista1 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista1 a:hover{
+    color: orange;
+}
+
+#lista2 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista2 a:hover{
+    color: aqua;
+}
+
+#lista3 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista3 a:hover{
+    color: aqua;
+}
+
+#lista4 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista4 a:hover{
+    color: aqua;
+}
+
+.lista li {
+    margin-bottom: 10px; /* Ajusta el espacio entre elementos aumentando o disminuyendo el valor de margin-bottom */
+  }  
+
+
+.lista {
+    transition: opacity 0.3s ease;
+    opacity: 0; /* La lista comienza invisible */
+  }
+  
+/* Mostrar la lista cuando se hace hover 
+en la opción */
+.opciones:hover .lista{
+    display: block;
+    opacity: 1; /* La lista se vuelve visible */
+}
+
+.inicio{
+    background-color: rgba(55,171,152,255);
+}
+
+.nav{
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 600;
+    z-index: 1000;
+}
+
+.nav a:hover{
+    color: black;
+}
+
+.nav i{
+    color: white;
+}
+
+.nav i:hover{
+    color: black;
+}
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.logo{
+    margin-left: 40px;
+    width: 160px;
+    height: 100px;
+}
+
 img {
-    width: 100%;
+    width: 150px;
 }
 
 .contenedor{
@@ -90,8 +218,8 @@ td {
     padding: 10px;
 }
 
-tr:nth-child(odd) {
-    background-color: #f9f9f9;
+tr{
+    background-color: rgba(98, 98, 163, 0.747);
 }
 
 tr:hover {
