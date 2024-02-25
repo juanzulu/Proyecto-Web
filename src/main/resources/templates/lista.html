@@ -56,8 +56,8 @@
                     <td th:text="${gato.nombre}"></td>
                     <td th:text="${gato.edad}"></td>
                     <td th:text="${gato.raza}"></td>
-                    <td>   <img th:src="${gato.foto}"></td>
-                    <td> <ath:href="@{/prueba/gato/{id}(id=${gatos.id})}">Ver más información</a></td>
+                    <td><img th:src="${gato.foto}"></td>
+                    <td><a th:href="@{/prueba/gato/{id}(id=${gato.id})}"><i class="fa-solid fa-circle-info"></i>Ver mas información</a></td>
                 </tr> 
             </tbody>
             

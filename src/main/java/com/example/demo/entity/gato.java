@@ -6,12 +6,23 @@ public class gato {
     private String raza;
     private int edad;
     private String foto;
+    private Integer id;
 
-    public gato(String nombre, String raza, int edad, String foto) {
+    public gato(Integer id, String nombre, String raza, int edad, String foto) {
+        this.id = id;
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.foto = foto;
+
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
