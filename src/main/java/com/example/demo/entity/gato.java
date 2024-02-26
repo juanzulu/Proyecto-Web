@@ -14,7 +14,6 @@ public class gato {
         this.raza = raza;
         this.edad = edad;
         this.foto = foto;
-
     }
 
     public Integer getId() {

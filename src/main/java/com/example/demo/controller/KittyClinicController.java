@@ -43,7 +43,7 @@ public class KittyClinicController {
     @GetMapping("/add")
     public String mostrarCrearGato(Model model) {
 
-        gato aux = new gato(0, "", "", 0, "");
+        gato aux = new gato(null, null, null, null, null);
 
         model.addAttribute("gato", aux);
 
