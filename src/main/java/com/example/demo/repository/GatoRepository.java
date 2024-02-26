@@ -31,4 +31,21 @@ public class GatoRepository {
     public Collection<gato> findAll() {
         return gaterio.values();
     }
+
+    public void deleletebyid(int id) {
+        gaterio.remove(id);
+    }
+
+    public void update(gato felino) {
+        gaterio.put(felino.getId(), felino);
+    }
+
+    public void add(gato felino) {
+        int tam = gaterio.size();
+        int lastid = gaterio.get(tam).getId();
+        felino.setId(lastid + 1);
+        gaterio.put(felino.getId(), felino);
+
+    }
+
 }

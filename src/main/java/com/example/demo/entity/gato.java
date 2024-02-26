@@ -4,11 +4,11 @@ public class gato {
 
     private String nombre;
     private String raza;
-    private int edad;
+    private Integer edad;
     private String foto;
     private Integer id;
 
-    public gato(Integer id, String nombre, String raza, int edad, String foto) {
+    public gato(Integer id, String nombre, String raza, Integer edad, String foto) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
@@ -41,11 +41,11 @@ public class gato {
         this.raza = raza;
     }
 
-    public int getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 

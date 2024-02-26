@@ -10,4 +10,10 @@ public interface GatoService {
 
     public Collection<gato> SearchAll();
 
+    public void deleletebyid(int id);
+
+    public void update(gato felino);
+
+    public void add(gato felino);
+
 }

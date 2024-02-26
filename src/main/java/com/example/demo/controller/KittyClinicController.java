@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import com.example.demo.entity.gato;
 import com.example.demo.service.GatoService;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequestMapping("/prueba")
@@ -28,8 +30,51 @@ public class KittyClinicController {
     @GetMapping("/gato/{id}")
     public String mostrarInfo(Model model, @PathVariable("id") int identificacion) {
 
-        model.addAttribute("gato", GatoService.SearchNyId(identificacion));
+        gato felino = GatoService.SearchNyId(identificacion);
+
+        if (felino != null) {
+            model.addAttribute("gato", GatoService.SearchNyId(identificacion));
+        } else {
+            throw new NotFoundException(identificacion);
+        }
         return "gato";
+    }
+
+    @GetMapping("/add")
+    public String mostrarCrearGato(Model model) {
+
+        gato aux = new gato(0, "", "", 0, "");
+
+        model.addAttribute("gato", aux);
+
+        return "crear_gato";
+    }
+
+    @PostMapping("/agregar")
+    public String agregarGato(@ModelAttribute("gato") gato felino) {
+
+        GatoService.add(felino);
+        return "redirect:/prueba/lista";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String borrarGato(@PathVariable("id") int identificacion) {
+        GatoService.deleletebyid(identificacion);
+        return "redirect:/prueba/lista";
+    }
+
+    @GetMapping("/update/{id}")
+    public String mostrarUpdate(@PathVariable("id") int identificacion, Model model) {
+
+        model.addAttribute("gato", GatoService.SearchNyId(identificacion));
+        return "modificar_gato";
+
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateGato(@PathVariable("id") int identificacion, @ModelAttribute("gato") gato felino) {
+        GatoService.update(felino);
+        return "redirect:/prueba/lista";
     }
 
 }

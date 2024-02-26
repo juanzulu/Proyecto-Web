@@ -24,4 +24,19 @@ public class GatoServiceImpl implements GatoService {
         return Repo.findAll();
     }
 
+    @Override
+    public void deleletebyid(int id) {
+        Repo.deleletebyid(id);
+    }
+
+    @Override
+    public void update(gato felino) {
+        Repo.update(felino);
+    }
+
+    @Override
+    public void add(gato felino) {
+        Repo.add(felino);
+    }
+
 }
