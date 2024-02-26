@@ -1,6 +1,5 @@
 html {
     overflow-x: hidden;
-    background: url(/img/fondo2.png);
 }
 
 body{
@@ -8,6 +7,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100vh;
+    background: url(/img/fondo.png);
     background-repeat: round;
 }
 
@@ -107,7 +107,7 @@ en la opción */
 
 .nav{
     display: flex;
-    gap: 70px;
+    gap: 80px;
     align-items: center;
 }
 
@@ -137,6 +137,7 @@ en la opción */
 }
 
 .logo{
+    margin-left: 40px;
     width: 160px;
     height: 100px;
 }

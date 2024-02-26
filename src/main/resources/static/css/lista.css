@@ -1,12 +1,15 @@
-
-/* Estilo para el cuerpo y el HTML */
-html, body {
+html {
     overflow-x: hidden;
+    background: url(/img/fondo2.png);
+}
+
+body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: url(/img/fondo.png) round;
+
+    background-repeat: round;
 }
 
 
@@ -20,6 +23,10 @@ html, body {
     height: 100px;
     padding: 12px;
     caret-color: transparent;
+}
+
+#linea{
+    border-top: 3px solid #1e897b;
 }
 
 
@@ -102,7 +109,7 @@ en la opción */
 
 .nav{
     display: flex;
-    gap: 80px;
+    gap: 70px;
     align-items: center;
 }
 
@@ -132,14 +139,10 @@ en la opción */
 }
 
 .logo{
-    margin-left: 40px;
     width: 160px;
     height: 100px;
 }
 
-img {
-    width: 150px;
-}
 
 .contenedor{
     max-width: 1200px;
@@ -147,16 +150,18 @@ img {
     margin: 0 auto;
 }
 
+/*-------------------------------------------------------------------------------------------------*/
 
 /* Estilos para la barra lateral */
 .sidebar {
     height: 100%;
     width: 250px;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
-    background-color: #34ac9b;
+    margin-top: 126px;
     padding-top: 20px;
+    background-color: #34ac9b;
 }
 
 .sidebar .profile {
@@ -175,8 +180,8 @@ img {
     list-style-type: none;
     padding: 0;
     margin: 0;
-   background-color: #b4d4a4;
-   border-radius: 5px;
+    background-color: #b4d4a4;
+    border-radius: 5px;
 }
 
 .sidebar ul li {
@@ -193,7 +198,7 @@ img {
     background-color: #ddd;
 }
 
-/* Estilo para la tabla */
+/*----------------------------------------- Estilo para la tabla ----------------------*/
 .tabla-pacientes {
     width: 70% !important;
     margin-left: 5% !important;
@@ -203,11 +208,11 @@ img {
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #34ac9b;
+    border: 1px solid #34ac9c1b;
 }
 
 th {
-    background-color: #34ac9b;
+    background-color: #3e7caf;
     border: 1px solid  #b4d4a4;
     padding: 10px;
     text-align: left;
@@ -224,4 +229,10 @@ tr{
 
 tr:hover {
     background-color: #eaeaea;
+}
+
+/* Estilos para fotos */
+
+img {
+    width: 150px;
 }
