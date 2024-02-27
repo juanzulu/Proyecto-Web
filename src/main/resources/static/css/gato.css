@@ -11,13 +11,16 @@ body{
     background-repeat: round;
 }
 
-header {
-    background-color: #34ac9b;
-    color: white;
-    padding: 20px 10%;
+.header {
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 30px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    height: 100px;
+    padding: 12px;
+    caret-color: transparent;
 }
 
 header h1 {
@@ -37,10 +40,13 @@ nav a:hover {
 .infogatuna {
     max-width: 800px;
     background-color: white;
-    margin: 50px auto;
+    margin: 50px ;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    margin-left: 115px;
 }
 
 .infogatuna h2 {
@@ -56,8 +62,8 @@ nav a:hover {
 .foto-gato img {
     border-radius: 50%;
     border: 5px solid #34ac9b;
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -70,12 +76,12 @@ nav a:hover {
 }
 
 .datos-gato ul {
-    list-style: none;
+    width: 40px;
     padding: 0;
 }
 
 .datos-gato ul li {
-    background-color: #eee;
+    width: 40px;
     margin-bottom: 5px;
     padding: 10px;
     border-radius: 5px;
@@ -85,6 +91,25 @@ nav a:hover {
     font-size: 1.1em;
     margin-top: 10px;
 }  
+.contenedor-gatos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+.edad-gato {
+    display: flex;
+    justify-content: center; /* Centra el contenido de edad-gato en el eje principal (horizontal) */
+    gap: 20px; /* Espacio entre los elementos internos, ajusta según necesidad */
+    width: 100%; /* Opcional: ajusta según necesidad para controlar el ancho del contenedor */
+    margin-top: 20px; /* Espacio arriba del contenedor, ajusta según necesidad */
+}
+
+/* Si necesitas que el contenido de edad-gato también esté centrado verticalmente dentro del propio contenedor */
+.edad-gato {
+    align-items: center; /* Centra los elementos hijos verticalmente dentro de edad-gato */
+}
 
 
 
