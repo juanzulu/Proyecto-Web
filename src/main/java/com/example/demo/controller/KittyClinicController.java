@@ -25,14 +25,6 @@ public class KittyClinicController {
         return "lista";
     }
 
-
-
-    @GetMapping("/login")
-    public String mostrarPaginaLogin() {
-        return "login";
-    }
-
-
     // http://localhost:8090/muestra/gato/id con id me refiero a un un numero
     // espefico ejm 1 2 3 4 si el numero es mas grande que la base falla
     @GetMapping("/gato/{id}")
