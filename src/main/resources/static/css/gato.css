@@ -1,34 +1,109 @@
-/* Estilos para la barra lateral */
-
-
-/* Estilo para el cuerpo y el HTML */
-html, body {
-    overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background: url(/img/fondo.png) round;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
+header {
+    background-color: #34ac9b;
+    color: white;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    background-color: #ffffff2e;
+}
+
+.infogatuna {
+    max-width: 800px;
+    background-color: white;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.infogatuna h2 {
+    color: #34ac9b;
+    text-align: center;
+}
+
+.foto-gato {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.foto-gato img {
+    border-radius: 50%;
+    border: 5px solid #34ac9b;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.datos-gato {
+    margin-top: 20px;
+}
+
+.datos-gato h3 {
+    color: #333;
+}
+
+.datos-gato ul {
+    list-style: none;
+    padding: 0;
+}
+
+.datos-gato ul li {
+    background-color: #eee;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.datos-gato p {
+    font-size: 1.1em;
+    margin-top: 10px;
+}  
+
+
+
+/* Estilos para la barra lateral */
 .sidebar {
     height: 100%;
     width: 250px;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
-    background-color: #34ac9b;
+    margin-top: 126px;
     padding-top: 20px;
+    background-color: #34ac9b;
 }
 
 .sidebar .profile {
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 100px;
 }
 
 .sidebar .profile img {
     width: 200px; /* Reducimos el ancho de la imagen para que no sea demasiado grande */
-    border-radius: 50%;
+    border-radius: 25%;
     display: block; /* Centramos la imagen */
     margin: 0 auto;
 }
@@ -37,36 +112,31 @@ html, body {
     list-style-type: none;
     padding: 0;
     margin: 0;
-   background-color: #b4d4a4;
-   border-radius: 5px;
+    background-color: #b4d4a4;
+    border-radius: 5px;
+    padding-top: 20px;
+    
 }
 
 .sidebar ul li {
     padding: 10px;
     text-align: center;
+    
+   
 }
 
 .sidebar ul li a {
     text-decoration: none;
     color: #333;
 }
-
-.sidebar ul li a:hover {
-    background-color: #ddd;
+.sidebar ul li a span {
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+    color: #000000;
+    display: inline-block; /* Asegura que el span se comporte como inline pero permitiendo padding/margin */
+    padding: 5px; /* Espaciado alrededor del texto para el efecto hover, ajusta según necesidad */
 }
 
-
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-}
-
-/* Estilo para el div sin clase */
-.infogatuna {
-    background-color: #fff; /* Color de fondo blanco */
-    border: 1px solid #ddd; /* Borde delgado */
-    padding: 20px; /* Espaciado interno */
-    margin: 20px; /* Espaciado externo */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+.sidebar ul li a span:hover {
+     
+    color: #000000; /* Color del texto al pasar el ratón, si necesitas cambiarlo */
 }

@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/gato.css"/>
-    <title>Document</title>
+    <link rel="stylesheet" href="/src/main/resources/static/css/gato.css"/>
+    <title>Mis Gatos</title>
 </head>
 <body>
-    
-    <h1>Historial Gatuno</h1>
 
-    <a th:href="@{/prueba/lista}">Volver</a>
+    <header>
+        <h1>Mis Gatos</h1>
+        <nav>
+            <a href="#historial">Historial gatuno</a>
+            <!-- Agrega más enlaces según sea necesario -->
+        </nav>
+    </header>
 
-    <div class="infogatuna">
+    <section id="historial" class="infogatuna">
+        <h2 th:text="${gato.nombre}"></h2>
+        <div class="foto-gato">
+            <img th:src="${gato.foto}">
+        </div>
+        <div class="datos-gato">
+            <h3>Historial</h3>
+            <ul>
+                <li th:each="servicio : ${gato.servicios}">
+                    <span th:text="${servicio}">Servicio: Peluquería</span>
+                    
+                </li>
+                <!-- Agrega más servicios según sean necesarios -->
+            </ul>
+            <p><strong>Edad:</strong> <span th:text="${gato.edad}">3</span></p>
+            <p><strong>Última cita:</strong> <span th:text="${gato.ultimaCita}">24/12/24</span></p>
+        </div>
+    </section>
 
-
-        
-        <h1 th:text="${gato.nombre}"></h1>
-        <p th:text="${gato.edad}"></p>
-        <p th:text="${gato.raza}"></p>
-        <img th:src="${gato.foto}"/>
-    </div>
-
-   
-
-
-
+    <!-- Agrega más secciones según sea necesario -->
 
     <div class="sidebar">
         <div class="profile">
@@ -38,7 +48,6 @@
             <li><a href="#">Ver servicios</a></li>
         </ul>
     </div>
-    
     
 </body>
 </html>
