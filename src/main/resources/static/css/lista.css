@@ -237,19 +237,19 @@ table {
 }
 
 th {
-    background-color: #3e7caf;
-    border: 1px solid  #b4d4a4;
+    background-color: #dba76d;
+    border: 1px solid  #443018;
     padding: 10px;
     text-align: left;
 }
 
 td {
-    border: 1px solid #ccc;
+    border: 1px solid  #a06a28;
     padding: 10px;
 }
 
 tr{
-    background-color: rgba(98, 98, 163, 0.747);
+    background-color: #e2ceb8;
 }
 
 tr:hover {
