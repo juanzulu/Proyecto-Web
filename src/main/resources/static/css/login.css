@@ -14,6 +14,7 @@ body{
     width: 160px;
     height: 100px;
     padding-top: 20%;
+    caret-color: transparent; /* Ocultar la barra titilante */
 }
 
 .cajaPrincipal {
@@ -39,9 +40,10 @@ body{
 
 .formdesign{
     background-color: #f5f5dc;
-    padding-top: 50px;
-    padding-bottom: 80px;
+    padding-top: 30px;
+    padding-bottom: 50px;
     border-radius: 5%;
+    caret-color: transparent; /* Ocultar la barra titilante */
 }
 
 .login__container__input{
@@ -70,7 +72,7 @@ body{
 /*---------------login-------------*/
 .login {
     border-left: 3px solid rgba(227,202,152,255);
-    background-color: rgba(55,171,152,270);; /* color de fondo de login */
+    background-color: rgba(55,171,152,270); /* color de fondo de login */
     padding: 20px; /* espacio interior */
 }
 
@@ -82,17 +84,51 @@ body{
 
 /* Agrega estilos adicionales según sea necesario */
 
-.campo-correo{
-    width: 80%;
+.campo-correo {
+    /* Estilos básicos */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px; /* Ancho del campo de correo */
+
+    /* Estilos adicionales */
+    background-color: #f9f9f9;
+    color: #333; /* Color del texto */
 }
 
+/* Estilos al enfocar */
+.campo-correo:focus {
+    border-color: #007bff; /* Cambio de color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al enfocar */
+}
+
+/* Estilos para el placeholder */
+.campo-correo::placeholder {
+    color: #999; /* Color del texto del placeholder */
+    font-style: italic; /* Estilo del texto del placeholder */
+}
+
+
+
+
 .login__container__button{
-    margin-top: 10%;
+    margin-top: 12%;
+    width: 40%;
+    height: 25px;
     background-color: #ffce56;
-    border: none;
+    border: 1px solid  #ffce56; /* Borde del campo de entrada */
+    border-radius: 5px; /* Borde redondeado */
 }
 
 .login__container__button:hover{
     background-color: #d8a72a;
     cursor: pointer;
+}
+
+.fa-user{
+    margin-right:  8px;
+}
+
+.fa-lock{
+    margin-right:  8px;
 }
