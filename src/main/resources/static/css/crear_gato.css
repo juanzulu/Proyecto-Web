@@ -59,12 +59,12 @@ form {
 .form-field input[type="date"],
 .form-field select,
 .form-field textarea {
-    width: 100%; /* Hace que los campos ocupen todo el ancho del formulario */
+    width: 650px; /* Hace que los campos ocupen todo el ancho del formulario */
     padding: 10px;
     border-radius: 5px; /* Bordes redondeados para los campos de entrada */
     border: 1px solid #ccc; /* Borde como el del formulario */
     background-color: #B1D8B7;
-  
+   
 }
 
 .form-field button {
@@ -86,3 +86,13 @@ form {
 }
 
 /* Add more styles as needed */
+.form-field .uniform-select {
+    width: 671px; /* Igual al ancho de los otros campos */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #B1D8B7;
+    -webkit-appearance: none; /* Elimina el estilo predeterminado en Safari */
+    -moz-appearance: none; /* Elimina el estilo predeterminado en Firefox */
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+}
