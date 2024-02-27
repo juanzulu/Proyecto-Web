@@ -1,28 +1,76 @@
-html,
-body {
+html {
+    overflow-x: hidden;
+}
+
+body{
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
+    background-repeat: round;
+}
+
+
+.logo{
+    width: 160px;
+    height: 100px;
+    padding-top: 20%;
 }
 
 .cajaPrincipal {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh; /* altura del viewport */
 }
 
-.cajaFondo,
-.login {
+
+.frase1{
+    font-weight: bold;
+    color: black;
+    display: inline;
+}
+
+.frase2{
+    display: inline;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #f7de32;
+    cursor: pointer;
+}
+
+.formdesign{
+    background-color: #f5f5dc;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    border-radius: 5%;
+}
+
+.login__container__input{
+    padding-top: 4%;
+}
+
+/*imagen gato de fondo*/
+.gatoLogin{
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    opacity: 0.6;
+    border-right: 3px solid rgba(227,202,152,255);
+}
+
+.cajaFondo,.login {
     flex: 1; /* expandirse para ocupar todo el espacio disponible */
 }
 
 /* Estilos adicionales para tu caja de fondo y de login */
 .cajaFondo {
-    background-color: #f0f0f0; /* color de fondo de cajaFondo */
+    background-color: #000000; /* color de fondo de cajaFondo */
 }
 
+
+/*---------------login-------------*/
 .login {
-    background-color: #ffffff; /* color de fondo de login */
+    border-left: 3px solid rgba(227,202,152,255);
+    background-color: rgba(55,171,152,270);; /* color de fondo de login */
     padding: 20px; /* espacio interior */
 }
 
@@ -33,3 +81,18 @@ body {
 }
 
 /* Agrega estilos adicionales según sea necesario */
+
+.campo-correo{
+    width: 80%;
+}
+
+.login__container__button{
+    margin-top: 10%;
+    background-color: #ffce56;
+    border: none;
+}
+
+.login__container__button:hover{
+    background-color: #d8a72a;
+    cursor: pointer;
+}
