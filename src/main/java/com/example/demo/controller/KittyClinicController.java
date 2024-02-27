@@ -18,7 +18,7 @@ public class KittyClinicController {
     @Autowired
     GatoService GatoService;
 
-    // http://localhost:8090/prueba/lista
+    // http://localhost:8090/muestra/lista
     @GetMapping("/lista")
     public String mostrarGatos(Model model) {
         model.addAttribute("gatos", GatoService.SearchAll());
@@ -33,7 +33,7 @@ public class KittyClinicController {
     }
 
 
-    // http://localhost:8090/prueba/gato/id con id me refiero a un un numero
+    // http://localhost:8090/muestra/gato/id con id me refiero a un un numero
     // espefico ejm 1 2 3 4 si el numero es mas grande que la base falla
     @GetMapping("/gato/{id}")
     public String mostrarInfo(Model model, @PathVariable("id") int identificacion) {
@@ -62,13 +62,13 @@ public class KittyClinicController {
     public String agregarGato(@ModelAttribute("gato") gato felino) {
 
         GatoService.add(felino);
-        return "redirect:/prueba/lista";
+        return "redirect:/muestra/lista";
     }
 
     @GetMapping("/delete/{id}")
     public String borrarGato(@PathVariable("id") int identificacion) {
         GatoService.deleletebyid(identificacion);
-        return "redirect:/prueba/lista";
+        return "redirect:/muestra/lista";
     }
 
     @GetMapping("/update/{id}")
@@ -82,7 +82,7 @@ public class KittyClinicController {
     @PostMapping("/update/{id}")
     public String updateGato(@PathVariable("id") int identificacion, @ModelAttribute("gato") gato felino) {
         GatoService.update(felino);
-        return "redirect:/prueba/lista";
+        return "redirect:/muestra/lista";
     }
 
 }
