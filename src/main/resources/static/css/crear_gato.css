@@ -1,0 +1,83 @@
+html {
+    overflow-x: hidden;
+    background: url(/img/fondo2.png);
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-repeat: round;
+}
+/* Agrega estilos al header como mencionamos anteriormente */
+header {
+    background-color: #009688; /* Este es solo un ejemplo de color */
+    text-align: center;
+    padding: 10px 0;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+}
+
+/* Estilos para el formulario */
+.contenedordelform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Ajusta la altura para que el formulario esté centrado verticalmente */
+}
+
+form {
+    border: 1px solid #ccc; /* Borde gris suave */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    background: white; /* Fondo blanco para el formulario */
+    width: 300px; /* Ancho fijo para el tamaño del cuadrado */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Sombra suave para dar profundidad */
+}
+
+/* Estilos para los campos del formulario */
+.form-field {
+    margin-bottom: 15px; /* Espacio entre campos */
+}
+
+.form-field label {
+    display: block; /* Hace que la etiqueta sea de bloque */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo de entrada */
+}
+
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field input[type="date"],
+.form-field select,
+.form-field textarea {
+    width: 100%; /* Hace que los campos ocupen todo el ancho del formulario */
+    padding: 10px;
+    border-radius: 5px; /* Bordes redondeados para los campos de entrada */
+    border: 1px solid #ccc; /* Borde como el del formulario */
+}
+
+.form-field button {
+    width: 100%; /* El botón ocupa todo el ancho */
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #009688; /* Botón del mismo color que el header */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-field button:hover {
+    background-color: #00796b; /* Color un poco más oscuro al pasar el ratón */
+}
+
+/* Estilo para el recordatorio */
+.reminder {
+    text-align: center; /* Centra el texto del recordatorio */
+    margin-top: 20px;
+}
+
+/* Add more styles as needed */
