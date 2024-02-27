@@ -25,14 +25,16 @@
     
             <div class="form-field">
                 <label for="raza"></label>
-                <select id="catBreed" name="catBreed" class="uniform-select">
-                    <option value="">Raza de gato</option>
-                    <option value="persa">Persa</option>
-                    <option value="siames">Siames</option>
-                    <option value="maine_coon">Maine Coon</option>
-                    <option value="ragdoll">Ragdoll</option>
-                    <option value="angora">Angora</option>
-                    <option value="otro">Otro</option>
+                <select id="catBreed" name="catBreed">
+                    <!-- Opciones de razas de gatos -->
+
+                    <option value="felino">Raza de gato</option>
+                    <option value="felino">Persa</option>
+                    <option value="felino">Siames</option>
+                    <option value="felino">Maine Coon</option>
+                    <option value="felino">Ragdoll</option>
+                    <option value="felino">Angora</option>
+                    <option value="felino">vaca</option>
                 </select>
                 <!-- <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza del gato">-->
             </div>
@@ -58,10 +60,12 @@
                 <label for="foto"></label>
                 <input th:field="*{foto}" type="text" id="foto" placeholder="Ingresa una foto del gato URL">
             </div>
+
             <div class="form-field">
                 <label for="catInfo"></label>
                 <textarea id="catInfo" name="catInfo"> </textarea>
             </div>
+
             <div class="form-field">
                 <button type="submit">Registrar a tu gato</button>
             </div>
@@ -74,4 +78,3 @@
 
     <p class="reminder">Recuerda que puedes registrar a más peludos!!</p>
 </body>
-</html>
