@@ -44,6 +44,8 @@
         </header>
     </div>
 
+    <div id="linea"></div>
+
     <section id="historial" class="infogatuna">
         <!-- Nuevo contenedor para datos-gato y foto-gato -->
         <h2 th:text="${gato.nombre}"></h2>
@@ -77,9 +79,9 @@
             <h3>Nombre del Veterinario</h3>
         </div>
         <ul>
-            <li><a href="#">Registrar felino</a></li>
-            <li><a href="#">Ver tratamientos</a></li>
-            <li><a href="#">Ver servicios</a></li>
+            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>Agregar Felino</span></a></li>
+            <li><a href="#"><span>Ver tratamientos</span></a></li>
+            <li><a href="#"><span>Ver servicios</span></a></li>
         </ul>
     </div>
     

@@ -1,38 +1,84 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"/> 
+    <title>modificar gato</title>
+    <link rel="stylesheet" href="/css/modificargato.css"/> 
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
 </head>
-<body>
-
-    <form th:object="${gato}" th:action="@{/muestra/update/{id}(id=${gato.id})}" method="post">
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre gato">
-        </div>
-
-        <div class="form-group">
-            <label for="raza">Raza</label>
-            <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza del gato">
-        </div>
-
-        <div class="form-group">
-            <label for="edad">Edad</label>
-            <input  th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad del gato">
-        </div>
-
-        <div class="form-group">
-            <label for="foto">Imagen</label>
-            <input th:field="*{foto}" type="text" id="foto" placeholder="Ingresa una foto del gato">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
+<body>          
 
 
-    </form>
+    <div class="inicio">
+        <header class="header contenedor">
+            <img src="/img/logo.png" alt="logo" class="logo">
+            <div class="nav">
+                <div class="opciones">
+                    <a href="">Inicio</a>
+                </div>
+                <div class="opciones">
+                    <a href="">Servicios</a>
+                    <ul class="lista" id="lista1">
+                        <li><a href="">Cirugías</a></li>
+                        <li><a href="">Exámenes</a></li>
+                        <li><a href="">Laboratorio Clínico</a></li>
+                        <li><a href="">Urgencias</a></li>
+                        <li><a href="">Peluquería</a></li>
+                    </ul>
+                </div>
+                <div class="opciones">
+                    <a href="">Contáctanos</a>
+                </div>
+                <div class="opciones">
+                    <a href="">Sobre Nosotros</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cat"></i>
+                </div>
+                <div>
+                    <a href="/muestra/login">
+                        <i class="fas fa-user"></i>
+                    </a>                    
+                </div>
+        </header>
+    </div>
+
+    <div id="linea"></div>
+
+
+
+    <div class="contenedor-modificar">
+        <form th:object="${gato}" th:action="@{/muestra/update/{id}(id=${gato.id})}" method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre gato">
+            </div>
+    
+            <div class="form-group">
+                <label for="raza">Raza</label>
+                <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza del gato">
+            </div>
+    
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input  th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad del gato">
+            </div>
+    
+            <div class="form-group">
+                <label for="foto">Imagen</label>
+                <input th:field="*{foto}" type="text" id="foto" placeholder="Ingresa una foto del gato">
+            </div>
+            
+            <div class="form-group"> <button type="submit" class="btn btn-primary">Enviar</button>   </div>
+           
+    
+    
+        </form>
+    </div>
+   
     
 </body>
 </html>

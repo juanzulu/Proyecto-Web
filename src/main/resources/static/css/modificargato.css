@@ -1,0 +1,217 @@
+html {
+    overflow-x: hidden;
+    background: url(/img/fondo2.png);
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-repeat: round;
+}
+
+
+.header{
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding: 12px;
+    caret-color: transparent;
+}
+
+#linea{
+    border-top: 3px solid #1e897b;
+}
+
+.fa-user:hover {
+    animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        color: #000; /* Color inicial */
+    }
+    to {
+        color: #e98726; /* Nuevo color */
+    }
+}
+
+
+.lista {
+  display: none;
+  list-style: none;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
+  padding-bottom: 8px;
+  background-color: rgba(55,171,152,270);
+  position: absolute;
+  z-index: 999;
+  font-size: 16px;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#lista1 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista1 a:hover{
+    color: orange;
+}
+
+#lista2 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista2 a:hover{
+    color: aqua;
+}
+
+#lista3 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista3 a:hover{
+    color: aqua;
+}
+
+#lista4 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista4 a:hover{
+    color: aqua;
+}
+
+.lista li {
+    margin-bottom: 10px; /* Ajusta el espacio entre elementos aumentando o disminuyendo el valor de margin-bottom */
+  }  
+
+
+.lista {
+    transition: opacity 0.3s ease;
+    opacity: 0; /* La lista comienza invisible */
+  }
+  
+/* Mostrar la lista cuando se hace hover 
+en la opción */
+.opciones:hover .lista{
+    display: block;
+    opacity: 1; /* La lista se vuelve visible */
+}
+
+.inicio{
+    background-color: rgba(55,171,152,255);
+}
+
+.nav{
+    display: flex;
+    gap: 70px;
+    align-items: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 600;
+    z-index: 1000;
+}
+
+.nav a:hover{
+    color: black;
+}
+
+.nav i{
+    color: white;
+}
+
+.nav i:hover{
+    color: black;
+}
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 160px;
+    height: 100px;
+}
+
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+/*-------------------------------------------------------------------------------------------------*/
+
+.contenedor-modificar {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la ventana */
+    background-color: #f0f0f0; /* Color de fondo claro, cámbialo según tu preferencia */
+}
+
+/* Asegúrate de que el formulario ocupe un ancho razonable para la vista */
+form {
+    width: 100%; /* O un ancho específico si prefieres */
+    max-width: 500px; /* Ajusta esto según la anchura deseada para tu formulario */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: agrega sombra para resaltar el formulario */
+    background-color: #F5F5DC; /* Color de fondo para el formulario, asegurando contraste con el contenedor */
+    margin: 20px; /* Añade un poco de margen alrededor del formulario */
+    border-radius: 8px; /* Opcional: bordes redondeados para el formulario */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Asegura que el label esté encima del input */
+    align-items: center; /* Centra los elementos en el eje cruzado */
+    margin-bottom: 20px; /* Espacio entre los grupos de formulario */
+}
+
+label {
+    margin-bottom: 8px; /* Espacio entre el label y el input */
+    text-align: center; /* Asegura que la etiqueta esté centrada sobre el input */
+    width: 100%; /* Opcional: hace que la etiqueta ocupe todo el ancho del contenedor */
+}
+
+button[type="submit"] {
+    padding: 10px 20px; /* Ajusta el tamaño del botón */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    border: none; /* Elimina el borde predeterminado */
+    background-color: #FFCE56; /* Color de fondo del botón, utiliza un color que coincida con tu diseño */
+    color: black; /* Color del texto dentro del botón */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del botón */
+    
+}
+
+
+input[type="text"], input[type="number"] {
+    width: 70%; /* Ajusta al tamaño deseado, o puedes usar un valor fijo en px */
+    padding: 12px; /* Aumenta el relleno para hacer el campo más alto */
+    font-size: 16px; /* Aumenta el tamaño del texto para mejorar la legibilidad */
+    border-radius: 5px; /* Bordes redondeados para los inputs */
+    border: 1px solid #ccc; /* Borde sutil para los inputs */
+    background-color: #B1D8B7; /* Color de fondo para los inputs */
+    margin-bottom: 20px; /* Asegura un espacio entre los campos de entrada */
+}
