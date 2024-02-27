@@ -29,6 +29,19 @@ body{
     border-top: 3px solid #1e897b;
 }
 
+.fa-user:hover {
+    animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        color: #000; /* Color inicial */
+    }
+    to {
+        color: #e98726; /* Nuevo color */
+    }
+}
+
 
 .lista {
   display: none;
@@ -211,6 +224,8 @@ en la opción */
 }
 /*----------------------------------------- Estilo para la tabla ----------------------*/
 .tabla-pacientes {
+    padding-top: 40px;
+    padding-left: 20px;
     width: 70% !important;
     margin-left: 5% !important;
     overflow-x: auto; /* Agregamos una barra de desplazamiento horizontal si es necesario */
@@ -247,4 +262,111 @@ tr:hover {
 
 img {
     width: 150px;
+}
+
+body {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
+}
+
+/* aca comienza el footer*/
+.footer {
+    background-color: rgba(55,171,152,255);
+    color: #fff;
+    padding: 12px;
+    padding-bottom: 0px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%; 
+}
+
+.lista-footer a{
+    text-decoration: none;
+}
+
+.lista-footer a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.fab.fa-instagram {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fab.fa-instagram:hover {
+    color: orange;
+}
+
+.fa-brands.fa-x-twitter {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-x-twitter:hover {
+    color: orange;
+}
+
+.fa-brands.fa-facebook-f {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-facebook-f:hover {
+    color: orange;
+}
+
+.fa-brands.fa-github {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-github:hover {
+    color: orange;
+}
+
+.iconos{
+    width: 30px;
+    padding: 6px;
+}
+  
+
+.comunicacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #171616;
+    flex-wrap: wrap;
+}
+
+.comunicacion a{
+    width: 100%;
+}
+
+.comunicacion a{
+    text-decoration: none;
+}
+
+.logo2{
+    width: 150px;
+    height: 90px;
+}
+
+.copyright{
+    display: flex;
+    margin-bottom: 0px;
+    height: 20px;
+    color: white;
+    font-size: 10px;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }

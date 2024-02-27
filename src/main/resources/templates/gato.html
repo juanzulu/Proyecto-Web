@@ -24,14 +24,14 @@
         <div class="datos-gato">
             <h3>Historial</h3>
             <ul>
-                <li th:each="servicio : ${gato.servicios}">
-                    <span th:text="${servicio}">Servicio: Peluquería</span>
+                <li>
+                    <span>Servicio: Peluquería</span>
                     
                 </li>
                 <!-- Agrega más servicios según sean necesarios -->
             </ul>
             <p><strong>Edad:</strong> <span th:text="${gato.edad}">3</span></p>
-            <p><strong>Última cita:</strong> <span th:text="${gato.ultimaCita}">24/12/24</span></p>
+            <p><strong>Última cita:</strong> <span>24/12/24</span></p>
         </div>
     </section>
 
