@@ -28,7 +28,6 @@
                 <label for="raza"></label>
                 <select id="catBreed" name="catBreed">
                     <!-- Opciones de razas de gatos -->
-
                     <option value="gato">Raza de gato</option>
                     <option value="gato">Persa</option>
                     <option value="gato">Siames</option>
@@ -45,12 +44,13 @@
                 <input  th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad del gato">
             </div>
             <div class="form-field">
-                <label for="catBirthdate">Fecha de nacimiento</label>
+                <label for="catBirthdate"></label>
                 <input type="date" id="catBirthdate" name="catBirthdate">
             </div>
             <div class="form-field">
-                <label for="catNeutered">¿Está Castrado?</label>
+                <label for="catNeutered"></label>
                 <select id="catNeutered" name="catNeutered">
+                    <option value="neutered">¿Esta castrado?</option>
                     <option value="yes">Sí</option>
                     <option value="no">No</option>
                 </select>
@@ -61,8 +61,8 @@
                 <input th:field="*{foto}" type="text" id="foto" placeholder="Ingresa una foto del gato URL">
             </div>
             <div class="form-field">
-                <label for="catInfo">Cuéntanos más información acerca de tu peludito, ejemplos: operaciones, alergias, cirugías</label>
-                <textarea id="catInfo" name="catInfo"></textarea>
+                <label for="catInfo"></label>
+                <textarea id="catInfo" name="catInfo"> </textarea>
             </div>
             <div class="form-field">
                 <button type="submit">Registrar a tu gato</button>
