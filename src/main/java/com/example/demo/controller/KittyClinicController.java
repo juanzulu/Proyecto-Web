@@ -12,7 +12,7 @@ import com.example.demo.service.GatoService;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@RequestMapping("/prueba")
+@RequestMapping("/muestra")
 public class KittyClinicController {
 
     @Autowired
@@ -24,6 +24,14 @@ public class KittyClinicController {
         model.addAttribute("gatos", GatoService.SearchAll());
         return "lista";
     }
+
+
+
+    @GetMapping("/login")
+    public String mostrarPaginaLogin() {
+        return "login";
+    }
+
 
     // http://localhost:8090/prueba/gato/id con id me refiero a un un numero
     // espefico ejm 1 2 3 4 si el numero es mas grande que la base falla
