@@ -46,7 +46,7 @@ public class UsuarioController {
     @GetMapping("/add")
     public String mostrarCrearUsuario(Model model) {
 
-        Usuario usuario = new Usuario(null, null, null, null, null, null);
+        Usuario usuario = new Usuario(null, null, null, null, null, null,null);
 
         model.addAttribute("usuario", usuario);
 
