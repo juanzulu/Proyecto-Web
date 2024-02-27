@@ -166,12 +166,13 @@ en la opción */
 
 .sidebar .profile {
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 100px;
 }
 
 .sidebar .profile img {
     width: 200px; /* Reducimos el ancho de la imagen para que no sea demasiado grande */
-    border-radius: 50%;
+    border-radius: 25%;
     display: block; /* Centramos la imagen */
     margin: 0 auto;
 }
@@ -182,22 +183,32 @@ en la opción */
     margin: 0;
     background-color: #b4d4a4;
     border-radius: 5px;
+    padding-top: 20px;
+    
 }
 
 .sidebar ul li {
     padding: 10px;
     text-align: center;
+    
+   
 }
 
 .sidebar ul li a {
     text-decoration: none;
     color: #333;
 }
-
-.sidebar ul li a:hover {
-    background-color: #ddd;
+.sidebar ul li a span {
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+    color: #000000;
+    display: inline-block; /* Asegura que el span se comporte como inline pero permitiendo padding/margin */
+    padding: 5px; /* Espaciado alrededor del texto para el efecto hover, ajusta según necesidad */
 }
 
+.sidebar ul li a span:hover {
+     
+    color: #000000; /* Color del texto al pasar el ratón, si necesitas cambiarlo */
+}
 /*----------------------------------------- Estilo para la tabla ----------------------*/
 .tabla-pacientes {
     width: 70% !important;
@@ -209,6 +220,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #34ac9c1b;
+    
 }
 
 th {
@@ -228,7 +240,7 @@ tr{
 }
 
 tr:hover {
-    background-color: #eaeaea;
+    background-color: #7c9bdf4e;
 }
 
 /* Estilos para fotos */
