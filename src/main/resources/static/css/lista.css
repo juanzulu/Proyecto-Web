@@ -190,6 +190,7 @@ en la opción */
 .sidebar ul li {
     padding: 10px;
     text-align: center;
+    
    
 }
 
@@ -199,12 +200,13 @@ en la opción */
 }
 .sidebar ul li a span {
     transition: background-color 0.3s, color 0.3s; /* Transición suave */
+    color: #000000;
     display: inline-block; /* Asegura que el span se comporte como inline pero permitiendo padding/margin */
     padding: 5px; /* Espaciado alrededor del texto para el efecto hover, ajusta según necesidad */
 }
 
 .sidebar ul li a span:hover {
-     /* Color de fondo al pasar el ratón */
+     
     color: #000000; /* Color del texto al pasar el ratón, si necesitas cambiarlo */
 }
 /*----------------------------------------- Estilo para la tabla ----------------------*/
@@ -218,6 +220,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #34ac9c1b;
+    
 }
 
 th {
@@ -237,7 +240,7 @@ tr{
 }
 
 tr:hover {
-    background-color: #85b7c64e;
+    background-color: #7c9bdf4e;
 }
 
 /* Estilos para fotos */
