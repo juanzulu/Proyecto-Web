@@ -65,10 +65,10 @@
                     <td th:text="${gato.edad}"></td>
                     <td th:text="${gato.raza}"></td>
                     <td><img th:src="${gato.foto}"></td>
-                    <td><a th:href="@{/prueba/gato/{id}(id=${gato.id})}"><i class="fa-solid fa-circle-info"></i>Ver mas información</a></td>
+                    <td><a th:href="@{/muestra/gato/{id}(id=${gato.id})}"><i class="fa-solid fa-circle-info"></i>Ver mas información</a></td>
                     <td>
-                        <a class="btn btn-info" th:href="@{/prueba/update/{id}(id=${gato.id})}">Editar</a>
-                        <a class="btn btn-danger" th:href="@{/prueba/delete/{id}(id=${gato.id})}">Eliminar</a>
+                        <a class="btn btn-info" th:href="@{/muestra/update/{id}(id=${gato.id})}">Editar</a>
+                        <a class="btn btn-danger" th:href="@{/muestra/delete/{id}(id=${gato.id})}">Eliminar</a>
                     </td>
                 </tr> 
             </tbody>
@@ -82,7 +82,7 @@
             <h3>Nombre del Veterinario</h3>
         </div>
         <ul>
-            <li><a type="button" class="btn btn-primary" th:href="@{/prueba/add}"><span>Agregar Felino</span></a></li>
+            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>Agregar Felino</span></a></li>
             <li><a href="#"><span>Ver tratamientos</span></a></li>
             <li><a href="#"><span>Ver servicios</span></a></li>
         </ul>

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form th:object="${gato}" th:action="@{/prueba/update/{id}(id=${gato.id})}" method="post">
+    <form th:object="${gato}" th:action="@{/muestra/update/{id}(id=${gato.id})}" method="post">
         <div class="form-group">
             <label for="nombre">Nombre</label>
             <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre gato">
