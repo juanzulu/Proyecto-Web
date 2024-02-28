@@ -11,7 +11,6 @@ body{
     background-repeat: round;
 }
 
-
 .header{
     font-family: "Protest Riot", sans-serif;
     font-weight: 100;
@@ -161,57 +160,79 @@ en la opción */
     width: 95%;
     margin: 0 auto;
 }
-/*-------------------------------------------------------------------------------------------------*/
 
-.contenedor-modificar {
-    display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la ventana */
-    background-color: #f0f0f0; /* Color de fondo claro, cámbialo según tu preferencia */
+h1{
+    text-align: center;
 }
 
-/* Asegúrate de que el formulario ocupe un ancho razonable para la vista */
+
+/* Estilos para el contenedor del formulario */
+.contenedordelform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Asegura que el formulario esté centrado verticalmente */
+    margin-top: 30px;
+}
+
 form {
-    width: 100%; /* O un ancho específico si prefieres */
-    max-width: 500px; /* Ajusta esto según la anchura deseada para tu formulario */
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: agrega sombra para resaltar el formulario */
-    background-color: #F5F5DC; /* Color de fondo para el formulario, asegurando contraste con el contenedor */
-    margin: 20px; /* Añade un poco de margen alrededor del formulario */
-    border-radius: 8px; /* Opcional: bordes redondeados para el formulario */
+    background: #F5F5DC; /* Color de fondo del formulario */
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para el formulario */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del formulario */
+    border-radius: 8px; /* Bordes redondeados del formulario */
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column; /* Asegura que el label esté encima del input */
-    align-items: center; /* Centra los elementos en el eje cruzado */
-    margin-bottom: 20px; /* Espacio entre los grupos de formulario */
+/* Estilos uniformes para todos los campos del formulario */
+.form-field {
+    margin-bottom: 20px; /* Espacio entre campos */
 }
 
-label {
-    margin-bottom: 8px; /* Espacio entre el label y el input */
-    text-align: center; /* Asegura que la etiqueta esté centrada sobre el input */
-    width: 100%; /* Opcional: hace que la etiqueta ocupe todo el ancho del contenedor */
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field input[type="date"],
+.form-field select,
+.form-field textarea {
+    width: 100%; /* Hace que los campos ocupen todo el ancho disponible */
+    padding: 8px 10px; /* Padding uniforme para todos los campos */
+    border: 1px solid #ccc; /* Borde uniforme */
+    border-radius: 4px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho final */
 }
 
-button[type="submit"] {
-    padding: 10px 20px; /* Ajusta el tamaño del botón */
-    border-radius: 5px; /* Bordes redondeados para el botón */
-    border: none; /* Elimina el borde predeterminado */
-    background-color: #FFCE56; /* Color de fondo del botón, utiliza un color que coincida con tu diseño */
-    color: black; /* Color del texto dentro del botón */
-    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa por encima del botón */
-    
+.form-field button {
+    width: 100%; /* Botón ocupa todo el ancho */
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #009688; /* Color del botón */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-field button:hover {
+    background-color: #00796b; /* Color del botón al pasar el ratón */
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+input::placeholder, /* Estilo para el texto del placeholder */
+textarea::placeholder {
+    color: #aaa; /* Color del texto del placeholder */
+}
+
+/* Ajustes para el textarea para que coincida con otros campos */
+textarea {
+    resize: vertical; /* Permite al usuario ajustar solo la altura */
+    min-height: 80px; /* Altura mínima para el textarea */
+}
+
+.reminder{
+    text-align: center;
 }
 
 
-input[type="text"], input[type="number"] {
-    width: 70%; /* Ajusta al tamaño deseado, o puedes usar un valor fijo en px */
-    padding: 12px; /* Aumenta el relleno para hacer el campo más alto */
-    font-size: 16px; /* Aumenta el tamaño del texto para mejorar la legibilidad */
-    border-radius: 5px; /* Bordes redondeados para los inputs */
-    border: 1px solid #ccc; /* Borde sutil para los inputs */
-    background-color: #B1D8B7; /* Color de fondo para los inputs */
-    margin-bottom: 20px; /* Asegura un espacio entre los campos de entrada */
+.gatocreado{
+    position: relative;
 }
