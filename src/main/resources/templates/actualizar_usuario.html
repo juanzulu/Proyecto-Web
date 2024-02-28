@@ -9,7 +9,43 @@
     rel="stylesheet">
     <script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
 </head>
-<body>          
+<body>      
+    
+    <div class="inicio">
+        <header class="header contenedor">
+            <img src="../img/logo.png" alt="logo" class="logo">
+            <div class="nav">
+                <div class="opciones">
+                    <a href="">Inicio</a>
+                </div>
+                <div class="opciones">
+                    <a href="">Servicios</a>
+                    <ul class="lista" id="lista1">
+                        <li><a href="">Cirugías</a></li>
+                        <li><a href="">Exámenes</a></li>
+                        <li><a href="">Laboratorio Clínico</a></li>
+                        <li><a href="">Urgencias</a></li>
+                        <li><a href="">Peluquería</a></li>
+                    </ul>
+                </div>
+                <div class="opciones">
+                    <a href="">Contáctanos</a>
+                </div>
+                <div class="opciones">
+                    <a href="">Sobre Nosotros</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cat"></i>
+                </div>
+                <div>
+                    <a href="/muestra/login">
+                        <i class="fas fa-user"></i>
+                    </a>                    
+                </div>
+        </header>
+    </div>
+
+    <div id="linea"></div>
 
     <div class="contenedor-modificar">
         <form th:object="${usuario}" th:action="@{/cliente/update/{id}(id=${usuario.id})}" method="post">

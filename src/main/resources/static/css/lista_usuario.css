@@ -1,0 +1,239 @@
+html {
+    overflow-x: hidden;
+    background: url(/img/fondo2.png);
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-repeat: round;
+}
+
+
+.header{
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding: 12px;
+    caret-color: transparent;
+}
+
+#linea{
+    border-top: 3px solid #1e897b;
+}
+
+.fa-user:hover {
+    animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        color: #000; /* Color inicial */
+    }
+    to {
+        color: #e98726; /* Nuevo color */
+    }
+}
+
+
+.lista {
+  display: none;
+  list-style: none;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
+  padding-bottom: 8px;
+  background-color: rgba(55,171,152,270);
+  position: absolute;
+  z-index: 999;
+  font-size: 16px;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#lista1 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista1 a:hover{
+    color: orange;
+}
+
+#lista2 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista2 a:hover{
+    color: aqua;
+}
+
+#lista3 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista3 a:hover{
+    color: aqua;
+}
+
+#lista4 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista4 a:hover{
+    color: aqua;
+}
+
+.lista li {
+    margin-bottom: 10px; /* Ajusta el espacio entre elementos aumentando o disminuyendo el valor de margin-bottom */
+  }  
+
+
+.lista {
+    transition: opacity 0.3s ease;
+    opacity: 0; /* La lista comienza invisible */
+  }
+  
+/* Mostrar la lista cuando se hace hover 
+en la opción */
+.opciones:hover .lista{
+    display: block;
+    opacity: 1; /* La lista se vuelve visible */
+}
+
+.inicio{
+    background-color: rgba(55,171,152,255);
+}
+
+.nav{
+    display: flex;
+    gap: 70px;
+    align-items: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 600;
+    z-index: 1000;
+}
+
+.nav a:hover{
+    color: black;
+}
+
+.nav i{
+    color: white;
+}
+
+.nav i:hover{
+    color: black;
+}
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 160px;
+    height: 100px;
+}
+
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/* Estilos Generales para la Tabla */
+.table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 3%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+.table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+/* Estilos para los Botones */
+.btn {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.fa-circle-info {
+    margin-right: 5px;
+}
