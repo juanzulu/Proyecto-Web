@@ -170,17 +170,18 @@ en la opción */
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     padding: 1rem;
-    background: #ffffff;
+    background: #F5F5DC;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    background: #FBFBFA;
 }
 
 table thead tr {
     background-color: #009879;
-    color: #ffffff;
+    color: #fff;
 }
 
 table th, table td {
@@ -204,7 +205,7 @@ table tbody tr:hover {
 
 /* Contenedor General de la Información del Usuario */
 div.usuario-info {
-    background-color: #f9f9f9; /* Fondo claro para destacar la información */
+    background-color: #F5F5DC; /* Fondo claro para destacar la información */
     border-radius: 8px; /* Bordes redondeados */
     padding: 20px; /* Espaciado interno para no tocar los bordes */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
@@ -215,14 +216,15 @@ div.usuario-info {
 
 /* Estilización de los Títulos y Textos */
 .usuario-info h2 {
-    color: #007bff; /* Color para el nombre, haciendo que destaque */
+    color: black; /* Color para el nombre, haciendo que destaque */
     margin-bottom: 15px; /* Espacio después del nombre */
+    text-align: center;
 }
 
 .usuario-info p {
     color: #333; /* Color oscuro para contraste */
     margin-bottom: 10px; /* Espaciado entre líneas de información */
-    line-height: 1.5; /* Espaciado vertical para mejor legibilidad */
+    text-align: center;
 }
 
 /* Opcional: Iconos o elementos decorativos */
