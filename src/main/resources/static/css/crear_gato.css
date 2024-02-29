@@ -7,24 +7,156 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     background-repeat: round;
 }
-/* Agrega estilos al header como mencionamos anteriormente */
-header {
-    background-color: #009688; /* Este es solo un ejemplo de color */
-    text-align: center;
-    padding: 10px 0;
+
+
+.header{
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding: 12px;
+    caret-color: transparent;
 }
 
-header h1 {
-    color: white;
-    margin: 0;
+#linea{
+    border-top: 3px solid #1e897b;
 }
+
+.fa-user:hover {
+    animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        color: #000; /* Color inicial */
+    }
+    to {
+        color: #e98726; /* Nuevo color */
+    }
+}
+
+
+.lista {
+  display: none;
+  list-style: none;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
+  padding-bottom: 8px;
+  background-color: rgba(55,171,152,270);
+  position: absolute;
+  z-index: 999;
+  font-size: 16px;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#lista1 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista1 a:hover{
+    color: orange;
+}
+
+#lista2 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista3 a{
+    font-weight: 120;
+    color: black;
+}
+
+
+#lista4 a{
+    font-weight: 120;
+    color: black;
+}
+
+.lista li {
+    margin-bottom: 10px; /* Ajusta el espacio entre elementos aumentando o disminuyendo el valor de margin-bottom */
+  }  
+
+
+.lista {
+    transition: opacity 0.3s ease;
+    opacity: 0; /* La lista comienza invisible */
+  }
+  
+/* Mostrar la lista cuando se hace hover 
+en la opción */
+.opciones:hover .lista{
+    display: block;
+    opacity: 1; /* La lista se vuelve visible */
+}
+
+.inicio{
+    background-color: rgba(55,171,152,255);
+}
+
+.nav{
+    display: flex;
+    gap: 70px;
+    align-items: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 600;
+    z-index: 1000;
+}
+
+.nav a:hover{
+    color: black;
+}
+
+.nav i{
+    color: white;
+}
+
+.nav i:hover{
+    color: black;
+}
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 160px;
+    height: 100px;
+}
+
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
 input, button, select, textarea {
     outline: none;
     font-family: inherit; /* Asegura que los inputs hereden la fuente del body */
 }
+
 /* Estilos para el formulario */
 .contenedordelform {
     display: flex;
@@ -49,7 +181,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin-bottom: 20px; /* Aumenta el espacio entre campos */
+    margin-bottom: 4px; /* Aumenta el espacio entre campos */
 }
 
 .form-field label {
@@ -81,19 +213,158 @@ form {
 /* Ajustes para el botón de envío para que destaque */
 .form-field button {
     padding: 12px;
+    margin-top: 2%;
     border-radius: 5px;
     background-color: #009688;
     color: white;
     font-size: 1em; /* Aumenta el tamaño de la fuente para mejorar la legibilidad */
     transition: background-color 0.3s; /* Suaviza la transición de color */
+    cursor: pointer;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .form-field button:hover {
-    background-color: #00796b;
+    background-color: #17b8a5;
 }
 
 /* Mejora la legibilidad del recordatorio */
 .reminder {
     font-style: italic; /* Añade un estilo cursivo */
     color: #666; /* Suaviza el color para menos distracción */
+    text-align: center;
+    margin-top: 0;
+}
+
+.gatoform{
+    position: absolute;
+    margin-left: 60%;
+    margin-top: 20%;
+}
+
+.comentariogato{
+    position: absolute;
+    margin-left: 65%;
+    margin-top: 0%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 300px;
+    display: inline-block;
+    filter: 
+      drop-shadow(0px 2px 0px rgba(255, 149, 0, 0.815)) 
+      drop-shadow(2px 0px 0px rgba(255, 149, 0, 0.815)) 
+      drop-shadow(-2px 0px 0px rgba(255, 149, 0, 0.815)) 
+      drop-shadow(0px -2px 0px rgba(255, 149, 0, 0.815)) ;
+}
+
+/* ------------------------------------------------------------------------------------------*/
+
+/* aca comienza el footer*/
+.footer {
+    background-color: rgba(55,171,152,255);
+    color: #fff;
+    padding: 12px;
+    padding-bottom: 0px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+
+}
+
+.lista-footer a{
+    text-decoration: none;
+}
+
+.lista-footer a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.fab.fa-instagram {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fab.fa-instagram:hover {
+    color: orange;
+}
+
+.fa-brands.fa-x-twitter {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-x-twitter:hover {
+    color: orange;
+}
+
+.fa-brands.fa-facebook-f {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-facebook-f:hover {
+    color: orange;
+}
+
+.fa-brands.fa-github {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-github:hover {
+    color: orange;
+}
+
+.iconos{
+    width: 30px;
+    padding: 6px;
+}
+  
+
+.comunicacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #171616;
+    flex-wrap: wrap;
+}
+
+.comunicacion a{
+    width: 100%;
+}
+
+.comunicacion a{
+    text-decoration: none;
+}
+
+.logo2{
+    width: 150px;
+    height: 90px;
+}
+
+.copyright{
+    display: flex;
+    margin-bottom: 0px;
+    height: 20px;
+    color: white;
+    font-size: 10px;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }

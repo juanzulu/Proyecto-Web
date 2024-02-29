@@ -146,8 +146,10 @@ en la opción */
 
 .fondo_principal {
     border-top: 3px solid rgba(227,202,152,255);
-    border-bottom: 3px solid black;
+    border-top: 3px solid #1e897b;
     height: 430px;
+    caret-color: transparent;
+    filter: brightness(70%) saturate(100%);
 }
 
 .slider-wrapper{
