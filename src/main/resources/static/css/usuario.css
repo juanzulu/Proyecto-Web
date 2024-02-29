@@ -1,0 +1,231 @@
+html {
+    overflow-x: hidden;
+    background: url(/img/fondo2.png);
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-repeat: round;
+}
+
+
+.header{
+    font-family: "Protest Riot", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding: 12px;
+    caret-color: transparent;
+}
+
+#linea{
+    border-top: 3px solid #1e897b;
+}
+
+.fa-user:hover {
+    animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        color: #000; /* Color inicial */
+    }
+    to {
+        color: #e98726; /* Nuevo color */
+    }
+}
+
+
+.lista {
+  display: none;
+  list-style: none;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
+  padding-bottom: 8px;
+  background-color: rgba(55,171,152,270);
+  position: absolute;
+  z-index: 999;
+  font-size: 16px;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#lista1 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista1 a:hover{
+    color: orange;
+}
+
+#lista2 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista2 a:hover{
+    color: aqua;
+}
+
+#lista3 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista3 a:hover{
+    color: aqua;
+}
+
+#lista4 a{
+    font-weight: 120;
+    color: black;
+}
+
+#lista4 a:hover{
+    color: aqua;
+}
+
+.lista li {
+    margin-bottom: 10px; /* Ajusta el espacio entre elementos aumentando o disminuyendo el valor de margin-bottom */
+  }  
+
+
+.lista {
+    transition: opacity 0.3s ease;
+    opacity: 0; /* La lista comienza invisible */
+  }
+  
+/* Mostrar la lista cuando se hace hover 
+en la opción */
+.opciones:hover .lista{
+    display: block;
+    opacity: 1; /* La lista se vuelve visible */
+}
+
+.inicio{
+    background-color: rgba(55,171,152,255);
+}
+
+.nav{
+    display: flex;
+    gap: 70px;
+    align-items: center;
+}
+
+.nav a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 600;
+    z-index: 1000;
+}
+
+.nav a:hover{
+    color: black;
+}
+
+.nav i{
+    color: white;
+}
+
+.nav i:hover{
+    color: black;
+}
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 160px;
+    height: 100px;
+}
+
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* Estilos para la Tabla */
+.tabla-contenedor {
+    overflow-x: auto;
+    margin: 20px auto;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    background: #ffffff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.foto-mascota {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/* Contenedor General de la Información del Usuario */
+div.usuario-info {
+    background-color: #f9f9f9; /* Fondo claro para destacar la información */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno para no tocar los bordes */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    max-width: 400px; /* Limita el ancho para mejorar la legibilidad */
+    margin: 20px auto; /* Centra el contenedor */
+    font-family: 'Arial', sans-serif; /* Asegura una tipografía limpia */
+}
+
+/* Estilización de los Títulos y Textos */
+.usuario-info h2 {
+    color: #007bff; /* Color para el nombre, haciendo que destaque */
+    margin-bottom: 15px; /* Espacio después del nombre */
+}
+
+.usuario-info p {
+    color: #333; /* Color oscuro para contraste */
+    margin-bottom: 10px; /* Espaciado entre líneas de información */
+    line-height: 1.5; /* Espaciado vertical para mejor legibilidad */
+}
+
+/* Opcional: Iconos o elementos decorativos */
+.usuario-info i {
+    margin-right: 5px; /* Espacio entre icono y texto, si decides añadir iconos */
+}
