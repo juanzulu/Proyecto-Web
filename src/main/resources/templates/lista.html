@@ -38,7 +38,7 @@
                     <i class="fa-solid fa-cat"></i>
                 </div>
                 <div>
-                    <a href="/muestra/login">
+                    <a href="/cliente/login">
                         <i class="fas fa-user"></i>
                     </a>                    
                 </div>
@@ -48,6 +48,8 @@
     <div id="linea"></div>
 
     <br>
+
+    <h1 class="titulo">Lista de Pacientes</h1>
 
     <div class="tabla-pacientes">
         <table>
@@ -66,8 +68,8 @@
                     <td th:text="${gato.nombre}"></td>
                     <td th:text="${gato.edad}"></td>
                     <td th:text="${gato.raza}"></td>
-                    <td><img th:src="${gato.foto}"></td>
-                    <td><a th:href="@{/muestra/gato/{id}(id=${gato.id})}"><i class="fa-solid fa-circle-info"></i>Ver mas información</a></td>
+                    <td><img class="gatos" th:src="${gato.foto}"></td>
+                    <td><a class="info" th:href="@{/muestra/gato/{id}(id=${gato.id})}"><i class="fa-solid fa-circle-info"></i>Ver más información</a></td>
                     <td>
                         <a class="btn btn-info" th:href="@{/muestra/update/{id}(id=${gato.id})}">Editar</a>
                         <a class="btn btn-danger" th:href="@{/muestra/delete/{id}(id=${gato.id})}">Eliminar</a>

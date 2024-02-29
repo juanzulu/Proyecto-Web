@@ -76,26 +76,15 @@ body{
     color: black;
 }
 
-#lista2 a:hover{
-    color: aqua;
-}
-
 #lista3 a{
     font-weight: 120;
     color: black;
 }
 
-#lista3 a:hover{
-    color: aqua;
-}
 
 #lista4 a{
     font-weight: 120;
     color: black;
-}
-
-#lista4 a:hover{
-    color: aqua;
 }
 
 .lista li {
@@ -166,14 +155,14 @@ en la opción */
 
 /* Estilos para la barra lateral */
 .sidebar {
-    height: 70%;
     width: 250px;
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 126px;
+    margin-top: 20%;
     padding-top: 20px;
     background-color: #34ac9b;
+    padding-bottom: 2%;
 }
 
 .sidebar .profile {
@@ -193,15 +182,19 @@ en la opción */
     list-style-type: none;
     padding: 0;
     margin: 0;
+    width: 80%;
+    margin: 0 auto;
     background-color: #b4d4a4;
-    border-radius: 5px;
-    padding-top: 20px;
-    
 }
 
 .sidebar ul li {
     padding: 10px;
+    border: solid 1px black;
     text-align: center;
+}
+
+.sidebar ul li:hover {
+    background-color: #86ca65;
 }
 
 .sidebar ul li a {
@@ -245,20 +238,79 @@ th {
 td {
     border: 1px solid  #a06a28;
     padding: 10px;
+    text-align: center;
+}
+
+.info{
+    color: black;
+    text-decoration: none;
+}
+
+.btn-info{
+    background-color: rgb(88, 88, 201);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.btn-danger{
+    background-color: rgb(201, 88, 88);
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+
+.btn-info:hover{
+    background-color: rgb(64, 107, 224);
+}
+
+
+.btn-danger:hover{
+    background-color: rgb(228, 36, 36);
+}
+
+
+
+.info:hover{
+    color: rgb(161, 97, 38);
+}
+
+thead{
+    border: 3px solid  #a06a28;
 }
 
 tr{
     background-color: #e2ceb8;
 }
 
-tr:hover {
-    background-color: #7c9bdf4e;
+
+.fa-circle-info{
+    color: #ac6834;
+    font-size: 15px;
+    padding: 6px;
+
 }
 
 /* Estilos para fotos */
-
-img {
+.gatos {
     width: 150px;
+    border-radius: 50%;
+    border: 5px solid #aca034;
 }
 
 body {
@@ -353,6 +405,17 @@ body {
 .logo2{
     width: 150px;
     height: 90px;
+}
+
+
+h1{
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 0px;
+    margin-left: 33%;
+    text-align: left;
+    color: black;
+    font-family: 'Pacifico', cursive;
 }
 
 .copyright{
