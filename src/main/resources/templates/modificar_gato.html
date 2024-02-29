@@ -51,36 +51,75 @@
 
 
     <br><br><br>
+    <img class="gatotier2" src="https://media-public.canva.com/XwNS0/MAE2hoXwNS0/1/s.png" alt="gato2">
+    <img class="pelota" src="https://media-public.canva.com/3cOTo/MAFjDf3cOTo/1/tl.png" alt="pelota">
     <div class="contenedor-modificar">
         <form th:object="${gato}" th:action="@{/muestra/update/{id}(id=${gato.id})}" method="post">
             <div class="form-group">
-                <label for="nombre">Nombre</label>
+                <label for="nombre">Nombre:</label>
                 <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre gato">
             </div>
-    
+            <img class="gatotier" src="https://media-public.canva.com/7o3nc/MAFsqp7o3nc/1/t.png" alt="gato">
+
+
             <div class="form-group">
-                <label for="raza">Raza</label>
+                <label for="raza">Raza:</label>
                 <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza del gato">
             </div>
     
             <div class="form-group">
-                <label for="edad">Edad</label>
+                <label for="edad">Edad:</label>
                 <input  th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad del gato">
             </div>
-    
+
             <div class="form-group">
-                <label for="foto">Imagen</label>
+                <label for="foto">Imagen:</label>
                 <input th:field="*{foto}" type="text" id="foto" placeholder="Ingresa una foto del gato">
             </div>
             
-            <div class="form-group"> <button type="submit" class="btn btn-primary">Enviar</button>   </div>
+            <div class="form-group"> <button type="submit" class="send">Enviar</button>  </div>
            
-    
-    
         </form>
     </div>
 
-    <img class="gatotier" src="https://media-public.canva.com/7o3nc/MAFsqp7o3nc/1/t.png" alt="gato">
-    
+    <footer class="footer">
+
+        <div>
+            <ul class="lista-footer">
+                <li><a href="">Aviso legal</a></li>
+                <li><a href="">Politica de Privacidad</a></li>
+                <li><a href="">Politica de Cookies</a></li>
+                <li><a href="">Politica de Calidad</a></li>
+            </ul>
+        </div>
+
+
+        <div class="comunicacion">
+            <div>
+                <a href="#top" class="scroll-to-top"><img src="/img/logo.png" alt="logo2" class="logo2"></a>
+            </div>
+
+            <div class="redes">
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.github.com/"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.twitter.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <ul class="lista-footer">
+                <li><a href="">KittyClinic</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+    </footer>
+    <div class="copyright">
+        <p><strong>© 2024 Universidad Javeriana. Todos los derechos reservados.</p></strong>
+    </div>
+
 </body>
 </html>

@@ -144,7 +144,7 @@ en la opción */
 }
 
 .contenedor{
-    max-width: 1200px;
+    max-width: 1000px;
     width: 95%;
     margin: 0 auto;
 }
@@ -166,73 +166,195 @@ h1{
 }
 
 
-/* Estilos para el contenedor del formulario */
-.contenedordelform {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh; /* Asegura que el formulario esté centrado verticalmente */
-    margin-top: 30px;
-}
+/*------------------------------------------------------*/
 
 form {
     padding: 20px;
     background: #F5F5DC; /* Color de fondo del formulario */
     width: 100%;
-    max-width: 400px; /* Ancho máximo para el formulario */
+    max-width: 450px; /* Ancho máximo para el formulario */
     margin: 0 auto; /* Centra el formulario horizontalmente */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del formulario */
     border-radius: 8px; /* Bordes redondeados del formulario */
 }
 
-/* Estilos uniformes para todos los campos del formulario */
-.form-field {
-    margin-bottom: 20px; /* Espacio entre campos */
-}
-
-.form-field input[type="text"],
-.form-field input[type="number"],
-.form-field input[type="date"],
-.form-field select,
-.form-field textarea {
-    width: 100%; /* Hace que los campos ocupen todo el ancho disponible */
-    padding: 8px 10px; /* Padding uniforme para todos los campos */
-    border: 1px solid #ccc; /* Borde uniforme */
-    border-radius: 4px; /* Bordes redondeados */
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho final */
-}
-
-.form-field button {
-    width: 100%; /* Botón ocupa todo el ancho */
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #009688; /* Color del botón */
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.form-field button:hover {
-    background-color: #00796b; /* Color del botón al pasar el ratón */
-}
-
-/* Estilos adicionales para mejorar la apariencia */
-input::placeholder, /* Estilo para el texto del placeholder */
-textarea::placeholder {
-    color: #aaa; /* Color del texto del placeholder */
-}
-
-/* Ajustes para el textarea para que coincida con otros campos */
-textarea {
-    resize: vertical; /* Permite al usuario ajustar solo la altura */
-    min-height: 80px; /* Altura mínima para el textarea */
-}
-
-.reminder{
-    text-align: center;
-}
-
-
 .gatocreado{
     position: relative;
+}
+
+
+/* Estilos para el contenedor del formulario */
+.contenedor-modificar {
+    max-width: 500px; /* Ancho máximo del formulario */
+    margin: auto; /* Centrar el formulario horizontalmente */
+    padding: 2px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del formulario */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilos para los grupos de campos */
+.form-group {
+    text-align: center;
+    margin-bottom: 10px; /* Espaciado entre grupos de campos */
+}
+
+/* Estilos para las etiquetas */
+label {
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    display: block; /* Mostrar las etiquetas en una línea separada */
+    padding: 4px;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="number"] {
+    font-style: italic;
+    width: 95%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+/* Estilos para el botón */
+.send {
+    margin-top: 4%;
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #5591d1; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor de puntero al pasar por encima */
+}
+
+/* Estilos para el botón al pasar el mouse por encima */
+.send:hover {
+    background-color: #1c63af; /* Color de fondo al pasar el mouse */
+}
+
+
+.gatotier{
+    position: absolute;
+    margin-left: 38%;
+    margin-top: 8%;
+}
+
+.gatotier2{
+    position: absolute;
+    height: 200px;
+    padding-left: 15%;
+}
+
+.pelota{
+    position: absolute;
+    height: 200px;
+    margin-left: 12%;
+    margin-top: 13%;
+}
+
+
+
+/* aca comienza el footer*/
+.footer {
+    background-color: rgba(55,171,152,255);
+    color: #fff;
+    padding: 12px;
+    padding-bottom: 0px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+
+}
+
+.lista-footer a{
+    text-decoration: none;
+}
+
+.lista-footer a:hover{
+    color: rgb(255, 255, 255);
+}
+
+.fab.fa-instagram {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fab.fa-instagram:hover {
+    color: orange;
+}
+
+.fa-brands.fa-x-twitter {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-x-twitter:hover {
+    color: orange;
+}
+
+.fa-brands.fa-facebook-f {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-facebook-f:hover {
+    color: orange;
+}
+
+.fa-brands.fa-github {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-github:hover {
+    color: orange;
+}
+
+.iconos{
+    width: 30px;
+    padding: 6px;
+}
+  
+
+.comunicacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #171616;
+    flex-wrap: wrap;
+}
+
+.comunicacion a{
+    width: 100%;
+}
+
+.comunicacion a{
+    text-decoration: none;
+}
+
+.logo2{
+    width: 150px;
+    height: 90px;
+}
+
+.copyright{
+    display: flex;
+    margin-bottom: 0px;
+    height: 20px;
+    color: white;
+    font-size: 10px;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
