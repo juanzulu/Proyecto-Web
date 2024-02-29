@@ -47,26 +47,21 @@
     <div id="linea"></div>
 
     <section id="historial" class="infogatuna">
-        <!-- Nuevo contenedor para datos-gato y foto-gato -->
-        <h2 th:text="${gato.nombre}"></h2>
-        <div class="contenedor-gatos">
-            <div class="foto-gato">
-                <img th:src="${gato.foto}">
+        <div class="part1">
+            <!-- Nuevo contenedor para datos-gato y foto-gato -->
+            <h2 th:text="${gato.nombre}"></h2>
+            <div class="contenedor-gatos">
+                <div class="foto-gato">
+                    <img th:src="${gato.foto}">
+                </div>
             </div>
-            <div class="datos-gato">
-                <h3>Historial</h3>
-                <ul>
-                    <li><p> Peluquería</p> </li>
-                    <li><p>Cirugia </p></li>
-                    <li><p>Vacunacion</p></li>
-                    <!-- Agrega más servicios según sean necesarios -->
-                </ul>
+            <!-- contenedor edad-gato se mantiene aquí -->
+            <div class="edad-gato">
+                <p><strong>Edad:</strong> <span th:text="${gato.edad}"></span></p>
+                <p><strong>Última cita:</strong> <span>24/12/24</span></p>
             </div>
         </div>
-        <!-- contenedor edad-gato se mantiene aquí -->
-        <div class="edad-gato">
-            <p><strong>Edad:</strong> <span th:text="${gato.edad}"></span></p>
-            <p><strong>Última cita:</strong> <span>24/12/24</span></p>
+        <div class="part2">
         </div>
     </section>
     
@@ -80,7 +75,7 @@
         </div>
         <ul>
             <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>Agregar Felino</span></a></li>
-            <li><a href="#"><span>Ver tratamientos</span></a></li>
+            <li><a href="/muestra/lista"><span>Ver lista de gatos</span></a></li>
             <li><a href="#"><span>Ver servicios</span></a></li>
         </ul>
     </div>
