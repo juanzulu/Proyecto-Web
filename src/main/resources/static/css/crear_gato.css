@@ -21,32 +21,49 @@ header h1 {
     color: white;
     margin: 0;
 }
-
+input, button, select, textarea {
+    outline: none;
+    font-family: inherit; /* Asegura que los inputs hereden la fuente del body */
+}
 /* Estilos para el formulario */
 .contenedordelform {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* Ajusta la altura para que el formulario esté centrado verticalmente */
+    min-height: 80vh; /* Esto ayuda a centrar el formulario verticalmente */
+    padding: 20px; /* Añade un poco de espacio alrededor del formulario */
 }
 
 form {
-    border: 1px solid #ccc; /* Borde gris suave */
-    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid #ccc;
+    border-radius: 10px;
     padding: 20px;
-    background: #F5F5DC; /* Fondo blanco para el formulario */
-    width: 300px; /* Ancho fijo para el tamaño del cuadrado */
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Sombra suave para dar profundidad */
+    background: #F5F5DC;
+    width: calc(100% - 40px); /* Ajusta el ancho del formulario según el padding */
+    max-width: 500px; /* Establece un ancho máximo para el formulario */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Estilos para los campos del formulario */
+/* Estilos para mejorar la apariencia de los campos y etiquetas del formulario */
 .form-field {
-    margin-bottom: 15px; /* Espacio entre campos */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 20px; /* Aumenta el espacio entre campos */
 }
 
 .form-field label {
-    display: block; /* Hace que la etiqueta sea de bloque */
-    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo de entrada */
+    margin-bottom: 8px; /* Aumenta el espacio entre la etiqueta y el campo */
+    font-weight: bold; /* Hace que la etiqueta sea más prominente */
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea,
+.form-field button {
+    margin: 0; /* Restablece cualquier margen */
+    padding: 10px; /* Ajusta el padding según sea necesario, pero mantenlo uniforme */
+    box-sizing: border-box; /* Asegura que el padding no expanda los elementos fuera del contenedor */
 }
 
 .form-field input[type="text"],
@@ -54,30 +71,29 @@ form {
 .form-field input[type="date"],
 .form-field select,
 .form-field textarea {
-    width: 100%; /* Hace que los campos ocupen todo el ancho del formulario */
-    padding: 10px;
-    border-radius: 5px; /* Bordes redondeados para los campos de entrada */
-    border: 1px solid #ccc; /* Borde como el del formulario */
+    width: 98%; /* Asegura que los campos ocupen todo el ancho disponible */
+    padding: 12px; /* Aumenta el padding para una mejor interacción */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Asegura un fondo blanco para los campos */
 }
 
+/* Ajustes para el botón de envío para que destaque */
 .form-field button {
-    width: 100%; /* El botón ocupa todo el ancho */
-    padding: 10px;
+    padding: 12px;
     border-radius: 5px;
-    background-color: #009688; /* Botón del mismo color que el header */
+    background-color: #009688;
     color: white;
-    border: none;
-    cursor: pointer;
+    font-size: 1em; /* Aumenta el tamaño de la fuente para mejorar la legibilidad */
+    transition: background-color 0.3s; /* Suaviza la transición de color */
 }
 
 .form-field button:hover {
-    background-color: #00796b; /* Color un poco más oscuro al pasar el ratón */
+    background-color: #00796b;
 }
 
-/* Estilo para el recordatorio */
+/* Mejora la legibilidad del recordatorio */
 .reminder {
-    text-align: center; /* Centra el texto del recordatorio */
-    margin-top: 20px;
+    font-style: italic; /* Añade un estilo cursivo */
+    color: #666; /* Suaviza el color para menos distracción */
 }
-
-/* Add more styles as needed */
