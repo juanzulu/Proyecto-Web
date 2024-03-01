@@ -123,6 +123,8 @@ body{
     background-color: #ffce56;
     border: 1px solid  #ffce56; /* Borde del campo de entrada */
     border-radius: 5px; /* Borde redondeado */
+    font-family: "Noto Sans JP", sans-serif;
+    
 }
 
 .login__container__button:hover{
