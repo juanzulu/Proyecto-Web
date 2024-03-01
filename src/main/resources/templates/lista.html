@@ -92,8 +92,8 @@
                     <td><img class="gatos" th:src="${gato.foto}"></td>
                     <td><a class="info" th:href="@{/muestra/gato/{id}(id=${gato.id})}"><i class="fa-solid fa-circle-info"></i>Ver más información</a></td>
                     <td>
-                        <a class="btn btn-info" th:href="@{/muestra/update/{id}(id=${gato.id})}">Editar</a>
-                        <a class="btn btn-danger" th:href="@{/muestra/delete/{id}(id=${gato.id})}">Eliminar</a>
+                        <a class="btn btn-info" th:href="@{/muestra/update/{id}(id=${gato.id})}"><img src="/img/editar.png" alt=""></a>
+                        <a class="btn btn-danger" th:href="@{/muestra/delete/{id}(id=${gato.id})}"><img src="/img/trash.png" alt=""></a>
                     </td>
                 </tr> 
             </tbody>
@@ -115,14 +115,13 @@
             <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>  <p>Ver tratamientos</p><img src="/img/servicios.png" alt="Servicios"></span></a></li>
         </ul>
     </div>
-    <div class="vineta" style="position: fixed; right: 10px; top: 50%; cursor: pointer; z-index: 1000; background-color: #2f3559; color: white; padding: 15px; border-radius: 50%; text-align: center; font-size: 30px;">
+    <div class="vineta" style="position: fixed; right: 10px; top: 50%; cursor: pointer; z-index: 1000; background-color: #1b224f; color: white; padding: 15px; border-radius: 50%; text-align: center; font-size: 30px;">
         <i class="fas fa-cat"></i>
     </div>
     
  
    
-
-    <footer class="footer">
+    <!----------    <footer class="footer">
 
         <div>
             <ul class="lista-footer">
@@ -159,7 +158,8 @@
             <p><strong>© 2024 Universidad Javeriana. Todos los derechos reservados.</p></strong>
         </div>
     </footer>
-   
+               -->
+    
 
 </body>
 </html>
