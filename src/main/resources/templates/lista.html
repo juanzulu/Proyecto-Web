@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla y Barra Lateral</title>
     <link rel="stylesheet" href="/css/lista.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
 <script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebar = document.querySelector('.sidebar');
+        const vineta = document.querySelector('.vineta');
+
+        // Mostrar sidebar y ocultar viñeta cuando el cursor pasa por encima de la viñeta
+        vineta.addEventListener('mouseenter', function() {
+            sidebar.classList.add('show');
+            vineta.style.display = 'none'; // Oculta la viñeta
+        });
+
+        // Ocultar sidebar y mostrar viñeta cuando el mouse sale del área del sidebar
+        sidebar.addEventListener('mouseleave', function() {
+            sidebar.classList.remove('show');
+            vineta.style.display = 'block'; // Muestra la viñeta
+        });
+    });
+</script>
+
    
 </head>
 <body>
@@ -86,12 +107,20 @@
             <h3>Nombre del Veterinario</h3>
         </div>
         <ul>
-            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>Agregar Felino</span></a></li>
-            <li><a href="#"><span>Ver tratamientos</span></a></li>
-            <li><a href="#"><span>Ver servicios</span></a></li>
+            
+            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Agregar felino</p> <img src="/img/agregarfelino.png" alt="agregar felino"></span></a></li>
+            
+            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Ver tratamientos</p> <img src="/img/tratamientos.png" alt="tramamiento"></span></a></li>
+           
+            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>  <p>Ver tratamientos</p><img src="/img/servicios.png" alt="Servicios"></span></a></li>
         </ul>
     </div>
+    <div class="vineta" style="position: fixed; right: 10px; top: 50%; cursor: pointer; z-index: 1000; background-color: #34ac9b; color: white; padding: 15px; border-radius: 50%; text-align: center; font-size: 30px;">
+        <i class="fas fa-cat"></i>
+    </div>
     
+ 
+   
 
     <footer class="footer">
 
@@ -126,11 +155,11 @@
                 <li><a href="">Preguntas Frecuentes</a></li>
             </ul>
         </div>
-
+        <div class="copyright">
+            <p><strong>© 2024 Universidad Javeriana. Todos los derechos reservados.</p></strong>
+        </div>
     </footer>
-    <div class="copyright">
-        <p><strong>© 2024 Universidad Javeriana. Todos los derechos reservados.</p></strong>
-    </div>
+   
 
 </body>
 </html>

@@ -159,10 +159,37 @@ en la opción */
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 20%;
+    margin-top: 11%;
     padding-top: 20px;
     background-color: #34ac9b;
     padding-bottom: 2%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    font-family: sans-serif; /* Aplica la fuente sans-serif a todos los elementos dentro del sidebar */
+}
+.sidebar {
+    font-family: 'Pacifico', cursive;
+    font-size: 17px;
+}
+
+.h3{
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+/* Estilo para la viñeta */
+.vineta {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #34ac9b;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000; /* Asegura que la viñeta esté sobre otros elementos */
 }
 
 .sidebar .profile {
@@ -184,18 +211,14 @@ en la opción */
     margin: 0;
     width: 80%;
     margin: 0 auto;
-    background-color: #b4d4a4;
+  
 }
 
 .sidebar ul li {
-    padding: 10px;
-    border: solid 1px black;
     text-align: center;
 }
 
-.sidebar ul li:hover {
-    background-color: #86ca65;
-}
+
 
 .sidebar ul li a {
     text-decoration: none;
@@ -203,7 +226,7 @@ en la opción */
 }
 .sidebar ul li a span {
     transition: background-color 0.3s, color 0.3s; /* Transición suave */
-    color: #000000;
+    color: whitesmoke;
     display: inline-block; /* Asegura que el span se comporte como inline pero permitiendo padding/margin */
     padding: 5px; /* Espaciado alrededor del texto para el efecto hover, ajusta según necesidad */
 }
@@ -211,6 +234,15 @@ en la opción */
 .sidebar ul li a span:hover {
      
     color: #000000; /* Color del texto al pasar el ratón, si necesitas cambiarlo */
+}
+
+.sidebar ul li a span img {
+    transition: transform 0.3s ease; /* Añade una transición suave para el efecto de escala */
+    transform-origin: center bottom;
+}
+
+.sidebar ul li a span:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen un 10% */
 }
 
 
