@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
 html {
     overflow-x: hidden;
     background: #f0d5bb;
@@ -173,8 +174,9 @@ en la opción */
     font-size: 17px;
 }
 
-.h3{
-    font-family: 'Roboto', sans-serif;
+h3{
+    font-family: sans-serif;
+    color: #fff8f4;
 }
 
 .sidebar.show {
@@ -224,10 +226,6 @@ en la opción */
 
 
 
-.sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-}
 .sidebar ul li a span {
     transition: background-color 0.3s, color 0.3s; /* Transición suave */
     color: #fff8f4;
@@ -235,10 +233,7 @@ en la opción */
     padding: 5px; /* Espaciado alrededor del texto para el efecto hover, ajusta según necesidad */
 }
 
-.sidebar ul li a span:hover {
-     
-    color: #000000; /* Color del texto al pasar el ratón, si necesitas cambiarlo */
-}
+
 
 .sidebar ul li a span img {
     transition: transform 0.3s ease; /* Añade una transición suave para el efecto de escala */
@@ -247,6 +242,15 @@ en la opción */
 
 .sidebar ul li a span:hover img {
     transform: scale(1.1); /* Aumenta el tamaño de la imagen un 10% */
+}
+
+.sidebar ul li a span {
+    transition: transform 0.3s ease; /* Añade una transición suave para el efecto de escala */
+    transform-origin: center bottom;
+}
+
+.sidebar ul li a span:hover {
+    transform: scale(1.1); /* Aumenta el tamaño del span un 10%, afectando tanto al texto como a la imagen */
 }
 
 
