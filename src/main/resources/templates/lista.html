@@ -12,21 +12,30 @@
 <script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const sidebar = document.querySelector('.sidebar');
-        const vineta = document.querySelector('.vineta');
+    const sidebar = document.querySelector('.sidebar');
+    const vineta = document.querySelector('.vineta');
 
-        // Mostrar sidebar y ocultar viñeta cuando el cursor pasa por encima de la viñeta
-        vineta.addEventListener('mouseenter', function() {
-            sidebar.classList.add('show');
-            vineta.style.display = 'none'; // Oculta la viñeta
-        });
-
-        // Ocultar sidebar y mostrar viñeta cuando el mouse sale del área del sidebar
-        sidebar.addEventListener('mouseleave', function() {
-            sidebar.classList.remove('show');
-            vineta.style.display = 'block'; // Muestra la viñeta
-        });
+    // Mostrar sidebar y ocultar viñeta cuando el cursor pasa por encima de la viñeta
+    vineta.addEventListener('mouseenter', function() {
+        sidebar.classList.add('show');
+        vineta.style.display = 'none'; // Oculta la viñeta inmediatamente
     });
+
+    // Espera a que la transición de la sidebar termine para mostrar la viñeta
+    sidebar.addEventListener('transitionend', function(event) {
+        if (event.propertyName === 'transform' && !sidebar.classList.contains('show')) {
+            vineta.style.display = 'block'; // Muestra la viñeta solo después de que la sidebar se haya ocultado completamente
+        }
+    });
+
+    // Ocultar sidebar cuando el mouse sale del área del sidebar
+    // Nota: Se elimina el evento 'mouseleave' directo que mostraba la viñeta
+    sidebar.addEventListener('mouseleave', function() {
+        sidebar.classList.remove('show');
+        // No necesitas cambiar la viñeta aquí, la lógica del 'transitionend' se encarga de ello
+    });
+});
+
 </script>
 
    
@@ -37,7 +46,7 @@
             <img src="../img/logo.png" alt="logo" class="logo">
             <div class="nav">
                 <div class="opciones">
-                    <a href="">Inicio</a>
+                    <a th:href="@{/}">Inicio</a>
                 </div>
                 <div class="opciones">
                     <a href="">Servicios</a>
@@ -80,8 +89,8 @@
                     <th>Edad</th>
                     <th>Raza</th>
                     <th>Foto</th>
-                    <th>información</th>
-                    <th>Opciones</th>
+                    
+                    
                 </tr>
             </thead>
             <tbody>
@@ -90,10 +99,11 @@
                     <td th:text="${gato.edad}"></td>
                     <td th:text="${gato.raza}"></td>
                     <td><img class="gatos" th:src="${gato.foto}"></td>
-                    <td><a class="info" th:href="@{/muestra/gato/{id}(id=${gato.id})}"><i class="fa-solid fa-circle-info"></i>Ver más información</a></td>
+                    <td><a class="info" th:href="@{/muestra/gato/{id}(id=${gato.id})}"><img src="/img/informacion.png" alt=""></a></td>
                     <td>
                         <a class="btn btn-info" th:href="@{/muestra/update/{id}(id=${gato.id})}"><img src="/img/editar.png" alt=""></a>
-                        <a class="btn btn-danger" th:href="@{/muestra/delete/{id}(id=${gato.id})}"><img src="/img/trash.png" alt=""></a>
+                    </td>
+                    <td><a class="btn btn-danger" th:href="@{/muestra/delete/{id}(id=${gato.id})}"><img src="/img/trash.png" alt=""></a>
                     </td>
                 </tr> 
             </tbody>
@@ -115,10 +125,9 @@
             <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>  <p>Ver tratamientos</p><img src="/img/servicios.png" alt="Servicios"></span></a></li>
         </ul>
     </div>
-    <div class="vineta" style="position: fixed; right: 10px; top: 50%; cursor: pointer; z-index: 1000; background-color: #1b224f; color: white; padding: 15px; border-radius: 50%; text-align: center; font-size: 30px;">
-        <i class="fas fa-cat"></i>
+    <div class="vineta" >
+        
     </div>
-    
  
    
     <!----------    <footer class="footer">

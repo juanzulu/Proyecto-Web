@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
 html {
     overflow-x: hidden;
-  background-color: #f5f3f0;
+   /*background: url(/img/fondo2.png);*/ 
 }
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -25,7 +25,7 @@ body{
 }
 
 #linea{
-    border-top: 3px solid #2e324d;
+    border-top: 3px solid #1e897b;
 }
 
 .fa-user:hover {
@@ -49,7 +49,7 @@ body{
   padding-left: 30px;
   padding-top: 50px;
   padding-bottom: 8px;
-  background-color: #1b224f;
+  background-color: #41D0BC;
   position: absolute;
   z-index: 999;
   font-size: 16px;
@@ -105,7 +105,7 @@ en la opción */
 }
 
 .inicio{
-    background-color: #1b224f;
+    background-color: #34AC9B;
 }
 
 .nav{
@@ -161,7 +161,7 @@ en la opción */
     right: 0;
     margin-top: 11%;
     padding-top: 20px;
-    background-color: #1b224f;
+    background-color: #34AC9B;
     padding-bottom: 2%;
     transform: translateX(100%);
     transition: transform 0.5s ease;
@@ -185,14 +185,22 @@ h3{
 /* Estilo para la viñeta */
 .vineta {
     position: fixed;
-    top: 50%;
-    right: 0;
+    right: 0; /* Asegura que esté alineado con el borde derecho */
+    top: 50%; /* Centra la viñeta verticalmente */
     transform: translateY(-50%);
-    background-color: #1b224f;
-    padding: 10px;
+    width: 60px; /* Ajusta al tamaño deseado */
+    height: 60px; /* Ajusta al tamaño deseado */
+    background-color: #34AC9B;
     cursor: pointer;
-    z-index: 1000; /* Asegura que la viñeta esté sobre otros elementos */
+    z-index: 100;
+    border-radius: 50%; /* Mantiene la forma circular */
+    text-align: center;
+    font-size: 30px;
+   /* Opcional: añade un borde si deseas */
 }
+
+
+
 
 .sidebar .profile {
     text-align: center;
@@ -265,66 +273,57 @@ h3{
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #bc6c3a; /* Ajuste para que coincida con el grosor y color de las celdas */
+    /* Ajuste para que coincida con el grosor y color de las celdas */
+    
 }
 
 
 
 th, td {
-    border: 2px solid #a06a28; /* Asegura que el color y grosor del borde sea uniforme */
+    border: 2px solid #34AC9B; /* Asegura que el color y grosor del borde sea uniforme */
     padding: 10px;
-    text-align: center;
-    
+    font-family: 'Pacifico', cursive;
+    font-size: 20px;
 }
 
 th {
-    background-color: #1b224f;
+    background-color: #34AC9B;
+    color: white;
 }
 
 td{
     background-color: #F5F5DC;
+    text-align: center;
 }
 
 
-.info{
-    color: black;
-    text-decoration: none;
-}
 
-.btn-info{
-   
+
+.btn-info, .info, .btn-danger {
     color: #fff8f4;
     border: none;
     padding: 8px 18px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex; /* Cambiado de inline-block a inline-flex */
+    align-items: center; /* Alinea los elementos hijos verticalmente en el centro */
+    justify-content: center; /* Alinea los elementos hijos horizontalmente en el centro */
     font-size: 12px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
 }
 
-.btn-danger{
-    
-    color: #fff8f4;
-    border: none;
-    padding: 8px 18px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
 
-.btn-info img, .btn-danger img {
+
+
+
+.btn-info img, .btn-danger img, .info img {
     transition: transform 0.3s ease; /* Transición suave para el efecto de escala */
 }
 
-.btn-info:hover img, .btn-danger:hover img {
-    transform: scale(1.2); /* Aumenta el tamaño de la imagen un 20% */
+.btn-info:hover img, .btn-danger:hover img, .info:hover img {
+    transform: scale(1.7); /* Aumenta el tamaño de la imagen un 20% */
 }
 
 
@@ -336,17 +335,11 @@ td{
     color: rgb(161, 97, 38);
 }
 
-thead{
-    border: 2px solid  #a06a28;
-}
 
-tr{
-    background-color: #cea885;
-}
 
 
 .fa-circle-info{
-    color: #ac6834;
+    color: #34AC9B;
     font-size: 15px;
     padding: 6px;
 
@@ -354,10 +347,10 @@ tr{
 
 /* Estilos para fotos */
 .gatos {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
-    border: 3px solid #a06a28;
+    border: 3px solid #34AC9B;
 }
 
 body {
@@ -366,7 +359,7 @@ body {
 
 /* aca comienza el footer*/
 .footer {
-    background-color: #1b224f;
+    background-color: #34AC9B;
     color: #fff8f4;
     padding: 12px;
     padding-bottom: 0px;
