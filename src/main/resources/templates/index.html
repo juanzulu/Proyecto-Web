@@ -23,7 +23,9 @@
             <img src="../img/logo.png" alt="logo" class="logo">
             <div class="nav">
                 <div class="opciones">
-                    <a href="">Inicio</a>
+                    <a href="">Inicio
+                        
+                    </a>
                 </div>
                 <div class="opciones">
                     <a href="">Servicios</a>
@@ -42,10 +44,12 @@
                     <a href="">Sobre Nosotros</a>
                 </div>
                 <div>
-                    <i class="fa-solid fa-cat"></i>
+                    <a th:href="@{/muestra/lista}">
+                        <i class="fa-solid fa-cat"></i>
+                    </a>
                 </div>
                 <div>
-                    <a href="/muestra/login">
+                    <a th:href="@{/cliente/lista}">
                         <i class="fas fa-user"></i>
                     </a>                    
                 </div>
