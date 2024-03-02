@@ -221,7 +221,7 @@ input[type="number"] {
 .send {
     margin-top: 4%;
     padding: 10px 20px; /* Espaciado interno */
-    background-color: #5591d1; /* Color de fondo */
+    background-color: #34AC9B; /* Color de fondo */
     color: #fff; /* Color del texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Borde redondeado */
@@ -230,7 +230,7 @@ input[type="number"] {
 
 /* Estilos para el botón al pasar el mouse por encima */
 .send:hover {
-    background-color: #1c63af; /* Color de fondo al pasar el mouse */
+    background-color: #1e897b; /* Color de fondo al pasar el mouse */
 }
 
 
