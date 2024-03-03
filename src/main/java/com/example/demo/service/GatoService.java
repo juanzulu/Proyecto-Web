@@ -6,11 +6,11 @@ import com.example.demo.entity.gato;
 
 public interface GatoService {
 
-    public gato SearchNyId(int id);
+    public gato SearchNyId(Long id);
 
     public Collection<gato> SearchAll();
 
-    public void deleletebyid(int id);
+    public void deleletebyid(Long id);
 
     public void update(gato felino);
 

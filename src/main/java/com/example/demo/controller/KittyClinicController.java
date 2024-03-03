@@ -28,14 +28,14 @@ public class KittyClinicController {
     // http://localhost:8090/muestra/gato/id con id me refiero a un un numero
     // espefico ejm 1 2 3 4 si el numero es mas grande que la base falla
     @GetMapping("/gato/{id}")
-    public String mostrarInfo(Model model, @PathVariable("id") int identificacion) {
+    public String mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
 
         gato felino = GatoService.SearchNyId(identificacion);
 
         if (felino != null) {
             model.addAttribute("gato", GatoService.SearchNyId(identificacion));
         } else {
-            throw new NotFoundException(identificacion);
+            // throw new NotFoundException(identificacion);
         }
         return "gato";
     }
@@ -58,13 +58,13 @@ public class KittyClinicController {
     }
 
     @GetMapping("/delete/{id}")
-    public String borrarGato(@PathVariable("id") int identificacion) {
+    public String borrarGato(@PathVariable("id") Long identificacion) {
         GatoService.deleletebyid(identificacion);
         return "redirect:/muestra/lista";
     }
 
     @GetMapping("/update/{id}")
-    public String mostrarUpdate(@PathVariable("id") int identificacion, Model model) {
+    public String mostrarUpdate(@PathVariable("id") Long identificacion, Model model) {
 
         model.addAttribute("gato", GatoService.SearchNyId(identificacion));
         return "modificar_gato";

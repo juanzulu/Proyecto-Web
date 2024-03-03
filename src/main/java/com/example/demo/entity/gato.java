@@ -1,14 +1,26 @@
 package com.example.demo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class gato {
 
     private String nombre;
     private String raza;
     private Integer edad;
     private String foto;
-    private Integer id;
 
-    public gato(Integer id, String nombre, String raza, Integer edad, String foto) {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @ManyToOne
+    private Usuario usuario;
+
+    public gato(Long id, String nombre, String raza, Integer edad, String foto) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
@@ -16,11 +28,30 @@ public class gato {
         this.foto = foto;
     }
 
-    public Integer getId() {
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public gato() {
+
+    }
+
+    public gato(String nombre, String raza, Integer edad, String foto) {
+        this.nombre = nombre;
+        this.raza = raza;
+        this.edad = edad;
+        this.foto = foto;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import com.example.demo.entity.Usuario;
 import com.example.demo.service.UsuarioService;
 
-
 @Controller
 @RequestMapping("/cliente")
 public class UsuarioController {
@@ -31,14 +30,14 @@ public class UsuarioController {
     }
 
     @GetMapping("usuario/{id}")
-    public String mostrarInfo(Model model, @PathVariable("id") int identificacion) {
+    public String mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
 
         Usuario usuario = UsuarioService.SearchNyId(identificacion);
 
         if (usuario != null) {
             model.addAttribute("usuario", UsuarioService.SearchNyId(identificacion));
         } else {
-            throw new NotFoundException(identificacion);
+            // throw new NotFoundException(identificacion);
         }
         return "usuario";
     }
@@ -46,7 +45,7 @@ public class UsuarioController {
     @GetMapping("/add")
     public String mostrarCrearUsuario(Model model) {
 
-        Usuario usuario = new Usuario(null, null, null, null, null, null,null);
+        Usuario usuario = new Usuario(null, null, null, null, null);
 
         model.addAttribute("usuario", usuario);
 
@@ -62,14 +61,14 @@ public class UsuarioController {
     }
 
     @GetMapping("/delete/{id}")
-    public String borrarUsuario(@PathVariable("id") int identificacion) {
+    public String borrarUsuario(@PathVariable("id") Long identificacion) {
 
         UsuarioService.deleletebyid(identificacion);
         return "redirect:/cliente/lista";
     }
 
     @GetMapping("/update/{id}")
-    public String mostrarUpdate(Model model, @PathVariable("id") int identificacion) {
+    public String mostrarUpdate(Model model, @PathVariable("id") Long identificacion) {
 
         Usuario usuario = UsuarioService.SearchNyId(identificacion);
         model.addAttribute("usuario", usuario);

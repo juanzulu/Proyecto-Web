@@ -15,8 +15,8 @@ public class GatoServiceImpl implements GatoService {
     GatoRepository Repo;
 
     @Override
-    public gato SearchNyId(int id) {
-        return Repo.findbyid(id);
+    public gato SearchNyId(Long id) {
+        return Repo.findById(id).get();
     }
 
     @Override
@@ -25,18 +25,18 @@ public class GatoServiceImpl implements GatoService {
     }
 
     @Override
-    public void deleletebyid(int id) {
-        Repo.deleletebyid(id);
+    public void deleletebyid(Long id) {
+        Repo.deleteById(id);
     }
 
     @Override
     public void update(gato felino) {
-        Repo.update(felino);
+        Repo.save(felino);
     }
 
     @Override
     public void add(gato felino) {
-        Repo.add(felino);
+        Repo.save(felino);
     }
 
 }
