@@ -477,6 +477,7 @@ en la opción */
     cursor: pointer;
 }
 
+
 .texto{
     text-align: center;
     padding-top: 8%;
@@ -497,7 +498,7 @@ en la opción */
     font-family: Roboto;
     font-size: 12px;
     text-align: center;
-    padding-top: 4%;
+    padding-top: 2%;
     margin: 2%;
     color: #939393;
 }
@@ -533,9 +534,6 @@ en la opción */
     box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5);
 }
 
-
-
-
 .color{
     position: relative;
     border-radius: 10px;
@@ -544,9 +542,6 @@ en la opción */
     border-top-left-radius: 90% 20px;
     border-radius: 50% / 30px;
 }
-
-
-
 
 .color::after {
     content: '';
@@ -573,7 +568,7 @@ en la opción */
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
-
+    margin-top: 5%;
 }
 
 .lista-footer a{
