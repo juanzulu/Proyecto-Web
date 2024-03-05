@@ -34,9 +34,6 @@ public class UsuarioController {
 
         Usuario usuario = RepoUsuario.findByCorreo(username);
 
-        System.out.println(usuario.getId());
-        System.out.println("SI funciono");
-
         if (usuario != null) {
             model.addAttribute("usuario", usuario);
         }
