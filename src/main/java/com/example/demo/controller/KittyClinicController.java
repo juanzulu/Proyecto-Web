@@ -64,6 +64,8 @@ public class KittyClinicController {
 
         if (usuario != null) {
             felino.setUsuario(usuario);
+        } else {
+            felino.setUsuario(null);
         }
 
         GatoService.add(felino);
