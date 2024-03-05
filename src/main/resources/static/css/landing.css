@@ -435,6 +435,79 @@ en la opción */
     border-radius: 10px;
 }
 
+/*--------------Aca va el blogg de gatos-----------------------------------*/
+
+.tituloblog{
+    font-family: "Protest Riot", sans-serif;
+    font-size: 35px;
+    font-weight: 100;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.4em;
+    text-decoration-color: rgb(243, 179, 60);
+}
+
+.bloggatos {
+  display: flex;
+  width: 1200px;
+  margin: auto;
+}
+
+.box1, .box2, .box3{
+  flex: 1;
+  margin: 10px;
+  background-color: rgb(188, 211, 219);
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.gatico{
+    height: 325px;
+}
+
+.box1 img, .box2 img, .box3 img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.box1:hover img, .box2:hover img, .box3:hover img{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.texto{
+    text-align: center;
+    padding-top: 8%;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.texto2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 4%;
+    margin: 2%;
+}
+
+.texto3{
+    font-family: Roboto;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 4%;
+    margin: 2%;
+    color: #939393;
+}
+
+
+.tam{
+    border: 1px dashed #939393; /* Cambia el estilo del borde a punteado y el color a rojo */
+    width: 80%;
+    margin: 10px auto;
+}
 
 
 /*------------Aca acaba todo lo que tiene que ver con la decoracion de la vuelta de las cajas-------------------*/
