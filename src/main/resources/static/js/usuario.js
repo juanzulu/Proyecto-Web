@@ -39,12 +39,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('fondoOscuro').style.display = 'none';
     }
 
-    // Navegación entre gatos.
+    // Navegación entre gatos: anterior y siguiente.
     document.getElementById('anteriorGato').addEventListener('click', function() {
-        if (indiceActual > 0) mostrarInfoGato(indiceActual - 1);
+        if (indiceActual > 0) {
+            mostrarInfoGato(indiceActual - 1);
+        }
     });
     document.getElementById('siguienteGato').addEventListener('click', function() {
-        if (indiceActual < fotosMascotas.length - 1) mostrarInfoGato(indiceActual + 1);
+        if (indiceActual < fotosMascotas.length - 1) {
+            mostrarInfoGato(indiceActual + 1);
+        }
     });
 
     // Manejar el toggle de la sidebar con la viñeta.
@@ -53,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     handle.addEventListener('click', function() {
         sidebar.classList.toggle('active');
-        // Aquí puedes alternar la visibilidad de cualquier contenido dentro del sidebar si es necesario.
+        // No se necesita preparar o actualizar la información del usuario cada vez,
+        // pero puedes agregar esa lógica aquí si es necesario.
+        document.getElementById('nombreGato').textContent = nombre;
+        document.getElementById('edadGato').textContent = `Edad: ${edad}`;
     });
 });
