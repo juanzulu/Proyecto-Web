@@ -25,7 +25,7 @@ body{
 }
 
 #linea{
-    border-top: 3px solid #1e897b;
+    border-top: 3px solid #104c5a;
 }
 
 .fa-user:hover {
@@ -49,7 +49,7 @@ body{
   padding-left: 30px;
   padding-top: 50px;
   padding-bottom: 8px;
-  background-color: rgba(55,171,152,270);
+  background-color: #4ea9bd;
   position: absolute;
   z-index: 999;
   font-size: 16px;
@@ -116,7 +116,7 @@ en la opción */
 }
 
 .inicio{
-    background-color: rgba(55,171,152,255);
+    background-color:#4ea9bd;
 }
 
 .nav{
@@ -167,6 +167,7 @@ en la opción */
 .tabla-contenedor {
     overflow-x: auto;
     margin: 20px auto;
+    margin-right: 250px;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     padding: 1rem;
@@ -180,7 +181,7 @@ table {
 }
 
 table thead tr {
-    background-color: #009879;
+    background-color: #4ea9bd;
     color: #fff;
 }
 
@@ -200,34 +201,194 @@ table tbody tr:hover {
     border-radius: 50%;
     object-fit: cover;
 }
+.contenedor-gato {
+    position: relative;
+    display: inline-block;
+}
+
+.info-gato {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.5); /* Fondo semitransparente */
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.contenedor-gato:hover .info-gato {
+    display: block;
+}
+
+.navegacion {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.flecha {
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+
+/*-------------------------------------------------------------------------------------------------*/
+.sidebar-right {
+    position: fixed;
+    top: 126px;
+    right: 0;
+    width: 250px;
+    height: 50%;
+    background-color: #4ea9bd;
+    color: #fff8f4;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: right 0.3s ease; /* Suaviza la transición */
+    right: -230px; /* Inicialmente oculto, excepto el handle */
+}
+
+.handle {
+    position: absolute;
+    left: -30px; /* Ajustar según el tamaño del handle */
+    top: 0;
+    width: 30px; /* Tamaño del handle */
+    height: 100%;
+    background-color: #24778c; /* Color del handle */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Cambia el cursor para indicar que se puede arrastrar */
+    user-select: none; /* Evita la selección del texto al arrastrar */
+}
+
+@keyframes cascada {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.usuario-info > * {
+    opacity: 0; /* Inicialmente, los elementos están invisibles */
+    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+}
+
+
 
 /*-------------------------------------------------------------------------------------------------*/
 
-/* Contenedor General de la Información del Usuario */
-div.usuario-info {
-    background-color: #F5F5DC; /* Fondo claro para destacar la información */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno para no tocar los bordes */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
-    max-width: 400px; /* Limita el ancho para mejorar la legibilidad */
-    margin: 20px auto; /* Centra el contenedor */
-    font-family: 'Arial', sans-serif; /* Asegura una tipografía limpia */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Estilización de los Títulos y Textos */
-.usuario-info h2 {
-    color: black; /* Color para el nombre, haciendo que destaque */
-    margin-bottom: 15px; /* Espacio después del nombre */
+#infoGatoContenedor > * {
+    /* Aumenta la duración de la animación de 0.5s a 1s (o más, si lo deseas) */
+    animation: fadeInUp 2s ease-in-out forwards;
+}
+
+
+
+#infoGatoContenedor {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fce6b9;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 100;
     text-align: center;
+    border-radius: 25px; /* Bordes redondeados para el contenedor */
+    width: 400px; /* Ajusta esto según necesites */
+    height: 300px;
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.5s ease-in-out; /* Suaviza la transición de la opacidad */
 }
 
-.usuario-info p {
-    color: #333; /* Color oscuro para contraste */
-    margin-bottom: 10px; /* Espaciado entre líneas de información */
-    text-align: center;
+#fotoGato {
+ 
+   
+    max-height: 100px;
+    display: block;
+    margin:  auto; /* Centra la imagen horizontalmente */
+    padding-top: 100px;
+   
 }
 
-/* Opcional: Iconos o elementos decorativos */
-.usuario-info i {
-    margin-right: 5px; /* Espacio entre icono y texto, si decides añadir iconos */
+#nombreGato, #razaGato, #edadGato {
+    display: inline-block; /* Hace que la información se muestre en línea */
+    margin: 10px 5px; /* Ajusta el espaciado según necesites */
+    padding-top: 30px;
 }
+
+#cerrarInfo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#anteriorGato, #siguienteGato {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#anteriorGato {
+    left: 10px;
+}
+
+#siguienteGato {
+    right: 10px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #24778c; /* Color del ícono */
+    font-size: 24px; /* Tamaño del ícono */
+    padding: 10px; /* Espaciado alrededor del ícono */
+}
+
+.icon-button:hover {
+    color: #104c5a; /* Color del ícono al pasar el mouse */
+}
+
+
+#fondoOscuro {
+    display: none; /* Inicialmente oculto */
+    position: fixed; /* Posición fija en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Cubre todo el ancho de la vista */
+    height: 100vh; /* Cubre todo el alto de la vista */
+    background-color: rgba(0, 0, 0, 0.5); /* Negro semi-transparente */
+    z-index: 99; /* Asegúrate de que esté detrás del contenedor de información pero por encima del resto */
+}
+

@@ -10,7 +10,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
+
+    
 </head>
 
 <body>
@@ -54,35 +58,60 @@
 
     <div id="linea"></div>
 
-   
-    <div class="usuario-info"> 
-        <h2 th:text="${usuario.nombre}"></h2>
-        <p th:text="${usuario.genero}"></p>
-        <p th:text="${usuario.edad}"></p>
-        <p th:text="${usuario.cedula}"></p>
-        <p th:text="${usuario.correo}"></p>
+
+    <div class="sidebar-right">
+        <div class="handle">&#9776;</div> <!-- Viñeta para arrastrar -->
+        <div class="usuario-info">
+            <h2 th:text="${usuario.nombre}"></h2>
+            <p th:text="${usuario.genero}"></p>
+            <p th:text="${usuario.edad}"></p>
+            <p th:text="${usuario.cedula}"></p>
+            <p th:text="${usuario.correo}"></p>
+        </div>
     </div>
     
-                <div class="tabla-contenedor">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Foto</th>
-                                <th>Nombre</th>
-                                <th>Raza</th>
-                                <th>Edad</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="mascota : ${usuario.mascotas}">
-                                <td><img th:src="${mascota.foto}" alt="Foto de Mascota" class="foto-mascota"/></td>
-                                <td th:text="${mascota.nombre}"></td>
-                                <td th:text="${mascota.raza}"></td>
-                                <td th:text="${mascota.edad}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Suponiendo que tienes una lista de mascotas a mostrar -->
+                <tr th:each="mascota : ${usuario.mascotas}">
+                    <td><img th:src="${mascota.foto}" alt="Foto de Mascota" class="foto-mascota" th:data-nombre="${mascota.nombre}" th:data-raza="${mascota.raza}" th:data-edad="${mascota.edad}"/></td>
+                    <td th:text="${mascota.nombre}"></td>
+                    <td th:text="${mascota.raza}"></td>
+                    <td th:text="${mascota.edad}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="infoGatoContenedor">
+        <img id="fotoGato" src="" alt="Foto del gato" style="max-width: 100px; max-height: 100px;">
+        <h2 id="nombreGato"></h2>
+        <p id="razaGato"></p>
+        <p id="edadGato"></p>
+        <!-- Flecha Anterior -->
+        <button id="anteriorGato" class="icon-button"><i class="fas fa-chevron-left"></i></button>
+
+        <!-- Botón para Cerrar -->
+        <button id="cerrarInfo" class="icon-button"><i class="fas fa-times"></i></button>
+
+        <!-- Flecha Siguiente -->
+        <button id="siguienteGato" class="icon-button"><i class="fas fa-chevron-right"></i></button>
+
+    </div>
+    <div id="fondoOscuro"></div>
+
+   
+        
                 
 
 </html>
