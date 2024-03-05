@@ -30,7 +30,7 @@ public class DatabaseInit implements ApplicationRunner {
                 gatoRepository.save(new gato("Thomas", "Russian Blue", 83,
                                 "https://i.pinimg.com/originals/1f/2d/4f/1f2d4fa68799ba91ff4787cfe18aaee1.jpg"));
 
-                for (int i = 0; i < 90; i++) {
+                for (int i = 1; i < 91; i++) {
                         String nombre = "Gato" + i;
                         String raza = (i % 4 == 0) ? "Gato"
                                         : ((i % 4 == 1) ? "Persa" : ((i % 4 == 2) ? "Maine Coon" : "Russian Blue"));

@@ -42,7 +42,7 @@ public class KittyClinicController {
         if (felino != null) {
             model.addAttribute("gato", GatoService.SearchNyId(identificacion));
         } else {
-            // throw new NotFoundException(identificacion);
+            throw new NotFoundException(identificacion);
         }
         return "gato";
     }

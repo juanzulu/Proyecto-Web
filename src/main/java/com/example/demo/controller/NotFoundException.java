@@ -2,17 +2,17 @@ package com.example.demo.controller;
 
 public class NotFoundException extends RuntimeException {
 
-    private int id;
+    private Long id;
 
-    public NotFoundException(int id) {
+    public NotFoundException(Long id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

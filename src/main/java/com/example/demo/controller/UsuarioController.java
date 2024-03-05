@@ -36,14 +36,16 @@ public class UsuarioController {
 
         if (usuario != null) {
             model.addAttribute("usuario", usuario);
+            Long id = usuario.getId();
+            String urlDestino = UriComponentsBuilder
+                    .fromPath("/cliente/usuario/{id}")
+                    .buildAndExpand(id)
+                    .toUriString();
+    
+            return "redirect:" + urlDestino;
+        }else{
+            return "redirect:/cliente/login";
         }
-        Long id = usuario.getId();
-        String urlDestino = UriComponentsBuilder
-                .fromPath("/cliente/usuario/{id}")
-                .buildAndExpand(id)
-                .toUriString();
-
-        return "redirect:" + urlDestino;
     }
 
     @GetMapping("/lista")

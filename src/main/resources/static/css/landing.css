@@ -16,7 +16,7 @@ img{
 }
 
 .header{
-    font-family: "Oswald", sans-serif;
+    font-family: "Protest Riot", sans-serif;
     font-weight: 100;
     font-style: normal;
     font-size: 28px;
@@ -55,6 +55,7 @@ img{
 
 #lista1 a:hover{
     font-weight: 600;
+    color: #104b58;
 }
 
 #lista2 a{
@@ -132,7 +133,7 @@ en la opción */
     border-top: 3px solid #1e897b;
     height: 430px;
     caret-color: transparent;
-    filter: brightness(70%) saturate(100%);
+    filter: brightness(85%) saturate(100%);
 }
 
 .slider-wrapper{
@@ -356,18 +357,20 @@ en la opción */
 .botondecita{
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    margin-left: 10%;
 }
 
 
 /* Estilos para el botón */
 .botondecita  a {
     display: inline-block;
-    padding: 2.5px 2.5px;
-    background-color: #34ac9b;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #104c5a;
     color: white;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 20px;
     transition: background-color 0.3s;
 }
     
@@ -441,8 +444,24 @@ en la opción */
     border: 0.5px solid #939393; /* Cambia el estilo del borde a punteado y el color a rojo */
     width: 80%;
     margin: 10px auto;
+    margin-top: 1%;
 }
 
+.titulodivision{
+    font-family: "Protest Riot", sans-serif;
+    margin-left: 10%;
+    text-align: left;
+    color: #30BDBC;
+    font-size: 42px;
+    padding-bottom: 3%;
+    padding-top: 1%;
+}
+
+.textodivision{
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 1%;
+}
 
 
 /*--------------Aca va el blogg de gatos-----------------------------------*/
@@ -467,7 +486,7 @@ en la opción */
 .box1, .box2, .box3{
   flex: 1;
   margin: 10px;
-  background-color: rgb(188, 211, 219);
+  background-color: #fee6b9be;
   justify-content: center;
   align-items: center;
   height: 60vh;
@@ -547,9 +566,9 @@ en la opción */
 .color{
     position: relative;
     border-radius: 10px;
-    background-color: #b9d1e9;
+    background-color: #4fa8ba74;
     border-top-right-radius: 10% 10px;
-    border-top-left-radius: 90% 20px;
+    border-top-left-radius: 80% 20px;
     border-radius: 50% / 30px;
 }
 
