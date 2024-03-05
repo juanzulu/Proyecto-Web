@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
 html {
     overflow-x: hidden;
-    background: url(/img/fondo2.png);
+   background: url(/img/fondo2.png); 
 }
-
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -25,7 +25,7 @@ body{
 }
 
 #linea{
-    border-top: 3px solid #138496;
+    border-top: 3px solid #104c5a;
 }
 
 .fa-user:hover {
@@ -34,7 +34,7 @@ body{
 
 @keyframes colorChange {
     from {
-        color: #000; /* Color inicial */
+        color: #fff8f4; /* Color inicial */
     }
     to {
         color: #e98726; /* Nuevo color */
@@ -49,7 +49,7 @@ body{
   padding-left: 30px;
   padding-top: 50px;
   padding-bottom: 8px;
-  background-color: rgba(55,171,152,270);
+  background-color: #4ea9bd;
   position: absolute;
   z-index: 999;
   font-size: 16px;
@@ -64,7 +64,7 @@ body{
 
 #lista1 a{
     font-weight: 120;
-    color: black;
+    color: #fff8f4;
 }
 
 #lista1 a:hover{
@@ -73,29 +73,18 @@ body{
 
 #lista2 a{
     font-weight: 120;
-    color: black;
-}
-
-#lista2 a:hover{
-    color: aqua;
+    color: #fff8f4;
 }
 
 #lista3 a{
     font-weight: 120;
-    color: black;
+    color: #fff8f4;
 }
 
-#lista3 a:hover{
-    color: aqua;
-}
 
 #lista4 a{
     font-weight: 120;
     color: black;
-}
-
-#lista4 a:hover{
-    color: aqua;
 }
 
 .lista li {
@@ -116,7 +105,7 @@ en la opción */
 }
 
 .inicio{
-    background-color: rgba(55,171,152,255);
+    background-color: #4ea9bd;
 }
 
 .nav{
@@ -127,7 +116,7 @@ en la opción */
 
 .nav a{
     text-decoration: none;
-    color: aliceblue;
+    color: #fff8f4;
     font-weight: 600;
     z-index: 1000;
 }
@@ -137,7 +126,7 @@ en la opción */
 }
 
 .nav i{
-    color: white;
+    color: #fff8f4;
 }
 
 .nav i:hover{
@@ -180,8 +169,8 @@ en la opción */
 }
 
 .table thead tr {
-    background-color: #009879;
-    color: #ffffff;
+    background-color: #4ea9bd;
+    color: #1F1F1F;
     text-align: left;
 }
 
@@ -199,12 +188,12 @@ en la opción */
 }
 
 .table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #4ea9bd;
 }
 
 .table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #4ea9bd;
 }
 
 /* Estilos para los Botones */
@@ -238,3 +227,30 @@ en la opción */
 .fa-circle-info {
     margin-right: 5px;
 }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.table {
+    animation: fadeIn 1s ease-out;
+    /* Asegúrate de incluir todos los estilos previos de la tabla aquí */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Asegúrate de que este estilo se aplica solo una vez y no está siendo sobrescrito */
+.table tbody tr {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+
