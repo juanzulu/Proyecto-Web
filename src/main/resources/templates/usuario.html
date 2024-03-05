@@ -94,20 +94,40 @@
     </div>
     
     <div id="infoGatoContenedor">
-        <img id="fotoGato" src="" alt="Foto del gato" style="max-width: 100px; max-height: 100px;">
         <h2 id="nombreGato"></h2>
-        <p id="razaGato"></p>
-        <p id="edadGato"></p>
-        <!-- Flecha Anterior -->
-        <button id="anteriorGato" class="icon-button"><i class="fas fa-chevron-left"></i></button>
 
-        <!-- Botón para Cerrar -->
-        <button id="cerrarInfo" class="icon-button"><i class="fas fa-times"></i></button>
 
-        <!-- Flecha Siguiente -->
-        <button id="siguienteGato" class="icon-button"><i class="fas fa-chevron-right"></i></button>
 
+        <div class="contenido-horizontal"> 
+            
+            <div class="Historial-gatuno">
+                <h3>Historial</h3>
+                <ul>
+                    <li>Servicio: Urgencias</li>
+                    <li>Servicio: Exámenes</li>
+                    <li>Servicio: Laboratorio</li>
+                    <li>Servicio: Peluqueria</li>
+                </ul>
+            </div>
+            <div class="foto-contenedor">  <img id="fotoGato" src="" alt="Foto del gato"></div>
+            <div class="flechas">
+                <button id="anteriorGato" class="icon-button"><i class="fas fa-chevron-up"></i></button>
+                <button id="siguienteGato" class="icon-button"><i class="fas fa-chevron-down"></i></button>
+            </div>
+        
+        </div>
+            
+        <div class="info-adicional">  
+            <p id="edadGato"></p>
+            <p  id="ultimaCita">Última Cita: 29/02/2024</p>
+        </div>
+         
+            
+    <!-- Botón para Cerrar -->
+    <button id="cerrarInfo" class="icon-button"><i class="fas fa-times"></i></button>
     </div>
+
+   
     <div id="fondoOscuro"></div>
 
    

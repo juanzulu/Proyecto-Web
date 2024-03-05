@@ -317,11 +317,8 @@ table tbody tr:hover {
     /* Aumenta la duración de la animación de 0.5s a 1s (o más, si lo deseas) */
     animation: fadeInUp 2s ease-in-out forwards;
 }
-
-
-
 #infoGatoContenedor {
-    display: none;
+    display: none; /* Oculto inicialmente, se muestra al hacer clic en una foto */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -329,79 +326,69 @@ table tbody tr:hover {
     background-color: #fce6b9;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    z-index: 100;
-    text-align: center;
-    border-radius: 25px; /* Bordes redondeados para el contenedor */
-    width: 400px; /* Ajusta esto según necesites */
-    height: 300px;
-    opacity: 0; /* Inicialmente invisible */
-    transition: opacity 0.5s ease-in-out; /* Suaviza la transición de la opacidad */
+    width: 80%;
+    max-width: 960px; /* Ajusta este valor según tus necesidades */
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenido-horizontal {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Historial-gatuno {
+    flex: 1; /* Ajusta estos valores según sea necesario */
+    margin-right: 10px; /* Espacio entre el historial y la foto */
+}
+
+.foto-contenedor {
+    flex: 2; /* Da más espacio a la foto, ajusta según necesidad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Hace que el contenedor sea redondo */
+    overflow: hidden; /* Asegura que la foto no sobrepase el borde redondo */
+    /* Ajusta el color y tamaño del borde según prefieras */
+    width: 150px; /* Reduce el tamaño del contenedor de la foto */
+    height: 150px; /* Mantiene la proporción cuadrada para un círculo perfecto */
 }
 
 #fotoGato {
- 
-   
-    max-height: 100px;
-    display: block;
-    margin:  auto; /* Centra la imagen horizontalmente */
-    padding-top: 100px;
-   
+    max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+    max-height: 100%; /* Asegura que la imagen se ajuste al contenedor */
+    object-fit: cover; /* Asegura que la foto cubra el espacio sin deformarse */
+    border-radius: 50%;
 }
 
-#nombreGato, #razaGato, #edadGato {
-    display: inline-block; /* Hace que la información se muestre en línea */
-    margin: 10px 5px; /* Ajusta el espaciado según necesites */
-    padding-top: 30px;
+.flechas {
+    flex: 1; /* Ajusta estos valores según sea necesario */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px; /* Espacio entre la foto y las flechas */
+}
+
+.info-adicional {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0; /* Espacio arriba y abajo */
+}
+
+.icon-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 #cerrarInfo {
     position: absolute;
     top: 10px;
-    left: 10px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-#anteriorGato, #siguienteGato {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-#anteriorGato {
-    left: 10px;
-}
-
-#siguienteGato {
     right: 10px;
 }
-
-.icon-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #24778c; /* Color del ícono */
-    font-size: 24px; /* Tamaño del ícono */
-    padding: 10px; /* Espaciado alrededor del ícono */
-}
-
-.icon-button:hover {
-    color: #104c5a; /* Color del ícono al pasar el mouse */
-}
-
-
-#fondoOscuro {
-    display: none; /* Inicialmente oculto */
-    position: fixed; /* Posición fija en la pantalla */
-    top: 0;
-    left: 0;
-    width: 100vw; /* Cubre todo el ancho de la vista */
-    height: 100vh; /* Cubre todo el alto de la vista */
-    background-color: rgba(0, 0, 0, 0.5); /* Negro semi-transparente */
-    z-index: 99; /* Asegúrate de que esté detrás del contenedor de información pero por encima del resto */
-}
-
