@@ -164,6 +164,19 @@ en la opción */
 
 /*-------------------------------------------------------------------------------------------------*/
 /* Estilos para la Tabla */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tabla-contenedor {
+    animation: fadeIn 2s ease-in-out;
+}
+.table tbody tr {
+    opacity: 0; /* Inicialmente invisible */
+    animation: fadeInUp 2s ease-in-out forwards;
+}
+
 .tabla-contenedor {
     overflow-x: auto;
     margin: 20px auto;

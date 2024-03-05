@@ -227,3 +227,30 @@ en la opción */
 .fa-circle-info {
     margin-right: 5px;
 }
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.table {
+    animation: fadeIn 1s ease-out;
+    /* Asegúrate de incluir todos los estilos previos de la tabla aquí */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Asegúrate de que este estilo se aplica solo una vez y no está siendo sobrescrito */
+.table tbody tr {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+

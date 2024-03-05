@@ -92,4 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
         indiceActual = index; // Actualiza el índice del gato actual
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        const rows = document.querySelectorAll('.table tbody tr');
+        rows.forEach((row, index) => {
+            // Asegura que cada fila tenga la animación con un delay incremental
+            row.style.animationDelay = `${index * 0.2}s`;
+        })
+    })
+
 });
