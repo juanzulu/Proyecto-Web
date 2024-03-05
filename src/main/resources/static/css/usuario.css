@@ -266,6 +266,9 @@ table tbody tr:hover {
     transition: right 0.3s ease; /* Suaviza la transición */
     right: -230px; /* Inicialmente oculto, excepto el handle */
 }
+.sidebar-right.active {
+    right: 0; /* Sidebar se muestra */
+}
 
 .handle {
     position: absolute;
@@ -392,3 +395,6 @@ table tbody tr:hover {
     top: 10px;
     right: 10px;
 }
+
+
+
