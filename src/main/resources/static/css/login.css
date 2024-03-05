@@ -4,11 +4,30 @@ html {
     overflow-x: hidden;
 }
 
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+    opacity: 0; /* Inicia los elementos como invisibles */
+    animation: fadeIn 0.8s ease forwards; /* Aplica la animación */
+}
+
+/* Ejemplo de clases con diferentes retrasos */
+.delay-1 { animation-delay: 0.4s; }
+.delay-2 { animation-delay: 0.8s; }
+.delay-3 { animation-delay: 1.2s; }
+.delay-4 { animation-delay: 1.6s; }
+.delay-5 { animation-delay: 2.0s; }
+
 body{
     margin: 0;
     padding: 0;
     height: 100vh;
     background-repeat: round;
+    animation: fadeIn 2s ease-out;
 }
 
 
@@ -28,7 +47,7 @@ body{
 
 .frase1{
     font-weight: bold;
-    color: black;
+    color: #EBEBEB;
     display: inline;
     font-size: 20px;
     font-family: "Noto Sans JP", sans-serif;
@@ -46,7 +65,7 @@ body{
 }
 
 .formdesign{
-    background-color: #f5f5dc;
+    background-color: #fce6b9;
     padding-top: 30px;
     padding-bottom: 50px;
     border-radius: 5%;
@@ -63,7 +82,7 @@ body{
     height: 100%;
     z-index: 1000;
     opacity: 0.6;
-    border-right: 3px solid rgba(227,202,152,255);
+    border-right: 3px solid #4ea9bd;
 }
 
 .cajaFondo,.login {
@@ -79,7 +98,7 @@ body{
 /*---------------login-------------*/
 .login {
     border-left: 3px solid rgba(227,202,152,255);
-    background-color: rgba(55,171,152,270); /* color de fondo de login */
+    background-color: #104c5a; /* color de fondo de login */
     padding: 20px; /* espacio interior */
 }
 
@@ -103,6 +122,22 @@ body{
     background-color: #f9f9f9;
     color: #333; /* Color del texto */
 }
+
+.campo-correo:focus, .login__container__button:hover {
+    animation: pulse 0.75s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        box-shadow: none;
+    }
+    to {
+        transform: scale(1.05);
+        box-shadow: 0 0 8px rgba(255, 206, 86, 0.8);
+    }
+}
+
 
 /* Estilos al enfocar */
 .campo-correo:focus {
@@ -145,4 +180,5 @@ h1{
     text-align: center;
    font-size: 50px;
    font-family: "Noto Sans JP", sans-serif;
+   color: #EBEBEB;
 }
