@@ -25,7 +25,7 @@ body{
 }
 
 #linea{
-    border-top: 3px solid #1e897b;
+    border-top: 3px solid #104c5a;
 }
 
 .fa-user:hover {
@@ -49,7 +49,7 @@ body{
   padding-left: 30px;
   padding-top: 50px;
   padding-bottom: 8px;
-  background-color: #34AC9B;
+  background-color: #4ea9bd;
   position: absolute;
   z-index: 999;
   font-size: 16px;
@@ -105,7 +105,7 @@ en la opción */
 }
 
 .inicio{
-    background-color: #34AC9B;
+    background-color: #4ea9bd;
 }
 
 .nav{
@@ -160,14 +160,17 @@ en la opción */
     top: 0;
     right: 0;
     margin-top: 11%;
-    padding-top: 20px;
-    background-color: #34AC9B;
+    padding-top: 30px;
+    margin-bottom: 3%;
+    background-color: #4ea9bd;
     padding-bottom: 2%;
     transform: translateX(100%);
     transition: transform 0.5s ease;
     border-radius: 5px;
-    font-family: sans-serif; /* Aplica la fuente sans-serif a todos los elementos dentro del sidebar */
+    font-family: sans-serif;
+    z-index: 999; /* Ajuste del z-index para que el sidebar esté detrás del header */
 }
+
 .sidebar {
     font-family: 'Pacifico', cursive;
     font-size: 17px;
@@ -190,7 +193,7 @@ h3{
     transform: translateY(-50%);
     width: 60px; /* Ajusta al tamaño deseado */
     height: 60px; /* Ajusta al tamaño deseado */
-    background-color: #34AC9B;
+    background-color: #4ea9bd;
     cursor: pointer;
     z-index: 100;
     border-radius: 50%; /* Mantiene la forma circular */
@@ -199,6 +202,13 @@ h3{
    /* Opcional: añade un borde si deseas */
 }
 
+.sidebar-wrapper {
+    position: fixed; /* Asegura que el sidebar y la viñeta se mantengan fijos en la ventana */
+    top: 0;
+    right: 0;
+    display: flex; /* Asegura que ambos elementos se comporten en línea */
+    align-items: flex-start; /* Alinea los elementos verticalmente en la parte superior */
+}
 
 
 
@@ -280,19 +290,19 @@ table {
 
 
 th, td {
-    border: 2px solid #34AC9B; /* Asegura que el color y grosor del borde sea uniforme */
+    border: 2px solid #104c5a; /* Asegura que el color y grosor del borde sea uniforme */
     padding: 10px;
     font-family: 'Pacifico', cursive;
     font-size: 20px;
 }
 
 th {
-    background-color: #34AC9B;
+    background-color: #4ea9bd;
     color: white;
 }
 
 td{
-    background-color: #F5F5DC;
+    background-color: #fce6b9;
     text-align: center;
 }
 
@@ -339,7 +349,7 @@ td{
 
 
 .fa-circle-info{
-    color: #34AC9B;
+    color: #4ea9bd;
     font-size: 15px;
     padding: 6px;
 
@@ -350,7 +360,7 @@ td{
     width: 125px;
     height: 125px;
     border-radius: 50%;
-    border: 3px solid #34AC9B;
+    border: 3px solid #104c5a;
 }
 
 body {
@@ -359,7 +369,7 @@ body {
 
 /* aca comienza el footer*/
 .footer {
-    background-color: #34AC9B;
+    background-color: #4ea9bd;
     color: #fff8f4;
     padding: 12px;
     padding-bottom: 0px;
