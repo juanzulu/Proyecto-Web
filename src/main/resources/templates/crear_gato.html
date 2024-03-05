@@ -16,7 +16,7 @@
             <img src="../img/logo.png" alt="logo" class="logo">
             <div class="nav">
                 <div class="opciones">
-                    <a href="">Inicio</a>
+                    <a th:href="@{/}">Inicio</a>
                 </div>
                 <div class="opciones">
                     <a href="">Servicios</a>
@@ -35,10 +35,12 @@
                     <a href="">Sobre Nosotros</a>
                 </div>
                 <div>
-                    <i class="fa-solid fa-cat"></i>
+                    <a th:href="@{/muestra/lista}">
+                        <i class="fa-solid fa-cat"></i>
+                    </a>
                 </div>
                 <div>
-                    <a href="/cliente/login">
+                    <a th:href="@{/cliente/login}">
                         <i class="fas fa-user"></i>
                     </a>                    
                 </div>
@@ -67,8 +69,8 @@
                 <input  th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad del gato">
             </div>
             <div class="form-field">
-                <label for="catBirthdate"></label>
-                <input type="date" id="catBirthdate" name="catBirthdate">
+                <label for="cedula"></label>
+                <input type="number" id="cedula" name="cedula" placeholder="Cedula del dueño">
             </div>
             <div class="form-field">
                 <label for="catNeutered"></label>

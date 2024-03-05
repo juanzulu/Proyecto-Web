@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.entity.Usuario;
 import com.example.demo.entity.gato;
+import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.GatoService;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -17,6 +21,9 @@ public class KittyClinicController {
 
     @Autowired
     GatoService GatoService;
+
+    @Autowired
+    UsuarioRepository RepoUsuario;
 
     // http://localhost:8090/muestra/lista
     @GetMapping("/lista")
@@ -51,7 +58,15 @@ public class KittyClinicController {
     }
 
     @PostMapping("/agregar")
-    public String agregarGato(@ModelAttribute("gato") gato felino) {
+    public String agregarGato(@ModelAttribute("gato") gato felino, @RequestParam Integer cedula) {
+
+        Usuario usuario = RepoUsuario.findByCedula(cedula);
+
+        if (usuario != null) {
+            felino.setUsuario(usuario);
+        } else {
+            felino.setUsuario(null);
+        }
 
         GatoService.add(felino);
         return "redirect:/muestra/lista";

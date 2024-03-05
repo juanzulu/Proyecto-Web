@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.ui.Model;
 import com.example.demo.entity.Usuario;
+import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
 
 @Controller
@@ -18,9 +21,29 @@ public class UsuarioController {
     @Autowired
     UsuarioService UsuarioService;
 
+    @Autowired
+    UsuarioRepository RepoUsuario;
+
     @GetMapping("/login")
     public String mostrarPaginaLogin() {
         return "login";
+    }
+
+    @PostMapping("/registro")
+    public String login(Model model, @RequestParam String username) {
+
+        Usuario usuario = RepoUsuario.findByCorreo(username);
+
+        if (usuario != null) {
+            model.addAttribute("usuario", usuario);
+        }
+        Long id = usuario.getId();
+        String urlDestino = UriComponentsBuilder
+                .fromPath("/cliente/usuario/{id}")
+                .buildAndExpand(id)
+                .toUriString();
+
+        return "redirect:" + urlDestino;
     }
 
     @GetMapping("/lista")
