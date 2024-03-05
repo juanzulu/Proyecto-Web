@@ -435,6 +435,16 @@ en la opción */
     border-radius: 10px;
 }
 
+/*------------------------Aca va otra seccion---------------------------*/
+
+.tamdivision{
+    border: 0.5px solid #939393; /* Cambia el estilo del borde a punteado y el color a rojo */
+    width: 80%;
+    margin: 10px auto;
+}
+
+
+
 /*--------------Aca va el blogg de gatos-----------------------------------*/
 
 .tituloblog{
