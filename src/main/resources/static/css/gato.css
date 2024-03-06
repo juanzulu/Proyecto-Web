@@ -161,7 +161,11 @@ nav a:hover {
 }
 
 .obersaciones-gato {
-    	
+   
+    background-color: #F5F5DC;
+    border-radius: 15px;
+    border: solid 1px #4ea9bd;
+    margin: 20px; /* Ajusta los márgenes para asegurar espacio alrededor */
 }
 
 .part1,
@@ -188,15 +192,15 @@ nav a:hover {
 }
 
 .foto-gato img {
-    border-radius: 10%;
-    border: 4px solid #24778c;
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
+    width: auto; /* Ajusta el ancho de la imagen de forma automática */
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Ajusta la altura de manera automática para mantener la proporción */
+    border-radius: 10%; /* Bordes redondeados para la imagen */
+    border: 4px solid #24778c; /* Borde sólido alrededor de la imagen */
 }
-
 .datos-gato {
     margin-top: 20px;
+    border: solid 1px #4ea9bd
 }
 
 .datos-gato h3 {
@@ -216,14 +220,32 @@ nav a:hover {
 }
 
 .datos-gato p {
-    font-size: 1.1em;
-    margin-top: 10px;
-}  
+    margin-top: 10px; /* Espacio arriba de cada párrafo */
+    line-height: 1.6; /* Espaciado entre líneas para mejorar la legibilidad */
+}
+
+
+
 .contenedor-gatos {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 20px; /* Añade espacio arriba del contenedor */
+    gap: 20px; /* Espacio entre elementos cuando se usan flexbox o grid */
     width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+.h3-obser
+{
+    text-align: center;
+    color: black;
+}
+.obersaciones-gato, .foto-gato, .datos-gato {
+    padding: 20px; /* Añade padding alrededor del contenido de cada sección */
+    margin: 10px; /* Añade un margen exterior para separar los elementos entre sí */
+    border-radius: 10px; /* Opcional: Añade bordes redondeados para suavizar las esquinas */
+    background-color: #F5F5DC; /* Opcional: Un ligero color de fondo para diferenciar las secciones */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: Sombra suave para dar profundidad */
 }
 
 .edad-gato {
@@ -261,10 +283,6 @@ nav a:hover {
     font-size: 17px;
 }
 
-h3{
-    font-family: sans-serif;
-    color: #fff8f4;
-}
 
 .sidebar.show {
     transform: translateX(0);

@@ -83,13 +83,16 @@
             <h2 th:text="${gato.nombre}"></h2>
             <div class="contenedor-gatos">
                 <div class="obersaciones-gato"> 
-                    <h3>Observaciones</h3>
+                    <h3 class="h3-obser">Observaciones</h3>
                     <p>El gato presenta una molestía en su pata izquierda, segun el dueño dice 
                         que se lastimo cazando un raton. Tambien presenta lagrimales obstruidos 
                     </p>
                 </div>
                 <div class="foto-gato">
                     <img th:src="${gato.foto}">
+                </div>
+                <div class=" datos-gato">
+                    <p><strong>Características:</strong> <p th:text="${gato.nombre}"></p> es una gata muy cariñosa y juguetona. Se lleva bien con niños y otros animales. Tiene un pelaje largo y suave, predominantemente gris con rayas oscuras.</p>
                 </div>
 
             </div>
