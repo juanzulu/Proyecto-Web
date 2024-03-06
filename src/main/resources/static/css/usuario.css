@@ -307,8 +307,7 @@ table tbody tr:hover {
 }
 
 .usuario-info > * {
-    opacity: 0; /* Inicialmente, los elementos están invisibles */
-    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+
 }
 
 
