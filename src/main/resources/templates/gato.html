@@ -82,9 +82,16 @@
             <!-- Nuevo contenedor para datos-gato y foto-gato -->
             <h2 th:text="${gato.nombre}"></h2>
             <div class="contenedor-gatos">
+                <div class="obersaciones-gato"> 
+                    <h3>Observaciones</h3>
+                    <p>El gato presenta una molestía en su pata izquierda, segun el dueño dice 
+                        que se lastimo cazando un raton. Tambien presenta lagrimales obstruidos 
+                    </p>
+                </div>
                 <div class="foto-gato">
                     <img th:src="${gato.foto}">
                 </div>
+
             </div>
             <!-- contenedor edad-gato se mantiene aquí -->
             <div class="edad-gato">
