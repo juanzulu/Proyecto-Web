@@ -1,6 +1,6 @@
 html {
     overflow-x: hidden;
-    background: url(/img/fondo2.png);
+    background: url(../img/fondo2.png);
 }
 
 body{
@@ -11,33 +11,20 @@ body{
     background-repeat: round;
 }
 
+img{
+    width: 100%;
+}
+
 .header{
     font-family: "Protest Riot", sans-serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 30px;
+    font-size: 28px;
     display: flex;
     justify-content: space-between;
     height: 100px;
     padding: 12px;
     caret-color: transparent;
-}
-
-#linea{
-    border-top: 3px solid #1e897b;
-}
-
-.fa-user:hover {
-    animation: colorChange 1s infinite alternate;
-}
-
-@keyframes colorChange {
-    from {
-        color: #000; /* Color inicial */
-    }
-    to {
-        color: #e98726; /* Nuevo color */
-    }
 }
 
 
@@ -48,7 +35,7 @@ body{
   padding-left: 30px;
   padding-top: 50px;
   padding-bottom: 8px;
-  background-color: rgba(55,171,152,270);
+  background-color: #4fa9ba;
   position: absolute;
   z-index: 999;
   font-size: 16px;
@@ -63,39 +50,23 @@ body{
 
 #lista1 a{
     font-weight: 120;
-    color: black;
+    color: white;
 }
 
 #lista1 a:hover{
-    color: orange;
+    font-weight: 600;
+    color: #104b58;
 }
 
 #lista2 a{
     font-weight: 120;
-    color: black;
+    color: #104b58;
 }
 
 #lista2 a:hover{
     color: aqua;
 }
 
-#lista3 a{
-    font-weight: 120;
-    color: black;
-}
-
-#lista3 a:hover{
-    color: aqua;
-}
-
-#lista4 a{
-    font-weight: 120;
-    color: black;
-}
-
-#lista4 a:hover{
-    color: aqua;
-}
 
 .lista li {
     margin-bottom: 10px; /* Ajusta el espacio entre elementos aumentando o disminuyendo el valor de margin-bottom */
@@ -115,7 +86,7 @@ en la opción */
 }
 
 .inicio{
-    background-color: rgba(55,171,152,255);
+    background-color: #4fa9ba;
 }
 
 .nav{
@@ -132,7 +103,7 @@ en la opción */
 }
 
 .nav a:hover{
-    color: black;
+    color: #104a5a;
 }
 
 .nav i{
@@ -144,7 +115,7 @@ en la opción */
 }
 
 .contenedor{
-    max-width: 1200px;
+    max-width: 1300px;
     width: 95%;
     margin: 0 auto;
 }
@@ -153,6 +124,8 @@ en la opción */
     width: 160px;
     height: 100px;
 }
+
+/* ------------------------------------------------------------------------------------------*/
 
 
 .contenedor{
@@ -273,7 +246,7 @@ nav a:hover {
     right: 0;
     margin-top: 11%;
     padding-top: 20px;
-    background-color: #34AC9B;
+    background-color: #4ea9bd;
     padding-bottom: 2%;
     transform: translateX(100%);
     transition: transform 0.5s ease;
@@ -302,7 +275,7 @@ h3{
     transform: translateY(-50%);
     width: 60px; /* Ajusta al tamaño deseado */
     height: 60px; /* Ajusta al tamaño deseado */
-    background-color: #34AC9B;
+    background-color: #4ea9bd;
     cursor: pointer;
     z-index: 100;
     border-radius: 50%; /* Mantiene la forma circular */
