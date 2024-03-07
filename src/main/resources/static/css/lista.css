@@ -161,7 +161,6 @@ en la opción */
 
 /*-------------------------------------------------------------------------------------------------*/
 
-
 /* Estilos para la barra lateral */
 .sidebar {
     width: 250px;
@@ -182,34 +181,10 @@ en la opción */
     font-size: 17px;
 }
 
-h3{
-    font-family: sans-serif;
-    color: #fff8f4;
-}
 
 .sidebar.show {
     transform: translateX(0);
 }
-
-/* Estilo para la viñeta */
-.vineta {
-    position: fixed;
-    right: 0; /* Asegura que esté alineado con el borde derecho */
-    top: 50%; /* Centra la viñeta verticalmente */
-    transform: translateY(-50%);
-    width: 60px; /* Ajusta al tamaño deseado */
-    height: 60px; /* Ajusta al tamaño deseado */
-    background-color: #4ea9bd;
-    cursor: pointer;
-    z-index: 100;
-    border-radius: 50%; /* Mantiene la forma circular */
-    text-align: center;
-    font-size: 30px;
-   /* Opcional: añade un borde si deseas */
-}
-
-
-
 
 .sidebar .profile {
     text-align: center;
@@ -268,7 +243,20 @@ h3{
 .sidebar ul li a span:hover {
     transform: scale(1.1); /* Aumenta el tamaño del span un 10%, afectando tanto al texto como a la imagen */
 }
-
+.handle {
+    position: absolute;
+    left: -30px; /* Ajustar según el tamaño del handle */
+    top: 0;
+    width: 30px; /* Tamaño del handle */
+    height: 100%;
+    background-color: #24778c; /* Color del handle */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Cambia el cursor para indicar que se puede arrastrar */
+    user-select: none; /* Evita la selección del texto al arrastrar */
+}
 
 /*----------------------------------------- Estilo para la tabla ----------------------*/
 .tabla-pacientes {

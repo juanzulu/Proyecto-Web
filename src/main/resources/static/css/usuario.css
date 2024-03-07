@@ -292,8 +292,7 @@ table tbody tr:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer; /* Cambia el cursor para indicar que se puede arrastrar */
-    user-select: none; /* Evita la selección del texto al arrastrar */
+    /* Evita la selección del texto al arrastrar */
 }
 
 @keyframes cascada {
@@ -374,7 +373,7 @@ table tbody tr:hover {
     max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
     max-height: 100%; /* Asegura que la imagen se ajuste al contenedor */
     object-fit: cover; /* Asegura que la foto cubra el espacio sin deformarse */
-    border-radius: 35%;
+    border-radius: 50%;
 }
 
 .flechas {
