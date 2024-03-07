@@ -324,6 +324,19 @@ en la opción */
     margin-right: 0.5em;
 }
 
+.fa-user:hover {
+    animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        color: #fff8f4; /* Color inicial */
+    }
+    to {
+        color: #e98726; /* Nuevo color */
+    }
+}
+
 
 .contenedor_cuidad {
     padding: 10px;
