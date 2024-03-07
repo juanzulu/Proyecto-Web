@@ -91,15 +91,15 @@ public class DatabaseInit implements ApplicationRunner {
                                 "Aiden", "Elijah", "Grayson", "Amelia", "Caden", "Harper", "Carter", "Luna", "Mason",
                                 "Evelyn",
                                 "Oliver", "Aria", "Ethan", "Abigail", "Logan", "Emily", "Sebastian", "Scarlett",
-                                "Manuel", "Chloe"
+                                "Manuel", "Chloe", "Chamo"
 
                 };
 
                 String[] generos = { "Masculino", "Femenino", };
 
                 // Insertar 50 usuarios en el repositorio
-                for (int i = 0; i < 30; i++) {
-                        String nombre = nombresu[i % nombres.length];
+                for (int i = 0; i < 50; i++) {
+                        String nombre = nombresu[i % nombresu.length];
                         String genero = generos[i % generos.length];
                         Integer edad = (i % 40) + 18;
                         Integer cedula = 100000000 + i;
@@ -131,21 +131,18 @@ public class DatabaseInit implements ApplicationRunner {
                 // }
 
                 Usuario asociar;
-                gato felino, pantera, gatesco;
+                gato pantera, gatesco;
 
-                for (Long i = 1L; i <= 30L; i++) {
+                for (Long i = 1L; i <= 50L; i++) {
                         asociar = usuarioRepository.findById(i).orElse(null);
 
-                        felino = gatoRepository.findById(i * 3 - 2).orElse(null);
-                        pantera = gatoRepository.findById(i * 3 - 1).orElse(null);
-                        gatesco = gatoRepository.findById(i * 3).orElse(null);
+                        pantera = gatoRepository.findById(i * 2 - 1).orElse(null);
+                        gatesco = gatoRepository.findById(i * 2).orElse(null);
 
-                        if (asociar != null && felino != null && pantera != null && gatesco != null) {
-                                felino.setUsuario(asociar);
+                        if (asociar != null && pantera != null && gatesco != null) {
                                 pantera.setUsuario(asociar);
                                 gatesco.setUsuario(asociar);
 
-                                gatoRepository.save(felino);
                                 gatoRepository.save(pantera);
                                 gatoRepository.save(gatesco);
                         }
