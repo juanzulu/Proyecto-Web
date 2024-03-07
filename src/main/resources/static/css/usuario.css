@@ -279,6 +279,7 @@ table tbody tr:hover {
 
 .sidebar-right.active {
     right: 0; /* Se muestra */
+    width: 200px;
 }
 
 .handle {
