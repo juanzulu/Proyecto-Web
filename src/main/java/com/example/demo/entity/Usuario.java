@@ -39,13 +39,12 @@ public class Usuario {
     }
 
     public Usuario(String nombre, String genero, Integer edad, Integer cedula,
-            String correo /* , List<gato> mascotas */) {
+            String correo) {
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
         this.cedula = cedula;
         this.correo = correo;
-        // this.mascotas = mascotas;
     }
 
     public List<gato> getMascotas() {
