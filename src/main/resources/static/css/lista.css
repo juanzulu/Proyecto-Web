@@ -161,7 +161,6 @@ en la opción */
 
 /*-------------------------------------------------------------------------------------------------*/
 
-
 /* Estilos para la barra lateral */
 .sidebar {
     border: 2px solid #104c5a;
@@ -287,7 +286,20 @@ h3{
 .sidebar ul li a span:hover {
     transform: scale(1.1); /* Aumenta el tamaño del span un 10%, afectando tanto al texto como a la imagen */
 }
-
+.handle {
+    position: absolute;
+    left: -30px; /* Ajustar según el tamaño del handle */
+    top: 0;
+    width: 30px; /* Tamaño del handle */
+    height: 100%;
+    background-color: #24778c; /* Color del handle */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Cambia el cursor para indicar que se puede arrastrar */
+    user-select: none; /* Evita la selección del texto al arrastrar */
+}
 
 /*----------------------------------------- Estilo para la tabla ----------------------*/
 .tabla-pacientes {
