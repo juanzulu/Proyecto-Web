@@ -3,6 +3,7 @@ html {
     overflow-x: hidden;
    background: url(/img/fondo2.png); 
 }
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -64,27 +65,21 @@ body{
 
 #lista1 a{
     font-weight: 120;
-    color: #fff8f4;
+    color: white;
 }
 
 #lista1 a:hover{
-    color: orange;
+    font-weight: 600;
+    color: #104b58;
 }
 
 #lista2 a{
     font-weight: 120;
-    color: #fff8f4;
+    color: #104b58;
 }
 
-#lista3 a{
-    font-weight: 120;
-    color: #fff8f4;
-}
-
-
-#lista4 a{
-    font-weight: 120;
-    color: black;
+#lista2 a:hover{
+    color: aqua;
 }
 
 .lista li {
@@ -116,17 +111,17 @@ en la opción */
 
 .nav a{
     text-decoration: none;
-    color: #fff8f4;
+    color: aliceblue;
     font-weight: 600;
     z-index: 1000;
 }
 
 .nav a:hover{
-    color: black;
+    color: #104a5a;
 }
 
 .nav i{
-    color: #fff8f4;
+    color: white;
 }
 
 .nav i:hover{
@@ -134,7 +129,7 @@ en la opción */
 }
 
 .contenedor{
-    max-width: 1200px;
+    max-width: 1300px;
     width: 95%;
     margin: 0 auto;
 }
@@ -143,6 +138,8 @@ en la opción */
     width: 160px;
     height: 100px;
 }
+
+/* ------------------------------------------------------------------------------------------*/
 
 
 .contenedor{
