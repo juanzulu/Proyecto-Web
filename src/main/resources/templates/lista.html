@@ -117,21 +117,18 @@
     
     <div class="sidebar">
         <div class="profile">
-            <img src="/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
+            <img class="profilevete" src="/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
             <h3>Nombre del Veterinario</h3>
         </div>
         <ul>
+            <div class="botonesvi">
+                <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Agregar felino</p><img src="/img/agregarfelino.png" alt="agregar felino"></span></a></li>
             
-            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Agregar felino</p> <img src="/img/agregarfelino.png" alt="agregar felino"></span></a></li>
-            
-            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Ver tratamientos</p> <img src="/img/tratamientos.png" alt="tramamiento"></span></a></li>
-           
-            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>  <p>Ver tratamientos</p><img src="/img/servicios.png" alt="Servicios"></span></a></li>
+                <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Ver tratamientos</p><img src="/img/tratamientos.png" alt="tramamiento"></span></a></li>
+            </div>
         </ul>
     </div>
-    <div class="vineta" >
-        
-    </div>
+    <div class="vineta"><i class="fa-solid fa-shield-cat"></i></div>
         
 
  
