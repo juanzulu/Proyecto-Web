@@ -68,8 +68,12 @@ public class DatabaseInit implements ApplicationRunner {
                                 "https://i.pinimg.com/originals/1f/2d/4f/1f2d4fa68799ba91ff4787cfe18aaee1.jpg",
                                 "https://s1.ppllstatics.com/lasprovincias/www/multimedia/202112/12/media/cortadas/gatos-kb2-U160232243326NVC-1248x770@Las%20Provincias.jpg",
                                 "https://estaticos-cdn.prensaiberica.es/clip/4e1211c1-1520-41a7-aabb-42c2e03d1731_alta-libre-aspect-ratio_default_0.jpg",
-                                "https://static.nationalgeographic.es/files/styles/image_3200/public/nationalgeographic_1926777.jpg?w=1600&h=900"
-                };
+                                "https://static.nationalgeographic.es/files/styles/image_3200/public/nationalgeographic_1926777.jpg?w=1600&h=900",
+                                "https://i.pinimg.com/originals/91/d8/9e/91d89ea00a3f2e9a3d326152da4a2548.jpg",
+                                "https://th.bing.com/th/id/OIP.SpCktVxv_adtCFqHHd1rRQHaE8?rs=1&pid=ImgDetMain",
+                                "https://th.bing.com/th?id=OIF.J%2bvE8TfjwU9cUZd90TObwQ&rs=1&pid=ImgDetMain",
+                                "https://th.bing.com/th/id/OIP.D4eSVdrlVaOBZZvlu9iTAgHaJ7?w=889&h=1191&rs=1&pid=ImgDetMain"
+};
 
                 // Insertar 100 gatos en el repositorio
                 for (int i = 0; i < 100; i++) {
