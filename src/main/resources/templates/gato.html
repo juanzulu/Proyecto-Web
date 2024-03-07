@@ -8,30 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
     <script src="https://kit.fontawesome.com/3b446387f4.js" crossorigin="anonymous"></script>
+
+
     <script>
-         document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.querySelector('.sidebar');
-    const vineta = document.querySelector('.handle');
-
-    // Mostrar sidebar y ocultar viñeta cuando el cursor pasa por encima de la viñeta
-    vineta.addEventListener('mouseenter', function() {
-        sidebar.classList.add('show');
-        
-    });
-
-    // Espera a que la transición de la sidebar termine para mostrar la viñeta
-    sidebar.addEventListener('transitionend', function(event) {
-        if (event.propertyName === 'transform' && !sidebar.classList.contains('show')) {
-            vineta.style.display = 'block'; // Muestra la viñeta solo después de que la sidebar se haya ocultado completamente
-        }
-    });
-
-    // Ocultar sidebar cuando el mouse sale del área del sidebar
-    // Nota: Se elimina el evento 'mouseleave' directo que mostraba la viñeta
-    sidebar.addEventListener('mouseleave', function() {
-        sidebar.classList.remove('show');
-        // No necesitas cambiar la viñeta aquí, la lógica del 'transitionend' se encarga de ello
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+        const sidebar = document.querySelector('.sidebar');
+        const vineta = document.querySelector('.vineta');
+    
+        // Mostrar sidebar y ocultar viñeta cuando el cursor pasa por encima de la viñeta
+        vineta.addEventListener('mouseenter', function() {
+            sidebar.classList.add('show');
+            vineta.style.display = 'none'; // Oculta la viñeta inmediatamente
+        });
+    
+        // Espera a que la transición de la sidebar termine para mostrar la viñeta
+        sidebar.addEventListener('transitionend', function(event) {
+            if (event.propertyName === 'transform' && !sidebar.classList.contains('show')) {
+                vineta.style.display = 'block'; // Muestra la viñeta solo después de que la sidebar se haya ocultado completamente
+            }
+        });
+    
+        // Ocultar sidebar cuando el mouse sale del área del sidebar
+        // Nota: Se elimina el evento 'mouseleave' directo que mostraba la viñeta
+        sidebar.addEventListener('mouseleave', function() {
+            sidebar.classList.remove('show');
+            // No necesitas cambiar la viñeta aquí, la lógica del 'transitionend' se encarga de ello
+        });
     });
     
     </script>
@@ -106,23 +108,28 @@
         </div> --> 
     </section>
     
+    <br>
 
     <!-- Agrega más secciones según sea necesario -->
 
     <div class="sidebar">
-        <div class="handle">&#9776;</div>
         <div class="profile">
             <img src="/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
             <h3>Nombre del Veterinario</h3>
         </div>
         <ul>
-            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Agregar felino</p> <img src="/img/agregarfelino.png" alt="agregar felino"></span></a></li>
+            <div class="botonesvi">
+                <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Agregar felino</p> <img src="/img/agregarfelino.png" alt="agregar felino"></span></a></li>
             
             <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Ver tratamientos</p> <img src="/img/tratamientos.png" alt="tramamiento"></span></a></li>
+            </div>
            
-            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span>  <p>Ver tratamientos</p><img src="/img/servicios.png" alt="Servicios"></span></a></li>
         </ul>
     </div>
+    <div class="vineta"><i class="fa-solid fa-shield-cat"></i></div>
+
+
+    
     
 </body>
 </html>

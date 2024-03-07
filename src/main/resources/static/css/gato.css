@@ -266,8 +266,10 @@ nav a:hover {
 
 /* Estilos para la barra lateral */
 .sidebar {
-    width: 250px;
-    position: absolute;
+    border: 2px solid #104c5a;
+    width: 280px;
+    height: 440px;
+    position: fixed;
     top: 0;
     right: 0;
     margin-top: 11%;
@@ -276,7 +278,7 @@ nav a:hover {
     padding-bottom: 2%;
     transform: translateX(100%);
     transition: transform 0.5s ease;
-    border-radius: 5px;
+    border-radius: 25px;
     font-family: sans-serif; /* Aplica la fuente sans-serif a todos los elementos dentro del sidebar */
 }
 .sidebar {
@@ -285,14 +287,54 @@ nav a:hover {
 }
 
 
+.fa-shield-cat{
+    color: #fff8f4;
+    font-size: 48px;
+    padding: 6px;
+}
+
+h3{
+    font-family: sans-serif;
+    color: #fff8f4;
+}
+
 .sidebar.show {
     transform: translateX(0);
 }
+
+/* Estilo para la viñeta */
+.vineta {
+    position: fixed;
+    right: 0; /* Asegura que esté alineado con el borde derecho */
+    top: 50%; /* Centra la viñeta verticalmente */
+    transform: translateY(-50%);
+    width: 60px; /* Ajusta al tamaño deseado */
+    height: 60px; /* Ajusta al tamaño deseado */
+    background-color: #4ea9bd;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 50%; /* Mantiene la forma circular */
+    text-align: center;
+    font-size: 30px;
+   /* Opcional: añade un borde si deseas */
+}
+
+.botonesvi{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 18px;
+}
+
 
 .sidebar .profile {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.profilevete{
+    border: 2px solid #104c5a;
 }
 
 .sidebar .profile img {
@@ -332,10 +374,18 @@ nav a:hover {
 .sidebar ul li a span img {
     transition: transform 0.3s ease; /* Añade una transición suave para el efecto de escala */
     transform-origin: center bottom;
+    height: 60px;
 }
 
 .sidebar ul li a span:hover img {
     transform: scale(1.1); /* Aumenta el tamaño de la imagen un 10% */
+}
+
+.botonesvi{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 18px;
 }
 
 .sidebar ul li a span {
