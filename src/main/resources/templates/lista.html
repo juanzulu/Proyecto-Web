@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -14,12 +14,12 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.sidebar');
-    const vineta = document.querySelector('.handle');
+    const vineta = document.querySelector('.vineta');
 
     // Mostrar sidebar y ocultar viñeta cuando el cursor pasa por encima de la viñeta
     vineta.addEventListener('mouseenter', function() {
         sidebar.classList.add('show');
-        
+        vineta.style.display = 'none'; // Oculta la viñeta inmediatamente
     });
 
     // Espera a que la transición de la sidebar termine para mostrar la viñeta
@@ -114,21 +114,19 @@
             
         </table>
     </div>
-
-
     
     <div class="sidebar">
-        <div class="handle">&#9776;</div>
         <div class="profile">
-            <img class="profilevete" src="/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
+            <img src="/img/fotodelveterinario.jpg" alt="Foto del Veterinario">
             <h3>Nombre del Veterinario</h3>
         </div>
         <ul>
             <div class="botonesvi">
-                <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Agregar felino</p><img src="/img/agregarfelino.png" alt="agregar felino"></span></a></li>
+                <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Agregar felino</p> <img src="/img/agregarfelino.png" alt="agregar felino"></span></a></li>
             
-                <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Ver tratamientos</p><img src="/img/tratamientos.png" alt="tramamiento"></span></a></li>
+            <li><a type="button" class="btn btn-primary" th:href="@{/muestra/add}"><span><p>Ver tratamientos</p> <img src="/img/tratamientos.png" alt="tramamiento"></span></a></li>
             </div>
+           
         </ul>
     </div>
     <div class="vineta"><i class="fa-solid fa-shield-cat"></i></div>

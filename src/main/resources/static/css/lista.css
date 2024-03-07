@@ -216,6 +216,13 @@ h3{
    /* Opcional: añade un borde si deseas */
 }
 
+.botonesvi{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 18px;
+}
+
 
 .sidebar .profile {
     text-align: center;
