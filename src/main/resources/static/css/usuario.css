@@ -261,11 +261,12 @@ table tbody tr:hover {
     width: 250px;
     height: 50%;
     background-color: #4ea9bd;
-    color: #000000;
+    color: white;
     padding: 20px;
     box-sizing: border-box;
     transition: right 0.3s ease; /* Suaviza la transición */
     right: -230px; /* Inicialmente oculto, excepto el handle */
+    font-family: Arial, Helvetica, sans-serif;
 }
 .sidebar-right.active {
     right: 0; /* Sidebar se muestra */
@@ -395,12 +396,14 @@ table tbody tr:hover {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    font-size: 50px;
 }
 
 #cerrarInfo {
     position: absolute;
     top: 10px;
     right: 10px;
+    font-size: 20px;
 }
 
 #nombreGato{
