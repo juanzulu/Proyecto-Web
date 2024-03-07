@@ -325,14 +325,12 @@ td{
 
 
 
-
-
 .btn-info img, .btn-danger img, .info img {
     transition: transform 0.3s ease; /* Transición suave para el efecto de escala */
 }
 
 .btn-info:hover img, .btn-danger:hover img, .info:hover img {
-    transform: scale(1.7); /* Aumenta el tamaño de la imagen un 20% */
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen un 20% */
 }
 
 
