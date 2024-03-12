@@ -170,6 +170,7 @@ en la opción */
     top: 0;
     right: 0;
     margin-top: 11%;
+   
     padding-top: 20px;
     background-color: #4ea9bd;
     padding-bottom: 2%;
@@ -197,6 +198,7 @@ h3{
 
 .sidebar.show {
     transform: translateX(0);
+    margin-right: 20px;
 }
 
 /* Estilo para la viñeta */
@@ -341,7 +343,7 @@ th {
 }
 
 td{
-    background-color: #fce6b9;
+    background-color: #F5F5DC;
     text-align: center;
 }
 

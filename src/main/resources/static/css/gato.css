@@ -1,30 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
 html {
     overflow-x: hidden;
-    background: url(../img/fondo2.png);
+   background: url(/img/fondo2.png); 
 }
 
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     background-repeat: round;
+    flex: 1;
 }
 
-img{
-    width: 100%;
+h1{
+    font-weight: bold;
+    margin-top: 2%;
+    margin-bottom: 0px;
+    margin-left: 33%;
+    text-align: left;
+    color: black;
+    font-family: 'Pacifico', cursive;
 }
+
 
 .header{
     font-family: "Protest Riot", sans-serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 28px;
+    font-size: 30px;
     display: flex;
     justify-content: space-between;
     height: 100px;
     padding: 12px;
     caret-color: transparent;
+}
+
+#linea{
+    border-top: 3px solid #104c5a;
+}
+
+.fa-user:hover {
+    animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+    from {
+        color: #fff8f4; /* Color inicial */
+    }
+    to {
+        color: #e98726; /* Nuevo color */
+    }
 }
 
 
@@ -35,7 +61,7 @@ img{
   padding-left: 30px;
   padding-top: 50px;
   padding-bottom: 8px;
-  background-color: #4fa9ba;
+  background-color: #4ea9bd;
   position: absolute;
   z-index: 999;
   font-size: 16px;
@@ -67,7 +93,6 @@ img{
     color: aqua;
 }
 
-
 .lista li {
     margin-bottom: 10px; /* Ajusta el espacio entre elementos aumentando o disminuyendo el valor de margin-bottom */
   }  
@@ -86,7 +111,7 @@ en la opción */
 }
 
 .inicio{
-    background-color: #4fa9ba;
+    background-color: #4ea9bd;
 }
 
 .nav{
@@ -128,6 +153,7 @@ en la opción */
 /* ------------------------------------------------------------------------------------------*/
 
 
+
 .contenedor{
     max-width: 1200px;
     width: 95%;
@@ -153,20 +179,15 @@ nav a:hover {
     max-width: 1100px;
     background-color: #F5F5DC;
     margin: 50px ;
+ 
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-left: 80px;
+    margin-left: 370px;
     border: solid 1px #4ea9bd;
 }
 
-.obersaciones-gato {
-   
-    background-color: #F5F5DC;
-    border-radius: 15px;
-    border: solid 1px #4ea9bd;
-    margin: 20px; /* Ajusta los márgenes para asegurar espacio alrededor */
-}
+
 
 .part1,
 .part2 {
@@ -192,15 +213,16 @@ nav a:hover {
 }
 
 .foto-gato img {
-    width: auto; /* Ajusta el ancho de la imagen de forma automática */
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto; /* Ajusta la altura de manera automática para mantener la proporción */
-    border-radius: 10%; /* Bordes redondeados para la imagen */
-    border: 4px solid #24778c; /* Borde sólido alrededor de la imagen */
+    object-fit: cover;
+    width: 400px;  
+    
+    height: 400px; 
+    border-radius: 50%; 
+    border: 4px solid #24778c; 
 }
 .datos-gato {
     margin-top: 20px;
-    border: solid 1px #4ea9bd
+ 
 }
 
 .datos-gato h3 {
@@ -396,18 +418,125 @@ h3{
 .sidebar ul li a span:hover {
     transform: scale(1.1); /* Aumenta el tamaño del span un 10%, afectando tanto al texto como a la imagen */
 }
-.handle {
-    position: absolute;
-    left: -30px; /* Ajustar según el tamaño del handle */
-    top: 0;
-    width: 30px; /* Tamaño del handle */
-    height: 100%;
-    background-color: #24778c; /* Color del handle */
-    color: white;
+.vineta {
+    position: fixed;
+    right: 0; /* Asegura que esté alineado con el borde derecho */
+    top: 50%; /* Centra la viñeta verticalmente */
+    transform: translateY(-50%);
+    width: 60px; /* Ajusta al tamaño deseado */
+    height: 60px; /* Ajusta al tamaño deseado */
+    background-color: #4ea9bd;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 50%; /* Mantiene la forma circular */
+    text-align: center;
+    font-size: 30px;
+   /* Opcional: añade un borde si deseas */
+}
+
+
+
+/* ------------------------------------------------------------------------------------------*/
+
+/* aca comienza el footer*/
+.footer {
+    background: #4fa7bd;
+    color: #fff;
+    padding: 12px;
+    padding-bottom: 0px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.lista-footer a{
+    text-decoration: none;
+    font-family: Montserrat;
+    color: rgb(255, 255, 255);
+    padding-bottom: 1%;
+}
+
+.fab.fa-instagram {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fab.fa-instagram:hover {
+    color: orange;
+}
+
+.fa-brands.fa-x-twitter {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-x-twitter:hover {
+    color: orange;
+}
+
+.fa-brands.fa-facebook-f {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-facebook-f:hover {
+    color: orange;
+}
+
+.fa-brands.fa-github {
+    color: black;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fa-brands.fa-github:hover {
+    color: orange;
+}
+
+.iconos{
+    width: 30px;
+    padding: 6px;
+}
+  
+
+.comunicacion{
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer; /* Cambia el cursor para indicar que se puede arrastrar */
-    user-select: none; /* Evita la selección del texto al arrastrar */
+    color: #171616;
+    flex-wrap: wrap;
 }
 
+.comunicacion a{
+    width: 100%;
+}
+
+.comunicacion a{
+    text-decoration: none;
+}
+
+.logo2{
+    width: 150px;
+    height: 90px;
+}
+
+.copyright{
+    display: flex;
+    margin-bottom: 0px;
+    height: 20px;
+    color: white;
+    font-size: 10px;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
