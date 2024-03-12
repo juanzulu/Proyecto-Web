@@ -371,10 +371,11 @@ table tbody tr:hover {
 }
 
 #fotoGato {
-    max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
-    max-height: 100%; /* Asegura que la imagen se ajuste al contenedor */
+ /* Asegura que la imagen se ajuste al contenedor */
     object-fit: cover; /* Asegura que la foto cubra el espacio sin deformarse */
     border-radius: 50%;
+    height: 150px;
+    width: 150px;
 }
 
 .flechas {
