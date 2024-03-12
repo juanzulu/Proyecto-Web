@@ -263,19 +263,23 @@ nav a:hover {
     color: black;
 }
 .obersaciones-gato, .foto-gato, .datos-gato {
-    padding: 20px; /* Añade padding alrededor del contenido de cada sección */
-    margin: 10px; /* Añade un margen exterior para separar los elementos entre sí */
-    border-radius: 10px; /* Opcional: Añade bordes redondeados para suavizar las esquinas */
-    background-color: #F5F5DC; /* Opcional: Un ligero color de fondo para diferenciar las secciones */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: Sombra suave para dar profundidad */
+    padding: 20px; 
+    margin: 10px; 
+    background-color: #F5F5DC; 
+  
 }
+
+.obersaciones-gato, .datos-gato{
+   margin-top: 100px;
+}
+
 
 .edad-gato {
     display: flex;
-    justify-content: center; /* Centra el contenido de edad-gato en el eje principal (horizontal) */
-    gap: 20px; /* Espacio entre los elementos internos, ajusta según necesidad */
-    width: 100%; /* Opcional: ajusta según necesidad para controlar el ancho del contenedor */
-    margin-top: 20px; /* Espacio arriba del contenedor, ajusta según necesidad */
+    justify-content: center; 
+    gap: 20px; 
+    width: 100%; 
+    margin-top: 20px; 
 }
 
 /* Si necesitas que el contenido de edad-gato también esté centrado verticalmente dentro del propio contenedor */
@@ -434,8 +438,86 @@ h3{
    /* Opcional: añade un borde si deseas */
 }
 
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .foto-gato img {
+    animation: pulse 2s ;
+  }
 
 
+  @keyframes dropDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  
+  .infogatuna h2 {
+    animation: dropDown 2s ease-out forwards;
+  }
+
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .edad-gato {
+    animation: slideUp 2s ease-out forwards;
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .obersaciones-gato {
+    animation: fadeInLeft 2s ease-out forwards;
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .datos-gato {
+    animation: fadeInRight 2s ease-out forwards;
+  }
+    
+  
+  
 /* ------------------------------------------------------------------------------------------*/
 
 /* aca comienza el footer*/
