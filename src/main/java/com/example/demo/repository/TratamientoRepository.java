@@ -8,4 +8,6 @@ import com.example.demo.entity.Tratamiento;
 @Repository
 public interface TratamientoRepository extends JpaRepository<Tratamiento, Long> {
 
+
+    
 }

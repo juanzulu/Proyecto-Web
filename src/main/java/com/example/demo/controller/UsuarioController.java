@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -77,18 +79,16 @@ public class UsuarioController {
         return "crear_usuario";
 
     }
-
    
     @PostMapping("/agregar")
     public void agregarUsuario(@RequestBody  Usuario usuario) {
          UsuarioService.add(usuario);
     }
 
-    @GetMapping("/delete/{id}")
-    public String borrarUsuario(@PathVariable("id") Long identificacion) {
-
+    @DeleteMapping("/delete/{id}")
+    public void borrarUsuario(@PathVariable("id") Long identificacion) {
         UsuarioService.deleletebyid(identificacion);
-        return "redirect:/cliente/lista";
+       
     }
 
     @GetMapping("/update/{id}")
@@ -99,10 +99,10 @@ public class UsuarioController {
         return "actualizar_usuario";
     }
 
-    @PostMapping("/update/{id}")
-    public String updateUsuario(@PathVariable("id") int identificacion, @ModelAttribute("usuario") Usuario usuario) {
+    @PutMapping("/update/{id}")
+    public void updateUsuario(@RequestBody  Usuario usuario) {
         UsuarioService.update(usuario);
-        return "redirect:/cliente/lista";
+      
     }
 
 }
