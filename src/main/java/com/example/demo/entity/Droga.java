@@ -21,6 +21,7 @@ public class Droga {
     @GeneratedValue
     private Long id;
 
+    
     @OneToMany(mappedBy = "droga")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 

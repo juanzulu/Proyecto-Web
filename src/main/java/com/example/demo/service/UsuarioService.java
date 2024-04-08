@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.example.demo.entity.Usuario;
 
@@ -8,7 +8,7 @@ public interface UsuarioService {
 
     public Usuario SearchNyId(Long id);
 
-    public Collection<Usuario> SearchAll();
+    public List<Usuario> SearchAll();
 
     public void deleletebyid(Long id);
 

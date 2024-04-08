@@ -1,21 +1,26 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.ui.Model;
 import com.example.demo.entity.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
+import org.springframework.web.bind.annotation.RequestBody;
 
-@Controller
+@RestController
 @RequestMapping("/cliente")
+@CrossOrigin (origins =  "http://localhost:4200")
 public class UsuarioController {
 
     @Autowired
@@ -25,8 +30,8 @@ public class UsuarioController {
     UsuarioRepository RepoUsuario;
 
     @GetMapping("/login")
-    public String mostrarPaginaLogin() {
-        return "login";
+    public List<Usuario> mostrarPaginaLogin() {
+        return UsuarioService.SearchAll();
     }
 
     @PostMapping("/registro")
@@ -49,23 +54,18 @@ public class UsuarioController {
     }
 
     @GetMapping("/lista")
-    public String mostrarUsuarios(Model model) {
-        model.addAttribute("usuarios", UsuarioService.SearchAll());
-        return "lista_usuarios";
+    public List<Usuario> mostrarUsuarios(Model model) {
+       
+        return UsuarioService.SearchAll();
     }
 
     @GetMapping("usuario/{id}")
-    public String mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
+    public Usuario mostrarInfo(@PathVariable("id") Long identificacion) {
 
         Usuario usuario = UsuarioService.SearchNyId(identificacion);
-
-        if (usuario != null) {
-            model.addAttribute("usuario", UsuarioService.SearchNyId(identificacion));
-        } else {
-            // throw new NotFoundException(identificacion);
-        }
-        return "usuario";
-    }
+  
+        return usuario;
+    } 
 
     @GetMapping("/add")
     public String mostrarCrearUsuario(Model model) {
@@ -78,11 +78,10 @@ public class UsuarioController {
 
     }
 
+   
     @PostMapping("/agregar")
-    public String agregarUsuario(@ModelAttribute("usuario") Usuario usuario) {
-
-        UsuarioService.add(usuario);
-        return "redirect:/cliente/lista";
+    public void agregarUsuario(@RequestBody  Usuario usuario) {
+         UsuarioService.add(usuario);
     }
 
     @GetMapping("/delete/{id}")

@@ -22,6 +22,7 @@ public class Veterinario {
     @GeneratedValue
     private Long id;
 
+    
     @OneToMany(mappedBy = "veterinario")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
