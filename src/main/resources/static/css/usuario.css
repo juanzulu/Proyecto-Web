@@ -214,6 +214,7 @@ table tbody tr:hover {
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
 }
 .contenedor-gato {
     position: relative;
@@ -334,7 +335,8 @@ table tbody tr:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fce6b9;
+    background-color: #F5F5DC;
+    border: solid 12px #fce6b9;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     width: 80%;
@@ -353,8 +355,9 @@ table tbody tr:hover {
     align-items: center;
 }
 
-.Historial-gatuno {
+.Historial-gatuno{
     flex: 1; /* Ajusta estos valores según sea necesario */
+    font-family:Georgia, 'Times New Roman', Times, serif;
     margin-right: 10px; /* Espacio entre el historial y la foto */
 }
 
@@ -370,12 +373,69 @@ table tbody tr:hover {
     height: 150px; /* Mantiene la proporción cuadrada para un círculo perfecto */
 }
 
+.fa-times:hover{
+    color: rgb(216, 104, 104);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fa-chevron-up{
+    font-size: 40px;
+}
+
+.fa-chevron-down{
+    font-size: 40px;
+}
+
+.fa-chevron-up:hover{
+    font-size: 44px;
+    cursor: pointer;
+    color:#4ea9bd;
+}
+
+.fa-chevron-down:hover{
+    font-size: 44px;
+    cursor: pointer;
+    color:#4ea9bd;
+}
+
+h3{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 550;
+    color: rgba(0, 0, 0, 0.549);
+    text-align: left;
+    margin: 0;
+    padding-left: 22%;
+}
+
+
+.infoGatoContenedor{
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b, #ffdb9e);
+    background-size: 200% auto;
+    animation: gradient 5s linear infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+
 #fotoGato {
  /* Asegura que la imagen se ajuste al contenedor */
     object-fit: cover; /* Asegura que la foto cubra el espacio sin deformarse */
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 145px;
+    width: 145px;
+    border: solid 1px;
+    box-shadow: 0px 4px 8px rgba(0.3, 0.3, 0.3, 0.3);
 }
 
 .flechas {
@@ -409,7 +469,7 @@ table tbody tr:hover {
 
 #nombreGato{
     font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 30px;
 }
-
-
 
