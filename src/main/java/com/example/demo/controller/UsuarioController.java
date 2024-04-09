@@ -66,11 +66,12 @@ public class UsuarioController {
         return UsuarioService.SearchAll();
     }
 
-    @GetMapping("usuario/{id}")
+    @GetMapping("/usuario/{id}")
     public List<gato> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
 
         return GatoController.SearchByUsuarioId(identificacion);
-    } 
+    }  
+   
 
     @GetMapping("/add")
     public String mostrarCrearUsuario(Model model) {

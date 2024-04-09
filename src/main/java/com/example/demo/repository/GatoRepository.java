@@ -10,5 +10,5 @@ import com.example.demo.entity.gato;
 @Repository
 public interface GatoRepository extends JpaRepository<gato, Long> {
     
-        List<gato> findByEstudiantesIdEstudiantes(Long id);
+        List<gato> findByUsuarioId(Long id);
 }

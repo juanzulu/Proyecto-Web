@@ -40,12 +40,9 @@ public class GatoServiceImpl implements GatoService {
         Repo.save(felino);
     }
 
-       @Override
+    @Override
     public List<gato> SearchByUsuarioId(Long id) {
-
-        return Repo.findByEstudiantesIdEstudiantes(id);
-       
-    } 
-  
+        return Repo.findByUsuarioId(id); // Llama al método corregido
+    }
 
 }
