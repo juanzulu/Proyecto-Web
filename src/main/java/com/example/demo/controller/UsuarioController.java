@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.ui.Model;
 import com.example.demo.entity.Usuario;
+import com.example.demo.entity.gato;
 import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.service.GatoService;
 import com.example.demo.service.UsuarioService;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -30,6 +32,9 @@ public class UsuarioController {
 
     @Autowired
     UsuarioRepository RepoUsuario;
+
+    @Autowired
+    GatoService GatoController;
 
     @GetMapping("/login")
     public List<Usuario> mostrarPaginaLogin() {
@@ -62,11 +67,9 @@ public class UsuarioController {
     }
 
     @GetMapping("usuario/{id}")
-    public Usuario mostrarInfo(@PathVariable("id") Long identificacion) {
+    public List<gato> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
 
-        Usuario usuario = UsuarioService.SearchNyId(identificacion);
-  
-        return usuario;
+        return GatoController.SearchByUsuarioId(identificacion);
     } 
 
     @GetMapping("/add")

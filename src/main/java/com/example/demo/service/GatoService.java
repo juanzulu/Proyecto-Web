@@ -1,14 +1,16 @@
 package com.example.demo.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.example.demo.entity.gato;
 
 public interface GatoService {
 
-    public gato SearchNyId(Long id);
+    public gato SearchById(Long id);
 
-    public Collection<gato> SearchAll();
+    public List<gato> SearchAll();
+
+    public List<gato> SearchByUsuarioId(Long id);
 
     public void deleletebyid(Long id);
 

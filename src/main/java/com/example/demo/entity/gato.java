@@ -22,11 +22,12 @@ public class gato {
     @Id
     @GeneratedValue
     private Long id;
-
+    
+    @JsonIgnore
     @ManyToOne
     private Usuario usuario;
 
-    @JsonIgnore
+   
     @OneToMany(mappedBy = "felino")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 

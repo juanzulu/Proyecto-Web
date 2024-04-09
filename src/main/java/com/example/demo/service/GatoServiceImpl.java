@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
-import java.util.Collection;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,12 @@ public class GatoServiceImpl implements GatoService {
     GatoRepository Repo;
 
     @Override
-    public gato SearchNyId(Long id) {
+    public gato SearchById(Long id) {
         return Repo.findById(id).get();
     }
 
     @Override
-    public Collection<gato> SearchAll() {
+    public List<gato> SearchAll() {
         return Repo.findAll();
     }
 
@@ -38,5 +39,13 @@ public class GatoServiceImpl implements GatoService {
     public void add(gato felino) {
         Repo.save(felino);
     }
+
+       @Override
+    public List<gato> SearchByUsuarioId(Long id) {
+
+        return Repo.findByEstudiantesIdEstudiantes(id);
+       
+    } 
+  
 
 }

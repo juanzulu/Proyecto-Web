@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -16,12 +18,14 @@ public class Tratamiento {
 
     private LocalDate fecha;
 
+    @JsonIgnore
     @ManyToOne
     private Droga droga;
 
+    @JsonIgnore
     @ManyToOne
     private Veterinario veterinario;
-
+    @JsonIgnore
     @ManyToOne
     private gato felino;
 

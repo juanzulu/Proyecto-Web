@@ -1,9 +1,12 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,11 +19,14 @@ import com.example.demo.entity.gato;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.GatoService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 
 @RequestMapping("/muestra")
 @CrossOrigin(origins =  "http://localhost:4200")
+
 public class KittyClinicController {
 
     @Autowired
@@ -31,27 +37,21 @@ public class KittyClinicController {
 
     // http://localhost:8090/muestra/lista
     @GetMapping("/lista")
-    public String mostrarGatos(Model model) {
-        model.addAttribute("gatos", GatoService.SearchAll());
-        return "lista";
+    public List<gato> mostrarGatos(Model model) {
+
+        //model.addAttribute("gatos", GatoService.SearchAll());
+        return GatoService.SearchAll();
     }
 
     // http://localhost:8090/muestra/gato/id con id me refiero a un un numero
     // espefico ejm 1 2 3 4 si el numero es mas grande que la base falla
     @GetMapping("/gato/{id}")
-    public String mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
-
-        gato felino = GatoService.SearchNyId(identificacion);
-
-        if (felino != null) {
-            model.addAttribute("gato", GatoService.SearchNyId(identificacion));
-        } else {
-            throw new NotFoundException(identificacion);
-        }
-        return "gato";
+    public gato mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
+      
+        return  GatoService.SearchById(identificacion);
     }
 
-    @GetMapping("/add")
+    @GetMapping("/agregar")
     public String mostrarCrearGato(Model model) {
 
         gato aux = new gato(null, null, null, null, null);
@@ -62,7 +62,7 @@ public class KittyClinicController {
     }
 
     @PostMapping("/agregar")
-    public String agregarGato(@ModelAttribute("gato") gato felino, @RequestParam Integer cedula) {
+    public void agregarGato(@ModelAttribute("gato") gato felino, @RequestParam Integer cedula) {
 
         Usuario usuario = RepoUsuario.findByCedula(cedula);
 
@@ -71,29 +71,26 @@ public class KittyClinicController {
         } else {
             felino.setUsuario(null);
         }
-
         GatoService.add(felino);
-        return "redirect:/muestra/lista";
+   
     }
 
-    @GetMapping("/delete/{id}")
-    public String borrarGato(@PathVariable("id") Long identificacion) {
+    @DeleteMapping("/delete/{id}")
+    public void borrarGato(@PathVariable("id") Long identificacion) {
         GatoService.deleletebyid(identificacion);
-        return "redirect:/muestra/lista";
     }
 
     @GetMapping("/update/{id}")
     public String mostrarUpdate(@PathVariable("id") Long identificacion, Model model) {
 
-        model.addAttribute("gato", GatoService.SearchNyId(identificacion));
+        model.addAttribute("gato", GatoService.SearchById(identificacion));
         return "modificar_gato";
 
     }
 
-    @PostMapping("/update/{id}")
-    public String updateGato(@PathVariable("id") int identificacion, @ModelAttribute("gato") gato felino) {
+    @PutMapping("/update/{id}")
+    public void updateGato(@RequestBody gato felino) {
         GatoService.update(felino);
-        return "redirect:/muestra/lista";
     }
 
 }
