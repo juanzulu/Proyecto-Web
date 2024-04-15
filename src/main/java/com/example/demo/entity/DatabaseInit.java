@@ -61,6 +61,13 @@ public class DatabaseInit implements ApplicationRunner {
 
                 };
 
+                String[] enfermedades = {
+                                "Rinotraqueítis viral felina", "Panleucopenia felina", "Calicivirus felino",
+                                "Leucemia felina",
+                                "Inmunodeficiencia felina", "Peritonitis infecciosa felina", "Toxoplasmosis",
+                                "Gingivoestomatitis crónica felina", "Asma felina", "Insuficiencia renal crónica"
+                };
+
                 // URL de imágenes
                 String[] urls = {
                                 "https://www.zooplus.es/magazine/wp-content/uploads/2017/10/fotolia_103481419.jpg",
@@ -73,7 +80,7 @@ public class DatabaseInit implements ApplicationRunner {
                                 "https://th.bing.com/th/id/OIP.SpCktVxv_adtCFqHHd1rRQHaE8?rs=1&pid=ImgDetMain",
                                 "https://th.bing.com/th?id=OIF.J%2bvE8TfjwU9cUZd90TObwQ&rs=1&pid=ImgDetMain",
                                 "https://th.bing.com/th/id/OIP.D4eSVdrlVaOBZZvlu9iTAgHaJ7?w=889&h=1191&rs=1&pid=ImgDetMain"
-};
+                };
 
                 // Insertar 100 gatos en el repositorio
                 for (int i = 0; i < 100; i++) {
@@ -81,7 +88,8 @@ public class DatabaseInit implements ApplicationRunner {
                         String raza = razas[i % razas.length];
                         int edad = (i % 4) + 2; // Edad varía de 2 a 5
                         String imagenUrl = urls[i % urls.length];
-                        gatoRepository.save(new gato(nombre, raza, edad, imagenUrl));
+                        String enfermedad = enfermedades[i % enfermedades.length];
+                        gatoRepository.save(new gato(nombre, raza, edad, imagenUrl, enfermedad, true));
                 }
 
                 // -----------------------------------Gatos------------------------------------------------------------------------//

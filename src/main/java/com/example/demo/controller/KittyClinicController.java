@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 
-@RequestMapping("/muestra")
-@CrossOrigin(origins =  "http://localhost:4200")
+@RequestMapping("/mascota")
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class KittyClinicController {
 
@@ -39,7 +39,7 @@ public class KittyClinicController {
     @GetMapping("/lista")
     public List<gato> mostrarGatos(Model model) {
 
-        //model.addAttribute("gatos", GatoService.SearchAll());
+        // model.addAttribute("gatos", GatoService.SearchAll());
         return GatoService.SearchAll();
     }
 
@@ -47,14 +47,14 @@ public class KittyClinicController {
     // espefico ejm 1 2 3 4 si el numero es mas grande que la base falla
     @GetMapping("/gato/{id}")
     public gato mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
-      
-        return  GatoService.SearchById(identificacion);
+
+        return GatoService.SearchById(identificacion);
     }
 
     @GetMapping("/agregar")
     public String mostrarCrearGato(Model model) {
 
-        gato aux = new gato(null, null, null, null, null);
+        gato aux = new gato(null, null, null, null, null, null, true);
 
         model.addAttribute("gato", aux);
 
@@ -72,7 +72,7 @@ public class KittyClinicController {
             felino.setUsuario(null);
         }
         GatoService.add(felino);
-   
+
     }
 
     @DeleteMapping("/delete/{id}")

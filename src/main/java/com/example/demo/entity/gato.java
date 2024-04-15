@@ -14,29 +14,32 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class gato {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private String nombre;
     private String raza;
     private Integer edad;
     private String foto;
+    private String enfermedad;
+    private boolean estado;
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    
     @JsonIgnore
     @ManyToOne
     private Usuario usuario;
 
-   
     @OneToMany(mappedBy = "felino")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
-    public gato(Long id, String nombre, String raza, Integer edad, String foto) {
+    public gato(Long id, String nombre, String raza, Integer edad, String foto, String enfermedad, boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.foto = foto;
+        this.enfermedad = enfermedad;
+        this.estado = estado;
     }
 
     public Usuario getUsuario() {
@@ -51,11 +54,14 @@ public class gato {
 
     }
 
-    public gato(String nombre, String raza, Integer edad, String foto) {
+    public gato(String nombre, String raza, Integer edad, String foto, String enfermedad, boolean estado) {
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.foto = foto;
+        this.enfermedad = enfermedad;
+        this.estado = estado;
+
     }
 
     public Long getId() {
@@ -76,6 +82,30 @@ public class gato {
 
     public String getRaza() {
         return raza;
+    }
+
+    public String getEnfermedad() {
+        return enfermedad;
+    }
+
+    public void setEnfermedad(String enfermedad) {
+        this.enfermedad = enfermedad;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public List<Tratamiento> getTratamientos() {
+        return tratamientos;
+    }
+
+    public void setTratamientos(List<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
     }
 
     public void setRaza(String raza) {
