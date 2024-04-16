@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.io.InputStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -8,6 +10,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.repository.GatoRepository;
 import com.example.demo.repository.UsuarioRepository;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+
+import com.example.demo.repository.VeterinarioRepository;
+import com.example.demo.repository.DrogaRepository;
+import com.example.demo.repository.TratamientoRepository;
+
+
+import jakarta.transaction.Transaction;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Controller
 @Transactional
@@ -18,6 +36,9 @@ public class DatabaseInit implements ApplicationRunner {
 
         @Autowired
         UsuarioRepository usuarioRepository;
+
+        @Autowired
+        DrogaRepository drogaRepository;
 
         @Override
         public void run(ApplicationArguments args) throws Exception {
@@ -160,6 +181,36 @@ public class DatabaseInit implements ApplicationRunner {
                         }
                 }
 
+        
+
+
+        // ------------------------------------------ Drogas
+        /* excel */
+        try {
+                InputStream file = getClass().getClassLoader().getResourceAsStream("medicamentos.xlsx"); 
+                
+                Workbook workbook = new XSSFWorkbook(file);
+                Sheet sheet = workbook.getSheet("MEDICAMENTOS BD FINAL");
+                for(int rowIndex =1; rowIndex <= sheet.getLastRowNum(); rowIndex++){
+                    Row row = sheet.getRow(rowIndex);
+                    if(row != null){
+                        Droga drug = new Droga();
+                        drug.setNombre(row.getCell(0).getStringCellValue());
+                        drug.setPrecio((int) row.getCell(1).getNumericCellValue());
+                        drug.setpCompra((int) row.getCell(2).getNumericCellValue());
+                        drug.setuDisponibles((int) row.getCell(3).getNumericCellValue());
+                        drug.setuVendidas((int) row.getCell(4).getNumericCellValue());
+                        drogaRepository.save(drug);
+                    }
+                }
+    
+                if(workbook != null){
+                    workbook.close();
+                }
+                file.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 }
