@@ -38,11 +38,21 @@ public class KittyClinicController {
     // http://localhost:8090/muestra/lista
     @GetMapping("/lista")
     public List<gato> mostrarGatos(Model model) {
-
         // model.addAttribute("gatos", GatoService.SearchAll());
         return GatoService.SearchAll();
     }
 
+    @GetMapping("/estado/{id}")
+    public boolean ConsultarEstado(@PathVariable("id") Long id) {
+        return GatoService.ConsultarEstado(id);
+    }
+
+
+    @PostMapping("/estado/{id}")
+    public void cambiarEstado(@PathVariable("id") Long id) {
+       
+        GatoService.cambiarEstado( GatoService.SearchById(id));
+    }
     // http://localhost:8090/muestra/gato/id con id me refiero a un un numero
     // espefico ejm 1 2 3 4 si el numero es mas grande que la base falla
     @GetMapping("/gato/{id}")

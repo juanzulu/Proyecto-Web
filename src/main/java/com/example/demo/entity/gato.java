@@ -96,6 +96,10 @@ public class gato {
         return estado;
     }
 
+    public boolean getEstado() {
+        return estado;
+    }
+
     public void setEstado(boolean estado) {
         this.estado = estado;
     }

@@ -63,7 +63,6 @@ public class UsuarioController {
       // http://localhost:8090/muestra/lista
     @GetMapping("/lista")
     public List<Usuario> mostrarUsuarios(Model model) {
-       
         return UsuarioService.SearchAll();
     }
 

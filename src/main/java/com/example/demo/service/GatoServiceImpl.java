@@ -45,4 +45,16 @@ public class GatoServiceImpl implements GatoService {
         return Repo.findByUsuarioId(id); // Llama al método corregido
     }
 
+    @Override
+    public boolean ConsultarEstado(Long id) {
+        return Repo.ConsultarEstado(id);
+    }
+
+    @Override
+    public void cambiarEstado( gato felino) {
+        
+        felino.setEstado(!(felino.getEstado()));
+        Repo.save(felino);
+    }
+
 }

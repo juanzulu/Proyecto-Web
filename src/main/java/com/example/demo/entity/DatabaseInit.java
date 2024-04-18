@@ -12,18 +12,11 @@ import com.example.demo.repository.GatoRepository;
 import com.example.demo.repository.UsuarioRepository;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 
-import com.example.demo.repository.VeterinarioRepository;
 import com.example.demo.repository.DrogaRepository;
-import com.example.demo.repository.TratamientoRepository;
 
 
-import jakarta.transaction.Transaction;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
