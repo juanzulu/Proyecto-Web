@@ -55,7 +55,10 @@ public class GatoServiceImpl implements GatoService {
     public void cambiarEstado( gato felino) {
         
         felino.setEstado(!(felino.getEstado()));
-        Repo.save(felino);
+         Repo.save(felino);
+
     }
+
+    
 
 }

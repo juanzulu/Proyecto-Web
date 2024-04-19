@@ -49,11 +49,12 @@ public class KittyClinicController {
     }
 
 
-    @PostMapping("/estado/{id}")
+    @PutMapping("/estado/{id}")
     public void cambiarEstado(@PathVariable("id") Long id) {
        
         GatoService.cambiarEstado( GatoService.SearchById(id));
     }
+    
     // http://localhost:8090/mascota/gato/id 
     @GetMapping("/gato/{id}")
     public gato mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
