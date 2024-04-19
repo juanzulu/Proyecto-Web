@@ -25,7 +25,7 @@ public class gato {
     private String enfermedad;
     private boolean estado;
 
-    @JsonIgnore
+ 
     @ManyToOne
     private Usuario usuario;
 

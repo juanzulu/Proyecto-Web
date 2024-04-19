@@ -18,14 +18,14 @@ public class Tratamiento {
 
     private LocalDate fecha;
 
-    @JsonIgnore
+  
     @ManyToOne
     private Droga droga;
 
-    @JsonIgnore
+   
     @ManyToOne
     private Veterinario veterinario;
-    @JsonIgnore
+    
     @ManyToOne
     private gato felino;
 

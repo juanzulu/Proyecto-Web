@@ -36,6 +36,8 @@ public class UsuarioController {
     @Autowired
     GatoService GatoController;
 
+
+
     @GetMapping("/login")
     public List<Usuario> mostrarPaginaLogin() {
         return UsuarioService.SearchAll();
@@ -67,14 +69,13 @@ public class UsuarioController {
     }
 
   
-    // http://localhost:8090/cliente/usuario/{id}
-    @GetMapping("/usuario/{id}")
+    // http://localhost:8090/cliente/misgatos/{id}
+    @GetMapping("/misgatos/{id}")
     public List<gato> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
-
         return GatoController.SearchByUsuarioId(identificacion);
     }  
    
-
+    // http://localhost:8090/cliente/add
     @GetMapping("/add")
     public String mostrarCrearUsuario(Model model) {
 
@@ -85,18 +86,21 @@ public class UsuarioController {
         return "crear_usuario";
 
     }
-   
+
+    // http://localhost:8090/cliente/agregar
     @PostMapping("/agregar")
     public void agregarUsuario(@RequestBody  Usuario usuario) {
          UsuarioService.add(usuario);
     }
 
+    // http://localhost:8090/cliente/delete/{id}
     @DeleteMapping("/delete/{id}")
     public void borrarUsuario(@PathVariable("id") Long identificacion) {
         UsuarioService.deleletebyid(identificacion);
        
     }
 
+    // http://localhost:8090/cliente/update/{id}
     @GetMapping("/update/{id}")
     public String mostrarUpdate(Model model, @PathVariable("id") Long identificacion) {
 

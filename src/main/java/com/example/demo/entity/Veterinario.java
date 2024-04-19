@@ -23,7 +23,7 @@ public class Veterinario {
     @GeneratedValue
     private Long id;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "veterinario")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
