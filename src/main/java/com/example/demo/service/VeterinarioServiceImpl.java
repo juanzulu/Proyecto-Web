@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class VeterinarioServiceImpl implements VeterinarioService {
     }
 
     @Override
-    public Collection<Veterinario> SearchAll() {
+    public List<Veterinario> SearchAll() {
         return veterinarioRepo.findAll();
     }
 
@@ -38,5 +38,7 @@ public class VeterinarioServiceImpl implements VeterinarioService {
     public void add(Veterinario veterinario) {
         veterinarioRepo.save(veterinario);
     }
+
+   
 
 }
