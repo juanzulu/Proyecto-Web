@@ -16,4 +16,6 @@ public interface UsuarioService {
 
     public void add(Usuario usuario);
 
+    public Usuario findUsuarioById(Long id);
+
 }

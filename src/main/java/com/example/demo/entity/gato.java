@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -29,7 +30,7 @@ public class gato {
     @ManyToOne
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "felino")
+    @OneToMany(mappedBy = "felino", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public gato(Long id, String nombre, String raza, Integer edad, String foto, String enfermedad, boolean estado) {

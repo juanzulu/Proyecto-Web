@@ -3,10 +3,10 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -62,7 +62,7 @@ public class UsuarioController {
         }
     }
 
-      // http://localhost:8090/muestra/lista
+      // http://localhost:8090/cliente/lista
     @GetMapping("/lista")
     public List<Usuario> mostrarUsuarios(Model model) {
         return UsuarioService.SearchAll();
@@ -74,6 +74,14 @@ public class UsuarioController {
     public List<gato> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
         return GatoController.SearchByUsuarioId(identificacion);
     }  
+
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<Usuario> mostrarUsuarioConGatos(@PathVariable("id") Long id) {
+    Usuario usuario = UsuarioService.findUsuarioById(id); // Suponiendo que existe este método
+    List<gato> gatos = GatoController.SearchByUsuarioId(id);
+    usuario.setMascotas(gatos); // Asegúrate de que el usuario tenga un setter para mascotas
+    return ResponseEntity.ok(usuario);
+}
    
     // http://localhost:8090/cliente/add
     @GetMapping("/add")

@@ -35,4 +35,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         Repo.deleteById(id);
     }
 
+    @Override
+    public Usuario findUsuarioById(Long id) {
+        return Repo.findById(id).get();
+    }
+
 }
