@@ -662,3 +662,22 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/estudia
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 67 more
+2024-04-20 23:01:46.154397-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VETERINARIOS" not found; SQL statement:
+INSERT INTO veterinarios (cedula, nombre, apellido, password, foto, especialidad)
+VALUES (123456, 'Juan', 'Pérez', 'password123', 'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQz/NTU1NDc4Mi9lcy9m/b3RvL3VuLWpvdmVu/LXZldGVyaW5hcmlv/LWV4YW1pbmEtYS11/bi1nYXRpdG8uanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPVcy/dEZEY1dRb0Eybl9v/WVBUZWppSFBOd0U2/UG5FWW1oNEpxSl9O/Y0JMZDA9', 'Cardiología') [42102-224]
+2024-04-20 23:31:56.606019-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fi... (323)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) values (?,?,?,?,?,?,?) [22001-224]
+2024-04-20 23:32:39.835703-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fi... (323)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) values (?,?,?,?,?,?,?) [22001-224]
+2024-04-20 23:38:23.523401-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fi... (323)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) values (?,?,?,?,?,?,?) [22001-224]
+2024-04-20 23:39:26.530604-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fi... (323)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) values (?,?,?,?,?,?,?) [22001-224]
+2024-04-20 23:41:42.976454-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fi... (323)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) values (?,?,?,?,?,?,?) [22001-224]
