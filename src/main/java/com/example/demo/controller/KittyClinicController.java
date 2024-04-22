@@ -74,19 +74,19 @@ public class KittyClinicController {
     }
 
 
+
     @PostMapping("/agregar")
-    public void agregarGato(@ModelAttribute("gato") gato felino, @RequestParam Integer cedula) {
+    public void agregarGato(@RequestBody gato felino, @RequestParam Integer cedula) {
+    Usuario usuario = RepoUsuario.findByCedula(cedula);
 
-        Usuario usuario = RepoUsuario.findByCedula(cedula);
-
-        if (usuario != null) {
-            felino.setUsuario(usuario);
-        } else {
-            felino.setUsuario(null);
-        }
-        GatoService.add(felino);
-
+    if (usuario != null) {
+        felino.setUsuario(usuario);
+    } else {
+        felino.setUsuario(null);
     }
+    GatoService.add(felino);
+    }
+    
 
     // http://localhost:8090/mascota/delete/id
     @DeleteMapping("/delete/{id}")

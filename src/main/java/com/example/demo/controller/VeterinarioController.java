@@ -35,7 +35,7 @@ public class VeterinarioController {
     }
 
     @PostMapping("/agregar")
-    public void add(@RequestBody Veterinario veterinario) {
+    public void agregarVeterinario(@RequestBody Veterinario veterinario) {
         veterinarioService.add(veterinario);
     }
 
