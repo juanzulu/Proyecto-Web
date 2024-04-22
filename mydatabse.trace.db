@@ -681,3 +681,6 @@ insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) v
 2024-04-20 23:41:42.976454-05:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fi... (323)"; SQL statement:
 insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) values (?,?,?,?,?,?,?) [22001-224]
+2024-04-20 23:46:58.904722-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://imgs.search.brave.com/Q7uTqx_hETaXRBV-XF0X3mm2AwN7BO0VMiyPZHGGZEU/rs:fi... (323)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,foto,nombre,password,id) values (?,?,?,?,?,?,?) [22001-224]
