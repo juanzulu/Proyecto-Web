@@ -10,12 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.repository.GatoRepository;
 import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.repository.VeterinarioRepository;
 
 import java.io.IOException;
 
-
 import com.example.demo.repository.DrogaRepository;
-
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -32,6 +31,9 @@ public class DatabaseInit implements ApplicationRunner {
 
         @Autowired
         DrogaRepository drogaRepository;
+
+        @Autowired
+        VeterinarioRepository veterinarioRepository;
 
         @Override
         public void run(ApplicationArguments args) throws Exception {
@@ -121,6 +123,19 @@ public class DatabaseInit implements ApplicationRunner {
 
                 };
 
+                String[] apellidos = {
+                                "González", "López", "Martínez", "Rodríguez", "Hernández", "García", "Pérez", "Sánchez",
+                                "Ramírez", "Torres"
+                };
+
+                String[] especialidades = {
+                                "Medicina Interna Veterinaria", "Cirugía Veterinaria", "Dermatología Veterinaria",
+                                "Oncología Veterinaria", "Oftalmología Veterinaria", "Odontología Veterinaria",
+                                "Neurología Veterinaria", "Cardiología Veterinaria", "Nutrición Veterinaria",
+                                "Reproducción Veterinaria"
+
+                };
+
                 String[] generos = { "Masculino", "Femenino", };
 
                 // Insertar 50 usuarios en el repositorio
@@ -135,26 +150,6 @@ public class DatabaseInit implements ApplicationRunner {
                 }
 
                 // -----------------------------------Usuarios---------------------------------------------------------------------//
-
-                // Usuario asociar;
-                // gato felino, pantera, gatesco;
-
-                // for (Long i = 0L; i < 90L; i += 3L) {
-
-                // asociar = usuarioRepository.findById(i / 3L).get();
-
-                // felino = gatoRepository.findById(i).get();
-                // pantera = gatoRepository.findById(i + 1L).get();
-                // gatesco = gatoRepository.findById(i + 2L).get();
-
-                // felino.setUsuario(asociar);
-                // pantera.setUsuario(asociar);
-                // gatesco.setUsuario(asociar);
-
-                // gatoRepository.save(gatesco);
-                // gatoRepository.save(felino);
-                // gatoRepository.save(pantera);
-                // }
 
                 Usuario asociar;
                 gato pantera, gatesco;
@@ -174,36 +169,48 @@ public class DatabaseInit implements ApplicationRunner {
                         }
                 }
 
-        
+                // ------------------------------------------ Drogas
+                /* excel */
+                try {
+                        InputStream file = getClass().getClassLoader().getResourceAsStream("medicamentos.xlsx");
 
+                        Workbook workbook = new XSSFWorkbook(file);
+                        Sheet sheet = workbook.getSheet("MEDICAMENTOS BD FINAL");
+                        for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
+                                Row row = sheet.getRow(rowIndex);
+                                if (row != null) {
+                                        Droga drug = new Droga();
+                                        drug.setNombre(row.getCell(0).getStringCellValue());
+                                        drug.setPrecio((int) row.getCell(1).getNumericCellValue());
+                                        drug.setpCompra((int) row.getCell(2).getNumericCellValue());
+                                        drug.setuDisponibles((int) row.getCell(3).getNumericCellValue());
+                                        drug.setuVendidas((int) row.getCell(4).getNumericCellValue());
+                                        drogaRepository.save(drug);
+                                }
+                        }
 
-        // ------------------------------------------ Drogas
-        /* excel */
-        try {
-                InputStream file = getClass().getClassLoader().getResourceAsStream("medicamentos.xlsx"); 
-                
-                Workbook workbook = new XSSFWorkbook(file);
-                Sheet sheet = workbook.getSheet("MEDICAMENTOS BD FINAL");
-                for(int rowIndex =1; rowIndex <= sheet.getLastRowNum(); rowIndex++){
-                    Row row = sheet.getRow(rowIndex);
-                    if(row != null){
-                        Droga drug = new Droga();
-                        drug.setNombre(row.getCell(0).getStringCellValue());
-                        drug.setPrecio((int) row.getCell(1).getNumericCellValue());
-                        drug.setpCompra((int) row.getCell(2).getNumericCellValue());
-                        drug.setuDisponibles((int) row.getCell(3).getNumericCellValue());
-                        drug.setuVendidas((int) row.getCell(4).getNumericCellValue());
-                        drogaRepository.save(drug);
-                    }
+                        if (workbook != null) {
+                                workbook.close();
+                        }
+                        file.close();
+                } catch (IOException e) {
+                        e.printStackTrace();
                 }
-    
-                if(workbook != null){
-                    workbook.close();
+
+                // Insertar 10 veterinarios en el repositorio
+                for (int i = 0; i < 10; i++) {
+                        String nombre = nombresu[i % nombresu.length];
+                        Integer cedula = 1 + i;
+                        String apellido = apellidos[i % apellidos.length];
+                        String foto = urls[i % urls.length];
+                        String especialidad = especialidades[i % especialidades.length];
+                        String password = "12345678";
+
+                        veterinarioRepository
+                                        .save(new Veterinario(cedula, nombre, apellido, password, foto, especialidad));
                 }
-                file.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
+
+        // -------------------------------------Veterinario-------------------------------------------------//
 
 }
