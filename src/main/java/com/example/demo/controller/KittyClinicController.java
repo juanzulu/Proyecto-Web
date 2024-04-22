@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,21 +47,20 @@ public class KittyClinicController {
         return GatoService.ConsultarEstado(id);
     }
 
-
     @PutMapping("/estado/{id}")
     public void cambiarEstado(@PathVariable("id") Long id) {
-       
-        GatoService.cambiarEstado( GatoService.SearchById(id));
+
+        GatoService.cambiarEstado(GatoService.SearchById(id));
     }
-    
-    // http://localhost:8090/mascota/gato/id 
+
+    // http://localhost:8090/mascota/gato/id
     @GetMapping("/gato/{id}")
     public gato mostrarInfo(Model model, @PathVariable("id") Long identificacion) {
 
         return GatoService.SearchById(identificacion);
     }
 
-    // http://localhost:8090/mascota/agregar 
+    // http://localhost:8090/mascota/agregar
     @GetMapping("/agregar")
     public String mostrarCrearGato(Model model) {
 
@@ -73,10 +71,8 @@ public class KittyClinicController {
         return "crear_gato";
     }
 
-
     @PostMapping("/agregar")
-    public void agregarGato(@ModelAttribute("gato") gato felino, @RequestParam Integer cedula) {
-
+    public void agregarGato(@RequestBody gato felino, @RequestParam Integer cedula) {
         Usuario usuario = RepoUsuario.findByCedula(cedula);
 
         if (usuario != null) {
@@ -85,7 +81,6 @@ public class KittyClinicController {
             felino.setUsuario(null);
         }
         GatoService.add(felino);
-
     }
 
     // http://localhost:8090/mascota/delete/id
@@ -94,8 +89,7 @@ public class KittyClinicController {
         GatoService.deleletebyid(identificacion);
     }
 
-
-     // http://localhost:8090/mascota/update/id
+    // http://localhost:8090/mascota/update/id
     @GetMapping("/update/{id}")
     public String mostrarUpdate(@PathVariable("id") Long identificacion, Model model) {
 
