@@ -2,6 +2,9 @@ package com.example.demo.service;
 
 import java.util.Collection;
 
+
+import java.util.List;
+
 import com.example.demo.entity.Tratamiento;
 
 public interface TratamientoService {
@@ -15,5 +18,8 @@ public interface TratamientoService {
     public void update(Tratamiento Tratamiento);
 
     public void add(Tratamiento Tratamiento);
+
+    public Long countTratamientosMes();
+    public List<Object[]> countTratamientosPorDroga();
 
 }

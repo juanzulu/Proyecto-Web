@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,21 @@ public class TratamientoServiceImpl implements TratamientoService {
     public void add(Tratamiento Tratamiento) {
         TratamientoRepository.save(Tratamiento);
     }
+
+    @Override
+    public Long countTratamientosMes() {
+
+        return TratamientoRepository.countTratamientosMes();
+        
+    }
+
+    @Override
+    public List<Object[]> countTratamientosPorDroga() {
+        
+        return TratamientoRepository.countTratamientosPorDroga();
+        
+    }
+
+    
 
 }
