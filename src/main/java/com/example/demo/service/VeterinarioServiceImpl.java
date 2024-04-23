@@ -39,6 +39,30 @@ public class VeterinarioServiceImpl implements VeterinarioService {
         veterinarioRepo.save(veterinario);
     }
 
+    @Override
+    public boolean ConsultarEstado(Long id) {
+        return veterinarioRepo.ConsultarEstado(id);
+
+    }
+
+    @Override
+    public void cambiarEstado(Veterinario veterinario) {
+
+        veterinario.setEstado(!(veterinario.getEstado()));
+        veterinarioRepo.save(veterinario);
+        
+    }
+
+    public List<Veterinario> consultarVeterinariosActivos() {
+        return veterinarioRepo.consultarVeterinariosActivos();
+    }
+
+    public List<Veterinario> consultarVeterinariosInactivos() {
+        return veterinarioRepo.consultarVeterinariosInactivos();
+    }
+
+    
+
    
 
 }

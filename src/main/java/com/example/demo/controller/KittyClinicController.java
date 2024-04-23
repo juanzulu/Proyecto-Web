@@ -83,6 +83,13 @@ public class KittyClinicController {
         GatoService.add(felino);
     }
 
+    // http://localhost:8090/mascota/agregargato
+    @PostMapping("/agregargato")
+    public void agregarGato(@RequestBody gato felino) {
+    
+        GatoService.add(felino);
+    }
+
     // http://localhost:8090/mascota/delete/id
     @DeleteMapping("/delete/{id}")
     public void borrarGato(@PathVariable("id") Long identificacion) {

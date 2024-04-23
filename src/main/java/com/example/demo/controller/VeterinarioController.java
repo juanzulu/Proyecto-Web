@@ -53,4 +53,15 @@ public class VeterinarioController {
         veterinarioService.deleletebyid(id);
     }
 
+    @GetMapping("/veterinario/activos")
+    public List<Veterinario> consultarVeterinariosActivos() {
+        return veterinarioService.consultarVeterinariosActivos();
+    }
+
+    @GetMapping("/veterinario/inactivos")
+    public List<Veterinario> consultarVeterinariosInactivos() {
+        return veterinarioService.consultarVeterinariosInactivos();
+    }
+
+
 }

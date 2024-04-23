@@ -205,9 +205,10 @@ public class DatabaseInit implements ApplicationRunner {
                         String foto = urls[i % urls.length];
                         String especialidad = especialidades[i % especialidades.length];
                         String password = "12345678";
+                        boolean estado = true;
 
                         veterinarioRepository
-                                        .save(new Veterinario(cedula, nombre, apellido, password, foto, especialidad));
+                                        .save(new Veterinario(cedula, nombre, apellido, password, foto, especialidad, estado));
                 }
         }
 

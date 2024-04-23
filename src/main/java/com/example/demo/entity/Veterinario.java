@@ -18,6 +18,7 @@ public class Veterinario {
     private String password;
     private String foto;
     private String especialidad;
+    private boolean estado;
 
     @Id
     @GeneratedValue
@@ -32,13 +33,14 @@ public class Veterinario {
     }
 
     public Veterinario(Integer cedula, String nombre, String apellido, String password, String foto,
-            String especialidad) {
+            String especialidad, boolean estado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.password = password;
         this.foto = foto;
         this.especialidad = especialidad;
+        this.estado = estado;
     }
 
     public Integer getCedula() {
@@ -105,4 +107,11 @@ public class Veterinario {
         this.tratamientos = tratamientos;
     }
 
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }
