@@ -52,15 +52,23 @@ public class VeterinarioServiceImpl implements VeterinarioService {
         veterinarioRepo.save(veterinario);
         
     }
-
+    @Override
     public List<Veterinario> consultarVeterinariosActivos() {
         return veterinarioRepo.consultarVeterinariosActivos();
     }
-
+    @Override
     public List<Veterinario> consultarVeterinariosInactivos() {
         return veterinarioRepo.consultarVeterinariosInactivos();
     }
 
+    @Override
+    public long countVeterinariosActivos() {
+        return veterinarioRepo.countVeterinariosActivos();
+    }
+    @Override
+    public long countVeterinariosInactivos() {
+        return veterinarioRepo.countVeterinariosInactivos();
+    }
     
 
    

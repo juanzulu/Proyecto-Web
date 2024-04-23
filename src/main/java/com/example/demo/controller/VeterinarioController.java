@@ -63,5 +63,15 @@ public class VeterinarioController {
         return veterinarioService.consultarVeterinariosInactivos();
     }
 
+    @GetMapping("/veterinario/activos/count")
+    public long countVeterinariosActivos() {
+        return veterinarioService.countVeterinariosActivos();
+    }
+
+    @GetMapping("/veterinario/inactivos/count")
+    public long countVeterinariosInactivos() {
+        return veterinarioService.countVeterinariosInactivos();
+    }
+
 
 }

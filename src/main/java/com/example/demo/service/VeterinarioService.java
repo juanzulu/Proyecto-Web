@@ -24,4 +24,9 @@ public interface VeterinarioService {
     public List<Veterinario> consultarVeterinariosActivos();
 
     public List<Veterinario> consultarVeterinariosInactivos();
+
+    public long countVeterinariosInactivos();
+
+
+    public long countVeterinariosActivos();
 }
