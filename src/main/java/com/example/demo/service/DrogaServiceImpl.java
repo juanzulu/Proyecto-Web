@@ -44,4 +44,10 @@ public class DrogaServiceImpl implements DrogaService {
         return DrogaRepo.total_sell();
     }
 
+    @Override
+    public Long ganancia() {
+
+        return DrogaRepo.ganancia();
+    }
+
 }

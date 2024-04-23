@@ -10,4 +10,7 @@ public interface DrogaRepository extends JpaRepository<Droga, Long> {
 
     @Query("SELECT SUM(d.uVendidas * d.precio) FROM Droga d")
     Long total_sell();
+
+         @Query("SELECT SUM(d.uVendidas * (d.precio - d.pCompra)) FROM Droga d")
+        Long ganancia();
 }

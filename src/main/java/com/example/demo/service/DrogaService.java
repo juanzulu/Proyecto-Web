@@ -17,4 +17,5 @@ public interface DrogaService {
     public void add(Droga droga);
 
     public Long total_sell();
+    public Long ganancia();
 }

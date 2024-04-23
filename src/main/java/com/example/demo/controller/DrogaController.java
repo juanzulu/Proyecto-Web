@@ -22,4 +22,10 @@ public class DrogaController {
 
         return drogaService.total_sell();
     }
+
+    @GetMapping("/ganancias")
+    public Long ganancia() {
+        
+        return drogaService.ganancia();
+    }
 }
