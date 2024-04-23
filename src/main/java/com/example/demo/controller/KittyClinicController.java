@@ -48,6 +48,13 @@ public class KittyClinicController {
        return GatoService.countGatosActivos();
    }
 
+    // http://localhost:8090/mascota/count
+    @GetMapping("/count")
+    public Long countGatos() {
+
+        return GatoService.countGatos();
+    }
+
     // http://localhost:8090/mascota/estado/{id}
     @GetMapping("/estado/{id}")
     public boolean ConsultarEstado(@PathVariable("id") Long id) {

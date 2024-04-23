@@ -20,6 +20,9 @@ public interface GatoRepository extends JpaRepository<gato, Long> {
         @Query("SELECT COUNT(g) FROM gato g WHERE g.estado = true")
         long countGatosActivos();
 
+        @Query("SELECT COUNT(g) FROM gato g")
+        long countGatos();
+
         
 }
 
