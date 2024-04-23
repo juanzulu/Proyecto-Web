@@ -43,6 +43,12 @@ public class VeterinarioController {
         return veterinarioService.SearchById(id);
     }
 
+    @PutMapping("/estado/{id}")
+    public void cambiarEstado(@PathVariable("id") Long id) {
+
+        veterinarioService.cambiarEstado(veterinarioService.SearchById(id));
+    }
+
     @PutMapping("/actualizar/veterinario")
     public void update(@RequestBody Veterinario veterinario) {
         veterinarioService.update(veterinario);
