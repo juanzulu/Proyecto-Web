@@ -57,17 +57,20 @@ public class VeterinarioController {
     public List<Veterinario> consultarVeterinariosActivos() {
         return veterinarioService.consultarVeterinariosActivos();
     }
-
+    
+    //http://localhost:8090/admin/veterinario/inactivos
     @GetMapping("/veterinario/inactivos")
     public List<Veterinario> consultarVeterinariosInactivos() {
         return veterinarioService.consultarVeterinariosInactivos();
     }
 
+    //http://localhost:8090/admin/veterinario/activos/count
     @GetMapping("/veterinario/activos/count")
     public long countVeterinariosActivos() {
         return veterinarioService.countVeterinariosActivos();
     }
 
+    //http://localhost:8090/admin/veterinario/inactivos/count
     @GetMapping("/veterinario/inactivos/count")
     public long countVeterinariosInactivos() {
         return veterinarioService.countVeterinariosInactivos();

@@ -59,6 +59,12 @@ public class GatoServiceImpl implements GatoService {
 
     }
 
+    @Override
+    public Long countGatosActivos() {
+
+        return Repo.countGatosActivos();
+    }
+
     
 
 }

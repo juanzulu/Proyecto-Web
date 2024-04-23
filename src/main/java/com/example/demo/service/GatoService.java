@@ -22,5 +22,7 @@ public interface GatoService {
 
     public void cambiarEstado( gato felino);
 
+    public Long countGatosActivos();
+
 
 }

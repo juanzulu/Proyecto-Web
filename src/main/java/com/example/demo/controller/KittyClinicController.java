@@ -41,6 +41,13 @@ public class KittyClinicController {
         return GatoService.SearchAll();
     }
 
+    // http://localhost:8090/mascota/activos
+    @GetMapping("/activos")
+   public Long countGatosActivos() {
+
+       return GatoService.countGatosActivos();
+   }
+
     // http://localhost:8090/mascota/estado/{id}
     @GetMapping("/estado/{id}")
     public boolean ConsultarEstado(@PathVariable("id") Long id) {
