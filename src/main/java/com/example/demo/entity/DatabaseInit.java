@@ -103,6 +103,16 @@ public class DatabaseInit implements ApplicationRunner {
                                 "https://th.bing.com/th/id/OIP.D4eSVdrlVaOBZZvlu9iTAgHaJ7?w=889&h=1191&rs=1&pid=ImgDetMain"
                 };
 
+                String[] urlsvets = {
+                        "https://th.bing.com/th/id/OIP.LIvhmx5YRN4hOFZ0ld98JgHaE8?rs=1&pid=ImgDetMain",
+                        "https://petcosset.com/wp-content/uploads/2020/12/Depositphotos_320884710_L-e1660002279141-684x1024.jpg",
+                        "https://az505806.vo.msecnd.net/cms/59c63bc8-f4bc-4517-a0bf-7ff0e20280c8/23c59995-e4ce-4ff2-8662-ef9b10d421d1.jpg",
+                        "https://th.bing.com/th/id/OIP.LSZFgR7ofivufCgzT9QhqAHaE8?rs=1&pid=ImgDetMain",
+                        "https://consultafelina.es/assets/consultafelinadotes-alicia-1000-b6eb3dbf4.jpg",
+                        "https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg",
+                        "https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg"
+                };
+
                 // Insertar 100 gatos en el repositorio
                 for (int i = 0; i < 100; i++) {
                         String nombre = nombres[i % nombres.length];
@@ -207,7 +217,7 @@ public class DatabaseInit implements ApplicationRunner {
                         String nombre = nombresu[i % nombresu.length];
                         Integer cedula = 1 + i;
                         String apellido = apellidos[i % apellidos.length];
-                        String foto = urls[i % urls.length];
+                        String foto = urlsvets[i % urlsvets.length];
                         String especialidad = especialidades[i % especialidades.length];
                         String password = "12345678";
                         boolean estado = true;

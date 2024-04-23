@@ -707,3 +707,9 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement
 SELECT 
     SUM(u_vendidas * precio) AS Ventas_Totales
 FROM drogas [42102-224]
+2024-04-23 17:06:18.146076-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://s2-vidadebicho.glbimg.com/BgKG3XnQ98fe5KHo8OqWkPGNALk=/0x0:1200x1060/10... (302)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,estado,foto,nombre,password,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-04-23 17:07:24.591771-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "FOTO CHARACTER VARYING(255)": "'https://s2-vidadebicho.glbimg.com/BgKG3XnQ98fe5KHo8OqWkPGNALk=/0x0:1200x1060/10... (302)"; SQL statement:
+insert into veterinario (apellido,cedula,especialidad,estado,foto,nombre,password,id) values (?,?,?,?,?,?,?,?) [22001-224]
