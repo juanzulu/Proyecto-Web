@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.io.InputStream;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.repository.GatoRepository;
+import com.example.demo.repository.TratamientoRepository;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.repository.VeterinarioRepository;
 
@@ -34,6 +36,9 @@ public class DatabaseInit implements ApplicationRunner {
 
         @Autowired
         VeterinarioRepository veterinarioRepository;
+
+        @Autowired
+        TratamientoRepository tratamientoRepository;
 
         @Override
         public void run(ApplicationArguments args) throws Exception {
@@ -210,8 +215,18 @@ public class DatabaseInit implements ApplicationRunner {
                         veterinarioRepository
                                         .save(new Veterinario(cedula, nombre, apellido, password, foto, especialidad, estado));
                 }
+
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(1L).get(), veterinarioRepository.findById(1L).get(), gatoRepository.findById(1L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(2L).get(), veterinarioRepository.findById(2L).get(), gatoRepository.findById(2L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(3L).get(), veterinarioRepository.findById(3L).get(), gatoRepository.findById(3L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(4L).get(), veterinarioRepository.findById(4L).get(), gatoRepository.findById(4L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(), veterinarioRepository.findById(5L).get(), gatoRepository.findById(5L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(), veterinarioRepository.findById(6L).get(), gatoRepository.findById(6L).get()));
+
+
         }
 
         // -------------------------------------Veterinario-------------------------------------------------//
+        
 
 }

@@ -20,11 +20,6 @@ public class TratamientoController {
     @Autowired
     TratamientoService TratamientoService;
 
-
-
-   
-
-
     @GetMapping("realizados")
     public Long countTratamientosMes() {
 
