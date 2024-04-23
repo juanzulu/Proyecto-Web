@@ -662,3 +662,48 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/estudia
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 67 more
+2024-04-23 00:17:03.337520-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales,
+    SUM((precio - p_compra) * u_vendidas) AS Ganancias_Totales
+FROM drogas [42102-224]
+2024-04-23 00:17:29.972443-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales,
+    SUM((precio - p_compra) * u_vendidas) AS Ganancias_Totales
+FROM drogas [42102-224]
+2024-04-23 00:17:53.308564-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales
+FROM drogas [42102-224]
+2024-04-23 00:17:54.056678-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales
+FROM drogas [42102-224]
+2024-04-23 00:17:54.292739-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales
+FROM drogas [42102-224]
+2024-04-23 00:18:03.085400-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales
+FROM drogas [42102-224]
+2024-04-23 00:18:03.086399-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]DROGA"; expected "DELETE, DROP"; SQL statement:
+DROGA [42001-224]
+2024-04-23 00:18:17.846671-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales
+FROM drogas [42102-224]
+2024-04-23 00:18:18.626772-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DROGAS" not found; SQL statement:
+SELECT 
+    SUM(u_vendidas * precio) AS Ventas_Totales
+FROM drogas [42102-224]

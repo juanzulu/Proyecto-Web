@@ -15,4 +15,6 @@ public interface DrogaService {
     public void update(Droga droga);
 
     public void add(Droga droga);
+
+    public Long total_sell();
 }

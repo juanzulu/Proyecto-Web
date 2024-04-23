@@ -39,4 +39,9 @@ public class DrogaServiceImpl implements DrogaService {
         DrogaRepo.save(droga);
     }
 
+    @Override
+    public Long total_sell() {
+        return DrogaRepo.total_sell();
+    }
+
 }
