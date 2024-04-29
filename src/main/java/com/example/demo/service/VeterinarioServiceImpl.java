@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,12 +51,14 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
         veterinario.setEstado(!(veterinario.getEstado()));
         veterinarioRepo.save(veterinario);
-        
+
     }
+
     @Override
     public List<Veterinario> consultarVeterinariosActivos() {
         return veterinarioRepo.consultarVeterinariosActivos();
     }
+
     @Override
     public List<Veterinario> consultarVeterinariosInactivos() {
         return veterinarioRepo.consultarVeterinariosInactivos();
@@ -65,12 +68,16 @@ public class VeterinarioServiceImpl implements VeterinarioService {
     public long countVeterinariosActivos() {
         return veterinarioRepo.countVeterinariosActivos();
     }
+
     @Override
     public long countVeterinariosInactivos() {
         return veterinarioRepo.countVeterinariosInactivos();
     }
-    
 
-   
+    @Override
+    public Optional<Veterinario> Login(String correo, String password) {
+        Optional<Veterinario> arrendatario = veterinarioRepo.findByCorreoAndContrasena(correo, password);
+        return arrendatario;
+    }
 
 }

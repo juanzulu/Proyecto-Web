@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Veterinario;
-import com.example.demo.repository.VeterinarioRepository;
 import com.example.demo.service.VeterinarioService;
 
 @RestController
@@ -26,7 +27,6 @@ public class VeterinarioController {
     VeterinarioService veterinarioService;
 
     @Autowired
-    VeterinarioRepository RepoVeterinario;
 
     @GetMapping("/veterinario")
     public List<Veterinario> SearchAll() {
@@ -45,7 +45,6 @@ public class VeterinarioController {
 
     @PutMapping("/estado/{id}")
     public void cambiarEstado(@PathVariable("id") Long id) {
-
         veterinarioService.cambiarEstado(veterinarioService.SearchById(id));
     }
 
@@ -63,24 +62,29 @@ public class VeterinarioController {
     public List<Veterinario> consultarVeterinariosActivos() {
         return veterinarioService.consultarVeterinariosActivos();
     }
-    
-    //http://localhost:8090/admin/veterinario/inactivos
+
+    // http://localhost:8090/admin/veterinario/inactivos
     @GetMapping("/veterinario/inactivos")
     public List<Veterinario> consultarVeterinariosInactivos() {
         return veterinarioService.consultarVeterinariosInactivos();
     }
 
-    //http://localhost:8090/admin/veterinario/activos/count
+    // http://localhost:8090/admin/veterinario/activos/count
     @GetMapping("/veterinario/activos/count")
     public long countVeterinariosActivos() {
         return veterinarioService.countVeterinariosActivos();
     }
 
-    //http://localhost:8090/admin/veterinario/inactivos/count
+    // http://localhost:8090/admin/veterinario/inactivos/count
     @GetMapping("/veterinario/inactivos/count")
     public long countVeterinariosInactivos() {
         return veterinarioService.countVeterinariosInactivos();
     }
 
-
+    @PostMapping("/login")
+    public ResponseEntity<Veterinario> loginVeterinario(@RequestBody Veterinario vet) {
+        return veterinarioService.Login(vet.getCorreo(), vet.getPassword())
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
 }

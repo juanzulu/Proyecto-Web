@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.entity.Veterinario;
 
@@ -27,6 +27,7 @@ public interface VeterinarioService {
 
     public long countVeterinariosInactivos();
 
-
     public long countVeterinariosActivos();
+
+    public Optional<Veterinario> Login(String correo, String password);
 }

@@ -15,6 +15,7 @@ public class Veterinario {
     private Integer cedula;
     private String nombre;
     private String apellido;
+    private String correo;
     private String password;
     private String foto;
     private String especialidad;
@@ -32,11 +33,12 @@ public class Veterinario {
 
     }
 
-    public Veterinario(Integer cedula, String nombre, String apellido, String password, String foto,
+    public Veterinario(Integer cedula, String nombre, String apellido, String correo, String password, String foto,
             String especialidad, boolean estado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.correo = correo;
         this.password = password;
         this.foto = foto;
         this.especialidad = especialidad;
@@ -113,5 +115,13 @@ public class Veterinario {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }

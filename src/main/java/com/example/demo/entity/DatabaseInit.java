@@ -104,13 +104,13 @@ public class DatabaseInit implements ApplicationRunner {
                 };
 
                 String[] urlsvets = {
-                        "https://th.bing.com/th/id/OIP.LIvhmx5YRN4hOFZ0ld98JgHaE8?rs=1&pid=ImgDetMain",
-                        "https://petcosset.com/wp-content/uploads/2020/12/Depositphotos_320884710_L-e1660002279141-684x1024.jpg",
-                        "https://az505806.vo.msecnd.net/cms/59c63bc8-f4bc-4517-a0bf-7ff0e20280c8/23c59995-e4ce-4ff2-8662-ef9b10d421d1.jpg",
-                        "https://th.bing.com/th/id/OIP.LSZFgR7ofivufCgzT9QhqAHaE8?rs=1&pid=ImgDetMain",
-                        "https://consultafelina.es/assets/consultafelinadotes-alicia-1000-b6eb3dbf4.jpg",
-                        "https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg",
-                        "https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg"
+                                "https://th.bing.com/th/id/OIP.LIvhmx5YRN4hOFZ0ld98JgHaE8?rs=1&pid=ImgDetMain",
+                                "https://petcosset.com/wp-content/uploads/2020/12/Depositphotos_320884710_L-e1660002279141-684x1024.jpg",
+                                "https://az505806.vo.msecnd.net/cms/59c63bc8-f4bc-4517-a0bf-7ff0e20280c8/23c59995-e4ce-4ff2-8662-ef9b10d421d1.jpg",
+                                "https://th.bing.com/th/id/OIP.LSZFgR7ofivufCgzT9QhqAHaE8?rs=1&pid=ImgDetMain",
+                                "https://consultafelina.es/assets/consultafelinadotes-alicia-1000-b6eb3dbf4.jpg",
+                                "https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg",
+                                "https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg"
                 };
 
                 // Insertar 100 gatos en el repositorio
@@ -217,26 +217,33 @@ public class DatabaseInit implements ApplicationRunner {
                         String nombre = nombresu[i % nombresu.length];
                         Integer cedula = 1 + i;
                         String apellido = apellidos[i % apellidos.length];
+                        String correo = nombre + i + "@gmail.com";
                         String foto = urlsvets[i % urlsvets.length];
                         String especialidad = especialidades[i % especialidades.length];
                         String password = "12345678";
                         boolean estado = true;
 
                         veterinarioRepository
-                                        .save(new Veterinario(cedula, nombre, apellido, password, foto, especialidad, estado));
+                                        .save(new Veterinario(cedula, nombre, apellido, correo, password, foto,
+                                                        especialidad,
+                                                        estado));
                 }
 
-                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(1L).get(), veterinarioRepository.findById(1L).get(), gatoRepository.findById(1L).get()));
-                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(2L).get(), veterinarioRepository.findById(2L).get(), gatoRepository.findById(2L).get()));
-                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(3L).get(), veterinarioRepository.findById(3L).get(), gatoRepository.findById(3L).get()));
-                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(4L).get(), veterinarioRepository.findById(4L).get(), gatoRepository.findById(4L).get()));
-                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(), veterinarioRepository.findById(5L).get(), gatoRepository.findById(5L).get()));
-                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(), veterinarioRepository.findById(6L).get(), gatoRepository.findById(6L).get()));
-
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(1L).get(),
+                                veterinarioRepository.findById(1L).get(), gatoRepository.findById(1L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(2L).get(),
+                                veterinarioRepository.findById(2L).get(), gatoRepository.findById(2L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(3L).get(),
+                                veterinarioRepository.findById(3L).get(), gatoRepository.findById(3L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(4L).get(),
+                                veterinarioRepository.findById(4L).get(), gatoRepository.findById(4L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(),
+                                veterinarioRepository.findById(5L).get(), gatoRepository.findById(5L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(),
+                                veterinarioRepository.findById(6L).get(), gatoRepository.findById(6L).get()));
 
         }
 
         // -------------------------------------Veterinario-------------------------------------------------//
-        
 
 }
