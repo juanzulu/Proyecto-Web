@@ -24,4 +24,6 @@ public interface TratamientoService {
 
     public List<Tratamiento> findTratamientosVeterinario(Integer id);
 
+    public List<Tratamiento> findTratamientosGato(Integer id);
+
 }

@@ -38,11 +38,9 @@ public class TratamientoController {
         return TratamientoService.findTratamientosVeterinario(id);
     }
 
-    // Cantidad de total tratamientos
-
-    // cantidad de tratamientos por tipo de medicamento administrado en el ultimo
-    // mez
-
-    // Cantidad de veterinarios activos
+    @GetMapping("/gato/{id}")
+    public List<Tratamiento> findTratamientosGato(Model model, @PathVariable("id") Integer id) {
+        return TratamientoService.findTratamientosGato(id);
+    }
 
 }
