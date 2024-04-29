@@ -44,16 +44,20 @@ public class TratamientoServiceImpl implements TratamientoService {
     public Long countTratamientosMes() {
 
         return TratamientoRepository.countTratamientosMes();
-        
+
     }
 
     @Override
     public List<Object[]> countTratamientosPorDroga() {
-        
+
         return TratamientoRepository.countTratamientosPorDroga();
-        
+
     }
 
-    
+    @Override
+    public List<Tratamiento> findTratamientosVeterinario(Integer id) {
+
+        return TratamientoRepository.findTratamientosVeterinario(id);
+    }
 
 }

@@ -2,7 +2,8 @@ package com.example.demo.entity;
 
 import java.time.LocalDate;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,16 +19,34 @@ public class Tratamiento {
 
     private LocalDate fecha;
 
-  
     @ManyToOne
+    @JsonIgnore
     private Droga droga;
 
-   
     @ManyToOne
+    @JsonIgnore
     private Veterinario veterinario;
-    
+
     @ManyToOne
+    @JsonIgnore
     private gato felino;
+
+    @JsonProperty("idDroga")
+    public Long getDrogaId() {
+        return droga != null ? droga.getId() : null;
+    }
+
+    @JsonProperty("idVeterinario")
+    public Long getVeterinarioId() {
+        return veterinario != null ? veterinario.getId() : null;
+    }
+
+    @JsonProperty("idGato")
+    public Long getGatoId() {
+        return felino != null ? felino.getId() : null;
+    }
+
+    //// ---------------------------------------------------------------------------------------------------------------------//////
 
     public Tratamiento() {
 

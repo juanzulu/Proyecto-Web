@@ -26,12 +26,10 @@ public class gato {
     private String enfermedad;
     private boolean estado;
 
- 
     @ManyToOne
     private Usuario usuario;
 
     @JsonIgnore
-
     @OneToMany(mappedBy = "felino", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tratamiento> tratamientos = new ArrayList<>();
 

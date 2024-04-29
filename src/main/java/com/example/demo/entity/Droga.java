@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +23,7 @@ public class Droga {
     @GeneratedValue
     private Long id;
 
- 
+    @JsonIgnore
     @OneToMany(mappedBy = "droga")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
