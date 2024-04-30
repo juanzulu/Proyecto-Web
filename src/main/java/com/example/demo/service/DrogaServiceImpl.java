@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
-import java.util.Collection;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class DrogaServiceImpl implements DrogaService {
     }
 
     @Override
-    public Collection<Droga> SearchAll() {
+    public List<Droga> SearchAll() {
         return DrogaRepo.findAll();
     }
 
@@ -48,6 +49,12 @@ public class DrogaServiceImpl implements DrogaService {
     public Long ganancia() {
 
         return DrogaRepo.ganancia();
+    }
+
+    @Override
+    public List<String> SearchByName() {
+
+        return DrogaRepo.SearchByName();
     }
 
 }

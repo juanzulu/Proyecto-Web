@@ -50,4 +50,9 @@ public class TratamientoController {
 
     }
 
+    @GetMapping("/informacion/gato/{id}")
+    public List<Object[]> findTratamientosGatoinformacion(Model model, @PathVariable("id") Integer id){
+        return TratamientoService.findTratamientosGatoinformacion(id);
+    }
+
 }

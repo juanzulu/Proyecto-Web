@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
-import java.util.Collection;
+
+import java.util.List;
 
 import com.example.demo.entity.Droga;
 
@@ -8,7 +9,7 @@ public interface DrogaService {
 
     public Droga SearchById(Long id);
 
-    public Collection<Droga> SearchAll();
+    public List<Droga> SearchAll();
 
     public void deleteById(Long id);
 
@@ -18,4 +19,6 @@ public interface DrogaService {
 
     public Long total_sell();
     public Long ganancia();
+
+    public List<String> SearchByName();
 }

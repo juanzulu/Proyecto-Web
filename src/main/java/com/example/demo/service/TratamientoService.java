@@ -28,4 +28,6 @@ public interface TratamientoService {
 
     public List<Object[]> findTratamientosVeterinarioinformacion(Integer id);
 
+    public List<Object[]> findTratamientosGatoinformacion(Integer id);
+
 }
