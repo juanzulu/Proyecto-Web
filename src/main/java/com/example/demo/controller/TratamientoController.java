@@ -43,4 +43,11 @@ public class TratamientoController {
         return TratamientoService.findTratamientosGato(id);
     }
 
+    //http://localhost:8090/tratamiento/informacion/veterinario/{id}
+    @GetMapping("/informacion/veterinario/{id}")
+    public List<Object[]> findTratamientosVeterinarioinformacion(Model model, @PathVariable("id") Integer id){
+        return TratamientoService.findTratamientosVeterinarioinformacion(id);
+
+    }
+
 }

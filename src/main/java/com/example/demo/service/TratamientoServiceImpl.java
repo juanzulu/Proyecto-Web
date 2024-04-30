@@ -66,4 +66,10 @@ public class TratamientoServiceImpl implements TratamientoService {
         return TratamientoRepository.findTratamientosGato(id);
     }
 
+    @Override
+    public List<Object[]> findTratamientosVeterinarioinformacion(Integer id) {
+
+        return TratamientoRepository.findTratamientosVeterinarioInformacion(id);
+    }
+
 }
