@@ -86,13 +86,13 @@ public class TratamientoController {
         ResponseEntity<List<Object[]>> response = new ResponseEntity<>(result, HttpStatus.OK);
         return response;
     }
-
+    
     @PostMapping("/agregar")
-    public ResponseEntity<Void> agregarTratamiento(@RequestBody Tratamiento tratamiento) {
+    public ResponseEntity<Tratamiento> agregarTratamiento(@RequestBody Tratamiento tratamiento) {
         Logger logger = LoggerFactory.getLogger(this.getClass());  // Asegúrate de tener un logger disponible.
         logger.info("Request body received: {}", tratamiento);
         TratamientoService.save(tratamiento);
-        return new ResponseEntity<>(HttpStatus.CREATED); // Devuelve 201 Created para indicar que el recurso fue creado exitosamente.
+        return ResponseEntity.ok(tratamiento); // Devuelve 201 Created para indicar que el recurso fue creado exitosamente.
     }
 
 }

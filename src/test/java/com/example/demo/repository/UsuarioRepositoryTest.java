@@ -12,6 +12,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.entity.Usuario;
+import com.example.demo.entity.Veterinario;
+import com.example.demo.entity.gato;
+
 
 
 @DataJpaTest
@@ -24,6 +27,9 @@ public class UsuarioRepositoryTest {
     @Autowired
     private VeterinarioRepository veterinarioRepository;
 
+    @Autowired
+    private GatoRepository gatoRepository;
+
     @BeforeEach
     public void setUp() {
         usuarioRepository.save(new Usuario((long) 123456000, "Juan", "masculino", 25, 12345678));
@@ -31,6 +37,7 @@ public class UsuarioRepositoryTest {
         usuarioRepository.save(new Usuario((long) 123499000, "Pedro", "masculino", 40, 98765432));
         usuarioRepository.save(new Usuario((long) 123410000, "Laura", "femenino", 35, 13579246));
         usuarioRepository.save(new Usuario((long) 123411000, "Carlos", "masculino", 28, 24681357));
+
 
     }
 
@@ -72,7 +79,7 @@ public class UsuarioRepositoryTest {
 
         //assert
         Assertions.assertThat(usuarios).isNotNull();
-        Assertions.assertThat(usuarios.size()).isEqualTo(5);
+        Assertions.assertThat(usuarios.size()).isEqualTo(6);
         Assertions.assertThat(usuarios.size()).isGreaterThan(0);
 
     }
