@@ -1,13 +1,7 @@
 package com.example.demo.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,12 +21,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.example.demo.entity.Droga;
 import com.example.demo.entity.Tratamiento;
-import com.example.demo.entity.Usuario;
+
 import com.example.demo.entity.Veterinario;
 import com.example.demo.entity.gato;
-import com.example.demo.service.GatoService;
 import com.example.demo.service.TratamientoService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(TratamientoController.class)
 @ActiveProfiles("test")
@@ -44,8 +36,8 @@ public class TratamientoControllerTest {
     @MockBean
     private TratamientoService tratamientoService;
 
-     @Autowired
-    private ObjectMapper objectMapper; 
+
+
     @Test
     public void tratamientoController_countTratamientosMes_Tratamiento() throws Exception {
     
