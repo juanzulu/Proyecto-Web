@@ -99,5 +99,13 @@ public class UsuarioControllerTest {
             .andExpect(jsonPath("$.size").value(2));
     }
 
+
+
+    @Test
+    public void UsuarioController_mostrarGatosUsuario_Usuario() throws Exception {
+
+        
+    }
+
 }
 

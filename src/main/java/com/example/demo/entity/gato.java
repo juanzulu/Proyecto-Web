@@ -43,18 +43,6 @@ public class gato {
         this.estado = estado;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public gato() {
-
-    }
-
     public gato(String nombre, String raza, Integer edad, String foto, String enfermedad, boolean estado) {
         this.nombre = nombre;
         this.raza = raza;
@@ -66,7 +54,19 @@ public class gato {
     }
 
     public gato(String string, String nombre2, int i, String string2, String foto2, boolean b, Usuario usuario2) {
-        //TODO Auto-generated constructor stub
+
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public gato() {
+
     }
 
     public Long getId() {

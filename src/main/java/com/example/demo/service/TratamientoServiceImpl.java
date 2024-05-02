@@ -78,4 +78,9 @@ public class TratamientoServiceImpl implements TratamientoService {
         return TratamientoRepository.findTratamientosGatoInformacion(id);
     }
 
+    @Override
+    public void save(Tratamiento Tratamiento) {
+        TratamientoRepository.save(Tratamiento);
+    }
+
 }
