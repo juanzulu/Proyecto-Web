@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/cliente")
-@CrossOrigin (origins =  "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
 
     @Autowired
@@ -35,8 +35,6 @@ public class UsuarioController {
 
     @Autowired
     GatoService GatoController;
-
-
 
     @GetMapping("/login")
     public List<Usuario> mostrarPaginaLogin() {
@@ -58,57 +56,44 @@ public class UsuarioController {
                     .fromPath("/cliente/usuario/{id}")
                     .buildAndExpand(id)
                     .toUriString();
-    
+
             return "redirect:" + urlDestino;
-        }else{
+        } else {
             return "redirect:/cliente/login";
         }
     }
 
-      // http://localhost:8090/cliente/lista
+    // http://localhost:8090/cliente/lista
     @GetMapping("/lista")
     public List<Usuario> mostrarUsuarios(Model model) {
         return UsuarioService.SearchAll();
     }
 
-  
     // http://localhost:8090/cliente/misgatos/{id}
     @GetMapping("/misgatos/{id}")
     public List<gato> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
         return GatoController.SearchByUsuarioId(identificacion);
-    }  
+    }
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<Usuario> mostrarUsuarioConGatos(@PathVariable("id") Long id) {
-    Usuario usuario = UsuarioService.findUsuarioById(id); // Suponiendo que existe este método
-    List<gato> gatos = GatoController.SearchByUsuarioId(id);
-    usuario.setMascotas(gatos); // Asegúrate de que el usuario tenga un setter para mascotas
-    return ResponseEntity.ok(usuario);
-}
-   
-    // http://localhost:8090/cliente/add
-    @GetMapping("/add")
-    public String mostrarCrearUsuario(Model model) {
-
-        Usuario usuario = new Usuario(null, null, null, null, null);
-
-        model.addAttribute("usuario", usuario);
-
-        return "crear_usuario";
-
+        Usuario usuario = UsuarioService.findUsuarioById(id); // Suponiendo que existe este método
+        List<gato> gatos = GatoController.SearchByUsuarioId(id);
+        usuario.setMascotas(gatos); // Asegúrate de que el usuario tenga un setter para mascotas
+        return ResponseEntity.ok(usuario);
     }
 
     // http://localhost:8090/cliente/agregar
     @PostMapping("/agregar")
-    public void agregarUsuario(@RequestBody  Usuario usuario) {
-         UsuarioService.add(usuario);
+    public void agregarUsuario(@RequestBody Usuario usuario) {
+        UsuarioService.add(usuario);
     }
 
     // http://localhost:8090/cliente/delete/{id}
     @DeleteMapping("/delete/{id}")
     public void borrarUsuario(@PathVariable("id") Long identificacion) {
         UsuarioService.deleletebyid(identificacion);
-       
+
     }
 
     // http://localhost:8090/cliente/update/{id}
@@ -121,9 +106,9 @@ public class UsuarioController {
     }
 
     @PutMapping("/update/{id}")
-    public void updateUsuario(@RequestBody  Usuario usuario) {
+    public void updateUsuario(@RequestBody Usuario usuario) {
         UsuarioService.update(usuario);
-      
+
     }
 
 }
