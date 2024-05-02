@@ -65,6 +65,10 @@ public class gato {
 
     }
 
+    public gato(String string, String nombre2, int i, String string2, String foto2, boolean b, Usuario usuario2) {
+        //TODO Auto-generated constructor stub
+    }
+
     public Long getId() {
         return id;
     }
