@@ -1,7 +1,29 @@
 package com.example.demo.repository;
 
-import org.assertj.core.api.Assertions;
 import java.util.List;
+import java.util.Optional;
+
+import org.assertj.core.api.Assertions; 
+import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.Assert;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
+
+
+import org.assertj.core.api.Assertions;
+
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +35,7 @@ import com.example.demo.entity.Droga;
 import com.example.demo.entity.Tratamiento;
 import com.example.demo.entity.Usuario;
 import com.example.demo.entity.Veterinario;
+import com.example.demo.entity.gato;
 
 @DataJpaTest
 @RunWith(SpringRunner.class)
@@ -23,26 +46,24 @@ public class VeterinarioRepositoryTest {
     private VeterinarioRepository veterinarioRepository;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private DrogaRepository drogaRepository;
 
     @Autowired
-    private DrogaRepository drogaRepository;
+    private TratamientoRepository tratamientoRepository;
 
 
     @BeforeEach
-    public void setUp() {
+    void init() {
         veterinarioRepository.save(new Veterinario(123488000, "Javier", "Perez", "javi@example.com", "12345678", "foto.jpg", "cirujano", true));
         veterinarioRepository.save(new Veterinario(123499000, "Ana", "González", "ana@example.com", "12345678", "foto.jpg", "oftalmólogo", true));
         veterinarioRepository.save(new Veterinario(123410000, "María", "López", "maria@example.com", "12345678", "foto.jpg", "dermatólogo", true));
         veterinarioRepository.save(new Veterinario(123411000, "Pedro", "Rodríguez", "pedro@example.com", "12345678", "foto.jpg", "endocrinólogo", true));
         veterinarioRepository.save(new Veterinario(123412000, "Sofía", "Martínez", "sofia@example.com", "12345678", "foto.jpg", "neurólogo", true));
-
-        usuarioRepository.save(new Usuario((long) 123456000, "Juan", "masculino", 25, 12345678));
-
-
     }
 
 
+
+    //crud 1 create
     @Test
     public void VeterinarioRepository_save_Veterinaro() {
         //1.arrange
@@ -60,6 +81,9 @@ public class VeterinarioRepositoryTest {
 
     }
 
+
+
+    //2 read todos los veterinarios
     @Test
     public void VeterinarioRepository_findAll_NotEmptyList() {
         //1.arrange
@@ -79,10 +103,159 @@ public class VeterinarioRepositoryTest {
 
         //assert
         Assertions.assertThat(veterinarios).isNotNull();
-        Assertions.assertThat(veterinarios.size()).isEqualTo(5);
+        Assertions.assertThat(veterinarios.size()).isEqualTo(7);
         Assertions.assertThat(veterinarios.size()).isGreaterThan(0);
 
     }
 
+
+    //3 read veterinario por id
+    @Test
+    public void VeterinarioRepository_findById_FindWrongIndex() {
+        //1.arrange
+        //2.act
+        //3.assert
+
+        //arrange
+        Long index =-11l;
+
+        //act
+        Veterinario veterinario = veterinarioRepository.findById(index).orElse(null);
+
+        //assert
+        Assertions.assertThat(veterinario).isNull();
+    }
+
+
+    //4 update
+    @Test
+    public void VeterinarioRepository_updateById_Veterinario() {
+        //1.arrange
+        Long index = 1l;
+
+        //2.act
+        Veterinario veterinario = veterinarioRepository.findById(index).get();
+        veterinario.setNombre("GayelqueloLea");
+        Veterinario update = veterinarioRepository.save(veterinario);
+
+
+        //3.assert
+        Assertions.assertThat(update).isNotNull();
+        Assertions.assertThat(update.getNombre()).isEqualTo("GayelqueloLea");
+    }
+
+
+    //5 delete
+    @Test
+    public void VeterinarioRepository_deleteById_Veterinario() {
+        //1.arrange
+        Long index = 1l;
+
+        //2.act
+        veterinarioRepository.deleteById(index);
+
+        //3.assert
+        Assertions.assertThat(veterinarioRepository.findById(index)).isEmpty();
     
+    }
+
+
+
+    // 1 Test consultas nuestras:
+    @Test
+    public void VeterinarioRepository_ConsultarEstado() {
+        //1.arrange
+        //2.act
+        //3.assert
+
+        //arrange
+        Long index = 1l;
+
+        //act
+        boolean estado = veterinarioRepository.ConsultarEstado(index);
+
+        //assert
+        Assertions.assertThat(estado).isTrue();
+    }
+
+
+    //2 Test consultar veterinarios activos:
+
+    @Test
+    public void VeterinarioRepository_consultarVeterinariosActivos() {
+        //1.arrange
+        //2.act
+        //3.assert
+
+        //act
+        List<Veterinario> veterinarios = veterinarioRepository.consultarVeterinariosActivos();
+
+        //assert
+        Assertions.assertThat(veterinarios).isNotNull();
+        Assertions.assertThat(veterinarios.size()).isEqualTo(5);
+        Assertions.assertThat(veterinarios.size()).isGreaterThan(0);
+    }
+
+
+    //3 Test consultar veterinarios inactivos:
+    @Test
+    public void VeterinarioRepository_consultarVeterinariosInactivos() {
+        //1.arrange
+        //2.act
+        //3.assert
+
+        //act
+        List<Veterinario> veterinarios = veterinarioRepository.consultarVeterinariosInactivos();
+
+        //assert
+        Assertions.assertThat(veterinarios).isNotNull();
+        Assertions.assertThat(veterinarios.size()).isEqualTo(0);    
+    }
+
+    //4 Test contar veterinarios activos:
+    @Test
+    public void VeterinarioRepository_countVeterinariosActivos() {
+        //1.arrange
+        //2.act
+        //3.assert
+
+        //act
+        long count = veterinarioRepository.countVeterinariosActivos();
+
+        //assert
+        Assertions.assertThat(count).isEqualTo(5);
+    }
+
+
+    //5 Test contar veterinarios inactivos:
+    @Test
+    public void VeterinarioRepository_countVeterinariosInactivos() {
+        //1.arrange
+        //2.act
+        //3.assert
+
+        //act
+        long count = veterinarioRepository.countVeterinariosInactivos();
+
+        //assert
+        Assertions.assertThat(count).isEqualTo(0);
+    }
+
+    //6 Test findByCorreoAndContrasena:
+    @Test
+    public void VeterinarioRepository_findByCorreoAndContrasena() {
+        //1.arrange
+        //2.act
+        //3.assert
+
+        //arrange
+        String correo = "a@a.com";
+        String password = "12345";
+
+        //act
+        Optional<Veterinario> veterinario = veterinarioRepository.findByCorreoAndContrasena(correo, password);
+
+        //assert
+        Assertions.assertThat(veterinario).isNotNull();
+    }
 }
