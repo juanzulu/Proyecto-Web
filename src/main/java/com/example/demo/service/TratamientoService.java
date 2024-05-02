@@ -8,6 +8,8 @@ import com.example.demo.entity.Tratamiento;
 
 public interface TratamientoService {
 
+    public void save(Tratamiento Tratamiento);
+
     public Tratamiento SearchById(Long id);
 
     public Collection<Tratamiento> SearchAll();

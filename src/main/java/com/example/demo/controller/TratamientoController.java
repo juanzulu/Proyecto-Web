@@ -12,6 +12,8 @@ import com.example.demo.entity.Tratamiento;
 import com.example.demo.service.TratamientoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/tratamiento")
@@ -43,16 +45,21 @@ public class TratamientoController {
         return TratamientoService.findTratamientosGato(id);
     }
 
-    //http://localhost:8090/tratamiento/informacion/veterinario/{id}
+    // http://localhost:8090/tratamiento/informacion/veterinario/{id}
     @GetMapping("/informacion/veterinario/{id}")
-    public List<Object[]> findTratamientosVeterinarioinformacion(Model model, @PathVariable("id") Integer id){
+    public List<Object[]> findTratamientosVeterinarioinformacion(Model model, @PathVariable("id") Integer id) {
         return TratamientoService.findTratamientosVeterinarioinformacion(id);
 
     }
 
     @GetMapping("/informacion/gato/{id}")
-    public List<Object[]> findTratamientosGatoinformacion(Model model, @PathVariable("id") Integer id){
+    public List<Object[]> findTratamientosGatoinformacion(Model model, @PathVariable("id") Integer id) {
         return TratamientoService.findTratamientosGatoinformacion(id);
+    }
+
+    @PostMapping("/agregar")
+    public void agregarTratamiento(@RequestBody Tratamiento Tratamiento) {
+        TratamientoService.save(Tratamiento);
     }
 
 }
