@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.entity.Usuario;
 import com.example.demo.entity.gato;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.GatoService;
@@ -43,11 +40,10 @@ public class KittyClinicController {
 
     // http://localhost:8090/mascota/activos
     @GetMapping("/activos")
-   public Long countGatosActivos() {
+    public Long countGatosActivos() {
 
-       return GatoService.countGatosActivos();
-   }
-
+        return GatoService.countGatosActivos();
+    }
 
     // http://localhost:8090/mascota/total
     @GetMapping("/total")
@@ -76,32 +72,9 @@ public class KittyClinicController {
     }
 
     // http://localhost:8090/mascota/agregar
-    @GetMapping("/agregar")
-    public String mostrarCrearGato(Model model) {
-
-        gato aux = new gato(null, null, null, null, null, null, true);
-
-        model.addAttribute("gato", aux);
-
-        return "crear_gato";
-    }
 
     @PostMapping("/agregar")
-    public void agregarGato(@RequestBody gato felino, @RequestParam Integer cedula) {
-        Usuario usuario = RepoUsuario.findByCedula(cedula);
-
-        if (usuario != null) {
-            felino.setUsuario(usuario);
-        } else {
-            felino.setUsuario(null);
-        }
-        GatoService.add(felino);
-    }
-
-    // http://localhost:8090/mascota/agregargato
-    @PostMapping("/agregargato")
     public void agregarGato(@RequestBody gato felino) {
-    
         GatoService.add(felino);
     }
 
