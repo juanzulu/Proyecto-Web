@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,9 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.ui.Model;
 import com.example.demo.entity.Usuario;
 import com.example.demo.entity.gato;
@@ -36,33 +35,9 @@ public class UsuarioController {
     @Autowired
     GatoService GatoController;
 
-    @GetMapping("/login")
-    public List<Usuario> mostrarPaginaLogin() {
-        return UsuarioService.SearchAll();
-    }
-
-    @PostMapping("/registro")
-    public String login(Model model, @RequestParam String username) {
-
-        Usuario usuario = RepoUsuario.findByCorreo(username);
-
-        if (usuario != null) {
-            model.addAttribute("usuario", usuario);
-            Long id = usuario.getId();
-            String urlDestino = UriComponentsBuilder
-                    .fromPath("/cliente/usuario/{id}")
-                    .buildAndExpand(id)
-                    .toUriString();
-
-            return "redirect:" + urlDestino;
-        } else {
-            return "redirect:/cliente/login";
-        }
-    }
-
     // http://localhost:8090/cliente/lista
     @GetMapping("/lista")
-    public List<Usuario> mostrarUsuarios(Model model) {
+    public List<Usuario> mostrarUsuarios() {
         return UsuarioService.SearchAll();
     }
 
@@ -106,6 +81,26 @@ public class UsuarioController {
     public void updateUsuario(@RequestBody Usuario usuario) {
         UsuarioService.update(usuario);
 
+    }
+
+    @PostMapping("/cedula")
+    public ResponseEntity<Usuario> findByCedula(@RequestBody Integer cedula) {
+        Usuario usuario = UsuarioService.findByCedula(cedula);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @GetMapping("/cedula/{cedula}")
+    public ResponseEntity<Usuario> FindByCedula(@PathVariable("cedula") Integer cedula) {
+        Usuario usuario = UsuarioService.findByCedula(cedula);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
 }

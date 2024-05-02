@@ -13,6 +13,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     UsuarioRepository Repo;
+
     @Override
     public Usuario SearchNyId(Long id) {
         return Repo.findById(id).get();
@@ -22,14 +23,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     public List<Usuario> SearchAll() {
         return Repo.findAll();
     }
+
     @Override
     public void update(Usuario usuario) {
         Repo.save(usuario);
     }
+
     @Override
     public void add(Usuario usuario) {
         Repo.save(usuario);
     }
+
     @Override
     public void deleletebyid(Long id) {
         Repo.deleteById(id);
@@ -38,6 +42,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario findUsuarioById(Long id) {
         return Repo.findById(id).get();
+    }
+
+    @Override
+    public Usuario findByCedula(Integer cedula) {
+        return Repo.findByCedula(cedula);
     }
 
 }

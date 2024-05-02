@@ -18,23 +18,21 @@ public class Usuario {
     private String genero;
     private Integer edad;
     private Integer cedula;
-    private String correo;
-    
+
     @JsonIgnore
-    @OneToMany(mappedBy = "usuario",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<gato> mascotas = new ArrayList<>();
 
     @Id
     @GeneratedValue
     private long id;
 
-    public Usuario(Long id, String nombre, String genero, Integer edad, Integer cedula, String correo) {
+    public Usuario(Long id, String nombre, String genero, Integer edad, Integer cedula) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
         this.cedula = cedula;
-        this.correo = correo;
         // this.mascotas = mascotas;
     }
 
@@ -48,7 +46,6 @@ public class Usuario {
         this.genero = genero;
         this.edad = edad;
         this.cedula = cedula;
-        this.correo = correo;
     }
 
     public List<gato> getMascotas() {
@@ -98,13 +95,4 @@ public class Usuario {
     public void setCedula(Integer cedula) {
         this.cedula = cedula;
     }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
 }
