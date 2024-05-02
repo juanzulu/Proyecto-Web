@@ -38,9 +38,11 @@ public class TratamientoController {
     }
 
     @GetMapping("por_droga")
-    public List<Object[]> countTratamientosPorDroga() {
+    public ResponseEntity<List<Object[]>> countTratamientosPorDroga() {
 
-        return TratamientoService.countTratamientosPorDroga();
+        List<Object[]> lista = TratamientoService.countTratamientosPorDroga();
+        ResponseEntity<List<Object[]>> response = new ResponseEntity<>(lista, HttpStatus.OK);
+        return response;
     }
 
     @GetMapping("/veterinario/{id}")
