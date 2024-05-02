@@ -3,7 +3,6 @@ package com.example.demo.entity;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,25 +30,31 @@ public class Tratamiento {
     @JsonIgnore
     private gato felino;
 
-    @JsonProperty("idDroga")
-    public Long getDrogaId() {
-        return droga != null ? droga.getId() : null;
-    }
-
-    @JsonProperty("idVeterinario")
-    public Long getVeterinarioId() {
-        return veterinario != null ? veterinario.getId() : null;
-    }
-
-    @JsonProperty("idGato")
-    public Long getGatoId() {
-        return felino != null ? felino.getId() : null;
-    }
-
     //// ---------------------------------------------------------------------------------------------------------------------//////
+
+    @Override
+    public String toString() {
+        return "Tratamiento [id=" + id + ", fecha=" + fecha + ", droga=" + droga + ", veterinario=" + veterinario
+                + ", felino=" + felino + "]";
+    }
 
     public Tratamiento() {
 
+    }
+
+    public Tratamiento(LocalDate fecha, Droga droga, Veterinario veterinario, gato felino) {
+        this.fecha = fecha;
+        this.droga = droga;
+        this.veterinario = veterinario;
+        this.felino = felino;
+    }
+
+    public Tratamiento(long id, LocalDate fecha, Droga droga, Veterinario veterinario, gato felino) {
+        this.id = id;
+        this.fecha = fecha;
+        this.droga = droga;
+        this.veterinario = veterinario;
+        this.felino = felino;
     }
 
     public long getId() {
@@ -89,13 +94,6 @@ public class Tratamiento {
     }
 
     public void setFelino(gato felino) {
-        this.felino = felino;
-    }
-
-    public Tratamiento(LocalDate fecha, Droga droga, Veterinario veterinario, gato felino) {
-        this.fecha = fecha;
-        this.droga = droga;
-        this.veterinario = veterinario;
         this.felino = felino;
     }
 
