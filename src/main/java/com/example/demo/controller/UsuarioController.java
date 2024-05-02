@@ -41,6 +41,9 @@ public class UsuarioController {
     @GetMapping("/login")
     public List<Usuario> mostrarPaginaLogin() {
         return UsuarioService.SearchAll();
+
+       
+
     }
 
     @PostMapping("/registro")
