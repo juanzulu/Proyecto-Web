@@ -25,13 +25,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void update(Usuario usuario) {
-        Repo.save(usuario);
+    public Usuario update(Usuario usuario) {
+         return Repo.save(usuario);
     }
 
     @Override
-    public void add(Usuario usuario) {
-        Repo.save(usuario);
+    public Usuario add(Usuario usuario) {
+         return Repo.save(usuario);
     }
 
     @Override

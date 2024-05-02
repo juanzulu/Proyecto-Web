@@ -12,9 +12,9 @@ public interface UsuarioService {
 
     public void deleletebyid(Long id);
 
-    public void update(Usuario usuario);
+    public Usuario update(Usuario usuario);
 
-    public void add(Usuario usuario);
+    public Usuario add(Usuario usuario);
 
     public Usuario findUsuarioById(Long id);
 
