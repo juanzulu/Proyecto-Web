@@ -12,8 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.entity.Usuario;
-import com.example.demo.entity.Veterinario;
-import com.example.demo.entity.gato;
 
 
 
@@ -24,11 +22,7 @@ public class UsuarioRepositoryTest {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @Autowired
-    private VeterinarioRepository veterinarioRepository;
 
-    @Autowired
-    private GatoRepository gatoRepository;
 
     @BeforeEach
     public void setUp() {

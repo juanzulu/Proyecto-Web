@@ -20,8 +20,7 @@ public class GatoRepositoryTest {
     @Autowired
     private GatoRepository gatoRepository;
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+
 
     @BeforeEach
     public void setUp(){

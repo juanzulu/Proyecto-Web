@@ -11,31 +11,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.Assert;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 
 
 
-import org.assertj.core.api.Assertions;
 
-import java.time.LocalDate;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import com.example.demo.entity.Droga;
-import com.example.demo.entity.Tratamiento;
-import com.example.demo.entity.Usuario;
 import com.example.demo.entity.Veterinario;
-import com.example.demo.entity.gato;
+
 
 @DataJpaTest
 @RunWith(SpringRunner.class)
@@ -45,11 +28,7 @@ public class VeterinarioRepositoryTest {
     @Autowired
     private VeterinarioRepository veterinarioRepository;
 
-    @Autowired
-    private DrogaRepository drogaRepository;
 
-    @Autowired
-    private TratamientoRepository tratamientoRepository;
 
 
     @BeforeEach
