@@ -37,8 +37,8 @@ public class GatoServiceImpl implements GatoService {
     }
 
     @Override
-    public void add(gato felino) {
-        Repo.save(felino);
+    public gato add(gato felino) {
+        return Repo.save(felino);
     }
 
     @Override

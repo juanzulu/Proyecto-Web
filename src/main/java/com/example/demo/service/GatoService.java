@@ -16,7 +16,7 @@ public interface GatoService {
 
     public void update(gato felino);
 
-    public void add(gato felino);
+    public gato add(gato felino);
 
     public boolean ConsultarEstado(Long id);
 
