@@ -15,7 +15,7 @@ public interface VeterinarioService {
 
     public void update(Veterinario veterinario);
 
-    public void add(Veterinario veterinario);
+    public Veterinario add(Veterinario veterinario);
 
     public boolean ConsultarEstado(Long id);
 
