@@ -15,7 +15,7 @@ import com.example.demo.entity.gato;
 import com.example.demo.repository.GatoRepository;
 
 @SpringBootTest
-public class GatoServiceTestNaive {
+public class GatoServiceTest {
 
     @Autowired
     private GatoService GatoService;
