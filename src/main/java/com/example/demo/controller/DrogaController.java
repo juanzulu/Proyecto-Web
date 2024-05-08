@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.DrogaService;
 
 import com.example.demo.entity.Droga;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/droga")
@@ -48,11 +50,19 @@ public class DrogaController {
     public ResponseEntity<Droga> drogaPorNombre(@PathVariable("nombre") String nombre) {
         Droga droga = drogaService.SearchByNombre(nombre);
         if (droga != null) {
+            droga.setuDisponibles(droga.getuDisponibles() - 1);
+            droga.setuVendidas(droga.getuVendidas() + 1);
+            drogaService.update(droga);
             return ResponseEntity.ok(droga);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
 
+    }
+
+    @PutMapping("actualizar/{id}")
+    public void updateDroga(@RequestBody Droga droga) {
+        drogaService.update(droga);
     }
 
 }

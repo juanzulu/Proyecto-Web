@@ -25,8 +25,6 @@ import org.slf4j.LoggerFactory;
 @CrossOrigin(origins = "http://localhost:4200")
 public class TratamientoController {
 
-
-
     @Autowired
     TratamientoService TratamientoService;
 
@@ -49,29 +47,24 @@ public class TratamientoController {
     @GetMapping("/veterinario/{id}")
     public ResponseEntity<List<Tratamiento>> findTratamientosVeterinario(Model model, @PathVariable("id") Integer id) {
         List<Tratamiento> lista = TratamientoService.findTratamientosVeterinario(id);
-       
-        ResponseEntity<List<Tratamiento>> response = new ResponseEntity<>(lista,HttpStatus.OK);
+
+        ResponseEntity<List<Tratamiento>> response = new ResponseEntity<>(lista, HttpStatus.OK);
         return response;
     }
-
-  
-    
-
-
 
     @GetMapping("/gato/{id}")
     public ResponseEntity<List<Tratamiento>> findTratamientosGato(Model model, @PathVariable("id") Integer id) {
 
-        List<Tratamiento> lista =TratamientoService.findTratamientosGato(id);
+        List<Tratamiento> lista = TratamientoService.findTratamientosGato(id);
         ResponseEntity<List<Tratamiento>> response = new ResponseEntity<>(lista, HttpStatus.OK);
-
 
         return response;
     }
 
     // http://localhost:8090/tratamiento/informacion/veterinario/{id}
     @GetMapping("/informacion/veterinario/{id}")
-    public ResponseEntity<List<Object[]>> findTratamientosVeterinarioinformacion(Model model, @PathVariable("id") Integer id) {
+    public ResponseEntity<List<Object[]>> findTratamientosVeterinarioinformacion(Model model,
+            @PathVariable("id") Integer id) {
 
         List<Object[]> lista = TratamientoService.findTratamientosVeterinarioinformacion(id);
         ResponseEntity<List<Object[]>> response = new ResponseEntity<>(lista, HttpStatus.OK);
@@ -86,13 +79,14 @@ public class TratamientoController {
         ResponseEntity<List<Object[]>> response = new ResponseEntity<>(result, HttpStatus.OK);
         return response;
     }
-    
+
     @PostMapping("/agregar")
     public ResponseEntity<Tratamiento> agregarTratamiento(@RequestBody Tratamiento tratamiento) {
-        Logger logger = LoggerFactory.getLogger(this.getClass());  // Asegúrate de tener un logger disponible.
+        Logger logger = LoggerFactory.getLogger(this.getClass()); // Asegúrate de tener un logger disponible.
         logger.info("Request body received: {}", tratamiento);
         TratamientoService.save(tratamiento);
-        return ResponseEntity.ok(tratamiento); // Devuelve 201 Created para indicar que el recurso fue creado exitosamente.
+        return ResponseEntity.ok(tratamiento);
+        // Devuelve 201 Created para indicar que el recurso fue creado exitosamente.
     }
 
 }
