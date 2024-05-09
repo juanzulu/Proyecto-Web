@@ -212,6 +212,7 @@ public class DatabaseInit implements ApplicationRunner {
                         e.printStackTrace();
                 }
 
+
                 // Insertar 10 veterinarios en el repositorio
                 for (int i = 0; i < 10; i++) {
                         String nombre = nombresu[i % nombresu.length];
@@ -228,6 +229,18 @@ public class DatabaseInit implements ApplicationRunner {
                                                         especialidad,
                                                         estado));
                 }
+
+                Integer cedulaAdmin = 0; // Un número de cédula para el admin
+                String nombreAdmin = "admin";
+                String apellidoAdmin = "admin";
+                String correoAdmin = "5edfdcc2-37d4-4f94-854c-8e6ced609e23@gmail.com";
+                String fotoAdmin = "."; // Asegúrate de tener una URL válida
+                String especialidadAdmin = "Administración";
+                String passwordAdmin = "12345678";
+                boolean estadoAdmin = true;
+
+// Guardar el veterinario admin
+veterinarioRepository.save(new Veterinario(cedulaAdmin, nombreAdmin, apellidoAdmin, correoAdmin, passwordAdmin, fotoAdmin, especialidadAdmin, estadoAdmin));
 
                 tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(1L).get(),
                                 veterinarioRepository.findById(1L).get(), gatoRepository.findById(1L).get()));
