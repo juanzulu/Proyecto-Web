@@ -25,6 +25,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class GatoDetailTest {
     private WebDriver driver;
+    @SuppressWarnings("unused")
     private WebDriverWait wait;
 
     @BeforeEach

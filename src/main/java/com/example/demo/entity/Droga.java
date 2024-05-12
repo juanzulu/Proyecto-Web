@@ -9,8 +9,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Droga {
 
     private String nombre;
@@ -27,9 +35,7 @@ public class Droga {
     @OneToMany(mappedBy = "droga")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
-    public Droga() {
-
-    }
+ 
 
     public Droga(String nombre, Integer uDisponibles, Integer uVendidas, Integer precio, Integer pCompra) {
         this.nombre = nombre;
@@ -39,13 +45,6 @@ public class Droga {
         this.pCompra = pCompra;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public Integer getuDisponibles() {
         return uDisponibles;
@@ -63,36 +62,5 @@ public class Droga {
         this.uVendidas = uVendidas;
     }
 
-    public Integer getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Integer precio) {
-        this.precio = precio;
-    }
-
-    public Integer getpCompra() {
-        return pCompra;
-    }
-
-    public void setpCompra(Integer pCompra) {
-        this.pCompra = pCompra;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Tratamiento> getTratamientos() {
-        return tratamientos;
-    }
-
-    public void setTratamientos(List<Tratamiento> tratamientos) {
-        this.tratamientos = tratamientos;
-    }
 
 }

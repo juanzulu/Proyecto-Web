@@ -196,12 +196,10 @@ public class DatabaseInitTest implements ApplicationRunner {
                         for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
                                 Row row = sheet.getRow(rowIndex);
                                 if (row != null) {
-                                        Droga drug = new Droga();
-                                        drug.setNombre(row.getCell(0).getStringCellValue());
-                                        drug.setPrecio((int) row.getCell(1).getNumericCellValue());
-                                        drug.setpCompra((int) row.getCell(2).getNumericCellValue());
-                                        drug.setuDisponibles((int) row.getCell(3).getNumericCellValue());
-                                        drug.setuVendidas((int) row.getCell(4).getNumericCellValue());
+                                        Droga drug = Droga.builder().nombre(row.getCell(0).getStringCellValue()).uDisponibles((int) row.getCell(3).getNumericCellValue())
+                                        .uVendidas((int) row.getCell(4).getNumericCellValue()).precio((int) row.getCell(1).getNumericCellValue())
+                                        .pCompra((int) row.getCell(2).getNumericCellValue()).build();
+                                       
                                         drogaRepository.save(drug);
                                 }
                         }
@@ -215,21 +213,47 @@ public class DatabaseInitTest implements ApplicationRunner {
                 }
 
                 // Insertar 10 veterinarios en el repositorio
-                for (int i = 0; i < 10; i++) {
-                        String nombre = nombresu[i % nombresu.length];
-                        Integer cedula = 1 + i;
-                        String apellido = apellidos[i % apellidos.length];
-                        String correo = nombre + i + "@gmail.com";
-                        String foto = urlsvets[i % urlsvets.length];
-                        String especialidad = especialidades[i % especialidades.length];
-                        String password = "12345678";
-                        boolean estado = true;
+            
+                Veterinario veterinario = Veterinario.builder().cedula(1001301315).nombre("Camilo").apellido("Hernandez").correo("hernandez@gmail,com").password("12345678")
+                .foto("https://th.bing.com/th/id/OIP.LIvhmx5YRN4hOFZ0ld98JgHaE8?rs=1&pid=ImgDetMain").especialidad("Medicina Interna Veterinaria").estado(true).build();
+                veterinarioRepository.save(veterinario);
 
-                        veterinarioRepository
-                                        .save(new Veterinario(cedula, nombre, apellido, correo, password, foto,
-                                                        especialidad,
-                                                        estado));
-                }
+                veterinario = Veterinario.builder().cedula(1001301316).nombre("Juan ").apellido("Perez").correo("Perez@gmail,com").password("12345678")
+                .foto("https://petcosset.com/wp-content/uploads/2020/12/Depositphotos_320884710_L-e1660002279141-684x1024.jpg").especialidad("Oftalmología Veterinaria").estado(true).build();
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301317).nombre("Maria").apellido("Lopez").correo("Lopez@gmail,com").password("12345678")
+                .foto("https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg").especialidad("Nutrición Veterinaria").estado(false).build();
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301318).nombre("Luisa").apellido("Gonzalez").correo("Gonzalez@gmail,com").password("12345678")
+                .foto("").especialidad("Oncología Veterinaria").estado(true).build();
+                veterinarioRepository.save(veterinario);
+                
+                veterinario = Veterinario.builder().cedula(1001301319).nombre("Carlos").apellido("Martinez").correo("Martinez@gmail,com").password("12345678")
+                .foto("").especialidad("Nutrición Veterinaria").estado(false).build();
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301320).nombre("Ana").apellido("Sanchez").correo("Sanchez@gmail,com").password("12345678")
+                .foto("").especialidad("Reproducción Veterinaria").estado(false).build();
+                veterinarioRepository.save(veterinario);
+                
+                veterinario = Veterinario.builder().cedula(1001301321).nombre("Pedro").apellido("Ramirez").correo("Ramirez@gmail,com").password("12345678")
+                .foto("").especialidad("Cardiologia Veterinaria").estado(true).build();
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301322).nombre("Sofia").apellido("Hernandez").correo("Hernandez@gmail,com").password("12345678")
+                .foto("").especialidad("Cirugia Veterinaria").estado(true).build();
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301323).nombre("Jorge").apellido("Ramirez").correo("Ramirez@gmail,com").password("12345678")
+                .foto("").especialidad("Dermatologia Veterinaria").estado(true).build();
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301324).nombre("Lucia").apellido("Gonzalez").correo("Gonzalez@gmail,com").password("12345678")
+                .foto("").especialidad("Odontologia Veterinaria").estado(true).build();
+                veterinarioRepository.save(veterinario);
+
 
                 tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(1L).get(),
                                 veterinarioRepository.findById(1L).get(), gatoRepository.findById(1L).get()));

@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
-import org.hibernate.annotations.TimeZoneStorage;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.entity.Tratamiento;
+
 import com.example.demo.entity.gato;
 import com.example.demo.repository.GatoRepository;
 

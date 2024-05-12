@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 
-import org.aspectj.lang.annotation.Before;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,21 +8,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import com.example.demo.entity.Veterinario;
 import com.example.demo.repository.GatoRepository;
 import com.example.demo.repository.VeterinarioRepository;
 
-import io.swagger.v3.oas.annotations.extensions.Extension;
 
-import static org.junit.Assert.assertThat;
+
 import static org.mockito.Mockito.when;
 
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
 //ejecutar una instancia completa

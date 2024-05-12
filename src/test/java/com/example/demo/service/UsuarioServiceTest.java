@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.entity.Usuario;
-import com.example.demo.entity.gato;
+
 import com.example.demo.repository.UsuarioRepository;
 
 @SpringBootTest

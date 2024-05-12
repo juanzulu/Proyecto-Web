@@ -46,9 +46,12 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
     }
 
+
+ 
     @Override
     public void cambiarEstado(Veterinario veterinario) {
 
+        
         veterinario.setEstado(!(veterinario.getEstado()));
         veterinarioRepo.save(veterinario);
 

@@ -10,8 +10,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Usuario {
 
     private String nombre;
@@ -36,9 +40,7 @@ public class Usuario {
         // this.mascotas = mascotas;
     }
 
-    public Usuario() {
 
-    }
 
     public Usuario(String nombre, String genero, Integer edad, Integer cedula,
             String correo) {
@@ -48,51 +50,9 @@ public class Usuario {
         this.cedula = cedula;
     }
 
-    public List<gato> getMascotas() {
-        return mascotas;
-    }
-
-    public void setMascotas(List<gato> mascotas) {
-        this.mascotas = mascotas;
-    }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public Integer getEdad() {
-        return edad;
-    }
-
-    public void setEdad(Integer edad) {
-        this.edad = edad;
-    }
-
-    public Integer getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(Integer cedula) {
-        this.cedula = cedula;
-    }
 }
