@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DTOs.TratamientoDTO;
+import com.example.demo.DTOs.TratamientoMapper;
 import com.example.demo.entity.Tratamiento;
 import com.example.demo.service.TratamientoService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,10 +47,10 @@ public class TratamientoController {
     }
 
     @GetMapping("/veterinario/{id}")
-    public ResponseEntity<List<Tratamiento>> findTratamientosVeterinario(Model model, @PathVariable("id") Integer id) {
+    public ResponseEntity<List<TratamientoDTO>> findTratamientosVeterinario(Model model, @PathVariable("id") Integer id) {
         List<Tratamiento> lista = TratamientoService.findTratamientosVeterinario(id);
-
-        ResponseEntity<List<Tratamiento>> response = new ResponseEntity<>(lista, HttpStatus.OK);
+        List<TratamientoDTO> listaDTO = (List<TratamientoDTO>) TratamientoMapper.INSTANCE.convertlList(lista);
+        ResponseEntity<List<TratamientoDTO>> response = new ResponseEntity<>(listaDTO, HttpStatus.OK);
         return response;
     }
 
@@ -63,11 +65,11 @@ public class TratamientoController {
 
     // http://localhost:8090/tratamiento/informacion/veterinario/{id}
     @GetMapping("/informacion/veterinario/{id}")
-    public ResponseEntity<List<Object[]>> findTratamientosVeterinarioinformacion(Model model,
-            @PathVariable("id") Integer id) {
+    public ResponseEntity<List<TratamientoDTO>> findTratamientosVeterinarioinformacion(Model model, @PathVariable("id") Integer id) {
 
-        List<Object[]> lista = TratamientoService.findTratamientosVeterinarioinformacion(id);
-        ResponseEntity<List<Object[]>> response = new ResponseEntity<>(lista, HttpStatus.OK);
+        List<Tratamiento> lista = TratamientoService.findTratamientosVeterinarioinformacion(id);
+        List<TratamientoDTO> listaDTO = (List<TratamientoDTO>) TratamientoMapper.INSTANCE.convertlList(lista);
+        ResponseEntity<List<TratamientoDTO>> response = new ResponseEntity<>(listaDTO, HttpStatus.OK);
 
         return response;
     }
