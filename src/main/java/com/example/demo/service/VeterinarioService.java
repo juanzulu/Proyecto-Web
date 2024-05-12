@@ -29,5 +29,5 @@ public interface VeterinarioService {
 
     public long countVeterinariosActivos();
 
-    public Optional<Veterinario> Login(String correo, String password);
+    public Veterinario Login(String correo, String password);
 }

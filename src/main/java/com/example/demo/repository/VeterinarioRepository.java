@@ -34,7 +34,7 @@ public interface VeterinarioRepository extends JpaRepository<Veterinario, Long> 
       long countVeterinariosInactivos();
 
       @Query("SELECT a FROM Veterinario a WHERE a.correo = :correo AND a.password = :password")
-      Optional<Veterinario> findByCorreoAndContrasena(@Param("correo") String correo,
+      Veterinario findByCorreoAndContrasena(@Param("correo") String correo,
                   @Param("password") String password);
 
 }

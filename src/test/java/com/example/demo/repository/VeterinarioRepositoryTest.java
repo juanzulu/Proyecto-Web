@@ -232,7 +232,7 @@ public class VeterinarioRepositoryTest {
         String password = "12345";
 
         //act
-        Optional<Veterinario> veterinario = veterinarioRepository.findByCorreoAndContrasena(correo, password);
+        Veterinario veterinario = veterinarioRepository.findByCorreoAndContrasena(correo, password);
 
         //assert
         Assertions.assertThat(veterinario).isNotNull();

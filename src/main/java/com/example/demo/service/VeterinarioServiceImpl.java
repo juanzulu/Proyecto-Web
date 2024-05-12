@@ -78,8 +78,8 @@ public class VeterinarioServiceImpl implements VeterinarioService {
     }
 
     @Override
-    public Optional<Veterinario> Login(String correo, String password) {
-        Optional<Veterinario> arrendatario = veterinarioRepo.findByCorreoAndContrasena(correo, password);
+    public Veterinario Login(String correo, String password) {
+        Veterinario arrendatario = veterinarioRepo.findByCorreoAndContrasena(correo, password);
         return arrendatario;
     }
 

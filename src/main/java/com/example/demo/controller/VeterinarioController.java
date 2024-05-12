@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DTOs.VeterinarioDTO;
+import com.example.demo.DTOs.VeterinarioMapper;
 import com.example.demo.entity.Veterinario;
 import com.example.demo.service.VeterinarioService;
 
@@ -29,13 +32,28 @@ public class VeterinarioController {
     @Autowired
 
     @GetMapping("/veterinario")
-    public List<Veterinario> SearchAll() {
-        return veterinarioService.SearchAll();
+    public ResponseEntity<List<VeterinarioDTO>> SearchAll() {
+        List<Veterinario> lista = veterinarioService.SearchAll();
+        List<VeterinarioDTO> listaDTO = (List<VeterinarioDTO>) VeterinarioMapper.INSTANCE.convertlList(lista);
+        ResponseEntity<List<VeterinarioDTO>> response = new ResponseEntity<>(listaDTO, HttpStatus.OK);
+        return response;
     }
 
     @PostMapping("/agregar")
-    public void agregarVeterinario(@RequestBody Veterinario veterinario) {
-        veterinarioService.add(veterinario);
+    public ResponseEntity agregarVeterinario(@RequestBody Veterinario veterinario) {
+        
+        Veterinario veterinario2 = veterinarioService.add(veterinario);
+        
+        if (veterinario2 == null) {
+            return new ResponseEntity<String>("Veterinario no encontrado",HttpStatus.BAD_REQUEST);
+            
+        }
+        VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario2);
+        if (veterinario2 != null) {
+            return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.BAD_REQUEST);
+
+        }
+        return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
     }
 
     @GetMapping("/veterinario/{id}")
@@ -82,9 +100,19 @@ public class VeterinarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Veterinario> loginVeterinario(@RequestBody Veterinario vet) {
-        return veterinarioService.Login(vet.getCorreo(), vet.getPassword())
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    public ResponseEntity loginVeterinario(@RequestBody Veterinario vet) {
+        vet = veterinarioService.Login(vet.getCorreo(), vet.getPassword());
+        if (vet == null) {
+            return new ResponseEntity<String>("Veterinario no encontrado",HttpStatus.BAD_REQUEST);
+            
+        }
+
+        VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(vet);
+        if (vet.getPassword().equals(vet.getPassword())) {
+            return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
+            
+        }else{
+            return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.BAD_REQUEST);
+        }
     }
 }
