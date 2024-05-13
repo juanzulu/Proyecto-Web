@@ -103,7 +103,7 @@ public class UsuarioController {
 
     @PostMapping("/cedula")
     public ResponseEntity<Usuario> findByCedula(@RequestBody Integer cedula) {
-        Usuario usuario = UsuarioService.findByCedula(cedula);
+      Usuario usuario = UsuarioService.findByCedula(cedula);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
         } else {
