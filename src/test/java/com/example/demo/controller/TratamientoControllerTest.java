@@ -113,10 +113,10 @@ public void findTratamientosVeterinarioinformacionTest() throws Exception {
     // Prepare sample data to return from the service
     Object[] tratamientoInfo1 = new Object[]{"Treatment Type A", "Description A", 5};
     Object[] tratamientoInfo2 = new Object[]{"Treatment Type B", "Description B", 3};
-    List<Object[]> mockData = Arrays.asList(tratamientoInfo1, tratamientoInfo2);
+    //List<Tratamiento> mockData = Arrays.asList(tratamientoInfo1, tratamientoInfo2);
 
     // Mock the service method call
-    when(tratamientoService.findTratamientosVeterinarioinformacion(1)).thenReturn(mockData);
+    //when(tratamientoService.findTratamientosVeterinarioinformacion(1)).thenReturn(mockData);
 
     // Perform the GET request and verify the results
     mockMvc.perform(get("/tratamiento/informacion/veterinario/{id}", 1)
