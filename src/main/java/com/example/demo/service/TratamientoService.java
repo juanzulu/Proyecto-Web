@@ -30,6 +30,6 @@ public interface TratamientoService {
 
     public List<Tratamiento> findTratamientosVeterinarioinformacion(Integer id);
 
-    public List<Object[]> findTratamientosGatoinformacion(Integer id);
+    public List<Tratamiento> findTratamientosGatoinformacion(Integer id);
 
 }

@@ -32,5 +32,5 @@ public interface TratamientoRepository extends JpaRepository<Tratamiento, Long> 
     List<Tratamiento> findTratamientosVeterinarioInformacion(@Param("id") Integer id);
 
     @Query("SELECT t.fecha, d.nombre FROM Tratamiento t JOIN t.droga d WHERE t.felino.id = :id")
-    List<Object[]> findTratamientosGatoInformacion(@Param("id") Integer id);
+    List<Tratamiento> findTratamientosGatoInformacion(@Param("id") Integer id);
 }

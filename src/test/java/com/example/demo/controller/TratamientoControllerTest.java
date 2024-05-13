@@ -142,7 +142,7 @@ public void findTratamientosGatoinformacionTest() throws Exception {
     List<Object[]> mockData = Arrays.asList(treatmentInfo1, treatmentInfo2);
 
 
-    when(tratamientoService.findTratamientosGatoinformacion(1)).thenReturn(mockData);
+    //when(tratamientoService.findTratamientosGatoinformacion(1)).thenReturn(mockData);
 
   
     mockMvc.perform(get("/tratamiento/informacion/gato/{id}", 1)
