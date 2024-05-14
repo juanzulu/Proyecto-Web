@@ -91,9 +91,7 @@ public class UsuarioController {
 
      @PutMapping("/update/{id}")
     public ResponseEntity<Usuario> updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-        if (!usuario.getId().equals(id)) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+    
         Usuario updatedUsuario = UsuarioService.update(usuario);
         if (updatedUsuario == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

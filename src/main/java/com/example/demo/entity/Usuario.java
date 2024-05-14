@@ -22,14 +22,15 @@ public class Usuario {
     private String genero;
     private Integer edad;
     private Integer cedula;
+    @Id
+    @GeneratedValue
+    private long id;
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<gato> mascotas = new ArrayList<>();
 
-    @Id
-    @GeneratedValue
-    private long id;
+
 
     public Usuario(Long id, String nombre, String genero, Integer edad, Integer cedula) {
         this.id = id;
@@ -51,8 +52,6 @@ public class Usuario {
     }
 
 
-    public Long getId() {
-        return id;
-    }
+
 
 }
