@@ -52,7 +52,7 @@ public class VeterinarioServiceImpl implements VeterinarioService {
     public void cambiarEstado(Veterinario veterinario) {
 
         
-        veterinario.setEstado(!(veterinario.getEstado()));
+        veterinario.setEstado(!(veterinario.isEstado()));
         veterinarioRepo.save(veterinario);
 
     }

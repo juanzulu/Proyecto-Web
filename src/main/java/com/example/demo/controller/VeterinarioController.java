@@ -101,6 +101,7 @@ public class VeterinarioController {
 
     @PostMapping("/login")
     public ResponseEntity loginVeterinario(@RequestBody Veterinario vet) {
+        System.out.println(vet.getCorreo() + vet.getPassword());
         vet = veterinarioService.Login(vet.getCorreo(), vet.getPassword());
         if (vet == null) {
             return new ResponseEntity<String>("Veterinario no encontrado",HttpStatus.BAD_REQUEST);
