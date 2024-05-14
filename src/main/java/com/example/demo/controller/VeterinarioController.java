@@ -49,10 +49,7 @@ public class VeterinarioController {
             
         }
         VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario2);
-        if (veterinario2 != null) {
-            return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.BAD_REQUEST);
-
-        }
+     
         return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
     }
 
