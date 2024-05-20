@@ -317,7 +317,7 @@ public class DatabaseInit implements ApplicationRunner {
 
         private UserEntity saveUserDueno(Usuario usuario) {
                 UserEntity user = new UserEntity();
-                user.setUsername((usuario.getCedula()));
+                user.setUsername((usuario.getNombre()));
                 user.setPassword(passwordEncoder.encode("123"));
                 Role roles = roleRepository.findByName("USER").get();
                 user.setRoles(List.of(roles));

@@ -8,4 +8,5 @@ import com.example.demo.entity.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     Usuario findByCedula(Integer cedula);
+
 }

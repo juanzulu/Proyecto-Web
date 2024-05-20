@@ -14,9 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
+
+import com.example.demo.entity.UserEntity;
 import com.example.demo.entity.Usuario;
 import com.example.demo.entity.gato;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.service.GatoService;
 import com.example.demo.service.UsuarioService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,24 +39,30 @@ public class UsuarioController {
     @Autowired
     GatoService GatoController;
 
-     // http://localhost:8090/cliente/lista
-     @GetMapping("/lista")
-     public ResponseEntity<List<Usuario>> mostrarUsuarios(Model model) {
- 
-         List<Usuario> lista = UsuarioService.SearchAll();
-         ResponseEntity<List<Usuario>> response = new ResponseEntity<>(lista, HttpStatus.OK);
-         return response;
-     }
+    @Autowired
+    UserRepository userRepository;
 
-      // http://localhost:8090/cliente/misgatos/{id}
-      @GetMapping("/misgatos/{id}")
-      public ResponseEntity<List<gato>> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
-  
-          List<gato> gatos = GatoController.SearchByUsuarioId(identificacion);
-          ResponseEntity<List<gato>> response = new ResponseEntity<>(gatos, HttpStatus.OK);
-          return response;
-  
-      }
+    @Autowired
+    CustomUserDetailService customUserDetailService;
+
+    // http://localhost:8090/cliente/lista
+    @GetMapping("/lista")
+    public ResponseEntity<List<Usuario>> mostrarUsuarios(Model model) {
+
+        List<Usuario> lista = UsuarioService.SearchAll();
+        ResponseEntity<List<Usuario>> response = new ResponseEntity<>(lista, HttpStatus.OK);
+        return response;
+    }
+
+    // http://localhost:8090/cliente/misgatos/{id}
+    @GetMapping("/misgatos/{id}")
+    public ResponseEntity<List<gato>> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
+
+        List<gato> gatos = GatoController.SearchByUsuarioId(identificacion);
+        ResponseEntity<List<gato>> response = new ResponseEntity<>(gatos, HttpStatus.OK);
+        return response;
+
+    }
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<Usuario> mostrarUsuarioConGatos(@PathVariable("id") Long id) {
@@ -62,23 +72,37 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-     // http://localhost:8090/cliente/agregar
-     @PostMapping("/agregar")
-     public ResponseEntity<Usuario> agregarUsuario(@RequestBody Usuario usuario) {
-               Usuario newUsuario = UsuarioService.add(usuario);
-               if(newUsuario == null){
-                 return new ResponseEntity<Usuario>(newUsuario, HttpStatus.BAD_REQUEST);
-               }
-               return new ResponseEntity<Usuario>(newUsuario, HttpStatus.CREATED);
-     }
+    // http://localhost:8090/cliente/agregar
+    @PostMapping("/agregar")
+    public ResponseEntity<Usuario> agregarUsuario(@RequestBody Usuario usuario) {
+        /*
+         * Usuario newUsuario = UsuarioService.add(usuario);
+         * if(newUsuario == null){
+         * return new ResponseEntity<Usuario>(newUsuario, HttpStatus.BAD_REQUEST);
+         * }
+         * return new ResponseEntity<Usuario>(newUsuario, HttpStatus.CREATED);
+         */
+        if (userRepository.existsById(usuario.getId())) {
+            return new ResponseEntity<Usuario>(usuario, HttpStatus.BAD_REQUEST);
+        }
 
-     // http://localhost:8090/cliente/delete/{id}
-     @DeleteMapping("/delete/{id}")
-     public ResponseEntity<String> borrarUsuario(@PathVariable("id") Long identificacion) {
-         UsuarioService.deleletebyid(identificacion);
-         return new ResponseEntity<String>("Usuario eliminado", HttpStatus.NO_CONTENT);
- 
-     }
+        UserEntity user = customUserDetailService.DuenoToUser(usuario);
+        usuario.setUser(user);
+        Usuario usuario2 = UsuarioService.add(usuario);
+        if (usuario2 == null) {
+            return new ResponseEntity<Usuario>(usuario2, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<Usuario>(usuario2, HttpStatus.CREATED);
+
+    }
+
+    // http://localhost:8090/cliente/delete/{id}
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> borrarUsuario(@PathVariable("id") Long identificacion) {
+        UsuarioService.deleletebyid(identificacion);
+        return new ResponseEntity<String>("Usuario eliminado", HttpStatus.NO_CONTENT);
+
+    }
 
     // http://localhost:8090/cliente/update/{id}
     @GetMapping("/update/{id}")
@@ -89,9 +113,9 @@ public class UsuarioController {
         return "actualizar_usuario";
     }
 
-     @PutMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Usuario> updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
-    
+
         Usuario updatedUsuario = UsuarioService.update(usuario);
         if (updatedUsuario == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -101,7 +125,7 @@ public class UsuarioController {
 
     @PostMapping("/cedula")
     public ResponseEntity<Usuario> findByCedula(@RequestBody Integer cedula) {
-      Usuario usuario = UsuarioService.findByCedula(cedula);
+        Usuario usuario = UsuarioService.findByCedula(cedula);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
         } else {

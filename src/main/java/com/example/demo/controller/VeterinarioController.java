@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTOs.VeterinarioDTO;
 import com.example.demo.DTOs.VeterinarioMapper;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.entity.Veterinario;
+import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.service.VeterinarioService;
 
 @RestController
@@ -29,6 +32,10 @@ public class VeterinarioController {
     VeterinarioService veterinarioService;
 
     @Autowired
+    UsuarioRepository userRepository;
+
+    @Autowired
+    private CustomUserDetailService customUserDetailService;
 
     @GetMapping("/veterinario")
     public ResponseEntity<List<VeterinarioDTO>> SearchAll() {
@@ -39,17 +46,22 @@ public class VeterinarioController {
     }
 
     @PostMapping("/agregar")
-    public ResponseEntity agregarVeterinario(@RequestBody Veterinario veterinario) {
+    public ResponseEntity<Veterinario> agregarVeterinario(@RequestBody Veterinario veterinario) {
 
+        if (userRepository.existsById(veterinario.getId())) {
+            return new ResponseEntity<Veterinario>(veterinario, HttpStatus.BAD_REQUEST);
+        }
+
+        UserEntity user = customUserDetailService.VeterinarioToUser(veterinario);
+        veterinario.setUser(user);
         Veterinario veterinario2 = veterinarioService.add(veterinario);
 
         if (veterinario2 == null) {
-            return new ResponseEntity<String>("Veterinario no encontrado", HttpStatus.BAD_REQUEST);
-
+            return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.BAD_REQUEST);
         }
-        VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario2);
 
-        return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
+        return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.OK);
+
     }
 
     @GetMapping("/veterinario/{id}")
