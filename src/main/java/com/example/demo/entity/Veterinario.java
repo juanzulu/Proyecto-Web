@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @AllArgsConstructor
 public class Veterinario {
 
-    
     @OneToOne(cascade = CascadeType.ALL)
     private UserEntity user;
 
@@ -35,8 +34,9 @@ public class Veterinario {
     private String foto;
     private String especialidad;
     private boolean estado;
-    //el transient genera problema a la hora de correr, sirve para encriptar la clave de veterinarios, si se elimina no genera error
-    //para seguir con el video mientras miro como solucionar el error
+    // el transient genera problema a la hora de correr, sirve para encriptar la
+    // clave de veterinarios, si se elimina no genera error
+    // para seguir con el video mientras miro como solucionar el error
     @Transient
     private String password;
 
@@ -47,8 +47,6 @@ public class Veterinario {
     @JsonIgnore
     @OneToMany(mappedBy = "veterinario")
     private List<Tratamiento> tratamientos = new ArrayList<>();
-
-
 
     public Veterinario(Integer cedula, String nombre, String apellido, String correo, String password, String foto,
             String especialidad, boolean estado) {

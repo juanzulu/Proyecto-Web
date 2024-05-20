@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +36,7 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
     @Override
     public Veterinario add(Veterinario veterinario) {
-       return veterinarioRepo.save(veterinario);
+        return veterinarioRepo.save(veterinario);
     }
 
     @Override
@@ -46,12 +45,9 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
     }
 
-
- 
     @Override
     public void cambiarEstado(Veterinario veterinario) {
 
-        
         veterinario.setEstado(!(veterinario.isEstado()));
         veterinarioRepo.save(veterinario);
 
@@ -79,7 +75,7 @@ public class VeterinarioServiceImpl implements VeterinarioService {
 
     @Override
     public Veterinario Login(String correo, String password) {
-        Veterinario arrendatario = veterinarioRepo.findByCorreoAndContrasena(correo, password);
+        Veterinario arrendatario = veterinarioRepo.findByCorreoAndContrasena(correo);
         return arrendatario;
     }
 
