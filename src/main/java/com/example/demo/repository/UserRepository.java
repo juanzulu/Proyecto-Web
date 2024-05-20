@@ -6,7 +6,7 @@ import com.example.demo.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long>{
 
-    Optional<UserEntity> findByUsername(String username);
-    Boolean existsByUsername(String username);
+    Optional<UserEntity> findByUsername(Integer username);
+    Boolean existsByUsername(Integer username);
 
 }

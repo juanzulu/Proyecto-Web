@@ -13,10 +13,16 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import jakarta.persistence.OneToOne;
+
+
 @Entity
 @Data
 @NoArgsConstructor
 public class Usuario {
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private UserEntity user;
 
     private String nombre;
     private String genero;

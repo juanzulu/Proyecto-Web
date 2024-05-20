@@ -2,15 +2,19 @@ package com.example.demo.entity;
 
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.repository.GatoRepository;
+import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.TratamientoRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.repository.VeterinarioRepository;
 
@@ -20,6 +24,8 @@ import com.example.demo.repository.DrogaRepository;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.xmlbeans.impl.xb.xsdschema.Attribute.Use;
+import org.h2.engine.User;
 
 @Controller
 @Transactional
@@ -40,8 +46,34 @@ public class DatabaseInit implements ApplicationRunner {
         @Autowired
         TratamientoRepository tratamientoRepository;
 
+        @Autowired
+        PasswordEncoder passwordEncoder;
+
+        @Autowired
+        RoleRepository roleRepository;
+
+        @Autowired
+        UserRepository userRepository;
+
         @Override
         public void run(ApplicationArguments args) throws Exception {
+
+
+
+                roleRepository.save(new Role("USER"));
+                roleRepository.save(new Role("VETERINARIO"));
+
+                Usuario usuarioSave;
+                UserEntity userEntity;
+
+                //generacion de usuarios
+                //1. Crear el objeto 
+                //2. Guaradarlo en la tabla user
+                //3. Agrgar al objeto del paso 1 el id tenido en el paso 2
+                //4. Guardar el objeto en la tabla Usuario
+
+
+
 
                 // -----------------------------------Gatos---------------------------------------------------------------------//
 
@@ -146,7 +178,11 @@ public class DatabaseInit implements ApplicationRunner {
                         Integer cedula = 100000000 + i;
                         String correo = nombre + i + "@gmail.com";
 
-                        usuarioRepository.save(new Usuario(nombre, genero, edad, cedula, correo));
+                        //aca esta surgiendo un error debido a que se llama la funcion
+                       usuarioSave = (new Usuario(nombre, genero, edad, cedula, correo));
+                       userEntity = saveUserDueno(usuarioSave);
+                       usuarioSave.setUser(userEntity);
+                       usuarioRepository.save(usuarioSave);
                 }
 
                 // -----------------------------------Usuarios---------------------------------------------------------------------//
@@ -286,5 +322,19 @@ public class DatabaseInit implements ApplicationRunner {
         
 
         // -------------------------------------Veterinario-------------------------------------------------//
+
+
+
+        //el error que presenta la funcion consiste en que un usuario se loguea con cedula solamente
+        private UserEntity saveUserDueno(Usuario usuario) {
+                UserEntity userEntity = new UserEntity();
+                userEntity.setUsername((usuario.getCedula())); 
+                userEntity.setPassword(passwordEncoder.encode(String.valueOf("123")));
+                Role roles = roleRepository.findByName("USER").get();
+                userEntity.setRoles(List.of(roles));
+                return userRepository.save(userEntity);
+        }
+
+
 
 }
