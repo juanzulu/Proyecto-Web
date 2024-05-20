@@ -65,6 +65,7 @@ public class DatabaseInit implements ApplicationRunner {
 
                 Usuario usuarioSave;
                 UserEntity userEntity;
+                Veterinario veterinarioSave;
 
                 //generacion de usuarios
                 //1. Crear el objeto 
@@ -178,7 +179,7 @@ public class DatabaseInit implements ApplicationRunner {
                         Integer cedula = 100000000 + i;
                         String correo = nombre + i + "@gmail.com";
 
-                        //aca esta surgiendo un error debido a que se llama la funcion
+                       
                        usuarioSave = (new Usuario(nombre, genero, edad, cedula, correo));
                        userEntity = saveUserDueno(usuarioSave);
                        usuarioSave.setUser(userEntity);
@@ -256,8 +257,6 @@ public class DatabaseInit implements ApplicationRunner {
           
                
                 //Crear Veterinario con Builder
-
-            
                 Veterinario veterinario = Veterinario.builder().cedula(1001301315).nombre("Camilo").apellido("Hernandez").correo("hernandez@gmail.com").password("12345678")
                 .foto("https://th.bing.com/th/id/OIP.LIvhmx5YRN4hOFZ0ld98JgHaE8?rs=1&pid=ImgDetMain").especialidad("Medicina Interna Veterinaria").estado(true).build();
                 veterinarioRepository.save(veterinario);
@@ -327,12 +326,22 @@ public class DatabaseInit implements ApplicationRunner {
 
         //el error que presenta la funcion consiste en que un usuario se loguea con cedula solamente
         private UserEntity saveUserDueno(Usuario usuario) {
-                UserEntity userEntity = new UserEntity();
-                userEntity.setUsername((usuario.getCedula())); 
-                userEntity.setPassword(passwordEncoder.encode(String.valueOf("123")));
+                UserEntity user = new UserEntity();
+                user.setUsername((usuario.getCedula())); 
+                user.setPassword(passwordEncoder.encode(String.valueOf("123")));
                 Role roles = roleRepository.findByName("USER").get();
-                userEntity.setRoles(List.of(roles));
-                return userRepository.save(userEntity);
+                user.setRoles(List.of(roles));
+                return userRepository.save(user);
+        }
+
+
+        private UserEntity saveVeterinario(Veterinario veterinario) {
+                UserEntity user = new UserEntity();
+                user.setEmail((veterinario.getCorreo())); 
+                user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
+                Role roles = roleRepository.findByName("VETERINARIO").get();
+                user.setRoles(List.of(roles));
+                return userRepository.save(user);
         }
 
 
