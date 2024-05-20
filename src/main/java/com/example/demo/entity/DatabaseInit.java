@@ -65,7 +65,6 @@ public class DatabaseInit implements ApplicationRunner {
 
                 Usuario usuarioSave;
                 UserEntity userEntity;
-                Veterinario veterinarioSave;
 
                 //generacion de usuarios
                 //1. Crear el objeto 
@@ -253,48 +252,67 @@ public class DatabaseInit implements ApplicationRunner {
 
                 };
 
-
-          
+                
                
                 //Crear Veterinario con Builder
                 Veterinario veterinario = Veterinario.builder().cedula(1001301315).nombre("Camilo").apellido("Hernandez").correo("hernandez@gmail.com").password("12345678")
                 .foto("https://th.bing.com/th/id/OIP.LIvhmx5YRN4hOFZ0ld98JgHaE8?rs=1&pid=ImgDetMain").especialidad("Medicina Interna Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
                 veterinario = Veterinario.builder().cedula(1001301316).nombre("Juan ").apellido("Perez").correo("Perez@gmail.com").password("12345678")
                 .foto("https://petcosset.com/wp-content/uploads/2020/12/Depositphotos_320884710_L-e1660002279141-684x1024.jpg").especialidad("Oftalmología Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
                 veterinario = Veterinario.builder().cedula(1001301317).nombre("Maria").apellido("Lopez").correo("Lopez@gmail.com").password("12345678")
                 .foto("https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg").especialidad("Nutrición Veterinaria").estado(false).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
                 veterinario = Veterinario.builder().cedula(1001301318).nombre("Luisa").apellido("Gonzalez").correo("Gonzalez@gmail.com").password("12345678")
                 .foto("").especialidad("Oncología Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
                 
                 veterinario = Veterinario.builder().cedula(1001301319).nombre("Carlos").apellido("Martinez").correo("Martinez@gmail.com").password("12345678")
                 .foto("").especialidad("Nutrición Veterinaria").estado(false).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
                 veterinario = Veterinario.builder().cedula(1001301320).nombre("Ana").apellido("Sanchez").correo("Sanchez@gmail.com").password("12345678")
                 .foto("").especialidad("Reproducción Veterinaria").estado(false).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
                 
                 veterinario = Veterinario.builder().cedula(1001301321).nombre("Pedro").apellido("Ramirez").correo("Ramirez@gmail.com").password("12345678")
                 .foto("").especialidad("Cardiologia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
                 veterinario = Veterinario.builder().cedula(1001301322).nombre("Sofia").apellido("Hernandez").correo("Hernandez@gmail.com").password("12345678")
                 .foto("").especialidad("Cirugia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
                 veterinario = Veterinario.builder().cedula(1001301323).nombre("Jorge").apellido("Ramirez").correo("Ramirez@gmail.com").password("12345678")
                 .foto("").especialidad("Dermatologia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
                 veterinario = Veterinario.builder().cedula(1001301324).nombre("Lucia").apellido("Gonzalez").correo("Gonzalez@gmail.com").password("12345678")
                 .foto("").especialidad("Odontologia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
                 veterinarioRepository.save(veterinario);
 
 
@@ -324,7 +342,7 @@ public class DatabaseInit implements ApplicationRunner {
 
 
 
-        //el error que presenta la funcion consiste en que un usuario se loguea con cedula solamente
+        
         private UserEntity saveUserDueno(Usuario usuario) {
                 UserEntity user = new UserEntity();
                 user.setUsername((usuario.getCedula())); 
