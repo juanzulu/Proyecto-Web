@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,10 +32,13 @@ public class Veterinario {
     private String nombre;
     private String apellido;
     private String correo;
-    private String password;
     private String foto;
     private String especialidad;
     private boolean estado;
+    //el transient genera problema a la hora de correr, sirve para encriptar la clave de veterinarios, si se elimina no genera error
+    //para seguir con el video mientras miro como solucionar el error
+    @Transient
+    private String password;
 
     @Id
     @GeneratedValue
