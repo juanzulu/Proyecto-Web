@@ -111,8 +111,7 @@ public class TratamientoControllerTest {
 @Test
 public void findTratamientosVeterinarioinformacionTest() throws Exception {
     // Prepare sample data to return from the service
-    Object[] tratamientoInfo1 = new Object[]{"Treatment Type A", "Description A", 5};
-    Object[] tratamientoInfo2 = new Object[]{"Treatment Type B", "Description B", 3};
+   
     //List<Tratamiento> mockData = Arrays.asList(tratamientoInfo1, tratamientoInfo2);
 
     // Mock the service method call
@@ -137,9 +136,8 @@ public void findTratamientosVeterinarioinformacionTest() throws Exception {
 @Test
 public void findTratamientosGatoinformacionTest() throws Exception {
  
-    Object[] treatmentInfo1 = new Object[]{"Condition A", "Medication A", 10};
-    Object[] treatmentInfo2 = new Object[]{"Condition B", "Medication B", 20};
-    List<Object[]> mockData = Arrays.asList(treatmentInfo1, treatmentInfo2);
+
+   
 
 
     //when(tratamientoService.findTratamientosGatoinformacion(1)).thenReturn(mockData);

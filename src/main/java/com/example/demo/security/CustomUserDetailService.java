@@ -1,6 +1,6 @@
 package com.example.demo.security;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +19,7 @@ import com.example.demo.entity.Usuario;
 import com.example.demo.entity.Veterinario;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.entity.Admin;
 import com.example.demo.entity.Role;
 import java.util.Collection;
 
@@ -51,9 +52,9 @@ public class CustomUserDetailService implements UserDetailsService {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
-    public UserEntity DuenoToUser(Usuario dueno) {
+    public UserEntity DuenoToUser(Usuario usuario) {
         UserEntity user = new UserEntity();
-        user.setUsername(dueno.getNombre());
+        user.setUsername(usuario.getNombre());
         user.setPassword(passwordEncoder.encode("123"));
         Role roles = roleRepository.findByName("USER").get();
         user.setRoles(List.of(roles));
@@ -65,6 +66,15 @@ public class CustomUserDetailService implements UserDetailsService {
         user.setUsername(veterinario.getCorreo());
         user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
         Role roles = roleRepository.findByName("VETERINARIO").get();
+        user.setRoles(List.of(roles));
+        return user;
+    }
+
+    public UserEntity AdminToUser(Admin admin) {
+        UserEntity user = new UserEntity();
+        user.setUsername(admin.getUsername());
+        user.setPassword(passwordEncoder.encode("123"));
+        Role roles = roleRepository.findByName("ADMIN").get();
         user.setRoles(List.of(roles));
         return user;
     }

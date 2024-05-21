@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -213,7 +213,7 @@ public class VeterinarioRepositoryTest {
 
         // arrange
         String correo = "a@a.com";
-        String password = "12345";
+       
 
         // act
         Veterinario veterinario = veterinarioRepository.findByCorreoAndContrasena(correo);

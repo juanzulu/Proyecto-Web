@@ -20,12 +20,12 @@ import com.example.demo.repository.VeterinarioRepository;
 
 import java.io.IOException;
 
+import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.DrogaRepository;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.xmlbeans.impl.xb.xsdschema.Attribute.Use;
-import org.h2.engine.User;
+
 
 @Controller
 @Transactional
@@ -55,11 +55,15 @@ public class DatabaseInit implements ApplicationRunner {
         @Autowired
         UserRepository userRepository;
 
+        @Autowired
+        AdminRepository adminRepository;
+
         @Override
         public void run(ApplicationArguments args) throws Exception {
 
-                roleRepository.save(new Role("USER"));
+                roleRepository.save(new Role("ADMIN"));
                 roleRepository.save(new Role("VETERINARIO"));
+                roleRepository.save(new Role("USER"));
 
                 Usuario usuarioSave;
                 UserEntity userEntity;
@@ -224,6 +228,23 @@ public class DatabaseInit implements ApplicationRunner {
                         e.printStackTrace();
                 }
 
+
+                Admin admin = Admin.builder().username("Camilo").build();
+                userEntity = saveAdmin(admin);
+                admin.setUser(userEntity);
+                adminRepository.save(admin);
+
+                admin = Admin.builder().username("Juan").build();
+                userEntity = saveAdmin(admin);
+                admin.setUser(userEntity);
+                adminRepository.save(admin);
+                
+                admin = Admin.builder().username("Michael").build();
+                userEntity = saveAdmin(admin);
+                admin.setUser(userEntity);
+                adminRepository.save(admin);
+
+
                 // Crear Veterinario con Builder
                 Veterinario veterinario = Veterinario.builder().cedula(1001301315).nombre("Camilo")
                                 .apellido("Hernandez").correo("hernandez@gmail.com").password("12345678")
@@ -326,11 +347,19 @@ public class DatabaseInit implements ApplicationRunner {
 
         private UserEntity saveVeterinario(Veterinario veterinario) {
                 UserEntity user = new UserEntity();
-                user.setEmail((veterinario.getCorreo()));
+                user.setUsername(veterinario.getNombre());
                 user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
                 Role roles = roleRepository.findByName("VETERINARIO").get();
                 user.setRoles(List.of(roles));
                 return userRepository.save(user);
         }
 
+        private UserEntity saveAdmin(Admin admin) {
+                UserEntity user = new UserEntity();
+                user.setUsername(admin.getUsername());
+                user.setPassword(passwordEncoder.encode("123"));
+                Role roles = roleRepository.findByName("ADMIN").get();
+                user.setRoles(List.of(roles));
+                return userRepository.save(user);
+        }
 }

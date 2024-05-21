@@ -43,6 +43,9 @@ public class UsuarioController {
     UserRepository userRepository;
 
     @Autowired
+    UsuarioRepository usuarioRepository;
+
+    @Autowired
     CustomUserDetailService customUserDetailService;
 
     // http://localhost:8090/cliente/lista
@@ -74,7 +77,7 @@ public class UsuarioController {
 
     // http://localhost:8090/cliente/agregar
     @PostMapping("/agregar")
-    public ResponseEntity<Usuario> agregarUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity agregarUsuario(@RequestBody Usuario usuario) {
         /*
          * Usuario newUsuario = UsuarioService.add(usuario);
          * if(newUsuario == null){
@@ -82,17 +85,17 @@ public class UsuarioController {
          * }
          * return new ResponseEntity<Usuario>(newUsuario, HttpStatus.CREATED);
          */
-        if (userRepository.existsById(usuario.getId())) {
-            return new ResponseEntity<Usuario>(usuario, HttpStatus.BAD_REQUEST);
+        if (usuarioRepository.existsByCedula(usuario.getCedula())) {
+            return new ResponseEntity<String>("usuario ya existe", HttpStatus.BAD_REQUEST);
         }
 
-        UserEntity user = customUserDetailService.DuenoToUser(usuario);
-        usuario.setUser(user);
-        Usuario usuario2 = UsuarioService.add(usuario);
-        if (usuario2 == null) {
-            return new ResponseEntity<Usuario>(usuario2, HttpStatus.BAD_REQUEST);
+        UserEntity userEntity = customUserDetailService.DuenoToUser(usuario);
+        usuario.setUser(userEntity);
+        Usuario newUsuario = UsuarioService.add(usuario);
+        if (newUsuario == null) {
+            return new ResponseEntity<Usuario>(newUsuario, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<Usuario>(usuario2, HttpStatus.CREATED);
+        return new ResponseEntity<Usuario>(newUsuario, HttpStatus.CREATED);
 
     }
 
@@ -125,6 +128,16 @@ public class UsuarioController {
 
     @PostMapping("/cedula")
     public ResponseEntity<Usuario> findByCedula(@RequestBody Integer cedula) {
+        Usuario usuario = UsuarioService.findByCedula(cedula);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Usuario> findByLogin(@RequestBody Integer cedula) {
         Usuario usuario = UsuarioService.findByCedula(cedula);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);

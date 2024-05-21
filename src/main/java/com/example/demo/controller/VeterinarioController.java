@@ -20,11 +20,12 @@ import com.example.demo.DTOs.VeterinarioMapper;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.entity.Veterinario;
 import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.repository.VeterinarioRepository;
 import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.service.VeterinarioService;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/veterinario")
 @CrossOrigin(origins = "http://localhost:4200")
 public class VeterinarioController {
 
@@ -33,6 +34,9 @@ public class VeterinarioController {
 
     @Autowired
     UsuarioRepository userRepository;
+
+    @Autowired
+    VeterinarioRepository veterinarioRepository;
 
     @Autowired
     private CustomUserDetailService customUserDetailService;
@@ -46,9 +50,9 @@ public class VeterinarioController {
     }
 
     @PostMapping("/agregar")
-    public ResponseEntity<Veterinario> agregarVeterinario(@RequestBody Veterinario veterinario) {
+    public ResponseEntity agregarVeterinario(@RequestBody Veterinario veterinario) {
 
-        if (userRepository.existsById(veterinario.getId())) {
+        /* if (userRepository.existsById(veterinario.getId())) {
             return new ResponseEntity<Veterinario>(veterinario, HttpStatus.BAD_REQUEST);
         }
 
@@ -60,8 +64,21 @@ public class VeterinarioController {
             return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.OK);
+        return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.OK); */
+    
+        if (veterinarioRepository.existsByCorreo(veterinario.getCorreo())) {
+            return new ResponseEntity<String>("veterinario ya existe", HttpStatus.BAD_REQUEST);
+        }
+        UserEntity userEntity = customUserDetailService.VeterinarioToUser(veterinario);
+        veterinario.setUser(userEntity);
+        Veterinario veterinarioDB = veterinarioService.add(veterinario);
+        VeterinarioDTO newVeterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinarioDB);
+        
+        if (newVeterinarioDTO == null) {
+            return new ResponseEntity<VeterinarioDTO>(newVeterinarioDTO, HttpStatus.BAD_REQUEST);
+        }
 
+        return new ResponseEntity<VeterinarioDTO>(newVeterinarioDTO, HttpStatus.CREATED);
     }
 
     @GetMapping("/veterinario/{id}")

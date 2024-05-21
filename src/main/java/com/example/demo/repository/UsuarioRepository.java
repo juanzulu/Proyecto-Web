@@ -9,4 +9,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     Usuario findByCedula(Integer cedula);
 
+    boolean existsByCedula(Integer cedula);
+
+
 }
