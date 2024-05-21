@@ -30,6 +30,8 @@ public class SecurityConfig {
                         .requestMatchers("/veterinario/login").permitAll()
                         .requestMatchers("/cliente/login").permitAll()
                         .requestMatchers("/veterinario/find/**").hasAuthority("VETERINARIO")
+                        .requestMatchers("veterinario/details").hasAuthority("VETERINARIO")
+                        .requestMatchers("usuario/details").hasAuthority("USUARIO")
                         .anyRequest().permitAll())
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint));
 

@@ -22,11 +22,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.DTOs.VeterinarioDTO;
 import com.example.demo.DTOs.VeterinarioMapper;
 import com.example.demo.entity.UserEntity;
+import com.example.demo.entity.Usuario;
 import com.example.demo.entity.Veterinario;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.repository.VeterinarioRepository;
 import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.security.JWTGenerator;
+import com.example.demo.service.UsuarioService;
 import com.example.demo.service.VeterinarioService;
 
 @RestController
@@ -161,4 +163,22 @@ public class VeterinarioController {
         return new ResponseEntity<String>(token, HttpStatus.OK);
        
     }
+
+    //en este metodo tengo la duda, esto se puede ver en el video en el min 2:14:25
+    @GetMapping("details")
+    public ResponseEntity<VeterinarioDTO> buscarVeterinario() {
+    
+        String correo = SecurityContextHolder.getContext().getAuthentication().getName();
+        String password = SecurityContextHolder.getContext().getAuthentication().getCredentials().toString();
+    
+        Veterinario veterinario = veterinarioService.Login(correo, password);
+
+        VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario);
+    
+        if (veterinario == null) {
+            return new ResponseEntity<VeterinarioDTO>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
+    }
+    
 }

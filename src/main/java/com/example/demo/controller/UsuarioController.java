@@ -29,6 +29,8 @@ import com.example.demo.security.JWTGenerator;
 import com.example.demo.service.GatoService;
 import com.example.demo.service.UsuarioService;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/cliente")
@@ -159,6 +161,21 @@ public class UsuarioController {
 
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }
+
+
+    @GetMapping("details")
+    public ResponseEntity<Usuario> buscarUsuario(){
+
+        Usuario usuario = UsuarioService.findByCedula(
+            (Integer) SecurityContextHolder.getContext().getAuthentication().getPrincipal()
+        );
+
+        if(usuario == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } 
+        return new ResponseEntity<>(usuario, HttpStatus.OK);        
+    }
+    
 
     @GetMapping("/cedula/{cedula}")
     public ResponseEntity<Usuario> FindByCedula(@PathVariable("cedula") Integer cedula) {
