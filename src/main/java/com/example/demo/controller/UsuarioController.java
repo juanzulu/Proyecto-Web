@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,6 +51,9 @@ public class UsuarioController {
 
     @Autowired
     CustomUserDetailService customUserDetailService;
+
+    @Autowired
+     AuthenticationManager authenticationManager;
 
     // http://localhost:8090/cliente/lista
     @GetMapping("/lista")
@@ -137,13 +144,13 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Usuario> findByLogin(@RequestBody Integer cedula) {
-        Usuario usuario = UsuarioService.findByCedula(cedula);
-        if (usuario != null) {
-            return ResponseEntity.ok(usuario);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
+    public ResponseEntity loginUsuario(@RequestBody Usuario usuario) {
+       
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(usuario.getCedula(),"123")
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        return new ResponseEntity<String>("Login exitoso", HttpStatus.OK);
     }
 
     @GetMapping("/cedula/{cedula}")

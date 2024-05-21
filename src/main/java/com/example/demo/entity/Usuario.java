@@ -22,12 +22,14 @@ import jakarta.persistence.OneToOne;
 public class Usuario {
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     private UserEntity user;
 
     private String nombre;
     private String genero;
     private Integer edad;
     private Integer cedula;
+    private String correo;
     @Id
     @GeneratedValue
     private long id;
@@ -54,6 +56,15 @@ public class Usuario {
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
+        this.cedula = cedula;
+    }
+
+
+    public Integer getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Integer cedula) {
         this.cedula = cedula;
     }
 

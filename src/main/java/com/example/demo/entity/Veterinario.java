@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Veterinario {
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     private UserEntity user;
 
     private Integer cedula;

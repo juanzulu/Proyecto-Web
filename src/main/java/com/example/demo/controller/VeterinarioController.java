@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +44,9 @@ public class VeterinarioController {
 
     @Autowired
     private CustomUserDetailService customUserDetailService;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @GetMapping("/veterinario")
     public ResponseEntity<List<VeterinarioDTO>> SearchAll() {
@@ -126,7 +133,7 @@ public class VeterinarioController {
 
     @PostMapping("/login")
     public ResponseEntity loginVeterinario(@RequestBody Veterinario vet) {
-        System.out.println(vet.getCorreo() + vet.getPassword());
+        /* System.out.println(vet.getCorreo() + vet.getPassword());
         vet = veterinarioService.Login(vet.getCorreo(), vet.getPassword());
         if (vet == null) {
             return new ResponseEntity<String>("Veterinario no encontrado", HttpStatus.BAD_REQUEST);
@@ -138,6 +145,13 @@ public class VeterinarioController {
 
         } else {
             return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.BAD_REQUEST);
-        }
+        } */
+
+         Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(vet.getCorreo(), vet.getPassword())
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        return new ResponseEntity<String>("Login exitoso", HttpStatus.OK);
+       
     }
 }

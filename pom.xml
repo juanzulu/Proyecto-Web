@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.4</version>
+		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -48,13 +48,11 @@
 		<dependency>
     		<groupId>org.mockito</groupId>
     		<artifactId>mockito-core</artifactId>
-    		<version>4.2.0</version>
     		<scope>test</scope>
 		</dependency>
 		<dependency>
     		<groupId>org.mockito</groupId>
     		<artifactId>mockito-junit-jupiter</artifactId>
-    		<version>4.2.0</version>
     		<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -76,7 +74,6 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.11.0</version>
 			<scope>test</scope>
 			</dependency>
 			<dependency>
@@ -98,7 +95,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.30</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -128,7 +124,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
 				<configuration>
 					<annotationProcessorPaths>
 						<path>
