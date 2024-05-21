@@ -29,7 +29,6 @@ import com.example.demo.security.JWTGenerator;
 import com.example.demo.service.GatoService;
 import com.example.demo.service.UsuarioService;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/cliente")
@@ -139,7 +138,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/cedula")
-    public ResponseEntity<Usuario> findByCedula(@RequestBody Integer cedula) {
+    public ResponseEntity<Usuario> findByCedula(@RequestBody String cedula) {
         Usuario usuario = UsuarioService.findByCedula(cedula);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
@@ -160,20 +159,26 @@ public class UsuarioController {
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
-    @GetMapping("details")
+    @GetMapping("/details")
     public ResponseEntity<Usuario> buscarUsuario() {
 
+        System.out.println("Entre a la funcion");
+
         Usuario usuario = UsuarioService.findByCedula(
-                (Integer) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+                SecurityContextHolder.getContext().getAuthentication().getName());
+
+        System.out.println("Usuario: " + usuario);
 
         if (usuario == null) {
             return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+
         }
         return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+
     }
 
     @GetMapping("/cedula/{cedula}")
-    public ResponseEntity<Usuario> FindByCedula(@PathVariable("cedula") Integer cedula) {
+    public ResponseEntity<Usuario> FindByCedula(@PathVariable("cedula") String cedula) {
         Usuario usuario = UsuarioService.findByCedula(cedula);
         if (usuario != null) {
             return ResponseEntity.ok(usuario);

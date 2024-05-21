@@ -26,7 +26,6 @@ import com.example.demo.repository.DrogaRepository;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
 @Controller
 @Transactional
 public class DatabaseInit implements ApplicationRunner {
@@ -167,9 +166,10 @@ public class DatabaseInit implements ApplicationRunner {
                         String genero = generos[i % generos.length];
                         Integer edad = (i % 40) + 18;
                         Integer cedula = 100000000 + i;
+                        String ced = cedula.toString();
                         String correo = nombre + i + "@gmail.com";
                         String password = "123";
-                        usuarioSave = (new Usuario(nombre, genero, edad, cedula, correo, password));
+                        usuarioSave = (new Usuario(nombre, genero, edad, ced, correo, password));
                         userEntity = saveUserDueno(usuarioSave);
                         usuarioSave.setUser(userEntity);
                         usuarioRepository.save(usuarioSave);
@@ -228,7 +228,6 @@ public class DatabaseInit implements ApplicationRunner {
                         e.printStackTrace();
                 }
 
-
                 Admin admin = Admin.builder().username("Camilo").password("123").build();
                 userEntity = saveAdmin(admin);
                 admin.setUser(userEntity);
@@ -238,12 +237,11 @@ public class DatabaseInit implements ApplicationRunner {
                 userEntity = saveAdmin(admin);
                 admin.setUser(userEntity);
                 adminRepository.save(admin);
-                
+
                 admin = Admin.builder().username("Michael").password("123").build();
                 userEntity = saveAdmin(admin);
                 admin.setUser(userEntity);
                 adminRepository.save(admin);
-
 
                 // Crear Veterinario con Builder
                 Veterinario veterinario = Veterinario.builder().cedula(1001301315).nombre("Camilo")

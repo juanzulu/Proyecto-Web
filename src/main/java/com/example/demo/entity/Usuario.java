@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Transient;
 
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -29,7 +28,7 @@ public class Usuario {
     private String nombre;
     private String genero;
     private Integer edad;
-    private Integer cedula;
+    private String cedula;
     private String correo;
     @Transient
     private String password;
@@ -41,10 +40,8 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<gato> mascotas = new ArrayList<>();
 
-
-
-    public Usuario(Long id, String nombre, String genero, Integer edad, Integer cedula, 
-    String correo, String password) {
+    public Usuario(Long id, String nombre, String genero, Integer edad, String cedula,
+            String correo, String password) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
@@ -56,21 +53,13 @@ public class Usuario {
         // this.mascotas = mascotas;
     }
 
-
-
-    public Usuario(String nombre, String genero, Integer edad, Integer cedula,
-            String correo,String password) {
+    public Usuario(String nombre, String genero, Integer edad, String cedula,
+            String correo, String password) {
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
         this.cedula = cedula;
         this.password = password;
     }
-
-
-    
-
-
-
 
 }

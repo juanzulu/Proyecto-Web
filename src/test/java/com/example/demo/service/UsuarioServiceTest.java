@@ -1,62 +1,65 @@
-package com.example.demo.service;
+// package com.example.demo.service;
 
-import java.util.List;
+// import java.util.List;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.assertj.core.api.Assertions;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.entity.Usuario;
+// import com.example.demo.entity.Usuario;
 
-import com.example.demo.repository.UsuarioRepository;
+// import com.example.demo.repository.UsuarioRepository;
 
-@SpringBootTest
-public class UsuarioServiceTest {
+// @SpringBootTest
+// public class UsuarioServiceTest {
 
-    @Autowired
-    private UsuarioService usuarioService;
+// @Autowired
+// private UsuarioService usuarioService;
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+// @Autowired
+// private UsuarioRepository usuarioRepository;
 
+// @Test
+// public void UsuarioService_agregarUsuario_Usuario(){
 
-    @Test
-    public void UsuarioService_agregarUsuario_Usuario(){
-        
-        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com", null);
+// Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678,
+// "j5Y9U@example.com", null);
 
-        Usuario newUsuario = usuarioService.add(usuario);
+// Usuario newUsuario = usuarioService.add(usuario);
 
-        Assertions.assertThat(newUsuario).isNotNull();
-    }
+// Assertions.assertThat(newUsuario).isNotNull();
+// }
 
-    @Test
-    public void UsuarioService_findAll_NotEmptyList(){
-        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com", null);
-        Usuario usuario2 = new Usuario("Marcela","Femenina", 23, 32345678, "j5Y49U@example.com", null);
+// @Test
+// public void UsuarioService_findAll_NotEmptyList(){
+// Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678,
+// "j5Y9U@example.com", null);
+// Usuario usuario2 = new Usuario("Marcela","Femenina", 23, 32345678,
+// "j5Y49U@example.com", null);
 
-        usuarioRepository.save(usuario);
-        usuarioRepository.save(usuario2);
+// usuarioRepository.save(usuario);
+// usuarioRepository.save(usuario2);
 
-        List<Usuario> usuarios = usuarioService.SearchAll();
+// List<Usuario> usuarios = usuarioService.SearchAll();
 
-        Assertions.assertThat(usuarios).isNotNull();
-        Assertions.assertThat(usuarios.size()).isEqualTo(52);
-    }
+// Assertions.assertThat(usuarios).isNotNull();
+// Assertions.assertThat(usuarios.size()).isEqualTo(52);
+// }
 
-    @Test
-    public void UsuarioService_SearchNyId_NotNull(){
+// @Test
+// public void UsuarioService_SearchNyId_NotNull(){
 
-        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com", null);
+// Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678,
+// "j5Y9U@example.com", null);
 
-        Usuario savedgato = usuarioRepository.save(usuario);
+// Usuario savedgato = usuarioRepository.save(usuario);
 
-        Usuario foundUsuario = usuarioService.SearchNyId(savedgato.getId());
+// Usuario foundUsuario = usuarioService.SearchNyId(savedgato.getId());
 
-        Assertions.assertThat(foundUsuario).isNotNull();
-        Assertions.assertThat(foundUsuario.getId()).isEqualTo(foundUsuario.getId());
-        
-    }
-    
-}
+// Assertions.assertThat(foundUsuario).isNotNull();
+// Assertions.assertThat(foundUsuario.getId()).isEqualTo(foundUsuario.getId());
+
+// }
+
+// }

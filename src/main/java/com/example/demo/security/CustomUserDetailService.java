@@ -1,6 +1,5 @@
 package com.example.demo.security;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,7 +53,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     public UserEntity UsuarioToUser(Usuario usuario) {
         UserEntity user = new UserEntity();
-        user.setUsername(usuario.getCedula().toString());
+        user.setUsername(usuario.getCedula());
         user.setPassword(passwordEncoder.encode(usuario.getPassword()));
         Role roles = roleRepository.findByName("USER").get();
         user.setRoles(List.of(roles));

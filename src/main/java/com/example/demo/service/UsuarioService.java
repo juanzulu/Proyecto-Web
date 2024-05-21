@@ -18,6 +18,6 @@ public interface UsuarioService {
 
     public Usuario findUsuarioById(Long id);
 
-    public Usuario findByCedula(Integer cedula);
+    public Usuario findByCedula(String cedula);
 
 }

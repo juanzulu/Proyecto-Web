@@ -26,12 +26,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario update(Usuario usuario) {
-         return Repo.save(usuario);
+        return Repo.save(usuario);
     }
 
     @Override
     public Usuario add(Usuario usuario) {
-         return Repo.save(usuario);
+        return Repo.save(usuario);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario findByCedula(Integer cedula) {
+    public Usuario findByCedula(String cedula) {
         return Repo.findByCedula(cedula);
     }
 
