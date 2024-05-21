@@ -23,14 +23,12 @@ public class CorsConfig {
         config.setAllowedHeaders(Arrays.asList(
                 HttpHeaders.AUTHORIZATION,
                 HttpHeaders.CONTENT_TYPE,
-                HttpHeaders.ACCEPT
-        ));
+                HttpHeaders.ACCEPT));
         config.setAllowedMethods(Arrays.asList(
                 HttpMethod.GET.name(),
                 HttpMethod.POST.name(),
                 HttpMethod.PUT.name(),
-                HttpMethod.DELETE.name()
-        ));
+                HttpMethod.DELETE.name()));
 
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);

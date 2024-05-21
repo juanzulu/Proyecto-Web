@@ -25,6 +25,7 @@ import com.example.demo.entity.gato;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.security.CustomUserDetailService;
+import com.example.demo.security.JWTGenerator;
 import com.example.demo.service.GatoService;
 import com.example.demo.service.UsuarioService;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,7 +54,11 @@ public class UsuarioController {
     CustomUserDetailService customUserDetailService;
 
     @Autowired
-     AuthenticationManager authenticationManager;
+    AuthenticationManager authenticationManager;
+
+
+    @Autowired
+    JWTGenerator jwtGenerator;
 
     // http://localhost:8090/cliente/lista
     @GetMapping("/lista")
@@ -145,12 +150,14 @@ public class UsuarioController {
 
     @PostMapping("/login")
     public ResponseEntity loginUsuario(@RequestBody Usuario usuario) {
-       
+
         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(usuario.getCedula(),"123")
-        );
+                new UsernamePasswordAuthenticationToken(usuario.getCedula(), "123"));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new ResponseEntity<String>("Login exitoso", HttpStatus.OK);
+
+        String token = jwtGenerator.generateToken(authentication);
+
+        return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
     @GetMapping("/cedula/{cedula}")

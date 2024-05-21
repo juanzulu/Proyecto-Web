@@ -61,7 +61,6 @@ public class gato {
 
     }
 
-
     public boolean getEstado() {
         return estado;
     }

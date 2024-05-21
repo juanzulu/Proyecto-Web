@@ -26,6 +26,7 @@ import com.example.demo.entity.Veterinario;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.repository.VeterinarioRepository;
 import com.example.demo.security.CustomUserDetailService;
+import com.example.demo.security.JWTGenerator;
 import com.example.demo.service.VeterinarioService;
 
 @RestController
@@ -47,6 +48,9 @@ public class VeterinarioController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+     @Autowired
+    JWTGenerator jwtGenerator;
 
     @GetMapping("/veterinario")
     public ResponseEntity<List<VeterinarioDTO>> SearchAll() {
@@ -151,7 +155,10 @@ public class VeterinarioController {
             new UsernamePasswordAuthenticationToken(vet.getCorreo(), vet.getPassword())
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new ResponseEntity<String>("Login exitoso", HttpStatus.OK);
+
+        String token = jwtGenerator.generateToken(authentication);
+        
+        return new ResponseEntity<String>(token, HttpStatus.OK);
        
     }
 }

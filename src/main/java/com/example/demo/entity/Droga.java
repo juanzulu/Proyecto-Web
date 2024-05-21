@@ -35,8 +35,6 @@ public class Droga {
     @OneToMany(mappedBy = "droga")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
- 
-
     public Droga(String nombre, Integer uDisponibles, Integer uVendidas, Integer precio, Integer pCompra) {
         this.nombre = nombre;
         this.uDisponibles = uDisponibles;
@@ -44,7 +42,6 @@ public class Droga {
         this.precio = precio;
         this.pCompra = pCompra;
     }
-
 
     public Integer getuDisponibles() {
         return uDisponibles;
@@ -61,6 +58,5 @@ public class Droga {
     public void setuVendidas(Integer uVendidas) {
         this.uVendidas = uVendidas;
     }
-
 
 }
