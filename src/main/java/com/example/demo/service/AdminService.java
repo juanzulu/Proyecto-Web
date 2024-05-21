@@ -8,7 +8,7 @@ public interface AdminService {
 
     public void update(Admin admin);
 
-    public void add(Admin admin);
+    public Admin add(Admin admin);
 
     public Admin SearchByUsername(String username);
     

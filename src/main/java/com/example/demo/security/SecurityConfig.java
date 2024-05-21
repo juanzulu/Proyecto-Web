@@ -27,7 +27,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/home").permitAll()
                         .requestMatchers("/h2/**").permitAll()
-                        .requestMatchers("/veterinario/veterinario/**").authenticated()
+                        .requestMatchers("/veterinario/login").permitAll()
+                        .requestMatchers("/cliente/login").permitAll()
+                        .requestMatchers("/veterinario/find/**").hasAuthority("VETERINARIO")
                         .anyRequest().permitAll())
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint));
 

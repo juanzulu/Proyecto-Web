@@ -73,7 +73,7 @@ public class CustomUserDetailService implements UserDetailsService {
     public UserEntity AdminToUser(Admin admin) {
         UserEntity user = new UserEntity();
         user.setUsername(admin.getUsername());
-        user.setPassword(passwordEncoder.encode("123"));
+        user.setPassword(passwordEncoder.encode(admin.getPassword()));
         Role roles = roleRepository.findByName("ADMIN").get();
         user.setRoles(List.of(roles));
         return user;

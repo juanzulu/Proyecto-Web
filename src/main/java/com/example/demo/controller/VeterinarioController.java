@@ -92,7 +92,7 @@ public class VeterinarioController {
         return new ResponseEntity<VeterinarioDTO>(newVeterinarioDTO, HttpStatus.CREATED);
     }
 
-    @GetMapping("/veterinario/{id}")
+    @GetMapping("/find/{id}")
     public Veterinario SearchById(@PathVariable("id") Long id) {
         return veterinarioService.SearchById(id);
     }
@@ -157,7 +157,7 @@ public class VeterinarioController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtGenerator.generateToken(authentication);
-        
+
         return new ResponseEntity<String>(token, HttpStatus.OK);
        
     }
