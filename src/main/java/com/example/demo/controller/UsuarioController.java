@@ -162,12 +162,11 @@ public class UsuarioController {
     @GetMapping("/details")
     public ResponseEntity<Usuario> buscarUsuario() {
 
-        System.out.println("Entre a la funcion");
 
         Usuario usuario = UsuarioService.findByCedula(
                 SecurityContextHolder.getContext().getAuthentication().getName());
 
-        System.out.println("Usuario: " + usuario);
+  
 
         if (usuario == null) {
             return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
