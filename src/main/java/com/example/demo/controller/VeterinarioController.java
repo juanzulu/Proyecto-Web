@@ -51,7 +51,7 @@ public class VeterinarioController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-     @Autowired
+    @Autowired
     JWTGenerator jwtGenerator;
 
     @GetMapping("/veterinario")
@@ -65,20 +65,22 @@ public class VeterinarioController {
     @PostMapping("/agregar")
     public ResponseEntity agregarVeterinario(@RequestBody Veterinario veterinario) {
 
-        /* if (userRepository.existsById(veterinario.getId())) {
-            return new ResponseEntity<Veterinario>(veterinario, HttpStatus.BAD_REQUEST);
-        }
+        /*
+         * if (userRepository.existsById(veterinario.getId())) {
+         * return new ResponseEntity<Veterinario>(veterinario, HttpStatus.BAD_REQUEST);
+         * }
+         * 
+         * UserEntity user = customUserDetailService.VeterinarioToUser(veterinario);
+         * veterinario.setUser(user);
+         * Veterinario veterinario2 = veterinarioService.add(veterinario);
+         * 
+         * if (veterinario2 == null) {
+         * return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.BAD_REQUEST);
+         * }
+         * 
+         * return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.OK);
+         */
 
-        UserEntity user = customUserDetailService.VeterinarioToUser(veterinario);
-        veterinario.setUser(user);
-        Veterinario veterinario2 = veterinarioService.add(veterinario);
-
-        if (veterinario2 == null) {
-            return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.BAD_REQUEST);
-        }
-
-        return new ResponseEntity<Veterinario>(veterinario2, HttpStatus.OK); */
-    
         if (veterinarioRepository.existsByCorreo(veterinario.getCorreo())) {
             return new ResponseEntity<String>("veterinario ya existe", HttpStatus.BAD_REQUEST);
         }
@@ -86,7 +88,7 @@ public class VeterinarioController {
         veterinario.setUser(userEntity);
         Veterinario veterinarioDB = veterinarioService.add(veterinario);
         VeterinarioDTO newVeterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinarioDB);
-        
+
         if (newVeterinarioDTO == null) {
             return new ResponseEntity<VeterinarioDTO>(newVeterinarioDTO, HttpStatus.BAD_REQUEST);
         }
@@ -139,46 +141,32 @@ public class VeterinarioController {
 
     @PostMapping("/login")
     public ResponseEntity loginVeterinario(@RequestBody Veterinario vet) {
-        /* System.out.println(vet.getCorreo() + vet.getPassword());
-        vet = veterinarioService.Login(vet.getCorreo(), vet.getPassword());
-        if (vet == null) {
-            return new ResponseEntity<String>("Veterinario no encontrado", HttpStatus.BAD_REQUEST);
-        }
 
-        VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(vet);
-        if (vet.getPassword().equals(vet.getPassword())) {
-            return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
-
-        } else {
-            return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.BAD_REQUEST);
-        } */
-
-         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(vet.getCorreo(), vet.getPassword())
-        );
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(vet.getCorreo(), vet.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtGenerator.generateToken(authentication);
 
         return new ResponseEntity<String>(token, HttpStatus.OK);
-       
+
     }
 
-    //en este metodo tengo la duda, esto se puede ver en el video en el min 2:14:25
-    @GetMapping("details")
+    // en este metodo tengo la duda, esto se puede ver en el video en el min 2:14:25
+    @GetMapping("/details")
     public ResponseEntity<VeterinarioDTO> buscarVeterinario() {
-    
+
         String correo = SecurityContextHolder.getContext().getAuthentication().getName();
         String password = SecurityContextHolder.getContext().getAuthentication().getCredentials().toString();
-    
+
         Veterinario veterinario = veterinarioService.Login(correo, password);
 
         VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario);
-    
+
         if (veterinario == null) {
             return new ResponseEntity<VeterinarioDTO>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
     }
-    
+
 }

@@ -31,7 +31,6 @@ import com.example.demo.service.UsuarioService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RestController
 @RequestMapping("/cliente")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -57,7 +56,6 @@ public class UsuarioController {
 
     @Autowired
     AuthenticationManager authenticationManager;
-
 
     @Autowired
     JWTGenerator jwtGenerator;
@@ -154,7 +152,7 @@ public class UsuarioController {
     public ResponseEntity loginUsuario(@RequestBody Usuario usuario) {
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(usuario.getCedula(), "123"));
+                new UsernamePasswordAuthenticationToken(usuario.getCedula(), usuario.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtGenerator.generateToken(authentication);
@@ -162,20 +160,17 @@ public class UsuarioController {
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
-
     @GetMapping("details")
-    public ResponseEntity<Usuario> buscarUsuario(){
+    public ResponseEntity<Usuario> buscarUsuario() {
 
         Usuario usuario = UsuarioService.findByCedula(
-            (Integer) SecurityContextHolder.getContext().getAuthentication().getPrincipal()
-        );
+                (Integer) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 
-        if(usuario == null){
+        if (usuario == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } 
-        return new ResponseEntity<>(usuario, HttpStatus.OK);        
+        }
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
-    
 
     @GetMapping("/cedula/{cedula}")
     public ResponseEntity<Usuario> FindByCedula(@PathVariable("cedula") Integer cedula) {
