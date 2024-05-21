@@ -52,10 +52,10 @@ public class CustomUserDetailService implements UserDetailsService {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
-    public UserEntity DuenoToUser(Usuario usuario) {
+    public UserEntity UsuarioToUser(Usuario usuario) {
         UserEntity user = new UserEntity();
-        user.setUsername(usuario.getNombre());
-        user.setPassword(passwordEncoder.encode("123"));
+        user.setUsername(usuario.getCedula().toString());
+        user.setPassword(passwordEncoder.encode(usuario.getPassword()));
         Role roles = roleRepository.findByName("USER").get();
         user.setRoles(List.of(roles));
         return user;

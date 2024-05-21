@@ -101,7 +101,7 @@ public class UsuarioController {
             return new ResponseEntity<String>("usuario ya existe", HttpStatus.BAD_REQUEST);
         }
 
-        UserEntity userEntity = customUserDetailService.DuenoToUser(usuario);
+        UserEntity userEntity = customUserDetailService.UsuarioToUser(usuario);
         usuario.setUser(userEntity);
         Usuario newUsuario = UsuarioService.add(usuario);
         if (newUsuario == null) {

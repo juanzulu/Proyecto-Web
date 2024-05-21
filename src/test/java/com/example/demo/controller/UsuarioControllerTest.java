@@ -48,7 +48,7 @@ public class UsuarioControllerTest {
     public void UsuarioController_agregarUsuario_Usuario() throws Exception {
 
      
-        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com");
+        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com","12345678");
     
         //when(UsuarioService.add(Mockito.any(Usuario.class))).thenReturn(usuario); // call add method on the instance
     

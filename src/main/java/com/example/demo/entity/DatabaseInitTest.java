@@ -145,8 +145,9 @@ public class DatabaseInitTest implements ApplicationRunner {
                         Integer edad = (i % 40) + 18;
                         Integer cedula = 100000000 + i;
                         String correo = nombre + i + "@gmail.com";
-
-                        usuarioRepository.save(new Usuario(nombre, genero, edad, cedula, correo));
+                        String password = "123";
+                        usuarioRepository.save (new Usuario(nombre, genero, edad, cedula, correo, password));
+                       
                 }
 
                 // -----------------------------------Usuarios---------------------------------------------------------------------//

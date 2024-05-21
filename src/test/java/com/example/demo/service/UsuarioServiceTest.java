@@ -24,7 +24,7 @@ public class UsuarioServiceTest {
     @Test
     public void UsuarioService_agregarUsuario_Usuario(){
         
-        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com");
+        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com", null);
 
         Usuario newUsuario = usuarioService.add(usuario);
 
@@ -33,8 +33,8 @@ public class UsuarioServiceTest {
 
     @Test
     public void UsuarioService_findAll_NotEmptyList(){
-        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com");
-        Usuario usuario2 = new Usuario("Marcela","Femenina", 23, 32345678, "j5Y49U@example.com");
+        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com", null);
+        Usuario usuario2 = new Usuario("Marcela","Femenina", 23, 32345678, "j5Y49U@example.com", null);
 
         usuarioRepository.save(usuario);
         usuarioRepository.save(usuario2);
@@ -48,7 +48,7 @@ public class UsuarioServiceTest {
     @Test
     public void UsuarioService_SearchNyId_NotNull(){
 
-        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com");
+        Usuario usuario = new Usuario("Carlos","Masculino", 23, 12345678, "j5Y9U@example.com", null);
 
         Usuario savedgato = usuarioRepository.save(usuario);
 

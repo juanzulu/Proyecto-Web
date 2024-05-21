@@ -26,11 +26,11 @@ public class UsuarioRepositoryTest {
 
     @BeforeEach
     public void setUp() {
-        usuarioRepository.save(new Usuario((long) 123456000, "Juan", "masculino", 25, 12345678));
-        usuarioRepository.save(new Usuario((long) 123488000, "Maria", "femenino", 30, 87654321));
-        usuarioRepository.save(new Usuario((long) 123499000, "Pedro", "masculino", 40, 98765432));
-        usuarioRepository.save(new Usuario((long) 123410000, "Laura", "femenino", 35, 13579246));
-        usuarioRepository.save(new Usuario((long) 123411000, "Carlos", "masculino", 28, 24681357));
+        usuarioRepository.save(new Usuario((long) 123456000, "Juan", "masculino", 25, 12345678, null, null));
+        usuarioRepository.save(new Usuario((long) 123488000, "Maria", "femenino", 30, 87654321, null, null));
+        usuarioRepository.save(new Usuario((long) 123499000, "Pedro", "masculino", 40, 98765432, null, null));
+        usuarioRepository.save(new Usuario((long) 123410000, "Laura", "femenino", 35, 13579246, null, null));
+        usuarioRepository.save(new Usuario((long) 123411000, "Carlos", "masculino", 28, 24681357, null, null));
 
 
     }
@@ -44,7 +44,7 @@ public class UsuarioRepositoryTest {
 
 
         //arrange
-        Usuario usuario = new Usuario((long) 123412000, "Sofia", "femenino", 33, 36925814);
+        Usuario usuario = new Usuario((long) 123412000, "Sofia", "femenino", 33, 36925814, null, null);
 
 
         //act
@@ -61,8 +61,8 @@ public class UsuarioRepositoryTest {
         //3.assert
 
         //arrange
-        Usuario usuario = new Usuario((long) 123413000, "Juan", "masculino", 27, 15935746);
-        Usuario usuario2 = new Usuario((long) 123414000, "Ana", "femenino", 29, 35795146);
+        Usuario usuario = new Usuario((long) 123413000, "Juan", "masculino", 27, 15935746, null, null);
+        Usuario usuario2 = new Usuario((long) 123414000, "Ana", "femenino", 29, 35795146, null, null);
 
 
         //act

@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Transient;
 
 
 @Entity
@@ -30,6 +31,8 @@ public class Usuario {
     private Integer edad;
     private Integer cedula;
     private String correo;
+    @Transient
+    private String password;
     @Id
     @GeneratedValue
     private long id;
@@ -40,33 +43,32 @@ public class Usuario {
 
 
 
-    public Usuario(Long id, String nombre, String genero, Integer edad, Integer cedula) {
+    public Usuario(Long id, String nombre, String genero, Integer edad, Integer cedula, 
+    String correo, String password) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
         this.cedula = cedula;
+        this.correo = correo;
+        this.password = password;
+
         // this.mascotas = mascotas;
     }
 
 
 
     public Usuario(String nombre, String genero, Integer edad, Integer cedula,
-            String correo) {
+            String correo,String password) {
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
         this.cedula = cedula;
+        this.password = password;
     }
 
 
-    public Integer getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(Integer cedula) {
-        this.cedula = cedula;
-    }
+    
 
 
 
