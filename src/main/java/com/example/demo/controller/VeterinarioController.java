@@ -156,10 +156,11 @@ public class VeterinarioController {
     @GetMapping("/details")
     public ResponseEntity<VeterinarioDTO> buscarVeterinario() {
 
-        String correo = SecurityContextHolder.getContext().getAuthentication().getName();
-        String password = SecurityContextHolder.getContext().getAuthentication().getCredentials().toString();
+         
+       
 
-        Veterinario veterinario = veterinarioService.Login(correo, password);
+        Veterinario veterinario = veterinarioService.Login(
+            SecurityContextHolder.getContext().getAuthentication().getName());
 
         VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario);
 

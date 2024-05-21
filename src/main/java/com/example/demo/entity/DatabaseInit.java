@@ -168,8 +168,8 @@ public class DatabaseInit implements ApplicationRunner {
                         Integer cedula = 100000000 + i;
                         String ced = cedula.toString();
                         String correo = nombre + i + "@gmail.com";
-                        String password = "123";
-                        usuarioSave = (new Usuario(nombre, genero, edad, ced, correo, password));
+                        
+                        usuarioSave = (new Usuario(nombre, genero, edad, ced, correo));
                         userEntity = saveUserDueno(usuarioSave);
                         usuarioSave.setUser(userEntity);
                         usuarioRepository.save(usuarioSave);
