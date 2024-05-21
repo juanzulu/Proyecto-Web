@@ -167,9 +167,9 @@ public class UsuarioController {
                 (Integer) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 
         if (usuario == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(usuario, HttpStatus.OK);
+        return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
     }
 
     @GetMapping("/cedula/{cedula}")
