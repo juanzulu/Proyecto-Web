@@ -138,20 +138,22 @@ public class VeterinarioController {
     public long countVeterinariosInactivos() {
         return veterinarioService.countVeterinariosInactivos();
     }
-
     @PostMapping("/login")
-    public ResponseEntity loginVeterinario(@RequestBody Veterinario vet) {
+    public ResponseEntity<String> loginVeterinario(@RequestBody Veterinario vet) {
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(vet.getCorreo(), vet.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(vet.getCorreo(), vet.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+            String token = jwtGenerator.generateToken(authentication);
 
-        String token = jwtGenerator.generateToken(authentication);
-
-        return new ResponseEntity<String>(token, HttpStatus.OK);
-
+            return ResponseEntity.ok()
+                    .header("Content-Type", "text/plain")
+                    .body(token);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Credenciales inválidas", HttpStatus.UNAUTHORIZED);
+        }
     }
-
     // en este metodo tengo la duda, esto se puede ver en el video en el min 2:14:25
     @GetMapping("/details")
     public ResponseEntity<VeterinarioDTO> buscarVeterinario() {

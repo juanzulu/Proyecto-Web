@@ -20,6 +20,7 @@ import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.entity.Admin;
 import com.example.demo.entity.Role;
+
 import java.util.Collection;
 
 @Service
@@ -36,15 +37,11 @@ public class CustomUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
         UserEntity userDB = userRepository.findByUsername(username).orElseThrow(
-
                 () -> new UsernameNotFoundException("User not found"));
 
-        UserDetails userDetails = new User(userDB.getUsername(), userDB.getPassword(),
+        return new User(userDB.getUsername(), userDB.getPassword(),
                 mapToGrantedAuthorities(userDB.getRoles()));
-
-        return userDetails;
     }
 
     private Collection<GrantedAuthority> mapToGrantedAuthorities(List<Role> roles) {
@@ -55,7 +52,7 @@ public class CustomUserDetailService implements UserDetailsService {
         UserEntity user = new UserEntity();
         user.setUsername(usuario.getCedula());
         user.setPassword(passwordEncoder.encode("123"));
-        Role roles = roleRepository.findByName("USER").get();
+        Role roles = roleRepository.findByName("USER").orElseThrow();
         user.setRoles(List.of(roles));
         return user;
     }
@@ -64,7 +61,7 @@ public class CustomUserDetailService implements UserDetailsService {
         UserEntity user = new UserEntity();
         user.setUsername(veterinario.getCorreo());
         user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
-        Role roles = roleRepository.findByName("VETERINARIO").get();
+        Role roles = roleRepository.findByName("VETERINARIO").orElseThrow();
         user.setRoles(List.of(roles));
         return user;
     }
@@ -73,9 +70,8 @@ public class CustomUserDetailService implements UserDetailsService {
         UserEntity user = new UserEntity();
         user.setUsername(admin.getUsername());
         user.setPassword(passwordEncoder.encode(admin.getPassword()));
-        Role roles = roleRepository.findByName("ADMIN").get();
+        Role roles = roleRepository.findByName("ADMIN").orElseThrow();
         user.setRoles(List.of(roles));
         return user;
     }
-
 }
