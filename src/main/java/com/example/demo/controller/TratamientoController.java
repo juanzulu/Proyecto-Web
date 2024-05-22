@@ -68,10 +68,8 @@ public class TratamientoController {
     public ResponseEntity<List<TratamientoDTO>> findTratamientosVeterinarioinformacion(Model model, @PathVariable("id") Integer id) {
 
         List<Tratamiento> lista = TratamientoService.findTratamientosVeterinarioinformacion(id);
-        List<TratamientoDTO> listaDTO = (List<TratamientoDTO>) TratamientoMapper.INSTANCE.convertlList(lista);
-        ResponseEntity<List<TratamientoDTO>> response = new ResponseEntity<>(listaDTO, HttpStatus.OK);
-
-        return response;
+        List<TratamientoDTO> listaDTO = TratamientoMapper.INSTANCE.convertlList(lista);
+        return new ResponseEntity<>(listaDTO, HttpStatus.OK);
     }
 
     @GetMapping("/informacion/gato/{id}")
