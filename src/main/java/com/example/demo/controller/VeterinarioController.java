@@ -101,9 +101,16 @@ public class VeterinarioController {
         return veterinarioService.SearchById(id);
     }
 
-    @PutMapping("/estado/{id}")
-    public void cambiarEstado(@PathVariable("id") Long id) {
-        veterinarioService.cambiarEstado(veterinarioService.SearchById(id));
+    @PutMapping("/estado/{correo}")
+    public ResponseEntity<String> cambiarEstado(@PathVariable("correo") String correo) {
+        Veterinario veterinario = veterinarioService.SearchByCorreo(correo);
+
+        if (veterinario != null) {
+            veterinarioService.cambiarEstado(veterinario);
+            return ResponseEntity.ok("Estado cambiado exitosamente.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Veterinario no encontrado.");
+        }
     }
 
     @PutMapping("/actualizar/veterinario")

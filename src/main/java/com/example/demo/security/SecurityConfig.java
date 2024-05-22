@@ -32,6 +32,7 @@ public class SecurityConfig {
                         .requestMatchers("/veterinario/find/**").hasAuthority("VETERINARIO")
                         .requestMatchers("/veterinario/details").hasAuthority("VETERINARIO")
                         .requestMatchers("/cliente/details").hasAuthority("USER")
+                        .requestMatchers("/admin/veterinario/**").hasAuthority("ADMIN")
                         .anyRequest().permitAll()) // Cambiado a authenticated()
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint));
 
