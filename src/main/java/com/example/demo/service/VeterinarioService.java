@@ -9,6 +9,8 @@ public interface VeterinarioService {
 
     public Veterinario SearchById(Long id);
 
+    public Veterinario SearchByCorreo(String correo);
+
     public List<Veterinario> SearchAll();
 
     public void deleletebyid(Long id);

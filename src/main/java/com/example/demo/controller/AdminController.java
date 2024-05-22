@@ -8,6 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.security.JWTGenerator;
 import com.example.demo.service.AdminService;
 import com.example.demo.service.UsuarioService;
+import com.example.demo.service.VeterinarioService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,6 +41,9 @@ public class AdminController {
     JWTGenerator jwtGenerator;
 
     @Autowired
+    VeterinarioService veterinarioService;
+
+    @Autowired
     AuthenticationManager authenticationManager;
 
     @Autowired
@@ -56,6 +61,17 @@ public class AdminController {
         String token = jwtGenerator.generateToken(authentication);
 
         return new ResponseEntity<String>(token, HttpStatus.OK);
+    }
+
+      @GetMapping("/veterinario/activos/count")
+    public long countVeterinariosActivos() {
+        return veterinarioService.countVeterinariosActivos();
+    }
+
+    // http://localhost:8090/admin/veterinario/inactivos/count
+    @GetMapping("/veterinario/inactivos/count")
+    public long countVeterinariosInactivos() {
+        return veterinarioService.countVeterinariosInactivos();
     }
 
     @PostMapping("/agregar")

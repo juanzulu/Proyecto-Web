@@ -14,6 +14,8 @@ public interface VeterinarioRepository extends JpaRepository<Veterinario, Long> 
 
       List<Veterinario> findByCedula(Integer cedula);
 
+
+
       @Query(value = "SELECT estado FROM veterinario WHERE id = :id", nativeQuery = true)
       boolean ConsultarEstado(@Param("id") Long id);
 
@@ -36,5 +38,9 @@ public interface VeterinarioRepository extends JpaRepository<Veterinario, Long> 
       Veterinario findByCorreoAndContrasena(@Param("correo") String correo);
 
       boolean existsByCorreo(String correo);
+
+      
+      Veterinario findByCorreo( String correo);
+
 
 }
