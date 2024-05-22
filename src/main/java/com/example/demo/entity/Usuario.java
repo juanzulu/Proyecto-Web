@@ -58,6 +58,7 @@ public class Usuario {
         this.genero = genero;
         this.edad = edad;
         this.cedula = cedula;
+        this.correo = correo;
         
     }
 

@@ -336,7 +336,7 @@ public class DatabaseInit implements ApplicationRunner {
 
         private UserEntity saveUserDueno(Usuario usuario) {
                 UserEntity user = new UserEntity();
-                user.setUsername((usuario.getNombre()));
+                user.setUsername((usuario.getCedula()));
                 user.setPassword(passwordEncoder.encode("123"));
                 Role roles = roleRepository.findByName("USER").get();
                 user.setRoles(List.of(roles));
@@ -345,7 +345,7 @@ public class DatabaseInit implements ApplicationRunner {
 
         private UserEntity saveVeterinario(Veterinario veterinario) {
                 UserEntity user = new UserEntity();
-                user.setUsername(veterinario.getNombre());
+                user.setUsername(veterinario.getCorreo());
                 user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
                 Role roles = roleRepository.findByName("VETERINARIO").get();
                 user.setRoles(List.of(roles));

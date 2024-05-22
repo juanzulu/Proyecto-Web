@@ -46,6 +46,10 @@ public class GatoServiceImpl implements GatoService {
         return Repo.findByUsuarioId(id); // Llama al método corregido
     }
 
+    public List<gato> searchByUsuarioCedula(String cedula) {
+        return Repo.findByUsuarioCedula(cedula);
+    }
+
     @Override
     public boolean ConsultarEstado(Long id) {
         return Repo.ConsultarEstado(id);

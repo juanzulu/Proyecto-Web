@@ -11,6 +11,7 @@ public interface GatoService {
     public List<gato> SearchAll();
 
     public List<gato> SearchByUsuarioId(Long id);
+    public List<gato> searchByUsuarioCedula(String cedula);
 
     public void deleletebyid(Long id);
 

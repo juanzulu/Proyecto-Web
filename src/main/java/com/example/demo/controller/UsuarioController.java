@@ -69,14 +69,11 @@ public class UsuarioController {
     }
 
     // http://localhost:8090/cliente/misgatos/{id}
-    @GetMapping("/misgatos/{id}")
-    public ResponseEntity<List<gato>> mostrarGatosUsuario(@PathVariable("id") Long identificacion) {
-
-        List<gato> gatos = GatoController.SearchByUsuarioId(identificacion);
-        ResponseEntity<List<gato>> response = new ResponseEntity<>(gatos, HttpStatus.OK);
-        return response;
-
-    }
+    @GetMapping("/misgatos/{cedula}")
+public ResponseEntity<List<gato>> mostrarGatosUsuario(@PathVariable("cedula") String cedula) {
+    List<gato> gatos = GatoController.searchByUsuarioCedula(cedula);
+    return new ResponseEntity<>(gatos, HttpStatus.OK);
+}
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<Usuario> mostrarUsuarioConGatos(@PathVariable("id") Long id) {

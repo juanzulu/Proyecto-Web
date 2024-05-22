@@ -14,6 +14,8 @@ public interface GatoRepository extends JpaRepository<gato, Long> {
     
         List<gato> findByUsuarioId(Long id);
 
+        List<gato> findByUsuarioCedula(String cedula);
+
         @Query(value = "SELECT estado FROM gato WHERE id = :id", nativeQuery = true)
         boolean ConsultarEstado(@Param("id")Long id); 
         
