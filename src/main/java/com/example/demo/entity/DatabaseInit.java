@@ -228,17 +228,17 @@ public class DatabaseInit implements ApplicationRunner {
                         e.printStackTrace();
                 }
 
-                Admin admin = Admin.builder().username("Camilo").password("123").build();
+                Admin admin = Admin.builder().username("Camilo").build();
                 userEntity = saveAdmin(admin);
                 admin.setUser(userEntity);
                 adminRepository.save(admin);
 
-                admin = Admin.builder().username("Juan").password("123").build();
+                admin = Admin.builder().username("Juan").build();
                 userEntity = saveAdmin(admin);
                 admin.setUser(userEntity);
                 adminRepository.save(admin);
 
-                admin = Admin.builder().username("Michael").password("123").build();
+                admin = Admin.builder().username("Michael").build();
                 userEntity = saveAdmin(admin);
                 admin.setUser(userEntity);
                 adminRepository.save(admin);

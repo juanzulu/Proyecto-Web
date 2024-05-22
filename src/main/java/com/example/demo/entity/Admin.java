@@ -31,7 +31,7 @@ public class Admin {
     Long id;
 
     private String username;
-    private String password;
+    
 
     public Admin(String username) {
         this.username = username;
