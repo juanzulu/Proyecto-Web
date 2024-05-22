@@ -14,7 +14,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Transient;
 
 @Entity
 @Data
@@ -30,7 +29,7 @@ public class Usuario {
     private Integer edad;
     private String cedula;
     private String correo;
-  
+
     @Id
     @GeneratedValue
     private long id;
@@ -47,7 +46,6 @@ public class Usuario {
         this.edad = edad;
         this.cedula = cedula;
         this.correo = correo;
-       
 
         // this.mascotas = mascotas;
     }
@@ -59,7 +57,7 @@ public class Usuario {
         this.edad = edad;
         this.cedula = cedula;
         this.correo = correo;
-        
+
     }
 
 }

@@ -138,6 +138,7 @@ public class VeterinarioController {
     public long countVeterinariosInactivos() {
         return veterinarioService.countVeterinariosInactivos();
     }
+
     @PostMapping("/login")
     public ResponseEntity<String> loginVeterinario(@RequestBody Veterinario vet) {
         try {
@@ -154,15 +155,13 @@ public class VeterinarioController {
             return new ResponseEntity<>("Credenciales inválidas", HttpStatus.UNAUTHORIZED);
         }
     }
+
     // en este metodo tengo la duda, esto se puede ver en el video en el min 2:14:25
     @GetMapping("/details")
     public ResponseEntity<VeterinarioDTO> buscarVeterinario() {
 
-         
-       
-
         Veterinario veterinario = veterinarioService.Login(
-            SecurityContextHolder.getContext().getAuthentication().getName());
+                SecurityContextHolder.getContext().getAuthentication().getName());
 
         VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario);
 
