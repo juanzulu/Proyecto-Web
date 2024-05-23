@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,6 +23,7 @@ import com.example.demo.service.AdminService;
 import com.example.demo.service.VeterinarioService;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -108,5 +108,10 @@ public class AdminController {
     @GetMapping("/findVet/{id}")
     public Veterinario SearchById(@PathVariable("id") Long id) {
         return veterinarioService.SearchById(id);
+    }
+
+    @PutMapping("/actualizar/veterinario")
+    public void update(@RequestBody Veterinario veterinario) {
+        veterinarioService.update(veterinario);
     }
 }
