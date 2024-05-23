@@ -11,8 +11,7 @@ public class VeterinarioDTO {
     private boolean estado;
     private Integer cedula;
     private String foto;
-
-
+    private Long id;
 }
 
-//Veterinario -> VeterinarioDTO
+// Veterinario -> VeterinarioDTO

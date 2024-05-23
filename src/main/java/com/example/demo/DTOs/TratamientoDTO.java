@@ -9,9 +9,10 @@ import lombok.Data;
 
 @Data
 public class TratamientoDTO {
-    
+
     private LocalDate fecha;
     private Droga droga;
     private VeterinarioDTO veterinario;
     private gato felino;
+    private Long id;
 }
