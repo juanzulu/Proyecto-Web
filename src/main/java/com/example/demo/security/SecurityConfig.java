@@ -33,6 +33,7 @@ public class SecurityConfig {
                         .requestMatchers("/veterinario/details").hasAuthority("VETERINARIO")
                         .requestMatchers("/cliente/details").hasAuthority("USER")
                         .requestMatchers("/admin/veterinario/**").hasAuthority("ADMIN")
+                        .requestMatchers("/admin/findVet/**").hasAuthority("ADMIN")
                         .anyRequest().permitAll()) // Cambiado a authenticated()
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint));
 
@@ -52,7 +53,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public JWTAuthenticationFilter JWTAuthenticationFilter(){
+    public JWTAuthenticationFilter JWTAuthenticationFilter() {
         return new JWTAuthenticationFilter();
     }
 }
