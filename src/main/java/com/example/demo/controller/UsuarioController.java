@@ -70,10 +70,10 @@ public class UsuarioController {
 
     // http://localhost:8090/cliente/misgatos/{id}
     @GetMapping("/misgatos/{cedula}")
-public ResponseEntity<List<gato>> mostrarGatosUsuario(@PathVariable("cedula") String cedula) {
-    List<gato> gatos = GatoController.searchByUsuarioCedula(cedula);
-    return new ResponseEntity<>(gatos, HttpStatus.OK);
-}
+    public ResponseEntity<List<gato>> mostrarGatosUsuario(@PathVariable("cedula") String cedula) {
+        List<gato> gatos = GatoController.searchByUsuarioCedula(cedula);
+        return new ResponseEntity<>(gatos, HttpStatus.OK);
+    }
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<Usuario> mostrarUsuarioConGatos(@PathVariable("id") Long id) {
@@ -159,11 +159,8 @@ public ResponseEntity<List<gato>> mostrarGatosUsuario(@PathVariable("cedula") St
     @GetMapping("/details")
     public ResponseEntity<Usuario> buscarUsuario() {
 
-
         Usuario usuario = UsuarioService.findByCedula(
                 SecurityContextHolder.getContext().getAuthentication().getName());
-
-  
 
         if (usuario == null) {
             return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);

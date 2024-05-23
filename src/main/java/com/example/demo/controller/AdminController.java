@@ -10,17 +10,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Admin;
 import com.example.demo.entity.UserEntity;
-import com.example.demo.entity.Usuario;
+import com.example.demo.entity.Veterinario;
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.security.JWTGenerator;
 import com.example.demo.service.AdminService;
-import com.example.demo.service.UsuarioService;
 import com.example.demo.service.VeterinarioService;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -103,5 +103,10 @@ public class AdminController {
             return new ResponseEntity<Admin>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<Admin>(admin, HttpStatus.OK);
+    }
+
+    @GetMapping("/findVet/{id}")
+    public Veterinario SearchById(@PathVariable("id") Long id) {
+        return veterinarioService.SearchById(id);
     }
 }
