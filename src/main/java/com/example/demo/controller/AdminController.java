@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,7 +25,6 @@ import com.example.demo.service.VeterinarioService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 
 @RestController
 @RequestMapping("/admin")
@@ -49,13 +49,11 @@ public class AdminController {
     @Autowired
     CustomUserDetailService customUserDetailService;
 
-
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody Admin admin) {
-       
+
         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(admin.getUsername(),"123")
-        );
+                new UsernamePasswordAuthenticationToken(admin.getUsername(), "123"));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtGenerator.generateToken(authentication);
@@ -63,7 +61,7 @@ public class AdminController {
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }
 
-      @GetMapping("/veterinario/activos/count")
+    @GetMapping("/veterinario/activos/count")
     public long countVeterinariosActivos() {
         return veterinarioService.countVeterinariosActivos();
     }
@@ -96,6 +94,14 @@ public class AdminController {
         return new ResponseEntity<Admin>(newUsuario, HttpStatus.CREATED);
 
     }
-    
-    
+
+    @GetMapping("/details")
+    public ResponseEntity<Admin> buscarAdmin() {
+        Admin admin = adminService.SearchByUsername(
+                SecurityContextHolder.getContext().getAuthentication().getName());
+        if (admin == null) {
+            return new ResponseEntity<Admin>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Admin>(admin, HttpStatus.OK);
+    }
 }
