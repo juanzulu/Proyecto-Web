@@ -1,29 +1,28 @@
 package com.example.demo.entity;
 
 import java.io.InputStream;
+import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.repository.GatoRepository;
+import com.example.demo.repository.RoleRepository;
+import com.example.demo.repository.TratamientoRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.repository.VeterinarioRepository;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-
-import com.example.demo.repository.VeterinarioRepository;
+import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.DrogaRepository;
-import com.example.demo.repository.TratamientoRepository;
 
-
-import jakarta.transaction.Transaction;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -40,8 +39,39 @@ public class DatabaseInit implements ApplicationRunner {
         @Autowired
         DrogaRepository drogaRepository;
 
+        @Autowired
+        VeterinarioRepository veterinarioRepository;
+
+        @Autowired
+        TratamientoRepository tratamientoRepository;
+
+        @Autowired
+        PasswordEncoder passwordEncoder;
+
+        @Autowired
+        RoleRepository roleRepository;
+
+        @Autowired
+        UserRepository userRepository;
+
+        @Autowired
+        AdminRepository adminRepository;
+
         @Override
         public void run(ApplicationArguments args) throws Exception {
+
+                roleRepository.save(new Role("ADMIN"));
+                roleRepository.save(new Role("VETERINARIO"));
+                roleRepository.save(new Role("USER"));
+
+                Usuario usuarioSave;
+                UserEntity userEntity;
+
+                // generacion de usuarios
+                // 1. Crear el objeto
+                // 2. Guaradarlo en la tabla user
+                // 3. Agrgar al objeto del paso 1 el id tenido en el paso 2
+                // 4. Guardar el objeto en la tabla Usuario
 
                 // -----------------------------------Gatos---------------------------------------------------------------------//
 
@@ -136,32 +166,16 @@ public class DatabaseInit implements ApplicationRunner {
                         String genero = generos[i % generos.length];
                         Integer edad = (i % 40) + 18;
                         Integer cedula = 100000000 + i;
+                        String ced = cedula.toString();
                         String correo = nombre + i + "@gmail.com";
-
-                        usuarioRepository.save(new Usuario(nombre, genero, edad, cedula, correo));
+                        
+                        usuarioSave = (new Usuario(nombre, genero, edad, ced, correo));
+                        userEntity = saveUserDueno(usuarioSave);
+                        usuarioSave.setUser(userEntity);
+                        usuarioRepository.save(usuarioSave);
                 }
 
                 // -----------------------------------Usuarios---------------------------------------------------------------------//
-
-                // Usuario asociar;
-                // gato felino, pantera, gatesco;
-
-                // for (Long i = 0L; i < 90L; i += 3L) {
-
-                // asociar = usuarioRepository.findById(i / 3L).get();
-
-                // felino = gatoRepository.findById(i).get();
-                // pantera = gatoRepository.findById(i + 1L).get();
-                // gatesco = gatoRepository.findById(i + 2L).get();
-
-                // felino.setUsuario(asociar);
-                // pantera.setUsuario(asociar);
-                // gatesco.setUsuario(asociar);
-
-                // gatoRepository.save(gatesco);
-                // gatoRepository.save(felino);
-                // gatoRepository.save(pantera);
-                // }
 
                 Usuario asociar;
                 gato pantera, gatesco;
@@ -181,36 +195,169 @@ public class DatabaseInit implements ApplicationRunner {
                         }
                 }
 
-        
+                // ------------------------------------------ Drogas
 
+                Droga droga = Droga.builder().nombre("Medicamento 1").uDisponibles(10).uVendidas(2).precio(500000)
+                                .pCompra(200000).build();
+                drogaRepository.save(droga);
 
-        // ------------------------------------------ Drogas
-        /* excel */
-        try {
-                InputStream file = getClass().getClassLoader().getResourceAsStream("medicamentos.xlsx"); 
-                
-                Workbook workbook = new XSSFWorkbook(file);
-                Sheet sheet = workbook.getSheet("MEDICAMENTOS BD FINAL");
-                for(int rowIndex =1; rowIndex <= sheet.getLastRowNum(); rowIndex++){
-                    Row row = sheet.getRow(rowIndex);
-                    if(row != null){
-                        Droga drug = new Droga();
-                        drug.setNombre(row.getCell(0).getStringCellValue());
-                        drug.setPrecio((int) row.getCell(1).getNumericCellValue());
-                        drug.setpCompra((int) row.getCell(2).getNumericCellValue());
-                        drug.setuDisponibles((int) row.getCell(3).getNumericCellValue());
-                        drug.setuVendidas((int) row.getCell(4).getNumericCellValue());
-                        drogaRepository.save(drug);
-                    }
+                /* excel */
+                try {
+                        InputStream file = getClass().getClassLoader().getResourceAsStream("medicamentos.xlsx");
+
+                        Workbook workbook = new XSSFWorkbook(file);
+                        Sheet sheet = workbook.getSheet("MEDICAMENTOS BD FINAL");
+                        for (int rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
+                                Row row = sheet.getRow(rowIndex);
+                                if (row != null) {
+                                        Droga drug = Droga.builder().nombre(row.getCell(0).getStringCellValue())
+                                                        .uDisponibles((int) row.getCell(3).getNumericCellValue())
+                                                        .uVendidas((int) row.getCell(4).getNumericCellValue())
+                                                        .precio((int) row.getCell(1).getNumericCellValue())
+                                                        .pCompra((int) row.getCell(2).getNumericCellValue()).build();
+
+                                        drogaRepository.save(drug);
+                                }
+                        }
+
+                        if (workbook != null) {
+                                workbook.close();
+                        }
+                        file.close();
+                } catch (IOException e) {
+                        e.printStackTrace();
                 }
-    
-                if(workbook != null){
-                    workbook.close();
-                }
-                file.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+                Admin admin = Admin.builder().username("Camilo").build();
+                userEntity = saveAdmin(admin);
+                admin.setUser(userEntity);
+                adminRepository.save(admin);
+
+                admin = Admin.builder().username("Juan").build();
+                userEntity = saveAdmin(admin);
+                admin.setUser(userEntity);
+                adminRepository.save(admin);
+
+                admin = Admin.builder().username("Michael").build();
+                userEntity = saveAdmin(admin);
+                admin.setUser(userEntity);
+                adminRepository.save(admin);
+
+                // Crear Veterinario con Builder
+                Veterinario veterinario = Veterinario.builder().cedula(1001301315).nombre("Camilo")
+                                .apellido("Hernandez").correo("hernandez@gmail.com").password("12345678")
+                                .foto("https://th.bing.com/th/id/OIP.LIvhmx5YRN4hOFZ0ld98JgHaE8?rs=1&pid=ImgDetMain")
+                                .especialidad("Medicina Interna Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301316).nombre("Juan ").apellido("Perez")
+                                .correo("Perez@gmail.com").password("12345678")
+                                .foto("https://petcosset.com/wp-content/uploads/2020/12/Depositphotos_320884710_L-e1660002279141-684x1024.jpg")
+                                .especialidad("Oftalmología Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301317).nombre("Maria").apellido("Lopez")
+                                .correo("Lopez@gmail.com").password("12345678")
+                                .foto("https://www.elpais.com.co/files/article_main/uploads/2019/03/04/5c9b6b0b8f7e2.jpeg")
+                                .especialidad("Nutrición Veterinaria").estado(false).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301318).nombre("Luisa").apellido("Gonzalez")
+                                .correo("Gonzalez@gmail.com").password("12345678")
+                                .foto("").especialidad("Oncología Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301319).nombre("Carlos").apellido("Martinez")
+                                .correo("Martinez@gmail.com").password("12345678")
+                                .foto("").especialidad("Nutrición Veterinaria").estado(false).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301320).nombre("Ana").apellido("Sanchez")
+                                .correo("Sanchez@gmail.com").password("12345678")
+                                .foto("").especialidad("Reproducción Veterinaria").estado(false).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301321).nombre("Pedro").apellido("Ramirez")
+                                .correo("Ramirez@gmail.com").password("12345678")
+                                .foto("").especialidad("Cardiologia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301322).nombre("Sofia").apellido("Hernandez")
+                                .correo("Hernandez@gmail.com").password("12345678")
+                                .foto("").especialidad("Cirugia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301323).nombre("Jorge").apellido("Ramirez")
+                                .correo("Ramirez@gmail.com").password("12345678")
+                                .foto("").especialidad("Dermatologia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                veterinario = Veterinario.builder().cedula(1001301324).nombre("Lucia").apellido("Gonzalez")
+                                .correo("Gonzalez@gmail.com").password("12345678")
+                                .foto("").especialidad("Odontologia Veterinaria").estado(true).build();
+                userEntity = saveVeterinario(veterinario);
+                veterinario.setUser(userEntity);
+                veterinarioRepository.save(veterinario);
+
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(1L).get(),
+                                veterinarioRepository.findById(1L).get(), gatoRepository.findById(1L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(2L).get(),
+                                veterinarioRepository.findById(2L).get(), gatoRepository.findById(2L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(3L).get(),
+                                veterinarioRepository.findById(3L).get(), gatoRepository.findById(3L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(4L).get(),
+                                veterinarioRepository.findById(4L).get(), gatoRepository.findById(4L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(),
+                                veterinarioRepository.findById(5L).get(), gatoRepository.findById(5L).get()));
+                tratamientoRepository.save(new Tratamiento(LocalDate.now(), drogaRepository.findById(6L).get(),
+                                veterinarioRepository.findById(6L).get(), gatoRepository.findById(6L).get()));
+
         }
 
+        // -------------------------------------Veterinario-------------------------------------------------//
+
+        private UserEntity saveUserDueno(Usuario usuario) {
+                UserEntity user = new UserEntity();
+                user.setUsername((usuario.getCedula()));
+                user.setPassword(passwordEncoder.encode("123"));
+                Role roles = roleRepository.findByName("USER").get();
+                user.setRoles(List.of(roles));
+                return userRepository.save(user);
+        }
+
+        private UserEntity saveVeterinario(Veterinario veterinario) {
+                UserEntity user = new UserEntity();
+                user.setUsername(veterinario.getCorreo());
+                user.setPassword(passwordEncoder.encode(veterinario.getPassword()));
+                Role roles = roleRepository.findByName("VETERINARIO").get();
+                user.setRoles(List.of(roles));
+                return userRepository.save(user);
+        }
+
+        private UserEntity saveAdmin(Admin admin) {
+                UserEntity user = new UserEntity();
+                user.setUsername(admin.getUsername());
+                user.setPassword(passwordEncoder.encode("123"));
+                Role roles = roleRepository.findByName("ADMIN").get();
+                user.setRoles(List.of(roles));
+                return userRepository.save(user);
+        }
 }

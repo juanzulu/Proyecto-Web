@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.example.demo.entity.gato;
 import com.example.demo.repository.GatoRepository;
 
@@ -36,13 +37,44 @@ public class GatoServiceImpl implements GatoService {
     }
 
     @Override
-    public void add(gato felino) {
-        Repo.save(felino);
+    public gato add(gato felino) {
+        return Repo.save(felino);
     }
 
     @Override
     public List<gato> SearchByUsuarioId(Long id) {
         return Repo.findByUsuarioId(id); // Llama al método corregido
     }
+
+    public List<gato> searchByUsuarioCedula(String cedula) {
+        return Repo.findByUsuarioCedula(cedula);
+    }
+
+    @Override
+    public boolean ConsultarEstado(Long id) {
+        return Repo.ConsultarEstado(id);
+    }
+
+    @Override
+    public void cambiarEstado( gato felino) {
+        
+        felino.setEstado(!(felino.getEstado()));
+         Repo.save(felino);
+
+    }
+
+    @Override
+    public Long countGatosActivos() {
+
+        return Repo.countGatosActivos();
+    }
+
+    @Override
+    public Long countGatos() {
+
+        return Repo.countGatos();
+    }
+
+    
 
 }

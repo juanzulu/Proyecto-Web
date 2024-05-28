@@ -5,13 +5,18 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class gato {
 
     @Id
@@ -25,11 +30,11 @@ public class gato {
     private String enfermedad;
     private boolean estado;
 
-    @JsonIgnore
     @ManyToOne
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "felino")
+    @JsonIgnore
+    @OneToMany(mappedBy = "felino", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public gato(Long id, String nombre, String raza, Integer edad, String foto, String enfermedad, boolean estado) {
@@ -42,18 +47,6 @@ public class gato {
         this.estado = estado;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public gato() {
-
-    }
-
     public gato(String nombre, String raza, Integer edad, String foto, String enfermedad, boolean estado) {
         this.nombre = nombre;
         this.raza = raza;
@@ -64,35 +57,11 @@ public class gato {
 
     }
 
-    public Long getId() {
-        return id;
+    public gato(String string, String nombre2, int i, String string2, String foto2, boolean b, Usuario usuario2) {
+
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public String getEnfermedad() {
-        return enfermedad;
-    }
-
-    public void setEnfermedad(String enfermedad) {
-        this.enfermedad = enfermedad;
-    }
-
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
@@ -100,31 +69,4 @@ public class gato {
         this.estado = estado;
     }
 
-    public List<Tratamiento> getTratamientos() {
-        return tratamientos;
-    }
-
-    public void setTratamientos(List<Tratamiento> tratamientos) {
-        this.tratamientos = tratamientos;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
-
-    public Integer getEdad() {
-        return edad;
-    }
-
-    public void setEdad(Integer edad) {
-        this.edad = edad;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
 }

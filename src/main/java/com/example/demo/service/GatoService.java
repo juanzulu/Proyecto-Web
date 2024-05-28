@@ -11,11 +11,20 @@ public interface GatoService {
     public List<gato> SearchAll();
 
     public List<gato> SearchByUsuarioId(Long id);
+    public List<gato> searchByUsuarioCedula(String cedula);
 
     public void deleletebyid(Long id);
 
     public void update(gato felino);
 
-    public void add(gato felino);
+    public gato add(gato felino);
+
+    public boolean ConsultarEstado(Long id);
+
+    public void cambiarEstado( gato felino);
+
+    public Long countGatosActivos();
+    public Long countGatos();
+
 
 }
